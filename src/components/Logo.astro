@@ -1,0 +1,23 @@
+---
+import info from '../data/info.json';
+
+interface Props {
+  dark?: boolean;
+  stacked?: boolean;
+}
+const { dark = false, stacked = false } = Astro.props;
+// TODO: replace /logo.png with an SVG version of the logo when available
+---
+
+<a href="/" class:list={['flex items-center gap-3.5 no-underline', dark ? 'text-on-dark hover:text-on-dark' : 'text-ink hover:text-ink']}>
+  <img
+    src="/logo.png"
+    alt=""
+    width={stacked ? 64 : 52}
+    height={stacked ? 64 : 52}
+    class:list={[dark ? 'invert mix-blend-screen' : 'mix-blend-multiply']}
+  />
+  <span class:list={['font-serif font-medium uppercase leading-[1.1] tracking-[0.04em]', stacked ? 'text-2xl' : 'text-xl sm:text-[22px]']}>
+    {stacked ? <>Krojačka<br />radionica</> : info.name}
+  </span>
+</a>

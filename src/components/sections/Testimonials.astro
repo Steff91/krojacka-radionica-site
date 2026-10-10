@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import SectionHeading from '../SectionHeading.astro';
+
+import raw from '../../content/testimonials.json';
+
+// Keep the order from testimonials.json (the collection itself is unordered).
+const order = raw.map((r) => r.id);
+const items = (await getCollection('testimonials'))
+  .filter((t) => t.data.featured)
+  .sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id))
+  .slice(0, 3);
+---
+
+<section class="bg-sage-light py-18 sm:py-28">
+  <div class="container-site flex flex-col gap-14">
+    <SectionHeading
+      eyebrow="Reči naših klijenata"
+      title="Zadovoljstvo koje se vidi i nosi"
+      text="Najbolja preporuka je gotov komad koji klijent nosi sa zadovoljstvom. Evo šta kažu oni koji su nam ukazali poverenje."
+    />
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] items-start gap-8">
+      {items.map((t, i) => (
+        <figure class="m-0 flex flex-col gap-6 border-t-[3px] border-sage bg-ivory p-8 sm:p-10" data-reveal style={`--i:${i}`}>
+          <blockquote class="m-0 font-serif text-[22px] leading-[1.45] italic">„{t.data.text}“</blockquote>
+          <figcaption class="text-sm font-medium text-body">{t.data.name}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

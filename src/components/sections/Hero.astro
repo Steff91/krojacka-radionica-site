@@ -1,0 +1,25 @@
+---
+import Placeholder from '../Placeholder.astro';
+import info from '../../data/info.json';
+---
+
+<section class="pt-12 pb-24 sm:pt-16">
+  <div class="container-site grid items-center gap-16 lg:grid-cols-[1.05fr_1fr]">
+    <div class="flex flex-col gap-7">
+      <p class="eyebrow !mb-0" data-reveal>Krojačka radionica · {info.city}</p>
+      <h1 class="h-display" data-reveal style="--i:1">Vaša ideja <em class="font-normal text-red">u našim rukama</em></h1>
+      <p class="lead max-w-[480px] text-[19px]" data-reveal style="--i:2">
+        Od svečanih haljina i venčanica do cosplay kostima — krojimo sve što zamislite, tačno po vašoj meri.
+      </p>
+      <div class="flex flex-wrap gap-4" data-reveal style="--i:3">
+        <a href="#usluge" class="btn btn-dark">Pogledajte naše usluge</a>
+        <a href="#kontakt" class="btn btn-outline">Zakažite konsultaciju</a>
+      </div>
+    </div>
+
+    <div class="relative h-[460px] sm:h-[620px]" data-reveal style="--i:2">
+      <Placeholder label="Fotografija: model u venčanici ili svečanoj haljini, vertikalni kadar" class="absolute inset-y-0 right-0 left-10 sm:left-16" />
+      <Placeholder label="Detalj: ruke, igla, tkanina" tone="sage" class="absolute bottom-12 left-0 h-[200px] w-[170px] border-8 border-ivory sm:h-[260px] sm:w-[220px]" />
+    </div>
+  </div>
+</section>

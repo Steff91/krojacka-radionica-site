@@ -1,0 +1,23 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import process from '../../data/process.json';
+---
+
+<section class="bg-sand py-18 sm:py-28">
+  <div class="container-site flex flex-col gap-14">
+    <SectionHeading
+      eyebrow="Kako radimo"
+      title="Od ideje do gotovog komada"
+      text="Od prvog razgovora do poslednje probe — svaki korak je tu da vaš komad bude tačno onakav kakav ste zamislili. Bez žurbe, bez kompromisa."
+    />
+    <ol class="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-10 p-0">
+      {process.steps.map((step, i) => (
+        <li class="flex flex-col gap-3 border-t border-gold pt-6" data-reveal style={`--i:${i}`}>
+          <span class="font-serif text-[56px] leading-none text-red italic">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="h-card">{step.title}</h3>
+          <p class="m-0 text-base text-body">{step.text}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

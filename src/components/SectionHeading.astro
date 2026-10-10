@@ -1,0 +1,21 @@
+---
+// Label above the H2, H2, short paragraph — the format used by every section.
+interface Props {
+  eyebrow: string;
+  title: string;
+  titleEm?: string;
+  text?: string;
+  dark?: boolean;
+  class?: string;
+}
+const { eyebrow, title, titleEm, text, dark = false, class: className = '' } = Astro.props;
+---
+
+<div class:list={['flex max-w-[640px] flex-col', className]}>
+  <p class:list={['eyebrow', dark && '!text-gold']} data-reveal>{eyebrow}</p>
+  <h2 class="h-section" data-reveal style="--i:1">
+    {title}{titleEm && <> <em class:list={['font-normal', dark ? 'text-gold' : 'text-red']}>{titleEm}</em></>}
+  </h2>
+  {text && <p class:list={['lead mt-4', dark && '!text-[#D9D0C5]']} data-reveal style="--i:2">{text}</p>}
+  <slot />
+</div>

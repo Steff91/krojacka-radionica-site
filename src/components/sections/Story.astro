@@ -1,0 +1,20 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import Placeholder from '../Placeholder.astro';
+import Icon from '../Icon.astro';
+---
+
+<section id="prica" class="py-18 sm:py-30">
+  <div class="container-site grid items-center gap-16 lg:grid-cols-[0.9fr_1.1fr]">
+    <SectionHeading
+      eyebrow="Naša priča"
+      title="Tradicija zanata,"
+      titleEm="moderna vizija"
+      text="[2–3 rečenice: ko stoji iza radionice, iskustvo sa filmskih setova, šta je pokreće.]"
+    >
+      <!-- TODO: link to /o-nama/ once the page exists -->
+      <a href="#kontakt" class="link-arrow mt-4 self-start" data-reveal style="--i:3">Saznajte više o nama<Icon name="chevron-right" size={12} class="chev" /></a>
+    </SectionHeading>
+    <Placeholder label="Portret: Slađana u radionici, prirodno svetlo" class="h-[420px] sm:h-[560px]" />
+  </div>
+</section>

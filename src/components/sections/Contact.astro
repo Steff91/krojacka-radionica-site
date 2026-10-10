@@ -1,0 +1,41 @@
+---
+import info from '../../data/info.json';
+
+interface Props {
+  /** Service name sent with the form, so inquiries say where they came from */
+  service?: string;
+}
+const { service = 'Opšti upit' } = Astro.props;
+
+// Static site: the form posts to an external handler (e.g. Formspree) set in info.json → formAction.
+const field = 'flex flex-col gap-2 text-[13px] uppercase tracking-[0.12em] text-body';
+const input = 'min-h-12 border-0 border-b border-muted bg-transparent font-sans text-[17px] font-light normal-case tracking-normal text-ink focus:border-red focus:outline-none';
+---
+
+<section id="kontakt" class="bg-sand py-18 sm:py-30">
+  <div class="container-site grid gap-16 lg:grid-cols-2">
+    <div class="flex flex-col gap-5">
+      <p class="eyebrow !mb-0" data-reveal>Kontakt</p>
+      <h2 class="h-section" data-reveal style="--i:1">Imate ideju? <em class="font-normal text-red">Javite nam se.</em></h2>
+      <a href={`tel:${info.phoneHref}`} class="inline-flex min-h-11 items-center font-serif text-[32px] no-underline" data-reveal style="--i:2">{info.phone}</a>
+      <p class="lead" data-reveal style="--i:3">{info.address}<br />Radno vreme: {info.hours}</p>
+    </div>
+
+    <form method="POST" action={info.formAction || undefined} class="flex flex-col gap-5" data-reveal style="--i:1">
+      <input type="hidden" name="usluga" value={service} />
+      <label class={field}>Ime
+        <input type="text" name="ime" autocomplete="name" required class={input} />
+      </label>
+      <label class={field}>Telefon ili email
+        <input type="text" name="kontakt" autocomplete="email" required class={input} />
+      </label>
+      <label class={field}>Poruka
+        <textarea name="poruka" rows="4" class:list={[input, 'resize-y pt-3']}></textarea>
+      </label>
+      <div>
+        <button type="submit" class="btn btn-red">Pošaljite upit</button>
+        <p class="m-0 mt-3 text-[13px] text-muted">Slanjem forme prihvatate obradu podataka u skladu sa <a href="/privatnost/">Politikom privatnosti</a>.</p>
+      </div>
+    </form>
+  </div>
+</section>

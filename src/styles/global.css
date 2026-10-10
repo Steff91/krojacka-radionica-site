@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* Each Fontsource weight file includes the latin-ext subset (č, ć, š, ž, đ) via unicode-range. */
+@import "@fontsource/cormorant-garamond/400.css";
+@import "@fontsource/cormorant-garamond/400-italic.css";
+@import "@fontsource/cormorant-garamond/500.css";
+@import "@fontsource/cormorant-garamond/500-italic.css";
+@import "@fontsource/dm-sans/300.css";
+@import "@fontsource/dm-sans/400.css";
+@import "@fontsource/dm-sans/500.css";
+
+@theme {
+  --color-ivory: #FDFAF6;
+  --color-sand: #F0EAE0;
+  --color-sand-dark: #E9DFD2;
+  --color-gold: #C9A96E;
+  --color-red: #A03C3C;
+  --color-sage: #8B9E8B;
+  --color-sage-light: #E7ECE5;
+  --color-ink: #2D2926;
+  --color-ink-soft: #3D3733;
+  --color-body: #5E544C;
+  --color-muted: #7A6E64;
+  --color-line: #E6DDD0;
+  --color-line-dark: #4A433E;
+  --color-on-dark: #F0EAE0;
+  --color-on-dark-muted: #C9BFB3;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  [id] { scroll-margin-top: 96px; }
+  body {
+    @apply bg-ivory text-ink font-sans font-light antialiased;
+    font-size: 17px;
+    line-height: 1.65;
+  }
+  h1, h2, h3 { @apply font-serif font-medium; }
+  a {
+    @apply text-ink;
+    text-underline-offset: 0.45em;
+    text-decoration-thickness: 1px;
+    transition: color .3s ease;
+  }
+  a:hover { @apply text-red; }
+  ::selection { @apply bg-gold text-ink; }
+}
+
+@layer components {
+  .container-site { @apply mx-auto max-w-[1200px] px-4 sm:px-8; }
+
+  .eyebrow { @apply mb-4 text-[13px] font-medium uppercase tracking-[0.22em] text-red; }
+
+  .h-display {
+    @apply m-0 uppercase leading-[1.08] tracking-[0.03em];
+    font-size: clamp(36px, 5vw, 60px);
+  }
+  .h-section {
+    @apply m-0 uppercase leading-[1.12] tracking-[0.03em];
+    font-size: clamp(30px, 3.4vw, 42px);
+  }
+  .h-card { @apply m-0 text-[21px] uppercase tracking-[0.06em]; }
+
+  .lead { @apply m-0 text-body; }
+
+  .link-arrow {
+    @apply inline-flex min-h-11 items-center gap-2.5 text-sm font-medium uppercase tracking-[0.12em];
+  }
+  .link-arrow .chev { transition: transform .3s ease; }
+  .link-arrow:hover .chev, .group:hover .chev { transform: translateX(4px); }
+
+  .btn {
+    @apply inline-flex min-h-[52px] cursor-pointer items-center justify-center gap-2.5 rounded px-[30px] text-sm uppercase tracking-[0.12em] no-underline;
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+  }
+  .btn-sm { @apply min-h-11 px-[22px]; }
+  .btn-dark { @apply border-0 bg-ink text-on-dark; }
+  .btn-dark:hover { @apply bg-red text-ivory; }
+  .btn-outline { @apply border border-ink bg-transparent text-ink; }
+  .btn-outline:hover { @apply bg-ink text-on-dark; }
+  .btn-gold { @apply border-0 bg-gold font-medium text-ink; }
+  .btn-gold:hover { @apply bg-sand text-ink; }
+  .btn-red { @apply border-0 bg-red font-medium text-ivory; }
+  .btn-red:hover { @apply bg-ink text-ivory; }
+  .btn-ghost { @apply min-h-11 border border-gold bg-transparent px-5 text-[13px] text-on-dark; }
+  .btn-ghost:hover { @apply bg-gold text-ink; }
+
+  .placeholder {
+    @apply flex items-center justify-center bg-sand p-6 text-center text-[13px] tracking-[0.08em] text-muted;
+  }
+}
+
+/* Subtle reveal on scroll — only when JS runs and motion is allowed */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .6s ease, transform .6s ease;
+    transition-delay: calc(var(--i, 0) * 90ms);
+  }
+  .js [data-reveal].is-visible { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .link-arrow .chev { transition: none; }
+}

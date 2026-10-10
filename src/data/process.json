@@ -1,0 +1,20 @@
+{
+  "steps": [
+    {
+      "title": "Konsultacija",
+      "text": "Razgovaramo o tome šta vam treba — za koju priliku, kakav stil zamišljate, koji materijal preferirate. Donosite inspiraciju ili se oslonite na naš predlog."
+    },
+    {
+      "title": "Merenje i dizajn",
+      "text": "Uzimamo precizne mere i definišemo sve detalje: kroj, tkaninu, postavu, dugmad, džepove. Ništa ne ostaje na pretpostavci."
+    },
+    {
+      "title": "Izrada",
+      "text": "Krojimo i šijemo ručno i mašinski, sa pažnjom prema svakom šavu i završnoj obradi."
+    },
+    {
+      "title": "Proba i isporuka",
+      "text": "Na finalnoj probi proveravamo da sve stoji kako treba. Ako treba sitna korekcija — radimo je na licu mesta."
+    }
+  ]
+}

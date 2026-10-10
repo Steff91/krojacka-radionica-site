@@ -1,0 +1,4 @@
+# Preview hosting (Cloudflare Pages): keep previews out of search engines.
+# Ignored by nginx/Apache on the production server.
+/*
+  X-Robots-Tag: noindex, nofollow

@@ -1,0 +1,114 @@
+---
+import Logo from './Logo.astro';
+
+const path = Astro.url.pathname;
+const links = [
+  { href: '/#usluge', label: 'Usluge' },
+  { href: '/usluge/razvijanje-modnog-brenda/', label: 'Modni brend' },
+  { href: '/#prica', label: 'O nama' },
+  { href: '/#kontakt', label: 'Kontakt' },
+];
+const isActive = (href: string) => !href.includes('#') && path.startsWith(href);
+---
+
+<header id="site-header" class="sticky top-0 z-50 border-b border-line bg-ivory/95 backdrop-blur-md">
+  <div class="header-inner container-site flex items-center justify-between gap-6 py-4">
+    <Logo />
+
+    <nav aria-label="Glavna navigacija" class="hidden items-center gap-9 text-sm uppercase tracking-[0.12em] lg:flex">
+      {links.map((l) => (
+        <a href={l.href} class:list={['nav-link font-normal no-underline', isActive(l.href) && '!text-red']} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>
+      ))}
+    </nav>
+
+    <a href="/#kontakt" class="btn btn-dark btn-sm hidden lg:inline-flex">Zakažite konsultaciju</a>
+
+    <button
+      type="button"
+      class="menu-toggle inline-flex h-11 w-11 cursor-pointer items-center justify-center border-0 bg-transparent text-ink lg:hidden"
+      aria-controls="mobile-nav"
+      aria-expanded="false"
+      aria-label="Otvori meni"
+    >
+      <span class="menu-icon" aria-hidden="true"><span></span></span>
+    </button>
+  </div>
+
+  <nav id="mobile-nav" aria-label="Mobilna navigacija" class="mobile-nav border-t border-line lg:hidden" hidden>
+    <div class="container-site flex flex-col py-4 text-sm uppercase tracking-[0.12em]">
+      {links.map((l) => (
+        <a href={l.href} class="border-b border-line py-3.5 font-normal no-underline">{l.label}</a>
+      ))}
+      <a href="/#kontakt" class="btn btn-dark mt-5">Zakažite konsultaciju</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .header-inner { transition: padding .25s ease; }
+  #site-header.is-scrolled .header-inner { padding-block: 10px; }
+
+  .nav-link {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size .3s ease, color .3s ease;
+    padding-bottom: 4px;
+  }
+  .nav-link:hover { background-size: 100% 1px; }
+
+  .menu-icon, .menu-icon span, .menu-icon::before, .menu-icon::after {
+    display: block; width: 22px; height: 1.5px; background: currentColor;
+    transition: transform .25s ease, opacity .2s ease;
+  }
+  .menu-icon { position: relative; background: transparent; }
+  .menu-icon::before, .menu-icon::after { content: ''; position: absolute; left: 0; }
+  .menu-icon::before { top: -7px; }
+  .menu-icon::after { top: 7px; }
+  .menu-toggle[aria-expanded='true'] .menu-icon span { opacity: 0; }
+  .menu-toggle[aria-expanded='true'] .menu-icon::before { transform: translateY(7px) rotate(45deg); }
+  .menu-toggle[aria-expanded='true'] .menu-icon::after { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-nav:not([hidden]) { animation: drop .25s ease; }
+  @keyframes drop { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .header-inner, .nav-link, .menu-icon, .menu-icon span, .menu-icon::before, .menu-icon::after { transition: none; }
+    .mobile-nav:not([hidden]) { animation: none; }
+  }
+</style>
+
+<script>
+  const header = document.getElementById('site-header');
+
+  // Separate on/off thresholds so the shrinking header doesn't flip the class back and forth.
+  const COMPACT_AT = 80;
+  const EXPAND_AT = 8;
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    if (!header) return;
+    const y = window.scrollY;
+    const compact = header.classList.contains('is-scrolled');
+    if (!compact && y > COMPACT_AT) header.classList.add('is-scrolled');
+    else if (compact && y < EXPAND_AT) header.classList.remove('is-scrolled');
+  };
+  update();
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+
+  const toggle = header?.querySelector<HTMLButtonElement>('.menu-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  const setMobile = (open: boolean) => {
+    if (!toggle || !mobileNav) return;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Zatvori meni' : 'Otvori meni');
+    mobileNav.hidden = !open;
+  };
+  toggle?.addEventListener('click', () => setMobile(toggle.getAttribute('aria-expanded') !== 'true'));
+  mobileNav?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMobile(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMobile(false); });
+  window.matchMedia('(min-width: 64rem)').addEventListener('change', (e) => { if (e.matches) setMobile(false); });
+</script>

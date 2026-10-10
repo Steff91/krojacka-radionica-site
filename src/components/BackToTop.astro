@@ -1,0 +1,49 @@
+---
+import Icon from './Icon.astro';
+---
+
+<button
+  type="button"
+  id="back-to-top"
+  class="fixed right-5 bottom-5 z-50 inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded border border-line bg-ivory/95 text-ink backdrop-blur-md hover:border-red hover:text-red sm:right-6 sm:bottom-6"
+  aria-label="Nazad na vrh"
+  data-visible="false"
+>
+  <Icon name="chevron-right" size={12} class="-rotate-90" />
+</button>
+
+<style>
+  #back-to-top {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity .25s ease, transform .25s ease, visibility 0s linear .25s, color .2s ease, border-color .2s ease;
+  }
+  #back-to-top[data-visible='true'] {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity .25s ease, transform .25s ease, visibility 0s, color .2s ease, border-color .2s ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #back-to-top, #back-to-top[data-visible='true'] { transition: none; }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('back-to-top')!;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    btn.dataset.visible = String(window.scrollY > 600);
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: reduce.matches ? 'auto' : 'smooth' });
+    document.querySelector<HTMLElement>('#site-header a')?.focus({ preventScroll: true });
+  });
+</script>

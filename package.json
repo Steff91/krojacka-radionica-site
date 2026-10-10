@@ -1,0 +1,26 @@
+{
+  "name": "krojacka-radionica-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website for a tailor's workshop in Belgrade. Astro + Tailwind, Sveltia CMS, deployed via GitHub Actions.",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource/cormorant-garamond": "^5.2.0",
+    "@fontsource/dm-sans": "^5.2.0",
+    "astro": "^7.3.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

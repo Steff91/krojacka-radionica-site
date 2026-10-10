@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import info from '../data/info.json';
+
+const all = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const services = all.filter((s) => s.data.variant === 'default');
+const featured = all.find((s) => s.data.variant === 'featured');
+
+const heading = 'mb-2 text-xs font-medium uppercase tracking-[0.22em] text-gold';
+const link = 'text-on-dark no-underline hover:text-gold';
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-ink text-[15px] text-on-dark-muted">
+  <div class="container-site grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-12 pt-22 pb-16">
+    <div class="flex flex-col gap-5">
+      <Logo dark stacked />
+      <p class="m-0 font-serif text-[22px] italic text-gold">{info.tagline}</p>
+      <a href={info.instagram} class="inline-flex min-h-11 items-center gap-2.5 text-on-dark no-underline hover:text-gold" rel="noopener">
+        <Icon name="instagram" size={18} />{info.instagramHandle}
+      </a>
+    </div>
+
+    <nav aria-label="Usluge" class="flex flex-col gap-2.5">
+      <p class={heading}>Usluge</p>
+      {services.map((s) => <a href={`/usluge/${s.id}/`} class={link}>{s.data.title}</a>)}
+      {featured && (
+        <a href={`/usluge/${featured.id}/`} class="group mt-1.5 inline-flex items-center gap-2 text-gold no-underline hover:text-on-dark">
+          {featured.data.title}<Icon name="chevron-right" size={11} class="chev" />
+        </a>
+      )}
+    </nav>
+
+    <nav aria-label="Radionica" class="flex flex-col gap-2.5">
+      <p class={heading}>Radionica</p>
+      <a href="/#prica" class={link}>O nama</a>
+      <a href="/#radovi" class={link}>Izabrani radovi</a>
+      <a href="/#kontakt" class={link}>Kontakt</a>
+    </nav>
+
+    <div class="flex flex-col gap-2.5">
+      <p class={heading}>Kontakt</p>
+      <a href={`tel:${info.phoneHref}`} class="font-serif text-2xl text-on-dark no-underline hover:text-gold">{info.phone}</a>
+      <span>{info.address}<br />{info.city}</span>
+      <span>Radno vreme: {info.hours}</span>
+      <a href="/#kontakt" class="btn btn-ghost mt-3 self-start">Zakažite konsultaciju</a>
+    </div>
+  </div>
+
+  <div class="border-t border-line-dark">
+    <div class="container-site flex flex-wrap justify-between gap-4 py-6 text-[13px] text-[#A99E92]">
+      <span>© {year} {info.name}. Sva prava zadržana.</span>
+      <span class="flex gap-6">
+        <a href="/privatnost/" class="text-[#A99E92] hover:text-on-dark">Politika privatnosti</a>
+        <a href="/kolacici/" class="text-[#A99E92] hover:text-on-dark">Kolačići</a>
+      </span>
+    </div>
+  </div>
+</footer>

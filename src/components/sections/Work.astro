@@ -1,0 +1,26 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import Placeholder from '../Placeholder.astro';
+import Icon from '../Icon.astro';
+import info from '../../data/info.json';
+
+// Static grid for now; swap for an Instagram widget later (needs a cookie/consent note).
+const tiles = ['sand', 'sand-dark', 'sand', 'sand-dark'] as const;
+---
+
+<section id="radovi" class="py-18 sm:py-28">
+  <div class="container-site flex flex-col gap-12">
+    <div class="flex flex-wrap items-end justify-between gap-8 lg:flex-nowrap">
+      <SectionHeading
+        class="min-w-0"
+        eyebrow="Naš rad"
+        title="Izabrani radovi"
+        text="Svaki komad koji izlazi iz naše radionice nosi istu pažnju — bilo da je u pitanju venčanica, pozorišni kostim ili muški kaput. Pogledajte neke od radova na koje smo posebno ponosni."
+      />
+      <a href={info.instagram} class="link-arrow shrink-0" rel="noopener">Pratite nas na Instagramu · {info.instagramHandle}<Icon name="chevron-right" size={12} class="chev" /></a>
+    </div>
+    <div class="grid grid-cols-2 gap-3 md:grid-cols-4">
+      {tiles.map((tone) => <Placeholder label="Instagram objava" tone={tone} class="aspect-square" />)}
+    </div>
+  </div>
+</section>

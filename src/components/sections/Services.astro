@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import SectionHeading from '../SectionHeading.astro';
+import Placeholder from '../Placeholder.astro';
+import Icon from '../Icon.astro';
+
+const services = (await getCollection('services'))
+  .filter((s) => s.data.variant === 'default')
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<section id="usluge" class="border-t border-line py-18 sm:py-28">
+  <div class="container-site flex flex-col gap-14">
+    <SectionHeading
+      eyebrow="Šta radimo"
+      title="Krojeno za vas, od prvog do poslednjeg šava"
+      text="Šijemo mušku odeću, svečane haljine, venčanice, pozorišne i cosplay kostime i uniforme. Svaki komad nastaje ručno, po vašim merama i vašoj zamisli."
+    />
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-x-8 gap-y-10">
+      {services.map((s, i) => (
+        <a href={`/usluge/${s.id}/`} class="group flex flex-col gap-3.5 no-underline hover:text-ink" data-reveal style={`--i:${i % 3}`}>
+          <Placeholder label={s.data.imageLabel} src={s.data.image} alt={s.data.title} class="aspect-[4/5]" />
+          <div class="flex items-baseline justify-between border-b border-gold pb-2.5">
+            <h3 class="h-card">{s.data.title}</h3>
+            <span class="inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.12em] text-red">Više<Icon name="chevron-right" size={12} class="chev transition-transform duration-300" /></span>
+          </div>
+          <p class="m-0 text-[15px] text-body">{s.data.excerpt}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

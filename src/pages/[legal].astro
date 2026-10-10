@@ -1,0 +1,38 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('legal');
+  return pages.map((p) => ({ params: { legal: p.id }, props: { page: p } }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+---
+
+<Base title={`${page.data.title} | Krojačka radionica`} description={page.data.description}>
+  <section class="container-site pt-16 pb-12">
+    <p class="mb-7 text-[13px] text-muted">
+      <a href="/" class="text-muted">Početna</a> / {page.data.title}
+    </p>
+    <h1 class="h-section">{page.data.title}</h1>
+    <p class="mt-4 mb-0 text-[13px] text-muted">Poslednja izmena: {page.data.updated}</p>
+  </section>
+  <section class="border-t border-line">
+    <article class="legal container-site max-w-[840px] py-16 text-base leading-[1.75] text-body">
+      <Content />
+    </article>
+  </section>
+</Base>
+
+<style>
+  .legal :global(h2) {
+    margin: 2.5rem 0 1rem;
+    font-size: 26px;
+    color: var(--color-ink);
+  }
+  .legal :global(h2:first-child) { margin-top: 0; }
+  .legal :global(p) { margin: 0 0 1rem; }
+  .legal :global(ul) { margin: 0 0 1.25rem; padding-left: 1.25rem; list-style: disc; }
+</style>

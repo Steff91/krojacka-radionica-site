@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import SectionHeading from '../SectionHeading.astro';
+import Placeholder from '../Placeholder.astro';
+
+const brand = (await getCollection('services')).find((s) => s.data.variant === 'featured');
+---
+
+{brand && (
+  <section id="brend" class="bg-ink py-18 text-on-dark sm:py-30">
+    <div class="container-site grid items-center gap-16 lg:grid-cols-2">
+      <Placeholder label={brand.data.imageLabel} src={brand.data.image} alt={brand.data.title} tone="dark" class="h-[360px] sm:h-[480px]" />
+      <SectionHeading
+        eyebrow="Za dizajnere i brendove"
+        title={brand.data.heroTitle}
+        titleEm={brand.data.heroTitleEm}
+        text={brand.data.excerpt}
+        dark
+      >
+        <div class="mt-8" data-reveal style="--i:3">
+          <a href={`/usluge/${brand.id}/#kontakt`} class="btn btn-gold">Zakažite konsultaciju</a>
+        </div>
+      </SectionHeading>
+    </div>
+  </section>
+)}
