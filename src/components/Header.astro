@@ -1,14 +1,21 @@
 ---
+import { getCollection } from 'astro:content';
 import Logo from './Logo.astro';
+import Icon from './Icon.astro';
 
 const path = Astro.url.pathname;
-const links = [
-  { href: '/#usluge', label: 'Usluge' },
-  { href: '/usluge/razvijanje-modnog-brenda/', label: 'Modni brend' },
+const all = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const services = all.filter((s) => s.data.variant === 'default');
+const brand = all.find((s) => s.data.variant === 'featured');
+const servicesActive = path.startsWith('/usluge');
+
+const linksAfter = [
   { href: '/#prica', label: 'O nama' },
+  { href: '/#radovi', label: 'Radovi' },
   { href: '/#kontakt', label: 'Kontakt' },
 ];
 const isActive = (href: string) => !href.includes('#') && path.startsWith(href);
+const mobileLink = 'border-b border-line py-3.5 font-normal no-underline';
 ---
 
 <header id="site-header" class="sticky top-0 z-50 border-b border-line bg-ivory/95 backdrop-blur-md">
@@ -16,7 +23,20 @@ const isActive = (href: string) => !href.includes('#') && path.startsWith(href);
     <Logo />
 
     <nav aria-label="Glavna navigacija" class="hidden items-center gap-9 text-sm uppercase tracking-[0.12em] lg:flex">
-      {links.map((l) => (
+      <button
+        type="button"
+        id="mega-trigger"
+        class:list={[
+          'nav-link inline-flex cursor-pointer items-center gap-2 border-0 bg-transparent p-0 font-sans text-sm font-normal uppercase tracking-[0.12em]',
+          servicesActive ? 'text-red' : 'text-ink',
+        ]}
+        aria-expanded="false"
+        aria-controls="mega-menu"
+      >
+        Usluge
+        <span class="mega-chevron inline-flex"><Icon name="chevron-right" size={9} /></span>
+      </button>
+      {linksAfter.map((l) => (
         <a href={l.href} class:list={['nav-link font-normal no-underline', isActive(l.href) && '!text-red']} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>
       ))}
     </nav>
@@ -34,11 +54,70 @@ const isActive = (href: string) => !href.includes('#') && path.startsWith(href);
     </button>
   </div>
 
-  <nav id="mobile-nav" aria-label="Mobilna navigacija" class="mobile-nav border-t border-line lg:hidden" hidden>
+  <!-- Desktop mega menu -->
+  <div id="mega-menu" class="mega absolute inset-x-0 top-full hidden border-b border-line bg-ivory shadow-[0_30px_60px_-30px_rgba(45,41,38,0.35)] lg:block" data-open="false">
+    <div class="container-site grid grid-cols-[1fr_320px] gap-10 py-10">
+      <div>
+        <p class="eyebrow">Šta radimo</p>
+        <ul class="m-0 grid list-none grid-cols-3 gap-x-8 gap-y-2 p-0">
+          {services.map((s) => {
+            const active = path.startsWith(`/usluge/${s.id}`);
+            return (
+              <li>
+                <a href={`/usluge/${s.id}/`} class="mega-item group flex gap-4 rounded p-4 no-underline hover:bg-sand hover:text-ink" aria-current={active ? 'page' : undefined}>
+                  <span class="pt-1 font-serif text-lg leading-none text-red italic">{String(s.data.order).padStart(2, '0')}</span>
+                  <span class="flex flex-col gap-1.5">
+                    <span class:list={['inline-flex items-center gap-2 whitespace-nowrap font-serif text-lg font-medium uppercase tracking-[0.04em]', active && 'text-red']}>
+                      {s.data.title}
+                      <Icon name="chevron-right" size={10} class="chev text-red opacity-0 transition-all duration-300 group-hover:opacity-100" />
+                    </span>
+                    <span class="text-[14px] leading-snug text-body">{s.data.excerpt}</span>
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      {brand && (
+        <a href={`/usluge/${brand.id}/`} class="group relative flex flex-col justify-end overflow-hidden rounded bg-ink p-7 text-on-dark no-underline hover:text-on-dark">
+          <span class="absolute top-0 right-0 h-28 w-28 translate-x-10 -translate-y-10 rounded-full border border-gold/40" aria-hidden="true"></span>
+          <span class="absolute top-0 right-0 h-44 w-44 translate-x-14 -translate-y-14 rounded-full border border-gold/20" aria-hidden="true"></span>
+          <span class="mb-3 text-xs font-medium uppercase tracking-[0.22em] text-gold">Za dizajnere i brendove</span>
+          <span class="font-serif text-[28px] leading-[1.15] uppercase tracking-[0.03em]">
+            {brand.data.heroTitle} <em class="font-normal text-gold">{brand.data.heroTitleEm}</em>
+          </span>
+          <span class="mt-5 inline-flex items-center gap-2.5 text-[13px] font-medium uppercase tracking-[0.12em] text-gold">
+            {brand.data.title}<Icon name="chevron-right" size={10} class="chev" />
+          </span>
+        </a>
+      )}
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <nav id="mobile-nav" aria-label="Mobilna navigacija" class="mobile-nav max-h-[calc(100dvh-80px)] overflow-y-auto border-t border-line lg:hidden" hidden>
     <div class="container-site flex flex-col py-4 text-sm uppercase tracking-[0.12em]">
-      {links.map((l) => (
-        <a href={l.href} class="border-b border-line py-3.5 font-normal no-underline">{l.label}</a>
-      ))}
+      <button
+        type="button"
+        id="mobile-services-toggle"
+        class:list={[
+          'flex w-full cursor-pointer items-center justify-between border-0 border-b border-solid border-line bg-transparent px-0 py-3.5 text-left font-sans text-sm font-normal uppercase tracking-[0.12em]',
+          servicesActive ? 'text-red' : 'text-ink',
+        ]}
+        aria-expanded="false"
+        aria-controls="mobile-services"
+      >
+        Usluge
+        <span class="mega-chevron inline-flex"><Icon name="chevron-right" size={10} /></span>
+      </button>
+      <div id="mobile-services" class="flex flex-col border-b border-line py-2 pl-4" hidden>
+        {all.map((s) => (
+          <a href={`/usluge/${s.id}/`} class:list={['py-2.5 text-[13px] no-underline', s.data.variant === 'featured' ? 'text-red' : 'text-body']}>{s.data.title}</a>
+        ))}
+      </div>
+      {linksAfter.map((l) => <a href={l.href} class={mobileLink}>{l.label}</a>)}
       <a href="/#kontakt" class="btn btn-dark mt-5">Zakažite konsultaciju</a>
     </div>
   </nav>
@@ -56,7 +135,25 @@ const isActive = (href: string) => !href.includes('#') && path.startsWith(href);
     transition: background-size .3s ease, color .3s ease;
     padding-bottom: 4px;
   }
-  .nav-link:hover { background-size: 100% 1px; }
+  .nav-link:hover, #mega-trigger[aria-expanded='true'] { background-size: 100% 1px; }
+
+  .mega-chevron { transform: rotate(90deg); transition: transform .25s ease; }
+  [aria-expanded='true'] .mega-chevron { transform: rotate(-90deg); }
+
+  .mega-item { transition: background-color .3s ease; }
+
+  .mega {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+  }
+  .mega[data-open='true'] {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity .2s ease, transform .2s ease, visibility 0s;
+  }
 
   .menu-icon, .menu-icon span, .menu-icon::before, .menu-icon::after {
     display: block; width: 22px; height: 1.5px; background: currentColor;
@@ -74,7 +171,7 @@ const isActive = (href: string) => !href.includes('#') && path.startsWith(href);
   @keyframes drop { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 
   @media (prefers-reduced-motion: reduce) {
-    .header-inner, .nav-link, .menu-icon, .menu-icon span, .menu-icon::before, .menu-icon::after { transition: none; }
+    .header-inner, .nav-link, .mega, .mega-chevron, .menu-icon, .menu-icon span, .menu-icon::before, .menu-icon::after { transition: none; }
     .mobile-nav:not([hidden]) { animation: none; }
   }
 </style>
@@ -82,7 +179,7 @@ const isActive = (href: string) => !href.includes('#') && path.startsWith(href);
 <script>
   const header = document.getElementById('site-header');
 
-  // Separate on/off thresholds so the shrinking header doesn't flip the class back and forth.
+  // --- Compact header after scrolling (separate on/off thresholds avoid flicker) ---
   const COMPACT_AT = 80;
   const EXPAND_AT = 8;
   let ticking = false;
@@ -99,6 +196,40 @@ const isActive = (href: string) => !href.includes('#') && path.startsWith(href);
     if (!ticking) { ticking = true; requestAnimationFrame(update); }
   }, { passive: true });
 
+  // --- Desktop mega menu ---
+  const trigger = document.getElementById('mega-trigger');
+  const mega = document.getElementById('mega-menu');
+  let closeTimer: number | undefined;
+
+  const setMega = (open: boolean) => {
+    if (!trigger || !mega) return;
+    window.clearTimeout(closeTimer);
+    trigger.setAttribute('aria-expanded', String(open));
+    mega.dataset.open = String(open);
+  };
+  const scheduleClose = () => {
+    window.clearTimeout(closeTimer);
+    closeTimer = window.setTimeout(() => setMega(false), 180);
+  };
+
+  trigger?.addEventListener('click', () => setMega(trigger.getAttribute('aria-expanded') !== 'true'));
+  if (window.matchMedia('(hover: hover)').matches) {
+    [trigger, mega].forEach((el) => {
+      el?.addEventListener('mouseenter', () => setMega(true));
+      el?.addEventListener('mouseleave', scheduleClose);
+    });
+  }
+  mega?.addEventListener('focusout', (e) => {
+    const next = (e as FocusEvent).relatedTarget as Node | null;
+    if (!next || (!mega.contains(next) && next !== trigger)) setMega(false);
+  });
+  document.addEventListener('click', (e) => {
+    const t = e.target as Node;
+    if (mega?.dataset.open === 'true' && !mega.contains(t) && !trigger?.contains(t)) setMega(false);
+  });
+  mega?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMega(false)));
+
+  // --- Mobile menu ---
   const toggle = header?.querySelector<HTMLButtonElement>('.menu-toggle');
   const mobileNav = document.getElementById('mobile-nav');
   const setMobile = (open: boolean) => {
@@ -109,6 +240,24 @@ const isActive = (href: string) => !href.includes('#') && path.startsWith(href);
   };
   toggle?.addEventListener('click', () => setMobile(toggle.getAttribute('aria-expanded') !== 'true'));
   mobileNav?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMobile(false)));
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMobile(false); });
-  window.matchMedia('(min-width: 64rem)').addEventListener('change', (e) => { if (e.matches) setMobile(false); });
+
+  const servicesToggle = document.getElementById('mobile-services-toggle');
+  const servicesList = document.getElementById('mobile-services');
+  servicesToggle?.addEventListener('click', () => {
+    if (!servicesList) return;
+    const open = servicesToggle.getAttribute('aria-expanded') !== 'true';
+    servicesToggle.setAttribute('aria-expanded', String(open));
+    servicesList.hidden = !open;
+  });
+
+  // --- Shared ---
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (mega?.dataset.open === 'true') { setMega(false); trigger?.focus(); }
+    setMobile(false);
+  });
+  window.matchMedia('(min-width: 64rem)').addEventListener('change', (e) => {
+    if (e.matches) setMobile(false);
+    else setMega(false);
+  });
 </script>
