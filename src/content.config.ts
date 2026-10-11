@@ -48,4 +48,19 @@ const legal = defineCollection({
   }),
 });
 
-export const collections = { services, testimonials, legal };
+const blog = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.coerce.date(),
+    updated: z.coerce.date().optional(),
+    category: z.string().default('Saveti'),
+    image: z.string().optional(),
+    imageAlt: z.string().default(''),
+    author: z.string().default('Slađana'),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { services, testimonials, legal, blog };

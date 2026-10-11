@@ -1,0 +1,48 @@
+---
+import Placeholder from './Placeholder.astro';
+import Icon from './Icon.astro';
+import { formatDate, readingTime, type Post } from '../lib/blog';
+
+interface Props {
+  post: Post;
+  /** Large horizontal layout for the newest post on /blog/ */
+  featured?: boolean;
+}
+const { post, featured = false } = Astro.props;
+const d = post.data;
+---
+
+<article class:list={['post-card group relative', featured ? 'grid items-center gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-14' : 'flex flex-col gap-5']}>
+  <div class:list={['overflow-hidden', featured ? 'aspect-[4/3] lg:aspect-[5/4]' : 'aspect-[4/3]']}>
+    <div class="post-media h-full w-full">
+      <Placeholder label="Naslovna fotografija članka" src={d.image} alt={d.imageAlt} class="h-full w-full" />
+    </div>
+  </div>
+  <div class="flex flex-col gap-3">
+    <p class="m-0 flex flex-wrap items-center gap-x-3 text-[12px] font-medium uppercase tracking-[0.18em] text-muted">
+      <span class="text-red">{d.category}</span>
+      <span aria-hidden="true">·</span>
+      <time datetime={d.date.toISOString()}>{formatDate(d.date)}</time>
+      <span aria-hidden="true">·</span>
+      <span>{readingTime(post.body)} min čitanja</span>
+    </p>
+    <h3 class:list={['m-0 font-serif font-medium uppercase leading-[1.15] tracking-[0.03em]', featured ? 'text-[30px] sm:text-[38px]' : 'text-[24px]']}>
+      <!-- Stretched link: the whole card is clickable -->
+      <a href={`/blog/${post.id}/`} class="no-underline after:absolute after:inset-0 after:content-[''] hover:text-ink">{d.title}</a>
+    </h3>
+    <p class:list={['m-0 text-body', featured ? 'text-[17px]' : 'text-[15px]']}>{d.description}</p>
+    <span class="mt-1 inline-flex items-center gap-2.5 text-[13px] font-medium uppercase tracking-[0.12em] text-red">
+      Pročitajte<Icon name="chevron-right" size={10} class="chev transition-transform duration-300 group-hover:translate-x-1" />
+    </span>
+  </div>
+</article>
+
+<style>
+  .post-media { transition: transform .9s cubic-bezier(.2, .7, .2, 1); }
+  .post-media :global(img:hover) { transform: none; }
+  .post-card:hover .post-media { transform: scale(1.04); }
+  @media (prefers-reduced-motion: reduce) {
+    .post-media { transition: none; }
+    .post-card:hover .post-media { transform: none; }
+  }
+</style>

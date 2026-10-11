@@ -18,7 +18,7 @@ const { dark = false, stacked = false } = Astro.props;
     height={stacked ? 58 : 45}
     class:list={[dark ? 'invert mix-blend-screen' : 'mix-blend-multiply']}
   />
-  <span class:list={['font-serif font-medium uppercase leading-[1.1] tracking-[0.04em]', stacked ? 'text-2xl' : 'text-xl sm:text-[22px]']}>
+  <span class:list={['font-serif font-medium uppercase leading-[1.1] tracking-[0.04em]', !stacked && 'whitespace-nowrap', stacked ? 'text-2xl' : 'text-xl sm:text-[22px]']}>
     {stacked ? <>Krojačka<br />radionica</> : info.name}
   </span>
 </a>

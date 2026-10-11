@@ -1,0 +1,79 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPosts } from '../../lib/blog';
+
+const posts = await getPosts();
+const [latest, ...rest] = posts;
+const categories = [...new Set(posts.map((p) => p.data.category))];
+---
+
+<Base
+  title="Blog | Saveti o šivenju po meri — Krojačka radionica Beograd"
+  description="Saveti o izboru materijala, kroja i pripremi za konsultaciju, priče iz radionice i kostimografije."
+>
+  <section class="pt-12 pb-10 sm:pt-16">
+    <div class="container-site flex flex-col gap-5">
+      <Breadcrumbs items={[{ label: 'Blog' }]} />
+      <h1 class="h-display" data-reveal>Blog</h1>
+      <p class="lead max-w-[600px] text-[19px]" data-reveal style="--i:1">
+        Saveti o materijalima, kroju i pripremi za izradu po meri — i priče iz radionice.
+      </p>
+    </div>
+  </section>
+
+  {posts.length === 0 ? (
+    <section class="pb-28"><div class="container-site"><p class="lead">Uskoro prvi tekstovi.</p></div></section>
+  ) : (
+    <section class="pb-18 sm:pb-28" data-blog>
+      <div class="container-site flex flex-col gap-14">
+        {categories.length > 1 && (
+          <div class="filter-bar -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0" role="group" aria-label="Filtriraj članke po kategoriji">
+            <div class="flex w-max gap-2 sm:w-auto sm:flex-wrap">
+              <button type="button" class="chip" data-filter="sve" aria-pressed="true">Sve</button>
+              {categories.map((c) => <button type="button" class="chip" data-filter={c} aria-pressed="false">{c}</button>)}
+            </div>
+          </div>
+        )}
+
+        <div data-post data-category={latest.data.category}>
+          <PostCard post={latest} featured />
+        </div>
+
+        {rest.length > 0 && (
+          <div class="grid gap-x-8 gap-y-14 border-t border-line pt-14 sm:grid-cols-2 lg:grid-cols-3">
+            {rest.map((p) => <div data-post data-category={p.data.category}><PostCard post={p} /></div>)}
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+</Base>
+
+<style>
+  .filter-bar { scrollbar-width: none; }
+  .filter-bar::-webkit-scrollbar { display: none; }
+  .chip {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px;
+    border: 1px solid var(--color-line); border-radius: 999px; background: transparent; cursor: pointer;
+    font: 500 13px/1 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; color: var(--color-ink);
+    white-space: nowrap; transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+  }
+  .chip:hover { border-color: var(--color-ink); }
+  .chip[aria-pressed='true'] { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-on-dark); }
+  [data-post][hidden] { display: none; }
+</style>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-blog]');
+  const chips = [...(root?.querySelectorAll<HTMLButtonElement>('[data-filter]') ?? [])];
+  const posts = [...(root?.querySelectorAll<HTMLElement>('[data-post]') ?? [])];
+  chips.forEach((chip) =>
+    chip.addEventListener('click', () => {
+      const f = chip.dataset.filter;
+      chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+      posts.forEach((p) => (p.hidden = f !== 'sve' && p.dataset.category !== f));
+    }),
+  );
+</script>

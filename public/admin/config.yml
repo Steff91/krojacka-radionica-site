@@ -140,6 +140,25 @@ collections:
           - { name: a, label: Odgovor, widget: text }
       - { name: body, label: Dodatni tekst, widget: markdown, required: false }
 
+  - name: blog
+    label: Blog
+    folder: src/content/blog
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: [date, title]
+    summary: "{{date}} · {{title}}"
+    fields:
+      - { name: title, label: Naslov, widget: string }
+      - { name: description, label: Kratak opis (kartica i pretraživači), widget: text }
+      - { name: date, label: Datum objave, widget: datetime, time_format: false, format: YYYY-MM-DD, date_format: DD.MM.YYYY }
+      - { name: updated, label: Datum izmene, widget: datetime, time_format: false, format: YYYY-MM-DD, date_format: DD.MM.YYYY, required: false }
+      - { name: category, label: Kategorija, widget: string, default: Saveti }
+      - { name: image, label: Naslovna fotografija, widget: image, required: false }
+      - { name: imageAlt, label: Opis fotografije, widget: string, required: false }
+      - { name: author, label: Autor, widget: string, default: Slađana }
+      - { name: draft, label: Nacrt (ne objavljuj), widget: boolean, default: false }
+      - { name: body, label: Tekst, widget: markdown }
+
   - name: legal
     label: Pravne stranice
     folder: src/content/legal

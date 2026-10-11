@@ -1,0 +1,178 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Placeholder from '../../components/Placeholder.astro';
+import PostCard from '../../components/PostCard.astro';
+import Icon from '../../components/Icon.astro';
+import { getPosts, formatDate, readingTime, type Post } from '../../lib/blog';
+import info from '../../data/info.json';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post, posts } }));
+}
+
+const { post, posts } = Astro.props as { post: Post; posts: Post[] };
+const d = post.data;
+const { Content, headings } = await render(post);
+const toc = headings.filter((h) => h.depth === 2);
+
+// Related: same category first, then newest
+const others = posts.filter((p) => p.id !== post.id);
+const related = [...others.filter((p) => p.data.category === d.category), ...others.filter((p) => p.data.category !== d.category)].slice(0, 3);
+
+const url = new URL(Astro.url.pathname, Astro.site).toString();
+const share = [
+  { label: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}` },
+  { label: 'Pinterest', href: `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&description=${encodeURIComponent(d.title)}` },
+  { label: 'Viber', href: `viber://forward?text=${encodeURIComponent(`${d.title} ${url}`)}` },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: d.title,
+    description: d.description,
+    datePublished: d.date.toISOString(),
+    dateModified: (d.updated ?? d.date).toISOString(),
+    author: { '@type': 'Person', name: d.author },
+    publisher: { '@id': new URL('/#radionica', Astro.site).toString() },
+    mainEntityOfPage: url,
+    ...(d.image ? { image: new URL(d.image, Astro.site).toString() } : {}),
+  },
+];
+---
+
+<Base title={`${d.title} | Blog — Krojačka radionica`} description={d.description} schema={schema}>
+  <article>
+    <!-- Header -->
+    <header class="pt-12 pb-10 sm:pt-16">
+      <div class="container-site flex flex-col gap-6">
+        <Breadcrumbs items={[{ label: 'Blog', href: '/blog/' }, { label: d.title }]} />
+        <div class="flex max-w-[860px] flex-col gap-5">
+          <p class="m-0 flex flex-wrap items-center gap-x-3 text-[12px] font-medium uppercase tracking-[0.18em] text-muted" data-reveal>
+            <span class="text-red">{d.category}</span>
+            <span aria-hidden="true">·</span>
+            <time datetime={d.date.toISOString()}>{formatDate(d.date)}</time>
+            <span aria-hidden="true">·</span>
+            <span>{readingTime(post.body)} min čitanja</span>
+          </p>
+          <h1 class="h-display" data-reveal style="--i:1">{d.title}</h1>
+          <p class="lead text-[19px]" data-reveal style="--i:2">{d.description}</p>
+        </div>
+      </div>
+    </header>
+
+    {d.image && (
+      <div class="container-site" data-reveal style="--i:2">
+        <Placeholder label="Naslovna fotografija" src={d.image} alt={d.imageAlt} eager class="aspect-[16/9] shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)] sm:aspect-[21/9]" />
+      </div>
+    )}
+
+    <!-- Body -->
+    <div class="container-site grid grid-cols-[minmax(0,1fr)] gap-14 py-16 sm:py-20 lg:grid-cols-[220px_minmax(0,1fr)]">
+      <aside class="flex flex-col gap-8 lg:sticky lg:top-28 lg:self-start">
+        {toc.length > 1 && (
+          <nav aria-label="Sadržaj članka">
+            <p class="eyebrow">Sadržaj</p>
+            <ol class="m-0 flex list-none flex-col gap-2.5 p-0 text-[14px]">
+              {toc.map((h) => <li><a href={`#${h.slug}`} class="text-body no-underline hover:text-red">{h.text}</a></li>)}
+            </ol>
+          </nav>
+        )}
+        <div>
+          <p class="eyebrow">Podelite</p>
+          <div class="flex flex-wrap gap-2">
+            {share.map((s) => (
+              <a href={s.href} target="_blank" rel="noopener" class="inline-flex min-h-10 items-center rounded-full border border-line px-4 text-[12px] font-medium uppercase tracking-[0.1em] no-underline hover:border-ink hover:text-ink">{s.label}</a>
+            ))}
+            <button type="button" class="inline-flex min-h-10 cursor-pointer items-center rounded-full border border-line bg-transparent px-4 font-sans text-[12px] font-medium uppercase tracking-[0.1em] text-ink hover:border-ink" data-copy-link={url}>Kopiraj link</button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="prose-post max-w-[720px]">
+        <Content />
+
+        <!-- Author -->
+        <div class="not-prose mt-14 flex items-center gap-5 border-t border-line pt-8">
+          <img src="/logo.png" alt="" width="40" height="50" class="mix-blend-multiply" />
+          <div>
+            <p class="m-0 text-[12px] font-medium uppercase tracking-[0.18em] text-muted">Autor</p>
+            <p class="m-0 font-serif text-xl font-medium uppercase tracking-[0.04em]">{d.author} · {info.name}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- CTA -->
+  <section class="bg-ink py-14 text-on-dark sm:py-16">
+    <div class="container-site flex flex-wrap items-center justify-between gap-6">
+      <p class="m-0 max-w-[640px] font-serif text-[28px] leading-tight uppercase tracking-[0.03em] sm:text-[34px]">Imate ideju? <em class="font-normal text-gold">Pretvorimo je u komad po meri.</em></p>
+      <a href="/zakazite-konsultaciju/" class="btn btn-gold">Zakažite konsultaciju<Icon name="chevron-right" size={11} class="chev" /></a>
+    </div>
+  </section>
+
+  <!-- Related -->
+  {related.length > 0 && (
+    <section class="py-18 sm:py-28">
+      <div class="container-site flex flex-col gap-12">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <p class="eyebrow">Blog</p>
+            <h2 class="h-section">Pročitajte još</h2>
+          </div>
+          <a href="/blog/" class="link-arrow">Svi članci<Icon name="chevron-right" size={12} class="chev" /></a>
+        </div>
+        <div class="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+          {related.map((p) => <PostCard post={p} />)}
+        </div>
+      </div>
+    </section>
+  )}
+</Base>
+
+<style>
+  .prose-post { font-size: 18px; line-height: 1.8; color: var(--color-body); }
+  .prose-post :global(> p:first-child) { font-size: 21px; line-height: 1.7; color: var(--color-ink); }
+  .prose-post :global(p) { margin: 0 0 1.4rem; }
+  .prose-post :global(h2) {
+    margin: 3rem 0 1.1rem; font-size: 30px; line-height: 1.2; letter-spacing: .03em; text-transform: uppercase;
+    color: var(--color-ink); scroll-margin-top: 110px;
+  }
+  .prose-post :global(h3) {
+    margin: 2.25rem 0 .8rem; font-size: 22px; letter-spacing: .04em; text-transform: uppercase; color: var(--color-ink);
+  }
+  .prose-post :global(a) { color: var(--color-red); text-decoration: underline; }
+  .prose-post :global(a:hover) { color: var(--color-ink); }
+  .prose-post :global(strong) { color: var(--color-ink); font-weight: 500; }
+  .prose-post :global(ul), .prose-post :global(ol) { margin: 0 0 1.5rem; padding-left: 1.3rem; }
+  .prose-post :global(ul) { list-style: disc; }
+  .prose-post :global(ol) { list-style: decimal; }
+  .prose-post :global(li) { margin-bottom: .5rem; }
+  .prose-post :global(li::marker) { color: var(--color-red); }
+  .prose-post :global(blockquote) {
+    margin: 2.5rem 0; padding: .25rem 0 .25rem 1.75rem; border-left: 2px solid var(--color-gold);
+    font-family: var(--font-serif); font-size: 26px; line-height: 1.4; font-style: italic; color: var(--color-ink);
+  }
+  .prose-post :global(blockquote p) { margin: 0; }
+  .prose-post :global(p img) { display: block; width: 100%; height: auto; margin: 2.5rem 0 .75rem; }
+  .prose-post :global(hr) { margin: 3rem 0; border: 0; border-top: 1px solid var(--color-line); }
+  .prose-post :global(.not-prose) { font-size: 16px; }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy-link]').forEach((btn) =>
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.copyLink ?? location.href);
+        const old = btn.textContent;
+        btn.textContent = 'Link kopiran';
+        setTimeout(() => (btn.textContent = old), 2000);
+      } catch { /* clipboard unavailable */ }
+    }),
+  );
+</script>
