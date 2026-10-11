@@ -1,5 +1,6 @@
 ---
 import info from '../../data/info.json';
+import Icon from '../Icon.astro';
 
 interface Props {
   /** Service name sent with the form, so inquiries say where they came from */
@@ -18,7 +19,19 @@ const input = 'min-h-12 border-0 border-b border-muted bg-transparent font-sans 
       <p class="eyebrow !mb-0" data-reveal>Kontakt</p>
       <h2 class="h-section" data-reveal style="--i:1">Imate ideju? <em class="font-normal text-red">Javite nam se.</em></h2>
       <a href={`tel:${info.phoneHref}`} class="inline-flex min-h-11 items-center font-serif text-[32px] no-underline" data-reveal style="--i:2">{info.phone}</a>
-      <p class="lead" data-reveal style="--i:3">{info.address}<br />Radno vreme: {info.hours}</p>
+      <div class="mt-2 grid gap-8 sm:grid-cols-2" data-reveal style="--i:3">
+        <div class="flex flex-col gap-2">
+          <p class="m-0 text-xs font-medium uppercase tracking-[0.22em] text-muted">Adresa</p>
+          <p class="lead">{info.address}<br />{info.addressNote}, {info.city}</p>
+          <a href={info.mapsLink} target="_blank" rel="noopener" class="link-arrow self-start !min-h-0 !text-[13px]">Otvorite mapu<Icon name="chevron-right" size={10} class="chev" /></a>
+        </div>
+        <div class="flex flex-col gap-2">
+          <p class="m-0 text-xs font-medium uppercase tracking-[0.22em] text-muted">Radno vreme</p>
+          <dl class="lead m-0 grid grid-cols-[auto_1fr] gap-x-5 gap-y-0.5">
+            {info.hours.map((h) => <><dt>{h.day}</dt><dd class="m-0 text-ink">{h.time}</dd></>)}
+          </dl>
+        </div>
+      </div>
     </div>
 
     <form method="POST" action={info.formAction || undefined} class="flex flex-col gap-5" data-reveal style="--i:1">

@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+import info from '../data/info.json';
+
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+
+// YouTube: icon is shown already; set info.json → youtube once the channel exists.
+const links = [
+  { name: 'instagram', label: 'Instagram', href: info.instagram },
+  { name: 'pinterest', label: 'Pinterest', href: info.pinterest },
+  { name: 'youtube', label: 'YouTube', href: info.youtube || '#' },
+] as const;
+---
+
+<ul class:list={['m-0 flex list-none gap-2 p-0', className]}>
+  {links.map((l) => (
+    <li>
+      <a
+        href={l.href}
+        aria-label={l.label}
+        rel="noopener"
+        target={l.href.startsWith('http') ? '_blank' : undefined}
+        class="inline-flex h-11 w-11 items-center justify-center rounded border border-line-dark text-on-dark no-underline transition-colors duration-300 hover:border-gold hover:text-gold"
+      >
+        <Icon name={l.name} size={17} />
+      </a>
+    </li>
+  ))}
+</ul>

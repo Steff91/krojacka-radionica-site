@@ -21,14 +21,22 @@ collections:
           - { name: name, label: Naziv, widget: string }
           - { name: tagline, label: Slogan, widget: string }
           - { name: address, label: Adresa, widget: string }
+          - { name: addressNote, label: Dodatak adresi (npr. TC Kula), widget: string, required: false }
           - { name: city, label: Grad, widget: string }
           - { name: mapsLink, label: Link ka Google mapama, widget: string, required: false }
           - { name: phone, label: Telefon (prikaz), widget: string }
           - { name: phoneHref, label: Telefon (link, +381...), widget: string }
           - { name: email, label: Email, widget: string }
-          - { name: hours, label: Radno vreme, widget: string }
+          - name: hours
+            label: Radno vreme
+            widget: list
+            fields:
+              - { name: day, label: Dani, widget: string }
+              - { name: time, label: Vreme, widget: string }
           - { name: instagram, label: Instagram URL, widget: string }
           - { name: instagramHandle, label: Instagram nalog (@...), widget: string }
+          - { name: pinterest, label: Pinterest URL, widget: string, required: false }
+          - { name: youtube, label: YouTube URL, widget: string, required: false }
           - { name: googleReviews, label: Google profil (link za utiske), widget: string, required: false }
           - { name: googleWriteReview, label: Google link za ostavljanje utiska, widget: string, required: false }
           - { name: googleRating, label: Google ocena (npr. 5.0), widget: string, required: false }

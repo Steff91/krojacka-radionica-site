@@ -31,11 +31,17 @@ const business = {
   image: new URL('/logo.png', Astro.site).toString(),
   address: {
     '@type': 'PostalAddress',
-    streetAddress: info.address,
+    streetAddress: `${info.address}, ${info.addressNote}`,
     addressLocality: info.city,
     addressCountry: 'RS',
   },
-  sameAs: [info.instagram].filter((u) => u.startsWith('http')),
+  hasMap: info.mapsLink,
+  // Keep in sync with info.json → hours
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '17:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '08:00', closes: '12:00' },
+  ],
+  sameAs: [info.instagram, info.pinterest, info.youtube, info.googleReviews].filter((u) => u.startsWith('http')),
 };
 ---
 
