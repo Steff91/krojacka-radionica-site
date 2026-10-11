@@ -5,15 +5,17 @@ import Icon from '../Icon.astro';
 interface Props {
   /** Service name sent with the form, so inquiries say where they came from */
   service?: string;
+  /** Background: sand (default) or ivory, for pages where sand clashes with the section above */
+  tone?: 'sand' | 'ivory';
 }
-const { service = 'Opšti upit' } = Astro.props;
+const { service = 'Opšti upit', tone = 'sand' } = Astro.props;
 
 // Static site: the form posts to an external handler (e.g. Formspree) set in info.json → formAction.
 const field = 'flex flex-col gap-2 text-[13px] uppercase tracking-[0.12em] text-body';
 const input = 'min-h-12 border-0 border-b border-muted bg-transparent font-sans text-[17px] font-light normal-case tracking-normal text-ink focus:border-red focus:outline-none';
 ---
 
-<section id="kontakt" class="bg-sand py-18 sm:py-30">
+<section id="kontakt" class:list={['py-18 sm:py-30', tone === 'ivory' ? 'bg-ivory' : 'bg-sand']}>
   <div class="container-site grid gap-16 lg:grid-cols-2">
     <div class="flex flex-col gap-5">
       <p class="eyebrow !mb-0" data-reveal>Kontakt</p>
