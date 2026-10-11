@@ -1,12 +1,11 @@
 {
   "items": [
     { "src": "/uploads/hero-vencanica.webp", "alt": "Venčanica sa čipkanim korsetom i volanima od organdina na ramenima" },
-    { "src": "/uploads/hero-detalj.webp", "alt": "Ručno ušivanje čipke na tilu" },
-    { "alt": "[Svečana haljina]" },
-    { "alt": "[Pozorišni kostim]" },
-    { "alt": "[Muško odelo]" },
-    { "alt": "[Cosplay kostim]" },
-    { "alt": "[Uniforma]" },
-    { "alt": "[Detalj: vez, dugmad, postava]" }
+    { "src": "/uploads/radovi-vencano-odelo.webp", "alt": "Venčano žensko odelo: beli sako sa razrezima na rukavima i pantalone širokih nogavica", "position": "50% 18%" },
+    { "src": "/uploads/radovi-korset-sljokice.webp", "alt": "Korset sa šljokicama krojen iz geometrijskih polja" },
+    { "src": "/uploads/radovi-dublet.webp", "alt": "Prošiveni dublet u petrolej boji sa mesinganim kopčama, istorijski kostim" },
+    { "src": "/uploads/radovi-korset-talasi.webp", "alt": "Teget korset sa talasastim vezom od šljokica" },
+    { "src": "/uploads/radovi-kostim-stvorenje.webp", "alt": "Kostim fantastičnog stvorenja izrađen za scenski nastup", "position": "50% 30%" },
+    { "src": "/uploads/hero-detalj.webp", "alt": "Ručno ušivanje čipke na tilu" }
   ]
 }

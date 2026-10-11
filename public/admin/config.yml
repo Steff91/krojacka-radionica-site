@@ -56,6 +56,7 @@ collections:
             fields:
               - { name: src, label: Fotografija, widget: image, required: false }
               - { name: alt, label: Opis fotografije, widget: string }
+              - { name: position, label: "Fokus kadra (npr. 50% 20%)", widget: string, required: false }
 
       - name: testimonials
         label: Utisci klijenata

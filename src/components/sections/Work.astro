@@ -5,7 +5,7 @@ import Icon from '../Icon.astro';
 import info from '../../data/info.json';
 import work from '../../data/work.json';
 
-type Item = { src?: string; alt: string };
+type Item = { src?: string; alt: string; position?: string };
 const items: Item[] = work.items;
 const tones = ['sand', 'sand-dark'] as const;
 ---
@@ -39,7 +39,7 @@ const tones = ['sand', 'sand-dark'] as const;
               data-lightbox-open={i}
               aria-label={`Uvećaj fotografiju: ${item.alt.replace(/[[\]]/g, '')}`}
             >
-              <Placeholder label={item.alt.replace(/[[\]]/g, '')} src={item.src} alt={item.alt} tone={tones[i % 2]} class="aspect-[4/5]" />
+              <Placeholder label={item.alt.replace(/[[\]]/g, '')} src={item.src} alt={item.alt} position={item.position} tone={tones[i % 2]} class="aspect-[4/5]" />
             </button>
           </li>
         ))}
