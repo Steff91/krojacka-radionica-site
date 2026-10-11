@@ -1,0 +1,36 @@
+---
+// Visible breadcrumb trail + BreadcrumbList JSON-LD. The last item is the current page (no link).
+interface Crumb { label: string; href?: string }
+interface Props {
+  items: Crumb[];
+  dark?: boolean;
+}
+const { items, dark = false } = Astro.props;
+const trail: Crumb[] = [{ label: 'Početna', href: '/' }, ...items];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: trail.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.label,
+    item: new URL(c.href ?? Astro.url.pathname, Astro.site).toString(),
+  })),
+};
+const muted = dark ? 'text-on-dark-muted' : 'text-muted';
+---
+
+<nav aria-label="Putanja" class:list={['text-[13px]', muted]}>
+  <ol class="m-0 flex list-none flex-wrap items-center gap-x-2 gap-y-1 p-0">
+    {trail.map((c, i) => (
+      <li class="flex items-center gap-2">
+        {i > 0 && <span aria-hidden="true">/</span>}
+        {c.href && i < trail.length - 1
+          ? <a href={c.href} class:list={[muted, dark ? 'hover:text-gold' : 'hover:text-red']}>{c.label}</a>
+          : <span aria-current="page" class={dark ? 'text-on-dark' : 'text-ink'}>{c.label}</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

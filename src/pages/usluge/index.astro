@@ -1,0 +1,26 @@
+---
+// Services overview: target of the "Usluge" breadcrumb, and a hub page for SEO.
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Services from '../../components/sections/Services.astro';
+import Brand from '../../components/sections/Brand.astro';
+import Process from '../../components/sections/Process.astro';
+import Contact from '../../components/sections/Contact.astro';
+---
+
+<Base
+  title="Usluge | Šivenje po meri — Krojačka radionica Beograd"
+  description="Muška odeća, svečane haljine, venčanice, pozorišni i cosplay kostimi, uniforme i razvijanje modnog brenda. Sve šiveno po meri u krojačkoj radionici u Beogradu."
+>
+  <section class="pt-12 pb-4 sm:pt-16">
+    <div class="container-site flex flex-col gap-5">
+      <Breadcrumbs items={[{ label: 'Usluge' }]} />
+      <h1 class="h-display" data-reveal>Usluge</h1>
+      <p class="lead max-w-[560px] text-[19px]" data-reveal style="--i:1">Od svečanih haljina i venčanica do cosplay kostima — krojimo sve što zamislite, tačno po vašoj meri.</p>
+    </div>
+  </section>
+  <Services heading={false} />
+  <Brand />
+  <Process />
+  <Contact service="Usluge" />
+</Base>

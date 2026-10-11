@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('legal');
@@ -13,9 +14,7 @@ const { Content } = await render(page);
 
 <Base title={`${page.data.title} | Krojačka radionica`} description={page.data.description}>
   <section class="container-site pt-16 pb-12">
-    <p class="mb-7 text-[13px] text-muted">
-      <a href="/" class="text-muted">Početna</a> / {page.data.title}
-    </p>
+    <div class="mb-7"><Breadcrumbs items={[{ label: page.data.title }]} /></div>
     <h1 class="h-section">{page.data.title}</h1>
     <p class="mt-4 mb-0 text-[13px] text-muted">Poslednja izmena: {page.data.updated}</p>
   </section>

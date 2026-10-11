@@ -6,6 +6,7 @@ import SectionHeading from '../../components/SectionHeading.astro';
 import GallerySlider from '../../components/GallerySlider.astro';
 import Process from '../../components/sections/Process.astro';
 import Contact from '../../components/sections/Contact.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -43,9 +44,7 @@ const schema = [
   <section class:list={['overflow-x-clip py-16 sm:py-24', featured && 'bg-ink text-on-dark']}>
     <div class="container-site grid items-center gap-16 lg:grid-cols-[1.05fr_1fr]">
       <div class="flex flex-col gap-6">
-        <p class:list={['m-0 text-[13px]', featured ? 'text-on-dark-muted' : 'text-muted']}>
-          <a href="/" class:list={[featured ? 'text-on-dark-muted hover:text-gold' : 'text-muted']}>Početna</a> / {d.title}
-        </p>
+        <Breadcrumbs items={[{ label: 'Usluge', href: '/usluge/' }, { label: d.title }]} dark={featured} />
         <p class:list={['eyebrow !mb-0', featured && '!text-gold']} data-reveal>{featured ? 'Za dizajnere i brendove' : 'Usluge'}</p>
         <h1 class="h-display" data-reveal style="--i:1">
           {d.heroTitle}{d.heroTitleEm && <> <em class:list={['font-normal', featured ? 'text-gold' : 'text-red']}>{d.heroTitleEm}</em></>}

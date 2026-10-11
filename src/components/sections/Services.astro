@@ -4,18 +4,24 @@ import SectionHeading from '../SectionHeading.astro';
 import Placeholder from '../Placeholder.astro';
 import Icon from '../Icon.astro';
 
+interface Props {
+  /** Hide the section heading (e.g. on /usluge/, where the page H1 already introduces it) */
+  heading?: boolean;
+}
+const { heading = true } = Astro.props;
+
 const services = (await getCollection('services'))
   .filter((s) => s.data.variant === 'default')
   .sort((a, b) => a.data.order - b.data.order);
 ---
 
-<section id="usluge" class="border-t border-line py-18 sm:py-28">
+<section id="usluge" class:list={['py-18 sm:py-28', heading && 'border-t border-line']}>
   <div class="container-site flex flex-col gap-14">
-    <SectionHeading
+    {heading && <SectionHeading
       eyebrow="Šta radimo"
       title="Krojeno za vas, od prvog do poslednjeg šava"
       text="Šijemo mušku odeću, svečane haljine, venčanice, pozorišne i cosplay kostime i uniforme. Svaki komad nastaje ručno, po vašim merama i vašoj zamisli."
-    />
+    />}
     <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-x-8 gap-y-12">
       {services.map((s, i) => (
         <a href={`/usluge/${s.id}/`} class="service-card group flex flex-col gap-4 no-underline hover:text-ink" data-reveal style={`--i:${i % 3}`}>

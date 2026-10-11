@@ -5,6 +5,7 @@ import Placeholder from '../components/Placeholder.astro';
 import GallerySlider from '../components/GallerySlider.astro';
 import Testimonials from '../components/sections/Testimonials.astro';
 import Contact from '../components/sections/Contact.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import about from '../data/about.json';
 
 const { hero, story, founder, film, approach, workshop } = about;
@@ -16,7 +17,7 @@ const shadow = 'shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)]';
   <section class="overflow-x-clip pt-12 pb-18 sm:pt-16 sm:pb-24">
     <div class="container-site flex flex-col gap-12">
       <div class="flex flex-col gap-5">
-        <p class="m-0 text-[13px] text-muted"><a href="/" class="text-muted">Početna</a> / {hero.title}</p>
+        <Breadcrumbs items={[{ label: hero.title }]} />
         <h1 class="h-display" data-reveal>{hero.title}</h1>
         <p class="lead max-w-[560px] text-[19px]" data-reveal style="--i:1">{hero.subtitle}</p>
       </div>
