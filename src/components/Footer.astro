@@ -12,8 +12,7 @@ const featured = all.find((s) => s.data.variant === 'featured');
 const heading = 'mb-2 text-xs font-medium uppercase tracking-[0.22em] text-gold';
 const link = 'text-on-dark no-underline hover:text-gold';
 const year = new Date().getFullYear();
-const noContactSection = ['/privatnost/', '/kolacici/', '/impresum/'];
-const ctaHref = noContactSection.includes(Astro.url.pathname) ? '/kontakt/#kontakt' : '#kontakt';
+const ctaHref = '/zakazite-konsultaciju/';
 ---
 
 <footer class="border-t border-line-dark bg-ink text-[15px] text-on-dark-muted">

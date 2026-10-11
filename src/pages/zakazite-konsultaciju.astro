@@ -1,0 +1,154 @@
+---
+// Booking request form. Preselect a service with ?usluga=<service-id> (all CTAs on service pages do this).
+// Static site: posts to the same external form handler as the contact form (info.json → formAction).
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Icon from '../components/Icon.astro';
+import info from '../data/info.json';
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+
+const field = 'flex flex-col gap-2 text-[13px] uppercase tracking-[0.12em] text-body';
+const input = 'min-h-12 w-full border-0 border-b border-muted bg-transparent font-sans text-[17px] font-light normal-case tracking-normal text-ink focus:border-red focus:outline-none';
+const steps = [
+  { title: 'Razgovor o ideji', text: 'Pričamo o prilici, stilu i tome kako zamišljate komad. Donesite skicu, fotografiju ili inspiraciju sa interneta.' },
+  { title: 'Predlog i dogovor', text: 'Predlažemo kroj i materijal, okvirni rok i cenu — vi odlučujete.' },
+  { title: 'Merenje', text: 'Kada se dogovorimo, uzimamo precizne mere i krećemo u izradu.' },
+];
+---
+
+<Base
+  title="Zakažite konsultaciju | Krojačka radionica Beograd"
+  description="Zakažite konsultaciju u krojačkoj radionici u Beogradu, TC Kula: venčanice, svečane haljine, muška odeća, kostimi, uniforme i razvijanje modnog brenda."
+>
+  <section class="pt-12 pb-10 sm:pt-16">
+    <div class="container-site flex flex-col gap-5">
+      <Breadcrumbs items={[{ label: 'Zakažite konsultaciju' }]} />
+      <h1 class="h-display" data-reveal>Zakažite <em class="font-normal text-red">konsultaciju</em></h1>
+      <p class="lead max-w-[620px] text-[19px]" data-reveal style="--i:1">
+        Pošaljite nam nekoliko podataka i željeni termin — javićemo vam se da ga potvrdimo. Konsultacija je prvi korak do komada koji nastaje samo za vas.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-18 sm:pb-28">
+    <div class="container-site grid items-start gap-14 lg:grid-cols-[1.25fr_0.75fr]">
+      <!-- Form -->
+      <form id="kontakt" method="POST" action={info.formAction || undefined} class="grid gap-x-8 gap-y-7 sm:grid-cols-2" data-booking-form>
+        <input type="hidden" name="_tema" value="Zakazivanje konsultacije" />
+
+        <label class:list={[field, 'sm:col-span-2']}>Usluga *
+          <select name="usluga" required class:list={[input, 'cursor-pointer']} data-service-select>
+            <option value="" disabled selected>Izaberite uslugu</option>
+            {services.map((s) => <option value={s.data.title} data-id={s.id}>{s.data.title}</option>)}
+            <option value="Nešto drugo">Nešto drugo</option>
+          </select>
+        </label>
+
+        <label class={field}>Ime i prezime *
+          <input type="text" name="ime" autocomplete="name" required class={input} />
+        </label>
+        <label class={field}>Telefon *
+          <input type="tel" name="telefon" autocomplete="tel" required class={input} />
+        </label>
+        <label class:list={[field, 'sm:col-span-2']}>Email
+          <input type="email" name="email" autocomplete="email" class={input} />
+        </label>
+
+        <label class={field}>Željeni datum
+          <input type="date" name="datum" class={input} data-min-today />
+        </label>
+        <label class={field}>Deo dana
+          <select name="deo_dana" class:list={[input, 'cursor-pointer']}>
+            <option>Svejedno</option>
+            <option>Pre podne</option>
+            <option>Posle podne</option>
+            <option>Subota (8–12h)</option>
+          </select>
+        </label>
+
+        <label class:list={[field, 'sm:col-span-2']}>Do kada vam treba gotov komad?
+          <input type="text" name="rok" placeholder="npr. venčanje 14. juna, matura u maju" class:list={[input, 'placeholder:text-muted/70']} />
+        </label>
+
+        <fieldset class="m-0 flex flex-col gap-3 border-0 p-0 sm:col-span-2">
+          <legend class="mb-3 text-[13px] uppercase tracking-[0.12em] text-body">Kako da vas kontaktiramo?</legend>
+          <div class="flex flex-wrap gap-2">
+            {['Telefonom', 'Viber / WhatsApp', 'Email'].map((o, i) => (
+              <label class="choice">
+                <input type="radio" name="kontakt_preko" value={o} checked={i === 0} class="sr-only" />
+                <span>{o}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <label class:list={[field, 'sm:col-span-2']}>Ukratko o vašoj ideji
+          <textarea name="poruka" rows="4" class:list={[input, 'resize-y pt-3']}></textarea>
+        </label>
+        <label class:list={[field, 'sm:col-span-2']}>Link do inspiracije (Pinterest, Instagram…)
+          <input type="url" name="inspiracija" placeholder="https://" class:list={[input, 'placeholder:text-muted/70']} />
+        </label>
+
+        <div class="sm:col-span-2">
+          <button type="submit" class="btn btn-red">Pošaljite zahtev<Icon name="chevron-right" size={11} class="chev" /></button>
+          <p class="m-0 mt-3 text-[13px] text-muted">Termin potvrđujemo telefonom ili porukom. Slanjem forme prihvatate obradu podataka u skladu sa <a href="/privatnost/">Politikom privatnosti</a>.</p>
+        </div>
+      </form>
+
+      <!-- Aside -->
+      <aside class="flex flex-col gap-8 bg-sand p-8 sm:p-10 lg:sticky lg:top-28">
+        <div>
+          <p class="eyebrow">Kako izgleda konsultacija</p>
+          <ol class="m-0 flex list-none flex-col gap-5 p-0">
+            {steps.map((s, i) => (
+              <li class="grid grid-cols-[36px_1fr] gap-3">
+                <span class="font-serif text-[28px] leading-none text-red italic">{String(i + 1).padStart(2, '0')}</span>
+                <span class="flex flex-col gap-1">
+                  <span class="font-serif text-lg font-medium uppercase tracking-[0.04em]">{s.title}</span>
+                  <span class="text-[15px] text-body">{s.text}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <div class="border-t border-line pt-7">
+          <p class="eyebrow">Radije pozovite?</p>
+          <a href={`tel:${info.phoneHref}`} class="font-serif text-[28px] no-underline">{info.phone}</a>
+          <dl class="m-0 mt-3 grid grid-cols-[auto_1fr] gap-x-5 gap-y-0.5 text-[15px] text-body">
+            {info.hours.map((h) => <><dt>{h.day}</dt><dd class="m-0 text-ink">{h.time}</dd></>)}
+          </dl>
+          <p class="mt-4 mb-0 text-[15px] text-body">{info.address}, {info.addressNote}</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .choice span {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; cursor: pointer;
+    border: 1px solid var(--color-line); border-radius: 999px;
+    font: 500 13px/1 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; color: var(--color-ink);
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+  }
+  .choice span:hover { border-color: var(--color-ink); }
+  .choice input:checked + span { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-on-dark); }
+  .choice input:focus-visible + span { outline: 2px solid var(--color-red); outline-offset: 2px; }
+  select:invalid { color: var(--color-muted); }
+  @media (prefers-reduced-motion: reduce) { .choice span { transition: none; } }
+</style>
+
+<script>
+  // Preselect the service from ?usluga=<id>
+  const id = new URLSearchParams(location.search).get('usluga');
+  const select = document.querySelector<HTMLSelectElement>('[data-service-select]');
+  const option = id ? select?.querySelector<HTMLOptionElement>(`option[data-id="${CSS.escape(id)}"]`) : null;
+  if (select && option) select.value = option.value;
+
+  // No past dates
+  const today = new Date();
+  const iso = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  document.querySelectorAll<HTMLInputElement>('[data-min-today]').forEach((el) => (el.min = iso));
+</script>

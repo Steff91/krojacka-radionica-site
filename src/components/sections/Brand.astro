@@ -18,7 +18,7 @@ const brand = (await getCollection('services')).find((s) => s.data.variant === '
         dark
       >
         <div class="mt-8" data-reveal style="--i:3">
-          <a href={`/usluge/${brand.id}/#kontakt`} class="btn btn-gold">Zakažite konsultaciju</a>
+          <a href={`/zakazite-konsultaciju/?usluga=${brand.id}`} class="btn btn-gold">Zakažite konsultaciju</a>
         </div>
       </SectionHeading>
     </div>

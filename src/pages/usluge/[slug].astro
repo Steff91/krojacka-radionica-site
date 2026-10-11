@@ -54,7 +54,7 @@ const schema = [
         </h1>
         <p class:list={['lead max-w-[520px] text-[19px]', featured && '!text-[#D9D0C5]']} data-reveal style="--i:2">{d.intro}</p>
         <div data-reveal style="--i:3">
-          <a href="#kontakt" class:list={['btn', featured ? 'btn-gold' : 'btn-dark']}>Zakažite konsultaciju</a>
+          <a href={`/zakazite-konsultaciju/?usluga=${service.id}`} class:list={['btn', featured ? 'btn-gold' : 'btn-dark']}>Zakažite konsultaciju</a>
         </div>
       </div>
       <div class="relative" data-reveal style="--i:2">

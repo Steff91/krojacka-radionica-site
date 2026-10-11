@@ -15,9 +15,7 @@ const linksAfter = [
   { href: '/kontakt/', label: 'Kontakt' },
 ];
 const isActive = (href: string) => !href.includes('#') && path.startsWith(href);
-// "Zakažite konsultaciju" jumps to the contact form on the same page; pages without one go to /kontakt/
-const noContactSection = ['/privatnost/', '/kolacici/', '/impresum/'];
-const ctaHref = noContactSection.includes(path) ? '/kontakt/#kontakt' : '#kontakt';
+const ctaHref = '/zakazite-konsultaciju/';
 const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
 ---
 
