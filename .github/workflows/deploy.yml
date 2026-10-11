@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HAS_SSH: ${{ secrets.SSH_HOST != '' }}
+      # Repository variables (Settings → Secrets and variables → Actions → Variables)
+      SITE_URL: ${{ vars.SITE_URL }}
+      PUBLIC_NOINDEX: ${{ vars.NOINDEX }}
     steps:
       - uses: actions/checkout@v4
 
