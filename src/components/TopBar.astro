@@ -1,0 +1,45 @@
+---
+import Icon from './Icon.astro';
+import info from '../data/info.json';
+
+// Email icon falls back to the contact page until a real address is set in info.json
+const mail = info.email.includes('@') ? `mailto:${info.email}` : '/kontakt/';
+const hoursShort = info.hours.filter((h) => !/zatvoreno/i.test(h.time)).map((h) => `${h.day} ${h.time}`).join(' · ');
+
+const links = [
+  { icon: 'instagram', label: 'Instagram', href: info.instagram, external: true },
+  { icon: 'pinterest', label: 'Pinterest', href: info.pinterest, external: true },
+  { icon: 'youtube', label: 'YouTube', href: info.youtube || '#', external: Boolean(info.youtube) },
+] as const;
+const icon = 'inline-flex h-9 w-9 items-center justify-center text-on-dark-muted no-underline transition-colors duration-300 hover:text-gold';
+---
+
+<div class="bg-ink text-[13px] text-on-dark-muted">
+  <div class="container-site flex min-h-10 items-center justify-between gap-4">
+    <p class="m-0 flex items-center gap-2.5">
+      <Icon name="clock" size={13} class="text-gold" />
+      <span class="hidden sm:inline">Radno vreme:</span>
+      <span>{hoursShort}</span>
+    </p>
+    <ul class="m-0 flex list-none items-center p-0">
+      {links.map((l) => (
+        <li class="hidden sm:block">
+          <a href={l.href} class={icon} aria-label={l.label} title={l.label} target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener' : undefined}>
+            <Icon name={l.icon} size={14} />
+          </a>
+        </li>
+      ))}
+      <li class="mx-2 hidden h-4 w-px bg-line-dark sm:block" aria-hidden="true"></li>
+      <li>
+        <a href={`tel:${info.phoneHref}`} class={icon} aria-label={`Pozovite ${info.phone}`} title={info.phone}>
+          <Icon name="phone" size={13} />
+        </a>
+      </li>
+      <li>
+        <a href={mail} class={icon} aria-label="Pošaljite email" title={info.email.includes('@') ? info.email : 'Pošaljite poruku'}>
+          <Icon name="envelope" size={14} />
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

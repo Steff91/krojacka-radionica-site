@@ -12,7 +12,6 @@ const servicesActive = path.startsWith('/usluge');
 const linksAfter = [
   { href: '/o-nama/', label: 'O nama' },
   { href: '/radovi/', label: 'Radovi' },
-  { href: '/blog/', label: 'Blog' },
   { href: '/kontakt/', label: 'Kontakt' },
 ];
 const isActive = (href: string) => !href.includes('#') && path.startsWith(href);
@@ -24,7 +23,7 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
   <div class="header-inner container-site flex items-center justify-between gap-6 py-4">
     <Logo />
 
-    <nav aria-label="Glavna navigacija" class="hidden items-center gap-8 whitespace-nowrap font-serif text-[18px] font-semibold uppercase tracking-[0.08em] xl:flex">
+    <nav aria-label="Glavna navigacija" class="hidden items-center gap-6 whitespace-nowrap font-serif xl:gap-8 text-[18px] font-semibold uppercase tracking-[0.08em] min-[72rem]:flex">
       <button
         type="button"
         id="mega-trigger"
@@ -43,11 +42,11 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
       ))}
     </nav>
 
-    <a href={ctaHref} class="btn btn-red btn-sm hidden whitespace-nowrap xl:inline-flex">Zakažite konsultaciju</a>
+    <a href={ctaHref} class="btn btn-red btn-sm hidden whitespace-nowrap min-[72rem]:inline-flex">Zakažite konsultaciju</a>
 
     <button
       type="button"
-      class="menu-toggle inline-flex h-11 w-11 cursor-pointer items-center justify-center border-0 bg-transparent text-ink xl:hidden"
+      class="menu-toggle inline-flex h-11 w-11 cursor-pointer items-center justify-center border-0 bg-transparent text-ink min-[72rem]:hidden"
       aria-controls="mobile-nav"
       aria-expanded="false"
       aria-label="Otvori meni"
@@ -57,7 +56,7 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
   </div>
 
   <!-- Desktop mega menu -->
-  <div id="mega-menu" class="mega absolute inset-x-0 top-full hidden border-b border-line bg-ivory shadow-[0_30px_60px_-30px_rgba(45,41,38,0.35)] xl:block" data-open="false">
+  <div id="mega-menu" class="mega absolute inset-x-0 top-full hidden border-b border-line bg-ivory shadow-[0_30px_60px_-30px_rgba(45,41,38,0.35)] min-[72rem]:block" data-open="false">
     <div class="container-site grid grid-cols-[1fr_320px] gap-10 py-10">
       <div>
         <p class="eyebrow">Šta radimo</p>
@@ -99,7 +98,7 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
   </div>
 
   <!-- Mobile menu -->
-  <nav id="mobile-nav" aria-label="Mobilna navigacija" class="mobile-nav max-h-[calc(100dvh-80px)] overflow-y-auto border-t border-line xl:hidden" hidden>
+  <nav id="mobile-nav" aria-label="Mobilna navigacija" class="mobile-nav max-h-[calc(100dvh-80px)] overflow-y-auto border-t border-line min-[72rem]:hidden" hidden>
     <div class="container-site flex flex-col py-4 font-serif text-[18px] font-semibold uppercase tracking-[0.08em]">
       <button
         type="button"
@@ -258,7 +257,7 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
     if (mega?.dataset.open === 'true') { setMega(false); trigger?.focus(); }
     setMobile(false);
   });
-  window.matchMedia('(min-width: 80rem)').addEventListener('change', (e) => {
+  window.matchMedia('(min-width: 72rem)').addEventListener('change', (e) => {
     if (e.matches) setMobile(false);
     else setMega(false);
   });
