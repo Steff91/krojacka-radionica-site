@@ -22,12 +22,12 @@ const mobileLink = 'border-b border-line py-3.5 font-normal no-underline';
   <div class="header-inner container-site flex items-center justify-between gap-6 py-4">
     <Logo />
 
-    <nav aria-label="Glavna navigacija" class="hidden items-center gap-9 text-sm uppercase tracking-[0.12em] lg:flex">
+    <nav aria-label="Glavna navigacija" class="hidden items-center gap-9 font-serif text-[18px] font-medium uppercase tracking-[0.08em] lg:flex">
       <button
         type="button"
         id="mega-trigger"
         class:list={[
-          'nav-link inline-flex cursor-pointer items-center gap-2 border-0 bg-transparent p-0 font-sans text-sm font-normal uppercase tracking-[0.12em]',
+          'nav-link inline-flex cursor-pointer items-center gap-2 border-0 bg-transparent p-0 font-serif text-[18px] font-medium uppercase tracking-[0.08em]',
           servicesActive ? 'text-red' : 'text-ink',
         ]}
         aria-expanded="false"
@@ -41,7 +41,7 @@ const mobileLink = 'border-b border-line py-3.5 font-normal no-underline';
       ))}
     </nav>
 
-    <a href="/#kontakt" class="btn btn-dark btn-sm hidden lg:inline-flex">Zakažite konsultaciju</a>
+    <a href="/#kontakt" class="btn btn-red btn-sm hidden lg:inline-flex">Zakažite konsultaciju</a>
 
     <button
       type="button"
@@ -98,12 +98,12 @@ const mobileLink = 'border-b border-line py-3.5 font-normal no-underline';
 
   <!-- Mobile menu -->
   <nav id="mobile-nav" aria-label="Mobilna navigacija" class="mobile-nav max-h-[calc(100dvh-80px)] overflow-y-auto border-t border-line lg:hidden" hidden>
-    <div class="container-site flex flex-col py-4 text-sm uppercase tracking-[0.12em]">
+    <div class="container-site flex flex-col py-4 font-serif text-[18px] font-medium uppercase tracking-[0.08em]">
       <button
         type="button"
         id="mobile-services-toggle"
         class:list={[
-          'flex w-full cursor-pointer items-center justify-between border-0 border-b border-solid border-line bg-transparent px-0 py-3.5 text-left font-sans text-sm font-normal uppercase tracking-[0.12em]',
+          'flex w-full cursor-pointer items-center justify-between border-0 border-b border-solid border-line bg-transparent px-0 py-3.5 text-left font-serif text-[18px] font-medium uppercase tracking-[0.08em]',
           servicesActive ? 'text-red' : 'text-ink',
         ]}
         aria-expanded="false"
@@ -114,11 +114,11 @@ const mobileLink = 'border-b border-line py-3.5 font-normal no-underline';
       </button>
       <div id="mobile-services" class="flex flex-col border-b border-line py-2 pl-4" hidden>
         {all.map((s) => (
-          <a href={`/usluge/${s.id}/`} class:list={['py-2.5 text-[13px] no-underline', s.data.variant === 'featured' ? 'text-red' : 'text-body']}>{s.data.title}</a>
+          <a href={`/usluge/${s.id}/`} class:list={['py-2.5 text-[16px] no-underline', s.data.variant === 'featured' ? 'text-red' : 'text-body']}>{s.data.title}</a>
         ))}
       </div>
       {linksAfter.map((l) => <a href={l.href} class={mobileLink}>{l.label}</a>)}
-      <a href="/#kontakt" class="btn btn-dark mt-5">Zakažite konsultaciju</a>
+      <a href="/#kontakt" class="btn btn-red mt-5 font-sans">Zakažite konsultaciju</a>
     </div>
   </nav>
 </header>
