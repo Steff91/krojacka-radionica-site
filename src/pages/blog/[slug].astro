@@ -24,10 +24,10 @@ const related = [...others.filter((p) => p.data.category === d.category), ...oth
 
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const share = [
-  { label: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}` },
-  { label: 'Pinterest', href: `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&description=${encodeURIComponent(d.title)}` },
-  { label: 'Viber', href: `viber://forward?text=${encodeURIComponent(`${d.title} ${url}`)}` },
-];
+  { icon: 'facebook', label: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}` },
+  { icon: 'pinterest', label: 'Pinterest', href: `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&description=${encodeURIComponent(d.title)}` },
+  { icon: 'viber', label: 'Viber', href: `viber://forward?text=${encodeURIComponent(`${d.title} ${url}`)}` },
+] as const;
 
 const schema = [
   {
@@ -86,9 +86,14 @@ const schema = [
           <p class="eyebrow">Podelite</p>
           <div class="flex flex-wrap gap-2">
             {share.map((s) => (
-              <a href={s.href} target="_blank" rel="noopener" class="inline-flex min-h-10 items-center rounded-full border border-line px-4 text-[12px] font-medium uppercase tracking-[0.1em] no-underline hover:border-ink hover:text-ink">{s.label}</a>
+              <a href={s.href} target="_blank" rel="noopener" class="share-btn" aria-label={`Podelite na ${s.label}`} title={s.label}>
+                <Icon name={s.icon} size={16} />
+              </a>
             ))}
-            <button type="button" class="inline-flex min-h-10 cursor-pointer items-center rounded-full border border-line bg-transparent px-4 font-sans text-[12px] font-medium uppercase tracking-[0.1em] text-ink hover:border-ink" data-copy-link={url}>Kopiraj link</button>
+            <button type="button" class="share-btn" data-copy-link={url} aria-label="Kopiraj link" title="Kopiraj link">
+              <span data-copy-icon><Icon name="link" size={16} /></span>
+              <span data-copied-icon hidden><Icon name="check" size={15} /></span>
+            </button>
           </div>
         </div>
       </aside>
@@ -162,6 +167,15 @@ const schema = [
   .prose-post :global(p img) { display: block; width: 100%; height: auto; margin: 2.5rem 0 .75rem; }
   .prose-post :global(hr) { margin: 3rem 0; border: 0; border-top: 1px solid var(--color-line); }
   .prose-post :global(.not-prose) { font-size: 16px; }
+
+  .share-btn {
+    display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px;
+    border: 1px solid var(--color-line); border-radius: 999px; background: transparent; cursor: pointer;
+    color: var(--color-ink); text-decoration: none;
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+  }
+  .share-btn:hover { background: var(--color-red); border-color: var(--color-red); color: var(--color-ivory); }
+  .share-btn [hidden] { display: none; }
 </style>
 
 <script>
@@ -169,9 +183,16 @@ const schema = [
     btn.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(btn.dataset.copyLink ?? location.href);
-        const old = btn.textContent;
-        btn.textContent = 'Link kopiran';
-        setTimeout(() => (btn.textContent = old), 2000);
+        const icon = btn.querySelector<HTMLElement>('[data-copy-icon]');
+        const done = btn.querySelector<HTMLElement>('[data-copied-icon]');
+        if (icon && done) { icon.hidden = true; done.hidden = false; }
+        btn.setAttribute('aria-label', 'Link je kopiran');
+        btn.title = 'Link je kopiran';
+        setTimeout(() => {
+          if (icon && done) { icon.hidden = false; done.hidden = true; }
+          btn.setAttribute('aria-label', 'Kopiraj link');
+          btn.title = 'Kopiraj link';
+        }, 2000);
       } catch { /* clipboard unavailable */ }
     }),
   );
