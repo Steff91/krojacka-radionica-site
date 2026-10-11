@@ -6,8 +6,12 @@ interface Props {
   alt?: string;
   class?: string;
   tone?: 'sand' | 'sand-dark' | 'sage' | 'dark';
+  /** CSS object-position, e.g. "60% 20%", to keep the subject in frame when cropped */
+  position?: string;
+  /** Load immediately (above-the-fold images such as the hero) */
+  eager?: boolean;
 }
-const { label, src, alt = '', class: className = '', tone = 'sand' } = Astro.props;
+const { label, src, alt = '', class: className = '', tone = 'sand', position = 'center', eager = false } = Astro.props;
 const tones = {
   sand: '',
   'sand-dark': '!bg-sand-dark',
@@ -18,7 +22,14 @@ const tones = {
 
 {src ? (
   <div class:list={['overflow-hidden', className]}>
-    <img src={src} alt={alt} loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-[1.03]" />
+    <img
+      src={src}
+      alt={alt}
+      loading={eager ? 'eager' : 'lazy'}
+      fetchpriority={eager ? 'high' : undefined}
+      style={`object-position: ${position}`}
+      class="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
+    />
   </div>
 ) : (
   <div class:list={['placeholder', tones[tone], className]}>[{label}]</div>
