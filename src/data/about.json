@@ -1,0 +1,73 @@
+{
+  "seoTitle": "O nama | Krojačka radionica Beograd",
+  "seoDescription": "Upoznajte krojačku radionicu iz Beograda — iskustvo sa filmskih setova i pozorišnih scena, šivenje po meri od prvog razgovora do poslednjeg šava.",
+  "hero": {
+    "title": "O nama",
+    "subtitle": "Odeća koja nastaje po vašoj meri, iz ruke majstora.",
+    "image": "",
+    "imageLabel": "Široka fotografija radionice: sto za krojenje, tkanine, krojačka lutka"
+  },
+  "story": {
+    "eyebrow": "Naša priča",
+    "title": "Tradicija zanata,",
+    "titleEm": "moderna vizija",
+    "paragraphs": [
+      "Radionica je nastala [godina / povod osnivanja] iz jednostavne ideje: da odeća treba da prati čoveka, a ne obrnuto. Ono što je počelo kao [kratak opis početka], danas je radionica u kojoj nastaju muška odela, svečane haljine i venčanice, ali i kostimi za pozorište, cosplay i uniforme.",
+      "Svaki komad koji izađe iz radionice prolazi kroz iste ruke i isti proces — od prvog razgovora do poslednjeg šava."
+    ],
+    "image": "",
+    "imageLabel": "Vertikalna fotografija: rad u toku, detalj šivenja"
+  },
+  "founder": {
+    "eyebrow": "Ko stoji iza radionice",
+    "title": "Upoznajte",
+    "titleEm": "Slađanu",
+    "paragraphs": [
+      "[2–3 rečenice: obrazovanje i kako je ušla u zanat.]",
+      "[1–2 rečenice: šta je njena specijalnost i šta je motiviše u radu.]"
+    ],
+    "quote": "[Kratka misao o zanatu, u njenim rečima — jedna do dve rečenice.]",
+    "image": "",
+    "imageLabel": "Portret: Slađana u radionici, prirodno svetlo"
+  },
+  "film": {
+    "eyebrow": "Film i scena",
+    "title": "Sa filmskih setova",
+    "titleEm": "i pozorišnih scena",
+    "text": "[2–3 rečenice o radu na filmu i u pozorištu: rokovi, tim, kostimi koji moraju da izdrže snimanje i izvođenje.]",
+    "productions": [
+      { "year": "[Godina]", "title": "[Naziv produkcije]", "role": "[Film / serija / predstava — uloga u timu]" },
+      { "year": "[Godina]", "title": "[Naziv produkcije]", "role": "[Film / serija / predstava — uloga u timu]" },
+      { "year": "[Godina]", "title": "[Naziv produkcije]", "role": "[Film / serija / predstava — uloga u timu]" },
+      { "year": "[Godina]", "title": "[Naziv produkcije]", "role": "[Film / serija / predstava — uloga u timu]" }
+    ],
+    "images": [
+      { "alt": "[Fotografija sa seta]" },
+      { "alt": "[Kostim iz produkcije]" },
+      { "alt": "[Detalj kostima]" }
+    ]
+  },
+  "approach": {
+    "eyebrow": "Naš pristup",
+    "title": "Šta nas razlikuje",
+    "items": [
+      { "title": "Sve počinje razgovorom", "text": "Pre nego što uzmemo meru, želimo da razumemo priliku, stil i način na koji ćete nositi komad." },
+      { "title": "Mera, ne veličina", "text": "Ne prepravljamo gotove modele. Svaki kroj nastaje od nule, prema vašim merama." },
+      { "title": "Detalj je deo kroja", "text": "Završni šavovi, postava, dugmad — ono što se ne vidi na prvi pogled je ono što pravi razliku." },
+      { "title": "Iskreni saveti", "text": "Preporučićemo materijal i kroj koji vam odgovaraju, ali poslednja reč je uvek vaša." }
+    ]
+  },
+  "workshop": {
+    "eyebrow": "Radionica iznutra",
+    "title": "Gde nastaju vaši komadi",
+    "text": "[Jedna do dve rečenice o prostoru radionice i atmosferi u kojoj se radi.]",
+    "items": [
+      { "src": "/uploads/hero-detalj.webp", "alt": "Ručno ušivanje čipke na tilu" },
+      { "alt": "[Sto za krojenje]" },
+      { "alt": "[Krojačka lutka sa komadom u izradi]" },
+      { "alt": "[Police sa tkaninama]" },
+      { "alt": "[Mašina za šivenje]" },
+      { "alt": "[Proba sa klijentom]" }
+    ]
+  }
+}
