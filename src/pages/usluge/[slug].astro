@@ -7,9 +7,11 @@ import GallerySlider from '../../components/GallerySlider.astro';
 import Process from '../../components/sections/Process.astro';
 import Contact from '../../components/sections/Contact.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Faq from '../../components/Faq.astro';
 
 export async function getStaticPaths() {
-  const services = await getCollection('services');
+  // The featured service (fashion brand development) has its own page: razvijanje-modnog-brenda.astro
+  const services = (await getCollection('services')).filter((s) => s.data.variant !== 'featured');
   return services.map((s) => ({ params: { slug: s.id }, props: { service: s } }));
 }
 
@@ -87,25 +89,7 @@ const schema = [
 
   <Process />
 
-  <!-- FAQ -->
-  {d.faq.length > 0 && (
-    <section class="border-t border-line py-18 sm:py-28">
-      <div class="container-site grid gap-16 lg:grid-cols-[0.8fr_1.2fr]">
-        <SectionHeading eyebrow="Česta pitanja" title="Pitanja o usluzi" />
-        <div>
-          {d.faq.map((f) => (
-            <details class="faq border-t border-line last:border-b">
-              <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-6 py-6 font-serif text-[22px] font-medium">
-                {f.q}
-                <span class="faq-icon relative h-4 w-4 shrink-0" aria-hidden="true"></span>
-              </summary>
-              <p class="m-0 pb-6 text-body">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
+  <Faq items={d.faq} />
 
   <Contact service={d.title} />
 </Base>
@@ -114,14 +98,7 @@ const schema = [
   .item-card { transition: background-color .4s ease; }
   .item-card:hover { background-color: var(--color-sand); }
 
-  .faq summary::-webkit-details-marker { display: none; }
-  .faq-icon::before, .faq-icon::after {
-    content: ''; position: absolute; left: 0; top: 50%; width: 100%; height: 1.5px;
-    background: var(--color-red); transition: transform .3s ease;
-  }
-  .faq-icon::after { transform: rotate(90deg); }
-  .faq[open] .faq-icon::after { transform: rotate(0deg); }
   @media (prefers-reduced-motion: reduce) {
-    .item-card, .faq-icon::before, .faq-icon::after { transition: none; }
+    .item-card { transition: none; }
   }
 </style>

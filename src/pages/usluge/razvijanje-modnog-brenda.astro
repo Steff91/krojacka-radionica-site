@@ -1,0 +1,132 @@
+---
+// Featured service: its own layout (dark hero, gold CTA "Zakažite konsultaciju").
+// Shared fields (SEO, intro, gallery, FAQ) come from content/services/razvijanje-modnog-brenda.md,
+// page-specific modules from data/brand.json.
+import { getEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Placeholder from '../../components/Placeholder.astro';
+import GallerySlider from '../../components/GallerySlider.astro';
+import Faq from '../../components/Faq.astro';
+import Contact from '../../components/sections/Contact.astro';
+import brand from '../../data/brand.json';
+
+const entry = await getEntry('services', 'razvijanje-modnog-brenda');
+if (!entry) throw new Error('Missing content/services/razvijanje-modnog-brenda.md');
+const d = entry.data;
+const { audience, phases, start, handbook } = brand;
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: d.title,
+    description: d.seoDescription ?? d.excerpt,
+    areaServed: 'Beograd',
+    provider: { '@id': new URL('/#radionica', Astro.site).toString() },
+  },
+];
+const answered = d.faq.filter((f) => !f.a.startsWith('['));
+if (answered.length > 0) {
+  schema.push({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    // @ts-ignore — FAQPage shape differs from Service
+    mainEntity: answered.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  });
+}
+---
+
+<Base title={d.seoTitle ?? d.title} description={d.seoDescription ?? d.excerpt} schema={schema}>
+  <!-- 1. Hero -->
+  <section class="overflow-x-clip bg-ink py-16 text-on-dark sm:py-24">
+    <div class="container-site grid items-center gap-16 lg:grid-cols-[1.05fr_1fr]">
+      <div class="flex flex-col gap-6">
+        <Breadcrumbs items={[{ label: 'Usluge', href: '/usluge/' }, { label: d.title }]} dark />
+        <p class="eyebrow !mb-0 !text-gold" data-reveal>Za dizajnere i brendove</p>
+        <h1 class="h-display" data-reveal style="--i:1">{brand.heroH1} <em class="font-normal text-gold">{brand.heroH1Em}</em></h1>
+        <p class="lead max-w-[520px] text-[19px] !text-[#D9D0C5]" data-reveal style="--i:2">{d.intro}</p>
+        <div data-reveal style="--i:3"><a href="#kontakt" class="btn btn-gold">Zakažite konsultaciju</a></div>
+      </div>
+      <div class="relative" data-reveal style="--i:2">
+        <div class="absolute top-[-12px] right-[-12px] bottom-3 left-3 border border-gold/60 sm:top-[-20px] sm:right-[-20px] sm:bottom-5 sm:left-5" aria-hidden="true"></div>
+        <Placeholder label={d.imageLabel} src={d.image} alt={d.title} eager tone="dark" class="relative aspect-[4/5] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)] lg:aspect-auto lg:h-[600px]" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Audience -->
+  <section class="py-18 sm:py-28">
+    <div class="container-site flex flex-col gap-14">
+      <SectionHeading eyebrow={audience.eyebrow} title={audience.title} titleEm={audience.titleEm} />
+      <ul class="m-0 grid list-none gap-8 p-0 md:grid-cols-3">
+        {audience.items.map((a, i) => (
+          <li class="flex flex-col gap-4 border-t-[3px] border-gold bg-sand p-8 sm:p-10" data-reveal style={`--i:${i}`}>
+            <h3 class="h-card">{a.title}</h3>
+            <p class="m-0 text-base text-body">{a.text}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. Phases -->
+  <section class="border-t border-line py-18 sm:py-28">
+    <div class="container-site grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
+      <div class="lg:sticky lg:top-32 lg:self-start">
+        <SectionHeading eyebrow={phases.eyebrow} title={phases.title} />
+      </div>
+      <ol class="m-0 list-none p-0">
+        {phases.items.map((p, i) => (
+          <li class="phase grid grid-cols-[64px_1fr] gap-6 border-t border-line py-8 last:border-b sm:grid-cols-[96px_1fr]" data-reveal style={`--i:${i}`}>
+            <span class="font-serif text-[48px] leading-none text-gold italic sm:text-[64px]">{String(i + 1).padStart(2, '0')}</span>
+            <div class="flex flex-col gap-2 pt-1">
+              <h3 class="h-card">{p.title}</h3>
+              <p class="m-0 text-base text-body">{p.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- 4. How we start -->
+  <section class="bg-sand py-18 sm:py-28">
+    <div class="container-site flex flex-col gap-14">
+      <SectionHeading eyebrow={start.eyebrow} title={start.title} />
+      <ol class="m-0 grid list-none gap-10 p-0 md:grid-cols-3">
+        {start.items.map((s, i) => (
+          <li class="flex flex-col gap-3 border-t border-gold pt-6" data-reveal style={`--i:${i}`}>
+            <span class="font-serif text-[56px] leading-none text-red italic">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="h-card">{s.title}</h3>
+            <p class="m-0 text-base text-body">{s.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- 5. Samples -->
+  {d.gallery.length > 0 && <GallerySlider id="uzorci" eyebrow="Naš rad" title={d.galleryTitle} items={d.gallery} />}
+
+  <!-- 6. FAQ -->
+  <Faq items={d.faq} />
+
+  <!-- Handbook teaser: turn on in data/brand.json → handbook.enabled -->
+  {handbook.enabled && (
+    <section class="bg-gold py-16 text-ink sm:py-20">
+      <div class="container-site flex flex-wrap items-center justify-between gap-8">
+        <div class="max-w-[640px]">
+          <p class="eyebrow !text-ink">{handbook.eyebrow}</p>
+          <h2 class="h-section">{handbook.title} <em class="font-normal">{handbook.titleEm}</em></h2>
+          <p class="mt-4 mb-0">{handbook.text}</p>
+        </div>
+        <a href="#kontakt" class="btn btn-dark">{handbook.cta}</a>
+      </div>
+    </section>
+  )}
+
+  <!-- 7. Contact -->
+  <Contact service={d.title} tone="dark" title="Spremni za" titleEm="prvi korak?" submit="Zakažite konsultaciju" />
+</Base>

@@ -5,32 +5,48 @@ import Icon from '../Icon.astro';
 interface Props {
   /** Service name sent with the form, so inquiries say where they came from */
   service?: string;
-  /** Background: sand (default) or ivory, for pages where sand clashes with the section above */
-  tone?: 'sand' | 'ivory';
+  /** Background: sand (default), ivory (where sand clashes with the section above), or dark (fashion brand page) */
+  tone?: 'sand' | 'ivory' | 'dark';
+  /** Heading and button text overrides */
+  title?: string;
+  titleEm?: string;
+  submit?: string;
 }
-const { service = 'Opšti upit', tone = 'sand' } = Astro.props;
+const {
+  service = 'Opšti upit',
+  tone = 'sand',
+  title = 'Imate ideju?',
+  titleEm = 'Javite nam se.',
+  submit = 'Pošaljite upit',
+} = Astro.props;
+const dark = tone === 'dark';
 
 // Static site: the form posts to an external handler (e.g. Formspree) set in info.json → formAction.
-const field = 'flex flex-col gap-2 text-[13px] uppercase tracking-[0.12em] text-body';
-const input = 'min-h-12 border-0 border-b border-muted bg-transparent font-sans text-[17px] font-light normal-case tracking-normal text-ink focus:border-red focus:outline-none';
+const field = ['flex flex-col gap-2 text-[13px] uppercase tracking-[0.12em]', dark ? 'text-on-dark-muted' : 'text-body'];
+const input = [
+  'min-h-12 border-0 border-b bg-transparent font-sans text-[17px] font-light normal-case tracking-normal focus:outline-none',
+  dark ? 'border-on-dark-muted text-on-dark focus:border-gold' : 'border-muted text-ink focus:border-red',
+];
+const label = ['m-0 text-xs font-medium uppercase tracking-[0.22em]', dark ? 'text-on-dark-muted' : 'text-muted'];
+const body = dark ? 'lead !text-on-dark-muted' : 'lead';
 ---
 
-<section id="kontakt" class:list={['py-18 sm:py-30', tone === 'ivory' ? 'bg-ivory' : 'bg-sand']}>
+<section id="kontakt" class:list={['py-18 sm:py-30', { 'bg-ivory': tone === 'ivory', 'bg-sand': tone === 'sand', 'bg-ink text-on-dark': dark }]}>
   <div class="container-site grid gap-16 lg:grid-cols-2">
     <div class="flex flex-col gap-5">
-      <p class="eyebrow !mb-0" data-reveal>Kontakt</p>
-      <h2 class="h-section" data-reveal style="--i:1">Imate ideju? <em class="font-normal text-red">Javite nam se.</em></h2>
-      <a href={`tel:${info.phoneHref}`} class="inline-flex min-h-11 items-center font-serif text-[32px] no-underline" data-reveal style="--i:2">{info.phone}</a>
+      <p class:list={['eyebrow !mb-0', dark && '!text-gold']} data-reveal>Kontakt</p>
+      <h2 class="h-section" data-reveal style="--i:1">{title} <em class:list={['font-normal', dark ? 'text-gold' : 'text-red']}>{titleEm}</em></h2>
+      <a href={`tel:${info.phoneHref}`} class:list={['inline-flex min-h-11 items-center font-serif text-[32px] no-underline', dark && 'text-on-dark hover:text-gold']} data-reveal style="--i:2">{info.phone}</a>
       <div class="mt-2 grid gap-8 sm:grid-cols-2" data-reveal style="--i:3">
         <div class="flex flex-col gap-2">
-          <p class="m-0 text-xs font-medium uppercase tracking-[0.22em] text-muted">Adresa</p>
-          <p class="lead">{info.address}<br />{info.addressNote}, {info.city}</p>
-          <a href={info.mapsLink} target="_blank" rel="noopener" class="link-arrow self-start !min-h-0 !text-[13px]">Otvorite mapu<Icon name="chevron-right" size={10} class="chev" /></a>
+          <p class:list={label}>Adresa</p>
+          <p class={body}>{info.address}<br />{info.addressNote}, {info.city}</p>
+          <a href={info.mapsLink} target="_blank" rel="noopener" class:list={['link-arrow self-start !min-h-0 !text-[13px]', dark && 'text-gold hover:text-on-dark']}>Otvorite mapu<Icon name="chevron-right" size={10} class="chev" /></a>
         </div>
         <div class="flex flex-col gap-2">
-          <p class="m-0 text-xs font-medium uppercase tracking-[0.22em] text-muted">Radno vreme</p>
-          <dl class="lead m-0 grid grid-cols-[auto_1fr] gap-x-5 gap-y-0.5">
-            {info.hours.map((h) => <><dt>{h.day}</dt><dd class="m-0 text-ink">{h.time}</dd></>)}
+          <p class:list={label}>Radno vreme</p>
+          <dl class:list={[body, 'm-0 grid grid-cols-[auto_1fr] gap-x-5 gap-y-0.5']}>
+            {info.hours.map((h) => <><dt>{h.day}</dt><dd class:list={['m-0', dark ? 'text-on-dark' : 'text-ink']}>{h.time}</dd></>)}
           </dl>
         </div>
       </div>
@@ -38,18 +54,20 @@ const input = 'min-h-12 border-0 border-b border-muted bg-transparent font-sans 
 
     <form method="POST" action={info.formAction || undefined} class="flex flex-col gap-5" data-reveal style="--i:1">
       <input type="hidden" name="usluga" value={service} />
-      <label class={field}>Ime
-        <input type="text" name="ime" autocomplete="name" required class={input} />
+      <label class:list={field}>Ime
+        <input type="text" name="ime" autocomplete="name" required class:list={input} />
       </label>
-      <label class={field}>Telefon ili email
-        <input type="text" name="kontakt" autocomplete="email" required class={input} />
+      <label class:list={field}>Telefon ili email
+        <input type="text" name="kontakt" autocomplete="email" required class:list={input} />
       </label>
-      <label class={field}>Poruka
-        <textarea name="poruka" rows="4" class:list={[input, 'resize-y pt-3']}></textarea>
+      <label class:list={field}>Poruka
+        <textarea name="poruka" rows="4" class:list={[...input, 'resize-y pt-3']}></textarea>
       </label>
       <div>
-        <button type="submit" class="btn btn-red">Pošaljite upit</button>
-        <p class="m-0 mt-3 text-[13px] text-muted">Slanjem forme prihvatate obradu podataka u skladu sa <a href="/privatnost/">Politikom privatnosti</a>.</p>
+        <button type="submit" class:list={['btn', dark ? 'btn-gold' : 'btn-red']}>{submit}</button>
+        <p class:list={['m-0 mt-3 text-[13px]', dark ? 'text-on-dark-muted' : 'text-muted']}>
+          Slanjem forme prihvatate obradu podataka u skladu sa <a href="/privatnost/" class:list={[dark && 'text-on-dark hover:text-gold']}>Politikom privatnosti</a>.
+        </p>
       </div>
     </form>
   </div>
