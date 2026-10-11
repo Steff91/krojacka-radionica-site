@@ -29,6 +29,7 @@ collections:
           - { name: hours, label: Radno vreme, widget: string }
           - { name: instagram, label: Instagram URL, widget: string }
           - { name: instagramHandle, label: Instagram nalog (@...), widget: string }
+          - { name: googleReviews, label: Google profil (link za utiske), widget: string, required: false }
           - { name: formAction, label: Adresa za slanje forme (npr. Formspree), widget: string, required: false }
 
       - name: process
@@ -54,6 +55,7 @@ collections:
               - { name: id, label: ID (bez razmaka), widget: string }
               - { name: name, label: Ime klijenta, widget: string }
               - { name: text, label: Tekst, widget: text }
+              - { name: rating, label: Ocena, widget: number, value_type: int, min: 1, max: 5, default: 5 }
               - { name: featured, label: Prikaži na početnoj, widget: boolean, default: false }
 
   - name: services

@@ -3,30 +3,35 @@
     "id": "jasmina-radovanovic",
     "name": "Jasmina Radovanović",
     "text": "Izuzetna saradnja sa predivnom Slađom. Korektnost, profesionalnost i odlično šivenje – za svaku pohvalu, sve najbolje preporuke! Dogovorile smo se iz inostranstva online, preko Vibera za šivenje haljine za venčanje. U utorak smo zajedno kupile material i završila je po dogovoru šivenje fantastične haljine do subote. Vrhunski radi, veliki profesionalac i pre svega čovek od reči!",
+    "rating": 5,
     "featured": true
   },
   {
     "id": "violeta-radulovic",
     "name": "Violeta Radulović",
     "text": "Tim koji vas sasluša, nađe rešenje ako je potrebno i od ideje sprovede u delo. Profesionalna izrada onog sto ste tražili, ispoštovani rokovi, ljubaznost... Sve pohvale i preporuke.",
+    "rating": 5,
     "featured": true
   },
   {
     "id": "jana-zaharijevic",
     "name": "Jana Zaharijević",
     "text": "Odlična usluga! Sve sto sam do sada šila u radionici je bilo savršeno, za svaku preporuku!",
+    "rating": 5,
     "featured": true
   },
   {
     "id": "marija-popovic",
     "name": "Marija Popović",
     "text": "Sarađujem sa krojačkom radionicom već pola godine. Prezadovoljna sam. Predantno, i pre svega uvek na vreme, što je izuzetno bitno u ovom poslu. Još uvek mi se nije desilo da sam im predložila neku ideju, a da nisu znale da je sprovedu u delo. 😁 Sve pohvale za divnu i uvek prijatnu Slađu i njen tim.",
+    "rating": 5,
     "featured": false
   },
   {
     "id": "filareta-mary-smirnova",
     "name": "Filareta Mary Smirnova",
     "text": "The best seamstress I've ever came to, always great results and Sladjana is very polite and attentive to details professional! I recommend to everyone!",
+    "rating": 5,
     "featured": false
   }
 ]

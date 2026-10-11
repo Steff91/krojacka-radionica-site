@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import SectionHeading from '../SectionHeading.astro';
-
+import Icon from '../Icon.astro';
+import info from '../../data/info.json';
 import raw from '../../content/testimonials.json';
 
 // Keep the order from testimonials.json (the collection itself is unordered).
@@ -23,9 +24,30 @@ const items = (await getCollection('testimonials'))
       {items.map((t, i) => (
         <figure class="m-0 flex flex-col gap-6 border-t-[3px] border-sage bg-ivory p-8 sm:p-10" data-reveal style={`--i:${i}`}>
           <blockquote class="m-0 font-serif text-[22px] leading-[1.45] italic">„{t.data.text}“</blockquote>
-          <figcaption class="text-sm font-medium text-body">{t.data.name}</figcaption>
+          <figcaption class="flex flex-col gap-2.5">
+            <span class="inline-flex gap-1 text-gold" role="img" aria-label={`Ocena: ${t.data.rating} od 5`}>
+              {Array.from({ length: 5 }, (_, n) => (
+                <Icon name="star" size={15} class={n < t.data.rating ? '' : 'opacity-25'} />
+              ))}
+            </span>
+            <span class="text-sm font-medium text-body">{t.data.name}</span>
+          </figcaption>
         </figure>
       ))}
     </div>
+
+    {info.googleReviews && (
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-3" data-reveal>
+        <a href={info.googleReviews} class="btn btn-outline" target="_blank" rel="noopener">
+          Svi utisci na Google-u<Icon name="chevron-right" size={11} class="chev" />
+        </a>
+        <span class="text-[15px] text-body">Bili ste kod nas? Ostavite i vi utisak.</span>
+      </div>
+    )}
   </div>
 </section>
+
+<style>
+  .btn .chev { transition: transform .3s ease; }
+  .btn:hover .chev { transform: translateX(4px); }
+</style>

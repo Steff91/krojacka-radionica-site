@@ -29,6 +29,7 @@ const testimonials = defineCollection({
   schema: z.object({
     name: z.string(),
     text: z.string(),
+    rating: z.number().int().min(1).max(5).default(5),
     featured: z.boolean().default(false),
   }),
 });
