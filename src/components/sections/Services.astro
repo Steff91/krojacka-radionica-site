@@ -16,13 +16,25 @@ const services = (await getCollection('services'))
       title="Krojeno za vas, od prvog do poslednjeg šava"
       text="Šijemo mušku odeću, svečane haljine, venčanice, pozorišne i cosplay kostime i uniforme. Svaki komad nastaje ručno, po vašim merama i vašoj zamisli."
     />
-    <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-x-8 gap-y-10">
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-x-8 gap-y-12">
       {services.map((s, i) => (
-        <a href={`/usluge/${s.id}/`} class="group flex flex-col gap-3.5 no-underline hover:text-ink" data-reveal style={`--i:${i % 3}`}>
-          <Placeholder label={s.data.imageLabel} src={s.data.image} alt={s.data.title} class="aspect-[4/5]" />
-          <div class="flex items-baseline justify-between border-b border-gold pb-2.5">
-            <h3 class="h-card">{s.data.title}</h3>
-            <span class="inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.12em] text-red">Više<Icon name="chevron-right" size={12} class="chev transition-transform duration-300" /></span>
+        <a href={`/usluge/${s.id}/`} class="service-card group flex flex-col gap-4 no-underline hover:text-ink" data-reveal style={`--i:${i % 3}`}>
+          <div class="relative aspect-[4/5] overflow-hidden">
+            <div class="card-media h-full w-full">
+              <Placeholder label={s.data.imageLabel} src={s.data.image} alt={s.data.title} class="h-full w-full" />
+            </div>
+            <!-- Warm veil + label rising from the bottom -->
+            <div class="card-veil pointer-events-none absolute inset-0" aria-hidden="true"></div>
+            <span class="card-cta pointer-events-none absolute bottom-6 left-6 inline-flex items-center gap-2.5 rounded bg-ivory px-4 py-2.5 text-[13px] font-medium uppercase tracking-[0.12em] text-ink" aria-hidden="true">
+              Pogledajte<Icon name="chevron-right" size={11} />
+            </span>
+          </div>
+
+          <div class="relative flex items-baseline justify-between pb-3">
+            <h3 class="h-card transition-colors duration-300 group-hover:text-red">{s.data.title}</h3>
+            <span class="inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.12em] text-red">Više<Icon name="chevron-right" size={12} class="chev" /></span>
+            <span class="absolute inset-x-0 bottom-0 h-px bg-gold" aria-hidden="true"></span>
+            <span class="card-line absolute inset-x-0 bottom-0 h-px bg-red" aria-hidden="true"></span>
           </div>
           <p class="m-0 text-[15px] text-body">{s.data.excerpt}</p>
         </a>
@@ -30,3 +42,39 @@ const services = (await getCollection('services'))
     </div>
   </div>
 </section>
+
+<style>
+  .card-media { transition: transform .9s cubic-bezier(.2, .7, .2, 1); }
+  /* Placeholder's own hover zoom would double up with the card zoom */
+  .card-media :global(img:hover) { transform: none; }
+
+  .card-veil {
+    background: linear-gradient(to top, rgba(45, 41, 38, .45), rgba(45, 41, 38, 0) 55%);
+    opacity: 0;
+    transition: opacity .5s ease;
+  }
+  .card-cta {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .4s ease, transform .5s cubic-bezier(.2, .7, .2, 1);
+  }
+  .card-line {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .6s cubic-bezier(.2, .7, .2, 1);
+  }
+
+  .service-card:hover .card-media,
+  .service-card:focus-visible .card-media { transform: scale(1.05); }
+  .service-card:hover .card-veil,
+  .service-card:focus-visible .card-veil { opacity: 1; }
+  .service-card:hover .card-cta,
+  .service-card:focus-visible .card-cta { opacity: 1; transform: none; transition-delay: .08s; }
+  .service-card:hover .card-line,
+  .service-card:focus-visible .card-line { transform: scaleX(1); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card-media, .card-veil, .card-cta, .card-line { transition: none; }
+    .service-card:hover .card-media { transform: none; }
+  }
+</style>
