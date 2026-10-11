@@ -6,15 +6,16 @@ interface Props {
   stacked?: boolean;
 }
 const { dark = false, stacked = false } = Astro.props;
-// TODO: replace /logo.png with an SVG version of the logo when available
+// /logo.png is trimmed to the artwork (no built-in whitespace) so it aligns with the content edge.
+// TODO: replace with an SVG version of the logo when available
 ---
 
 <a href="/" class:list={['flex items-center gap-3.5 no-underline', dark ? 'text-on-dark hover:text-on-dark' : 'text-ink hover:text-ink']}>
   <img
     src="/logo.png"
     alt=""
-    width={stacked ? 64 : 52}
-    height={stacked ? 64 : 52}
+    width={stacked ? 46 : 36}
+    height={stacked ? 58 : 45}
     class:list={[dark ? 'invert mix-blend-screen' : 'mix-blend-multiply']}
   />
   <span class:list={['font-serif font-medium uppercase leading-[1.1] tracking-[0.04em]', stacked ? 'text-2xl' : 'text-xl sm:text-[22px]']}>
