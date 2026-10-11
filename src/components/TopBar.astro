@@ -11,10 +11,10 @@ const links = [
   { icon: 'pinterest', label: 'Pinterest', href: info.pinterest, external: true },
   { icon: 'youtube', label: 'YouTube', href: info.youtube || '#', external: Boolean(info.youtube) },
 ] as const;
-const icon = 'inline-flex h-9 w-9 items-center justify-center text-ink no-underline transition-colors duration-300 hover:text-ivory';
+const icon = 'inline-flex h-9 w-9 items-center justify-center text-ink no-underline transition-colors duration-300 hover:text-red';
 ---
 
-<div class="bg-gold text-[13px] font-medium text-ink">
+<div class="bg-sand text-[13px] font-medium text-ink">
   <div class="container-site flex min-h-10 items-center justify-between gap-4">
     <p class="m-0 flex items-center gap-2.5">
       <Icon name="clock" size={13} />
@@ -29,7 +29,7 @@ const icon = 'inline-flex h-9 w-9 items-center justify-center text-ink no-underl
           </a>
         </li>
       ))}
-      <li class="mx-2 hidden h-4 w-px bg-ink/25 sm:block" aria-hidden="true"></li>
+      <li class="mx-2 hidden h-4 w-px bg-ink/20 sm:block" aria-hidden="true"></li>
       <li>
         <a href={`tel:${info.phoneHref}`} class={icon} aria-label={`Pozovite ${info.phone}`} title={info.phone}>
           <Icon name="phone" size={13} />
