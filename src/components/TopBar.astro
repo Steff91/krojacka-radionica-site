@@ -11,13 +11,13 @@ const links = [
   { icon: 'pinterest', label: 'Pinterest', href: info.pinterest, external: true },
   { icon: 'youtube', label: 'YouTube', href: info.youtube || '#', external: Boolean(info.youtube) },
 ] as const;
-const icon = 'inline-flex h-9 w-9 items-center justify-center text-on-dark-muted no-underline transition-colors duration-300 hover:text-gold';
+const icon = 'inline-flex h-9 w-9 items-center justify-center text-ink no-underline transition-colors duration-300 hover:text-ivory';
 ---
 
-<div class="bg-ink text-[13px] text-on-dark-muted">
+<div class="bg-gold text-[13px] font-medium text-ink">
   <div class="container-site flex min-h-10 items-center justify-between gap-4">
     <p class="m-0 flex items-center gap-2.5">
-      <Icon name="clock" size={13} class="text-gold" />
+      <Icon name="clock" size={13} />
       <span class="hidden sm:inline">Radno vreme:</span>
       <span>{hoursShort}</span>
     </p>
@@ -29,7 +29,7 @@ const icon = 'inline-flex h-9 w-9 items-center justify-center text-on-dark-muted
           </a>
         </li>
       ))}
-      <li class="mx-2 hidden h-4 w-px bg-line-dark sm:block" aria-hidden="true"></li>
+      <li class="mx-2 hidden h-4 w-px bg-ink/25 sm:block" aria-hidden="true"></li>
       <li>
         <a href={`tel:${info.phoneHref}`} class={icon} aria-label={`Pozovite ${info.phone}`} title={info.phone}>
           <Icon name="phone" size={13} />
