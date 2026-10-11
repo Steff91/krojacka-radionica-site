@@ -3,7 +3,7 @@ import Placeholder from '../Placeholder.astro';
 import info from '../../data/info.json';
 ---
 
-<section class="pt-12 pb-24 sm:pt-16">
+<section class="overflow-x-clip pt-12 pb-24 sm:pt-16">
   <div class="container-site grid items-center gap-16 lg:grid-cols-[1.05fr_1fr]">
     <div class="flex flex-col gap-7">
       <p class="eyebrow !mb-0" data-reveal>Krojačka radionica · {info.city}</p>
@@ -17,23 +17,59 @@ import info from '../../data/info.json';
       </div>
     </div>
 
-    <div class="relative h-[460px] sm:h-[620px]" data-reveal style="--i:2">
+    <div class="hero-media relative h-[460px] sm:h-[620px]" data-reveal style="--i:2">
+      <!-- Offset gold frame behind the main photo -->
+      <div class="absolute top-[-12px] right-[-12px] bottom-3 left-[52px] border border-gold sm:top-[-20px] sm:right-[-20px] sm:bottom-5 sm:left-[84px]" aria-hidden="true"></div>
+
       <Placeholder
         label="Fotografija: model u venčanici ili svečanoj haljini, vertikalni kadar"
         src="/uploads/hero-vencanica.webp"
         alt="Mlada u venčanici sa čipkanim korsetom i volanima od organdina na ramenima, krojenoj po meri"
         position="60% 25%"
         eager
-        class="absolute inset-y-0 right-0 left-10 sm:left-16"
+        class="absolute inset-y-0 right-0 left-10 shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)] sm:left-16"
       />
-      <Placeholder
-        label="Detalj: ruke, igla, tkanina"
-        src="/uploads/hero-detalj.webp"
-        alt="Ručno ušivanje čipke na tilu iglom i naprstkom"
-        position="55% 40%"
-        eager
-        tone="sage"
-        class="absolute bottom-12 left-0 h-[200px] w-[170px] border-8 border-ivory sm:h-[260px] sm:w-[220px]" />
+
+      <div class="hero-detail absolute bottom-12 left-0 z-10">
+        <Placeholder
+          label="Detalj: ruke, igla, tkanina"
+          src="/uploads/hero-detalj.webp"
+          alt="Ručno ušivanje čipke na tilu iglom i naprstkom"
+          position="55% 40%"
+          eager
+          tone="sage"
+          class="h-[200px] w-[170px] border-8 border-ivory shadow-[0_28px_50px_-18px_rgba(45,41,38,0.5)] sm:h-[260px] sm:w-[220px]"
+        />
+      </div>
+
+      <!-- Rotating badge -->
+      <div class="hero-badge absolute top-6 left-0 z-10 h-[92px] w-[92px] sm:top-10 sm:left-2 sm:h-[124px] sm:w-[124px]" aria-hidden="true">
+        <div class="absolute inset-0 rounded-full bg-ivory shadow-[0_14px_30px_-12px_rgba(45,41,38,0.35)]"></div>
+        <svg viewBox="0 0 120 120" class="badge-ring absolute inset-0 h-full w-full text-ink">
+          <defs>
+            <path id="badge-circle" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"></path>
+          </defs>
+          <text font-size="10.5" letter-spacing="2.2" fill="currentColor" font-family="DM Sans, sans-serif" font-weight="500">
+            <textPath href="#badge-circle" textLength="270">ŠIVENO PO MERI · KROJAČKA RADIONICA ·</textPath>
+          </text>
+        </svg>
+        <img src="/logo.png" alt="" width="22" height="27" class="absolute top-1/2 left-1/2 w-[22px] -translate-x-1/2 -translate-y-1/2 mix-blend-multiply sm:w-[28px]" />
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .badge-ring { animation: spin 28s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Detail photo drifts slightly on hover of the composition */
+  .hero-detail { transition: transform .6s ease; }
+  .hero-media:hover .hero-detail { transform: translateY(-6px); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .badge-ring { animation: none; }
+    .hero-detail { transition: none; }
+    .hero-media:hover .hero-detail { transform: none; }
+  }
+</style>
