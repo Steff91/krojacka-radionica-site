@@ -105,6 +105,16 @@ collections:
         options:
           - { label: Standardna usluga, value: default }
           - { label: Istaknuta (modni brend), value: featured }
+      - { name: itemsEyebrow, label: "Šta šijemo — labela", widget: string, required: false, default: Šta šijemo }
+      - { name: itemsTitle, label: "Šta šijemo — naslov", widget: string, required: false }
+      - name: items
+        label: "Šta šijemo — kartice"
+        widget: list
+        required: false
+        fields:
+          - { name: title, label: Naziv, widget: string }
+          - { name: text, label: Opis, widget: text }
+      - { name: galleryTitle, label: Naslov galerije, widget: string, required: false, default: Izabrani radovi }
       - name: gallery
         label: Galerija
         widget: list
@@ -112,6 +122,7 @@ collections:
         fields:
           - { name: src, label: Fotografija, widget: image, required: false }
           - { name: alt, label: Opis fotografije, widget: string }
+          - { name: position, label: "Fokus kadra (npr. 50% 20%)", widget: string, required: false }
       - name: faq
         label: Česta pitanja
         widget: list

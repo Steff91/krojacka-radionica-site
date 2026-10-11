@@ -19,7 +19,12 @@ const services = defineCollection({
     imageLabel: z.string().default('Fotografija'),
     // "featured" = fashion brand development: dark layout, distinct CTA, not in the services grid
     variant: z.enum(['default', 'featured']).default('default'),
-    gallery: z.array(image).default([]),
+    // "What we make" cards
+    itemsEyebrow: z.string().default('Šta šijemo'),
+    itemsTitle: z.string().optional(),
+    items: z.array(z.object({ title: z.string(), text: z.string() })).default([]),
+    galleryTitle: z.string().default('Izabrani radovi'),
+    gallery: z.array(image.extend({ position: z.string().optional() })).default([]),
     faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
   }),
 });

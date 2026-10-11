@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Placeholder from '../../components/Placeholder.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import GallerySlider from '../../components/GallerySlider.astro';
 import Process from '../../components/sections/Process.astro';
 import Contact from '../../components/sections/Contact.astro';
 
@@ -13,6 +15,7 @@ export async function getStaticPaths() {
 const { service } = Astro.props;
 const d = service.data;
 const featured = d.variant === 'featured';
+const shadow = 'shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)]';
 
 const schema = [
   {
@@ -23,57 +26,81 @@ const schema = [
     areaServed: 'Beograd',
     provider: { '@id': new URL('/#radionica', Astro.site).toString() },
   },
+  ...(d.faq.length > 0
+    ? [{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: d.faq
+          .filter((f) => !f.a.startsWith('['))
+          .map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+      }].filter((s) => s.mainEntity.length > 0)
+    : []),
 ];
 ---
 
 <Base title={d.seoTitle ?? `${d.title} po meri | Krojačka radionica Beograd`} description={d.seoDescription ?? d.excerpt} schema={schema}>
-  <section class:list={['py-16 sm:py-24', featured && 'bg-ink text-on-dark']}>
-    <div class="container-site grid items-center gap-16 lg:grid-cols-2">
+  <!-- Hero -->
+  <section class:list={['overflow-x-clip py-16 sm:py-24', featured && 'bg-ink text-on-dark']}>
+    <div class="container-site grid items-center gap-16 lg:grid-cols-[1.05fr_1fr]">
       <div class="flex flex-col gap-6">
         <p class:list={['m-0 text-[13px]', featured ? 'text-on-dark-muted' : 'text-muted']}>
           <a href="/" class:list={[featured ? 'text-on-dark-muted hover:text-gold' : 'text-muted']}>Početna</a> / {d.title}
         </p>
-        <p class:list={['eyebrow !mb-0', featured && '!text-gold']}>{featured ? 'Za dizajnere i brendove' : 'Usluge'}</p>
-        <h1 class="h-display">
+        <p class:list={['eyebrow !mb-0', featured && '!text-gold']} data-reveal>{featured ? 'Za dizajnere i brendove' : 'Usluge'}</p>
+        <h1 class="h-display" data-reveal style="--i:1">
           {d.heroTitle}{d.heroTitleEm && <> <em class:list={['font-normal', featured ? 'text-gold' : 'text-red']}>{d.heroTitleEm}</em></>}
         </h1>
-        <p class:list={['lead text-[19px]', featured && '!text-[#D9D0C5]']}>{d.intro}</p>
-        <div>
+        <p class:list={['lead max-w-[520px] text-[19px]', featured && '!text-[#D9D0C5]']} data-reveal style="--i:2">{d.intro}</p>
+        <div data-reveal style="--i:3">
           <a href="#kontakt" class:list={['btn', featured ? 'btn-gold' : 'btn-dark']}>Zakažite konsultaciju</a>
         </div>
       </div>
-      <Placeholder label={d.imageLabel} src={d.image} alt={d.title} tone={featured ? 'dark' : 'sand'} class="h-[420px] sm:h-[560px]" />
+      <div class="relative" data-reveal style="--i:2">
+        <div class="absolute top-[-12px] right-[-12px] bottom-3 left-3 border border-gold sm:top-[-20px] sm:right-[-20px] sm:bottom-5 sm:left-5" aria-hidden="true"></div>
+        <Placeholder label={d.imageLabel} src={d.image} alt={d.title} eager tone={featured ? 'dark' : 'sand'} class:list={['relative aspect-[4/5] lg:aspect-auto lg:h-[600px]', shadow]} />
+      </div>
     </div>
   </section>
 
-  {d.gallery.length > 0 && (
-    <section class="py-18 sm:py-28">
-      <div class="container-site flex flex-col gap-10">
-        <div>
-          <p class="eyebrow">Naš rad</p>
-          <h2 class="h-section">Izabrani radovi</h2>
-        </div>
-        <div class="grid grid-cols-2 gap-3 md:grid-cols-4">
-          {d.gallery.map((img) => <Placeholder label={img.alt} src={img.src} alt={img.alt} class="aspect-[4/5]" />)}
-        </div>
+  <!-- What we make -->
+  {d.items.length > 0 && (
+    <section class="border-t border-line py-18 sm:py-28">
+      <div class="container-site flex flex-col gap-14">
+        <SectionHeading eyebrow={d.itemsEyebrow} title={d.itemsTitle ?? d.title} />
+        <!-- Overlapping 1px borders (-m-px) so a partial last row leaves no filled gaps -->
+        <ul class="m-0 grid list-none pt-px pl-px sm:grid-cols-2 lg:grid-cols-3">
+          {d.items.map((item, i) => (
+            <li class="item-card -mt-px -ml-px flex flex-col gap-3 border border-line bg-ivory p-8 sm:p-10" data-reveal style={`--i:${i % 3}`}>
+              <span class="font-serif text-lg leading-none text-red italic">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="h-card mt-2">{item.title}</h3>
+              <p class="m-0 text-base text-body">{item.text}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )}
 
+  <!-- Gallery -->
+  {d.gallery.length > 0 && (
+    <GallerySlider id="galerija" class="border-t border-line"eyebrow="Naš rad" title={d.galleryTitle} items={d.gallery} />
+  )}
+
   <Process />
 
+  <!-- FAQ -->
   {d.faq.length > 0 && (
-    <section class="py-18 sm:py-28">
+    <section class="border-t border-line py-18 sm:py-28">
       <div class="container-site grid gap-16 lg:grid-cols-[0.8fr_1.2fr]">
-        <div>
-          <p class="eyebrow">Česta pitanja</p>
-          <h2 class="h-section">Pitanja o usluzi</h2>
-        </div>
+        <SectionHeading eyebrow="Česta pitanja" title="Pitanja o usluzi" />
         <div>
           {d.faq.map((f) => (
-            <details class="border-t border-line py-6 last:border-b">
-              <summary class="min-h-11 cursor-pointer font-serif text-[24px] font-medium">{f.q}</summary>
-              <p class="mt-3 mb-0 text-body">{f.a}</p>
+            <details class="faq border-t border-line last:border-b">
+              <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-6 py-6 font-serif text-[22px] font-medium">
+                {f.q}
+                <span class="faq-icon relative h-4 w-4 shrink-0" aria-hidden="true"></span>
+              </summary>
+              <p class="m-0 pb-6 text-body">{f.a}</p>
             </details>
           ))}
         </div>
@@ -83,3 +110,19 @@ const schema = [
 
   <Contact service={d.title} />
 </Base>
+
+<style>
+  .item-card { transition: background-color .4s ease; }
+  .item-card:hover { background-color: var(--color-sand); }
+
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq-icon::before, .faq-icon::after {
+    content: ''; position: absolute; left: 0; top: 50%; width: 100%; height: 1.5px;
+    background: var(--color-red); transition: transform .3s ease;
+  }
+  .faq-icon::after { transform: rotate(90deg); }
+  .faq[open] .faq-icon::after { transform: rotate(0deg); }
+  @media (prefers-reduced-motion: reduce) {
+    .item-card, .faq-icon::before, .faq-icon::after { transition: none; }
+  }
+</style>
