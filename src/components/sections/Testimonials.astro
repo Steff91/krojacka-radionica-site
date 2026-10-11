@@ -36,14 +36,31 @@ const items = (await getCollection('testimonials'))
       ))}
     </div>
 
-    {info.googleReviews && (
-      <div class="flex flex-wrap items-center gap-x-6 gap-y-3" data-reveal>
-        <a href={info.googleReviews} class="btn btn-outline" target="_blank" rel="noopener">
-          Svi utisci na Google-u<Icon name="chevron-right" size={11} class="chev" />
+    <div class="flex flex-wrap items-center justify-between gap-x-8 gap-y-6 border-t border-sage/40 pt-8" data-reveal>
+      {info.googleRating && (
+        <a href={info.googleReviews} target="_blank" rel="noopener" class="flex items-center gap-4 no-underline hover:text-ink">
+          <span class="font-serif text-[44px] leading-none">{info.googleRating}</span>
+          <span class="flex flex-col gap-1">
+            <span class="inline-flex gap-1 text-gold" aria-hidden="true">
+              {Array.from({ length: 5 }, () => <Icon name="star" size={14} />)}
+            </span>
+            <span class="text-sm text-body underline">{info.googleReviewCount} utisaka na Google-u</span>
+          </span>
         </a>
-        <span class="text-[15px] text-body">Bili ste kod nas? Ostavite i vi utisak.</span>
+      )}
+      <div class="flex flex-wrap gap-4">
+        {info.googleReviews && (
+          <a href={info.googleReviews} class="btn btn-outline" target="_blank" rel="noopener">
+            Svi utisci<Icon name="chevron-right" size={11} class="chev" />
+          </a>
+        )}
+        {info.googleWriteReview && (
+          <a href={info.googleWriteReview} class="btn btn-dark" target="_blank" rel="noopener">
+            Ostavite utisak<Icon name="chevron-right" size={11} class="chev" />
+          </a>
+        )}
       </div>
-    )}
+    </div>
   </div>
 </section>
 

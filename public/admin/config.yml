@@ -30,6 +30,9 @@ collections:
           - { name: instagram, label: Instagram URL, widget: string }
           - { name: instagramHandle, label: Instagram nalog (@...), widget: string }
           - { name: googleReviews, label: Google profil (link za utiske), widget: string, required: false }
+          - { name: googleWriteReview, label: Google link za ostavljanje utiska, widget: string, required: false }
+          - { name: googleRating, label: Google ocena (npr. 5.0), widget: string, required: false }
+          - { name: googleReviewCount, label: Broj Google utisaka, widget: string, required: false }
           - { name: formAction, label: Adresa za slanje forme (npr. Formspree), widget: string, required: false }
 
       - name: process
