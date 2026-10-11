@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import MapEmbed from '../components/MapEmbed.astro';
+import Contact from '../components/sections/Contact.astro';
+import info from '../data/info.json';
+---
+
+<Base
+  title="Kontakt | Krojačka radionica Beograd, TC Kula"
+  description={`Krojačka radionica, ${info.address}, ${info.addressNote}, ${info.city}. Telefon ${info.phone}. Radno vreme, mapa i kontakt forma — zakažite konsultaciju.`}
+>
+  <section class="pt-12 pb-4 sm:pt-16">
+    <div class="container-site flex flex-col gap-5">
+      <Breadcrumbs items={[{ label: 'Kontakt' }]} />
+      <h1 class="h-display" data-reveal>Kontakt</h1>
+      <p class="lead max-w-[600px] text-[19px]" data-reveal style="--i:1">
+        Pozovite, pišite ili svratite u radionicu. Najlakše je da zakažemo konsultaciju — tada imamo vremena samo za vašu ideju.
+      </p>
+    </div>
+  </section>
+
+  <Contact service="Kontakt" tone="ivory" title="Pišite nam" titleEm="ili pozovite." />
+
+  <!-- Map -->
+  <section class="pb-18 sm:pb-28">
+    <div class="container-site">
+      <MapEmbed class="h-[420px] sm:h-[520px]" />
+    </div>
+  </section>
+
+  <!-- Directions -->
+  <section class="bg-sand py-18 sm:py-28">
+    <div class="container-site flex flex-col gap-14">
+      <SectionHeading eyebrow="Kako do nas" title="Lako nas je pronaći" />
+      <ul class="m-0 grid list-none gap-10 p-0 md:grid-cols-3">
+        {info.directions.map((d, i) => (
+          <li class="flex flex-col gap-3 border-t border-gold pt-6" data-reveal style={`--i:${i}`}>
+            <h3 class="h-card">{d.title}</h3>
+            <p class="m-0 text-base text-body">{d.text}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+</Base>

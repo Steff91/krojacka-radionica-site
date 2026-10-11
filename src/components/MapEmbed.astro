@@ -1,0 +1,54 @@
+---
+// Google Maps without an API key (plain embed URL in info.json → mapsEmbed).
+// The iframe loads only after a click: until then Google sets no cookies and the page stays fast.
+import Icon from './Icon.astro';
+import info from '../data/info.json';
+
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+{info.mapsEmbed && (
+  <div class:list={['map-embed relative overflow-hidden bg-sand', className]} data-map-embed data-src={info.mapsEmbed}>
+    <div class="map-facade absolute inset-0 flex flex-col items-center justify-center gap-5 p-6 text-center" data-map-facade>
+      <span class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-ivory text-red shadow-[0_14px_30px_-12px_rgba(45,41,38,0.35)]">
+        <Icon name="location" size={22} />
+      </span>
+      <p class="m-0 font-serif text-[26px] uppercase tracking-[0.03em]">{info.address}</p>
+      <p class="m-0 -mt-3 text-body">{info.addressNote}, {info.city}</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <button type="button" class="btn btn-dark" data-map-load>Prikažite mapu</button>
+        <a href={info.mapsLink} target="_blank" rel="noopener" class="btn btn-outline">Otvorite u Google mapama</a>
+      </div>
+      <p class="m-0 max-w-[420px] text-[13px] text-muted">Mapa se učitava sa Google servisa, koji može postaviti svoje kolačiće.</p>
+    </div>
+  </div>
+)}
+
+<style>
+  .map-facade {
+    background-image:
+      linear-gradient(var(--color-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: center;
+  }
+  .map-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(.35) sepia(.08); }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-map-embed]').forEach((wrap) => {
+    wrap.querySelector('[data-map-load]')?.addEventListener('click', () => {
+      const iframe = document.createElement('iframe');
+      iframe.src = wrap.dataset.src ?? '';
+      iframe.title = 'Mapa — lokacija krojačke radionice';
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      iframe.allowFullscreen = true;
+      wrap.querySelector('[data-map-facade]')?.remove();
+      wrap.appendChild(iframe);
+    });
+  });
+</script>

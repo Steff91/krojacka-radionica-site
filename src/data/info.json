@@ -5,6 +5,12 @@
   "addressNote": "TC Kula",
   "city": "Beograd",
   "mapsLink": "https://share.google/9yL8ajZsAnZ424LDy",
+  "mapsEmbed": "https://www.google.com/maps?q=Kroja%C4%8Dka+radionica+BG,+Nehruova+51a,+Beograd&z=16&output=embed",
+  "directions": [
+    { "title": "Kako do lokala", "text": "Radionica je u TC Kula, lokal 93. [Kratko uputstvo: ulaz, sprat, orijentir.]" },
+    { "title": "Parking", "text": "[Gde se najlakše parkira u blizini.]" },
+    { "title": "Javni prevoz", "text": "[Najbliže stanice i linije.]" }
+  ],
   "phone": "+381 60 684 4558",
   "phoneHref": "+381606844558",
   "email": "[EMAIL]",

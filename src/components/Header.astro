@@ -12,9 +12,12 @@ const servicesActive = path.startsWith('/usluge');
 const linksAfter = [
   { href: '/o-nama/', label: 'O nama' },
   { href: '/radovi/', label: 'Radovi' },
-  { href: '/#kontakt', label: 'Kontakt' },
+  { href: '/kontakt/', label: 'Kontakt' },
 ];
 const isActive = (href: string) => !href.includes('#') && path.startsWith(href);
+// "Zakažite konsultaciju" jumps to the contact form on the same page; pages without one go to /kontakt/
+const noContactSection = ['/privatnost/', '/kolacici/', '/impresum/'];
+const ctaHref = noContactSection.includes(path) ? '/kontakt/#kontakt' : '#kontakt';
 const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
 ---
 
@@ -41,7 +44,7 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
       ))}
     </nav>
 
-    <a href="/#kontakt" class="btn btn-red btn-sm hidden lg:inline-flex">Zakažite konsultaciju</a>
+    <a href={ctaHref} class="btn btn-red btn-sm hidden lg:inline-flex">Zakažite konsultaciju</a>
 
     <button
       type="button"
@@ -118,7 +121,7 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
         ))}
       </div>
       {linksAfter.map((l) => <a href={l.href} class={mobileLink}>{l.label}</a>)}
-      <a href="/#kontakt" class="btn btn-red mt-5 font-sans">Zakažite konsultaciju</a>
+      <a href={ctaHref} class="btn btn-red mt-5 font-sans">Zakažite konsultaciju</a>
     </div>
   </nav>
 </header>

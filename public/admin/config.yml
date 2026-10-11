@@ -24,6 +24,14 @@ collections:
           - { name: addressNote, label: Dodatak adresi (npr. TC Kula), widget: string, required: false }
           - { name: city, label: Grad, widget: string }
           - { name: mapsLink, label: Link ka Google mapama, widget: string, required: false }
+          - { name: mapsEmbed, label: "Google mapa — embed URL (bez API ključa)", widget: string, required: false }
+          - name: directions
+            label: Kako do nas
+            widget: list
+            required: false
+            fields:
+              - { name: title, label: Naslov, widget: string }
+              - { name: text, label: Tekst, widget: text }
           - { name: phone, label: Telefon (prikaz), widget: string }
           - { name: phoneHref, label: Telefon (link, +381...), widget: string }
           - { name: email, label: Email, widget: string }
