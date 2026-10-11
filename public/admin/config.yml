@@ -46,6 +46,17 @@ collections:
               - { name: title, label: Naslov, widget: string }
               - { name: text, label: Tekst, widget: text }
 
+      - name: work
+        label: Izabrani radovi (slajder)
+        file: src/data/work.json
+        fields:
+          - name: items
+            label: Fotografije
+            widget: list
+            fields:
+              - { name: src, label: Fotografija, widget: image, required: false }
+              - { name: alt, label: Opis fotografije, widget: string }
+
       - name: testimonials
         label: Utisci klijenata
         file: src/content/testimonials.json
