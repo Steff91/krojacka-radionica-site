@@ -1,0 +1,108 @@
+---
+// Cookie consent. Categories: necessary (always on) and external content (Google Maps).
+// Add an "analytics" category here before adding any analytics script.
+// Embeds that need consent: wrap them in [data-consent-embed] with a <template data-consent-content> (see MapEmbed.astro).
+---
+
+<div
+  id="cookie-banner"
+  role="dialog"
+  aria-modal="false"
+  aria-labelledby="cookie-title"
+  aria-describedby="cookie-text"
+  class="fixed inset-x-4 bottom-4 z-[60] max-w-[460px] rounded border border-line bg-ivory p-6 shadow-[0_24px_60px_-20px_rgba(45,41,38,0.45)] sm:right-auto sm:bottom-6 sm:left-6"
+  hidden
+>
+  <p id="cookie-title" class="m-0 font-serif text-[22px] font-medium uppercase tracking-[0.04em]">Kolačići</p>
+  <p id="cookie-text" class="mt-2 mb-0 text-[15px] leading-relaxed text-body">
+    Sajt ne koristi kolačiće za praćenje. Mapa na stranici Kontakt dolazi sa Google servisa, koji može postaviti svoje kolačiće.{' '}
+    <a href="/kolacici/">Saznajte više</a>.
+  </p>
+
+  <form class="mt-4 flex flex-col gap-3 border-t border-line pt-4" data-cookie-prefs hidden>
+    <label class="flex items-start gap-3 text-[14px] text-body">
+      <input type="checkbox" checked disabled class="mt-1 h-4 w-4 accent-[#A03C3C]" />
+      <span><span class="text-[13px] font-medium uppercase tracking-[0.08em] text-ink">Neophodni</span><br />Pamćenje vašeg izbora. Uvek uključeno.</span>
+    </label>
+    <label class="flex items-start gap-3 text-[14px] text-body">
+      <input type="checkbox" name="external" class="mt-1 h-4 w-4 accent-[#A03C3C]" />
+      <span><span class="text-[13px] font-medium uppercase tracking-[0.08em] text-ink">Spoljni sadržaj</span><br />Google mapa na stranici Kontakt.</span>
+    </label>
+  </form>
+
+  <div class="mt-5 flex flex-wrap items-center gap-2.5">
+    <button type="button" class="btn btn-red btn-sm" data-cookie-accept>Prihvati sve</button>
+    <button type="button" class="btn btn-outline btn-sm" data-cookie-necessary>Samo neophodni</button>
+    <button type="button" class="cursor-pointer border-0 bg-transparent px-1 text-[13px] text-red underline-offset-4 hover:underline" data-cookie-settings>Podešavanja</button>
+    <button type="button" class="btn btn-outline btn-sm" data-cookie-save hidden>Sačuvaj izbor</button>
+  </div>
+</div>
+
+<script>
+  const KEY = 'kr-consent';
+  const VERSION = 1;
+  type Consent = { v: number; external: boolean; at: string };
+
+  const banner = document.getElementById('cookie-banner')!;
+  const prefs = banner.querySelector<HTMLFormElement>('[data-cookie-prefs]')!;
+  const externalBox = prefs.querySelector<HTMLInputElement>('input[name="external"]')!;
+  const saveBtn = banner.querySelector<HTMLButtonElement>('[data-cookie-save]')!;
+  const settingsBtn = banner.querySelector<HTMLButtonElement>('[data-cookie-settings]')!;
+
+  const read = (): Consent | null => {
+    try {
+      const c = JSON.parse(localStorage.getItem(KEY) ?? 'null');
+      return c && c.v === VERSION ? c : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const write = (external: boolean) => {
+    const c: Consent = { v: VERSION, external, at: new Date().toISOString() };
+    try { localStorage.setItem(KEY, JSON.stringify(c)); } catch { /* private mode */ }
+    apply(c);
+    close();
+  };
+
+  // Swap the placeholder for the real embed (iframe) kept in a <template>
+  const load = (wrap: HTMLElement) => {
+    const tpl = wrap.querySelector<HTMLTemplateElement>('template[data-consent-content]');
+    if (!tpl) return;
+    wrap.querySelector('[data-consent-placeholder]')?.remove();
+    tpl.replaceWith(tpl.content.cloneNode(true));
+  };
+
+  const apply = (c: Consent | null) => {
+    if (c?.external) document.querySelectorAll<HTMLElement>('[data-consent-embed]').forEach(load);
+  };
+
+  const open = (withSettings = false) => {
+    externalBox.checked = read()?.external ?? false;
+    prefs.hidden = !withSettings;
+    saveBtn.hidden = !withSettings;
+    settingsBtn.hidden = withSettings;
+    banner.hidden = false;
+  };
+  const close = () => { banner.hidden = true; };
+
+  banner.querySelector('[data-cookie-accept]')!.addEventListener('click', () => write(true));
+  banner.querySelector('[data-cookie-necessary]')!.addEventListener('click', () => write(false));
+  settingsBtn.addEventListener('click', () => open(true));
+  saveBtn.addEventListener('click', () => write(externalBox.checked));
+
+  // Per-embed buttons: load once, or allow for good
+  document.querySelectorAll<HTMLElement>('[data-consent-embed]').forEach((wrap) => {
+    wrap.querySelector('[data-consent-load]')?.addEventListener('click', () => load(wrap));
+    wrap.querySelector('[data-consent-allow]')?.addEventListener('click', () => write(true));
+  });
+
+  // Footer link "Podešavanja kolačića"
+  document.querySelectorAll('[data-open-cookie-settings]').forEach((el) =>
+    el.addEventListener('click', (e) => { e.preventDefault(); open(true); }),
+  );
+
+  const current = read();
+  if (current) apply(current);
+  else open();
+</script>

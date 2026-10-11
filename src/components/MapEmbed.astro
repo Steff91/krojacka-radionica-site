@@ -1,6 +1,8 @@
 ---
 // Google Maps without an API key (plain embed URL in info.json → mapsEmbed).
-// loading="lazy": the map is fetched only when it scrolls into view.
+// The iframe is kept in a <template> and loads as soon as the visitor accepts external content
+// (cookie banner). Until then a placeholder with the address is shown.
+import Icon from './Icon.astro';
 import info from '../data/info.json';
 
 interface Props {
@@ -10,14 +12,38 @@ const { class: className = '' } = Astro.props;
 ---
 
 {info.mapsEmbed && (
-  <div class:list={['relative overflow-hidden bg-sand', className]}>
-    <iframe
-      src={info.mapsEmbed}
-      title="Mapa — lokacija krojačke radionice"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      allowfullscreen
-      class="absolute inset-0 h-full w-full border-0 [filter:grayscale(.35)_sepia(.08)]"
-    ></iframe>
+  <div class:list={['relative overflow-hidden bg-sand', className]} data-consent-embed>
+    <div class="map-placeholder absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 text-center" data-consent-placeholder>
+      <span class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-ivory text-red shadow-[0_14px_30px_-12px_rgba(45,41,38,0.35)]">
+        <Icon name="location" size={22} />
+      </span>
+      <p class="m-0 font-serif text-[24px] uppercase tracking-[0.03em]">{info.address}</p>
+      <p class="m-0 -mt-2 text-body">{info.addressNote}, {info.city}</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <button type="button" class="btn btn-dark btn-sm" data-consent-allow>Prikaži mapu</button>
+        <a href={info.mapsLink} target="_blank" rel="noopener" class="btn btn-outline btn-sm">Google mape</a>
+      </div>
+      <p class="m-0 max-w-[420px] text-[13px] text-muted">Mapa dolazi sa Google servisa. Prikazom mape prihvatate spoljni sadržaj (<a href="/kolacici/">kolačići</a>).</p>
+    </div>
+    <template data-consent-content>
+      <iframe
+        src={info.mapsEmbed}
+        title="Mapa — lokacija krojačke radionice"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+        class="absolute inset-0 h-full w-full border-0 [filter:grayscale(.35)_sepia(.08)]"
+      ></iframe>
+    </template>
   </div>
 )}
+
+<style>
+  .map-placeholder {
+    background-image:
+      linear-gradient(var(--color-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: center;
+  }
+</style>
