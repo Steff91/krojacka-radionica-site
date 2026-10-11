@@ -12,5 +12,8 @@ import work from '../../data/work.json';
   text="Svaki komad koji izlazi iz naše radionice nosi istu pažnju — bilo da je u pitanju venčanica, pozorišni kostim ili muški kaput. Pogledajte neke od radova na koje smo posebno ponosni."
   items={work.items}
 >
-  <a href={info.instagram} class="link-arrow self-start" rel="noopener">Pratite nas na Instagramu · {info.instagramHandle}<Icon name="chevron-right" size={12} class="chev" /></a>
+  <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
+    <a href="/radovi/" class="btn btn-outline">Svi radovi<Icon name="chevron-right" size={11} class="chev" /></a>
+    <a href={info.instagram} class="link-arrow" rel="noopener">Pratite nas na Instagramu · {info.instagramHandle}<Icon name="chevron-right" size={12} class="chev" /></a>
+  </div>
 </GallerySlider>

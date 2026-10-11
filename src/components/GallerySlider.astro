@@ -1,8 +1,9 @@
 ---
-// Scroll-snap slider with a lightbox. Several can live on one page: everything is scoped to the root.
+// Scroll-snap slider with a lightbox (Lightbox.astro). Several can live on one page: everything is scoped to the root.
 import SectionHeading from './SectionHeading.astro';
 import Placeholder from './Placeholder.astro';
 import Icon from './Icon.astro';
+import Lightbox from './Lightbox.astro';
 
 type Item = { src?: string; alt: string; position?: string };
 interface Props {
@@ -19,7 +20,7 @@ const tones = ['sand', 'sand-dark'] as const;
 const clean = (s: string) => s.replace(/[[\]]/g, '');
 ---
 
-<section id={id} class:list={['overflow-x-clip py-18 sm:py-28', className]} data-gallery>
+<section id={id} class:list={['overflow-x-clip py-18 sm:py-28', className]} data-gallery data-lightbox-root>
   <div class="container-site flex flex-col gap-12">
     <div class="flex flex-wrap items-end justify-between gap-8 lg:flex-nowrap">
       <SectionHeading class="min-w-0" eyebrow={eyebrow} title={title} titleEm={titleEm} text={text} />
@@ -56,31 +57,9 @@ const clean = (s: string) => s.replace(/[[\]]/g, '');
     <slot />
   </div>
 
-  <dialog class="lightbox" aria-label="Pregled fotografija">
-    <div class="flex h-full w-full flex-col">
-      <div class="flex items-center justify-between px-4 py-4 text-on-dark sm:px-8">
-        <span class="text-sm tracking-[0.12em]" data-lightbox-counter></span>
-        <button type="button" class="lb-btn" data-lightbox-close aria-label="Zatvori">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"></path></svg>
-        </button>
-      </div>
-      <div class="relative flex min-h-0 flex-1 items-center justify-center px-4 pb-6 sm:px-24">
-        <button type="button" class="lb-btn lb-nav left-3 sm:left-8" data-lightbox-prev aria-label="Prethodna fotografija">
-          <Icon name="chevron-right" size={16} class="rotate-180" />
-        </button>
-        <figure class="m-0 flex h-full max-h-full w-full flex-col items-center justify-center gap-4">
-          <img data-lightbox-img alt="" class="lb-img hidden max-h-[calc(100%-3rem)] max-w-full object-contain" />
-          <div data-lightbox-placeholder class="placeholder hidden aspect-[4/5] h-[60vh] max-w-full !bg-ink-soft !text-on-dark-muted"></div>
-          <figcaption class="text-center text-sm text-on-dark-muted" data-lightbox-caption></figcaption>
-        </figure>
-        <button type="button" class="lb-btn lb-nav right-3 sm:right-8" data-lightbox-next aria-label="Sledeća fotografija">
-          <Icon name="chevron-right" size={16} />
-        </button>
-      </div>
-    </div>
-  </dialog>
+  <Lightbox />
 
-  <script type="application/json" data-gallery-items set:html={JSON.stringify(items)} />
+  <script type="application/json" data-lightbox-items set:html={JSON.stringify(items)} />
 </section>
 
 <style>
@@ -106,45 +85,14 @@ const clean = (s: string) => s.replace(/[[\]]/g, '');
   .slider-btn:hover:not(:disabled) { background: var(--color-ink); color: var(--color-on-dark); }
   .slider-btn:disabled { opacity: .3; cursor: default; }
 
-  .lightbox {
-    width: 100vw; height: 100dvh; max-width: none; max-height: none;
-    margin: 0; padding: 0; border: 0;
-    background: var(--color-ink);
-  }
-  .lightbox::backdrop { background: var(--color-ink); }
-  .lightbox[open] { animation: lb-in .3s ease; }
-  @keyframes lb-in { from { opacity: 0; } to { opacity: 1; } }
-  .lb-img { animation: lb-img-in .35s ease; }
-  @keyframes lb-img-in { from { opacity: 0; transform: scale(.98); } to { opacity: 1; transform: none; } }
-
-  .lb-btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 48px; height: 48px; border-radius: 4px; cursor: pointer;
-    border: 1px solid var(--color-line-dark); background: rgba(45, 41, 38, .6); color: var(--color-on-dark);
-    transition: border-color .3s ease, color .3s ease;
-  }
-  .lb-btn:hover { border-color: var(--color-gold); color: var(--color-gold); }
-  .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 1; }
-  /* Phones: arrows sit below the photo instead of covering it */
-  @media (max-width: 639px) {
-    .lb-nav { top: auto; bottom: 16px; transform: none; }
-    .lightbox figure { padding-bottom: 64px; }
-  }
 
   @media (prefers-reduced-motion: reduce) {
     .gallery-track { scroll-behavior: auto; }
-    .lightbox[open], .lb-img { animation: none; }
   }
 </style>
 
 <script>
-  type Item = { src?: string; alt: string };
-  const clean = (s: string) => s.replace(/[[\]]/g, '');
-
   document.querySelectorAll<HTMLElement>('[data-gallery]').forEach((root) => {
-    const items: Item[] = JSON.parse(root.querySelector('[data-gallery-items]')?.textContent ?? '[]');
-
-    // --- Slider ---
     const track = root.querySelector<HTMLElement>('.gallery-track');
     const prev = root.querySelector<HTMLButtonElement>('[data-slider-prev]');
     const next = root.querySelector<HTMLButtonElement>('[data-slider-next]');
@@ -171,66 +119,5 @@ const clean = (s: string) => s.replace(/[[\]]/g, '');
     track?.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
     window.addEventListener('resize', update);
     update();
-
-    // --- Lightbox ---
-    const dialog = root.querySelector<HTMLDialogElement>('.lightbox');
-    const img = dialog?.querySelector<HTMLImageElement>('[data-lightbox-img]');
-    const ph = dialog?.querySelector<HTMLElement>('[data-lightbox-placeholder]');
-    const caption = dialog?.querySelector<HTMLElement>('[data-lightbox-caption]');
-    const counter = dialog?.querySelector<HTMLElement>('[data-lightbox-counter]');
-    let current = 0;
-    let opener: HTMLElement | null = null;
-
-    const show = (i: number) => {
-      if (!img || !ph || !caption || !counter) return;
-      current = (i + items.length) % items.length;
-      const item = items[current];
-      counter.textContent = `${current + 1} / ${items.length}`;
-      caption.textContent = clean(item.alt);
-      if (item.src) {
-        img.classList.remove('hidden');
-        ph.classList.add('hidden');
-        img.style.animation = 'none';
-        img.offsetHeight; // restart the fade-in
-        img.style.animation = '';
-        img.src = item.src;
-        img.alt = item.alt;
-      } else {
-        img.classList.add('hidden');
-        ph.classList.remove('hidden');
-        ph.textContent = `[${clean(item.alt)}]`;
-      }
-    };
-
-    root.querySelectorAll<HTMLElement>('[data-lightbox-open]').forEach((btn) =>
-      btn.addEventListener('click', () => {
-        opener = btn;
-        show(Number(btn.dataset.lightboxOpen));
-        dialog?.showModal();
-        document.documentElement.style.overflow = 'hidden';
-      }),
-    );
-    dialog?.addEventListener('close', () => {
-      document.documentElement.style.overflow = '';
-      opener?.focus();
-    });
-    dialog?.querySelector('[data-lightbox-close]')?.addEventListener('click', () => dialog.close());
-    dialog?.querySelector('[data-lightbox-prev]')?.addEventListener('click', () => show(current - 1));
-    dialog?.querySelector('[data-lightbox-next]')?.addEventListener('click', () => show(current + 1));
-    // Click on the dark area (not the photo or controls) closes
-    dialog?.addEventListener('click', (e) => {
-      const t = e.target as HTMLElement;
-      if (!t.closest('img, button, [data-lightbox-placeholder]')) dialog.close();
-    });
-    dialog?.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') show(current - 1);
-      if (e.key === 'ArrowRight') show(current + 1);
-    });
-    let startX = 0;
-    dialog?.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
-    dialog?.addEventListener('touchend', (e) => {
-      const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
-    });
   });
 </script>

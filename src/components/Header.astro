@@ -11,7 +11,7 @@ const servicesActive = path.startsWith('/usluge');
 
 const linksAfter = [
   { href: '/o-nama/', label: 'O nama' },
-  { href: '/#radovi', label: 'Radovi' },
+  { href: '/radovi/', label: 'Radovi' },
   { href: '/#kontakt', label: 'Kontakt' },
 ];
 const isActive = (href: string) => !href.includes('#') && path.startsWith(href);

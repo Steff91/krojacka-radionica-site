@@ -8,6 +8,7 @@ import Process from '../../components/sections/Process.astro';
 import Contact from '../../components/sections/Contact.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Faq from '../../components/Faq.astro';
+import Icon from '../../components/Icon.astro';
 
 export async function getStaticPaths() {
   // The featured service (fashion brand development) has its own page: razvijanje-modnog-brenda.astro
@@ -84,7 +85,9 @@ const schema = [
 
   <!-- Gallery -->
   {d.gallery.length > 0 && (
-    <GallerySlider id="galerija" class="border-t border-line"eyebrow="Naš rad" title={d.galleryTitle} items={d.gallery} />
+    <GallerySlider id="galerija" class="border-t border-line" eyebrow="Naš rad" title={d.galleryTitle} items={d.gallery}>
+      {d.gallery.some((g) => g.src) && <a href={`/radovi/#${service.id}`} class="link-arrow self-start">Još radova<Icon name="chevron-right" size={12} class="chev" /></a>}
+    </GallerySlider>
   )}
 
   <Process />

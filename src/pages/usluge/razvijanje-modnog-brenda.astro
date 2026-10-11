@@ -9,6 +9,7 @@ import SectionHeading from '../../components/SectionHeading.astro';
 import Placeholder from '../../components/Placeholder.astro';
 import GallerySlider from '../../components/GallerySlider.astro';
 import Faq from '../../components/Faq.astro';
+import Icon from '../../components/Icon.astro';
 import Contact from '../../components/sections/Contact.astro';
 import brand from '../../data/brand.json';
 
@@ -108,7 +109,9 @@ if (answered.length > 0) {
   </section>
 
   <!-- 5. Samples -->
-  {d.gallery.length > 0 && <GallerySlider id="uzorci" eyebrow="Naš rad" title={d.galleryTitle} items={d.gallery} />}
+  {d.gallery.length > 0 && <GallerySlider id="uzorci" eyebrow="Naš rad" title={d.galleryTitle} items={d.gallery}>
+      {d.gallery.some((g) => g.src) && <a href="/radovi/#razvijanje-modnog-brenda" class="link-arrow self-start">Još radova<Icon name="chevron-right" size={12} class="chev" /></a>}
+    </GallerySlider>}
 
   <!-- 6. FAQ -->
   <Faq items={d.faq} />
