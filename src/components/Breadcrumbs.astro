@@ -1,5 +1,6 @@
 ---
 // Visible breadcrumb trail + BreadcrumbList JSON-LD. The last item is the current page (no link).
+import Icon from './Icon.astro';
 interface Crumb { label: string; href?: string }
 interface Props {
   items: Crumb[];
@@ -22,10 +23,10 @@ const muted = dark ? 'text-on-dark-muted' : 'text-muted';
 ---
 
 <nav aria-label="Putanja" class:list={['text-[13px]', muted]}>
-  <ol class="m-0 flex list-none flex-wrap items-center gap-x-2 gap-y-1 p-0">
+  <ol class="m-0 flex list-none flex-wrap items-center gap-x-2.5 gap-y-1 p-0">
     {trail.map((c, i) => (
-      <li class="flex items-center gap-2">
-        {i > 0 && <span aria-hidden="true">/</span>}
+      <li class="flex items-center gap-2.5">
+        {i > 0 && <Icon name="chevron-right" size={8} class="opacity-60" />}
         {c.href && i < trail.length - 1
           ? <a href={c.href} class:list={[muted, dark ? 'hover:text-gold' : 'hover:text-red']}>{c.label}</a>
           : <span aria-current="page" class={dark ? 'text-on-dark' : 'text-ink'}>{c.label}</span>}

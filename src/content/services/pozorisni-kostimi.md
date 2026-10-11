@@ -2,14 +2,42 @@
 title: Pozorišni kostimi
 order: 4
 excerpt: Kostimi koji oživljavaju likove — za pozorišta, opere i performanse.
+seoTitle: Pozorišni kostimi po meri Beograd | Krojačka radionica
+seoDescription: Izrada kostima za pozorišne predstave, operu i performanse — od skice kostimografa do kostima spremnog za scenu. Krojačka radionica u Beogradu.
 heroTitle: Pozorišni kostimi
-intro: "[Uvodni tekst za stranicu usluge — u izradi.]"
-imageLabel: "Foto: pozorišni kostim"
+heroTitleEm: spremni za scenu
+intro: Kostim na sceni mora da izgleda tačno kao na skici, ali i da izdrži probe, izvođenja i brze presvlake. Radimo sa kostimografima i produkcijama — od prvog crteža do kostima koji glumac nosi bez razmišljanja.
+image: /uploads/radovi-dublet.webp
+imageLabel: "Pozorišni kostim na krojačkoj lutki"
 variant: default
+itemsEyebrow: Šta šijemo
+itemsTitle: Od skice do premijere
+items:
+  - title: Pozorišne predstave
+    text: Kostimi za glumce i ansambl, izrađeni prema skicama kostimografa i rokovima produkcije.
+  - title: Opera i muzička scena
+    text: Kostimi koji ostaju verni ideji, a pevačima i izvođačima ostavljaju slobodu daha i pokreta.
+  - title: Istorijski kostimi
+    text: Kroj i detalji inspirisani epohom — od dubleta do korseta — prilagođeni savremenoj sceni.
+  - title: Performansi i nastupi
+    text: Kostimi za umetničke performanse, koncerte i događaje, po vašoj ideji.
+galleryTitle: Kostimi iz radionice
 gallery:
-  - alt: "[Rad 1]"
-  - alt: "[Rad 2]"
-  - alt: "[Rad 3]"
-  - alt: "[Rad 4]"
-faq: []
+  - src: /uploads/radovi-dublet.webp
+    alt: Prošiveni dublet u petrolej boji sa mesinganim kopčama, istorijski kostim
+  - src: /uploads/radovi-kostim-stvorenje.webp
+    alt: Kostim fantastičnog stvorenja izrađen za scenski nastup
+    position: 50% 30%
+  - alt: "[Kostim iz predstave]"
+  - alt: "[Kostim za operu]"
+  - alt: "[Detalj kostima]"
+faq:
+  - q: Da li radite po skicama kostimografa?
+    a: "[Kako izgleda saradnja sa kostimografom.]"
+  - q: Možete li da izradite kostime za ceo ansambl?
+    a: "[Kapacitet i rokovi za veće narudžbine.]"
+  - q: Koliko traje izrada?
+    a: "[Okvirni rokovi, zavisno od broja kostima.]"
+  - q: Da li radite i za filmske produkcije?
+    a: "[Npr. da — iskustvo sa filmskih setova; link ka stranici O nama.]"
 ---
