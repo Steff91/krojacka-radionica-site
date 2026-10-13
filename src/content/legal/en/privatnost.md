@@ -32,12 +32,19 @@ The legal basis for processing is your request for us to contact you before ente
 
 - **Form service** — [service name, e.g. Formspree], through which messages from the website reach us.
 - **Hosting** — the server on which the website is hosted.
+- **Google reCAPTCHA** — a Google service that protects the forms against spam and automated abuse (see below).
 
 These services process data only to the extent necessary to provide their service.
 
 ## External content
 
 On the Contact page we show a Google map. The map is loaded from Google only once you allow it in the cookie settings; Google may then collect data in accordance with its [privacy policy](https://policies.google.com/privacy). More on the [Cookies](/en/cookies/) page.
+
+## Spam protection (Google reCAPTCHA)
+
+The contact form and the consultation booking form are protected by Google reCAPTCHA v3. To assess whether a form is being filled in by a person or an automated program, reCAPTCHA collects technical data about your device and your behaviour on the page (e.g. IP address, browser data, mouse movements and time spent on the page) and sends it to Google. Google may set cookies in the process.
+
+The legal basis is our legitimate interest in protecting the website and its forms from abuse. Google's [Privacy Policy](https://policies.google.com/privacy?hl=en) and [Terms of Service](https://policies.google.com/terms?hl=en) apply to this processing.
 
 ## How long we keep data
 

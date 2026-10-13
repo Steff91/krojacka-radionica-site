@@ -1,0 +1,22 @@
+---
+// reCAPTCHA v3 disclosure. Google allows hiding the floating badge (see global.css → .grecaptcha-badge)
+// only when this text, with both links, is shown next to every protected form.
+import { getLang, t } from '../i18n';
+
+interface Props {
+  dark?: boolean;
+  class?: string;
+}
+const { dark = false, class: className = '' } = Astro.props;
+const lang = getLang(Astro.url);
+const r = t(lang).recaptcha;
+const hl = lang === 'en' ? 'en' : 'sr';
+const link = dark ? 'text-on-dark hover:text-gold' : '';
+---
+
+<p class:list={['m-0 mt-2 text-[12px] leading-relaxed', dark ? 'text-on-dark-muted' : 'text-muted', className]}>
+  {r.before}{' '}
+  <a href={`https://policies.google.com/privacy?hl=${hl}`} target="_blank" rel="noopener" class={link}>{r.privacy}</a>{' '}
+  {r.and}{' '}
+  <a href={`https://policies.google.com/terms?hl=${hl}`} target="_blank" rel="noopener" class={link}>{r.terms}</a>.
+</p>

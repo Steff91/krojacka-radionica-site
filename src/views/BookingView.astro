@@ -1,4 +1,5 @@
 ---
+import RecaptchaNotice from '../components/RecaptchaNotice.astro';
 import HeroTexture from '../components/HeroTexture.astro';
 // Booking request form. Preselect a service with ?usluga=<service-key> (all CTAs on service pages do this).
 // Static site: posts to the same external form handler as the contact form (info.json → formAction).
@@ -92,6 +93,7 @@ const steps = b.steps;
         <div class="sm:col-span-2">
           <button type="submit" class="btn btn-red">{b.send}<Icon name="chevron-right" size={11} class="chev" /></button>
           <p class="m-0 mt-3 text-[13px] text-muted">{b.confirm} {ui.contact.consent} <a href={privacyUrl}>{ui.contact.consentLink}</a>.</p>
+          <RecaptchaNotice />
         </div>
       </form>
 

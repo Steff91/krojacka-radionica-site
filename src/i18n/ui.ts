@@ -198,6 +198,13 @@ const sr = {
     callInstead: 'Radije pozovite?',
   },
   legal: { updated: 'Poslednja izmena' },
+  recaptcha: {
+    // Wording Google requires when the reCAPTCHA badge is hidden
+    before: 'Ovaj sajt je zaštićen sistemom reCAPTCHA i na njega se primenjuju Google',
+    privacy: 'Politika privatnosti',
+    and: 'i',
+    terms: 'Uslovi korišćenja',
+  },
   cookie: {
     title: 'Kolačići',
     text: 'Sajt ne koristi kolačiće za praćenje. Mapa na stranici Kontakt dolazi sa Google servisa, koji može postaviti svoje kolačiće.',
@@ -422,6 +429,12 @@ const en: UI = {
     callInstead: 'Prefer to call?',
   },
   legal: { updated: 'Last updated' },
+  recaptcha: {
+    before: 'This site is protected by reCAPTCHA and the Google',
+    privacy: 'Privacy Policy',
+    and: 'and',
+    terms: 'Terms of Service apply',
+  },
   cookie: {
     title: 'Cookies',
     text: 'This site does not use tracking cookies. The map on the Contact page is provided by Google, which may set its own cookies.',

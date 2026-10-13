@@ -24,6 +24,7 @@ Some parts of the website load content from other services, which may set their 
 | Service | Where it is used | When it loads |
 |---|---|---|
 | Google Maps | Map on the Contact page | Only if you accept external content |
+| Google reCAPTCHA | Protects the contact and booking forms against spam | On pages with a form; required to send the form |
 
 If you don't accept external content, you will see the address and a link to Google Maps instead of the map.
 

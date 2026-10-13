@@ -31,12 +31,19 @@ Pravni osnov obrade je vaš zahtev da sa vama stupimo u kontakt pre zaključenja
 
 - **Servis za prijem formi** — [naziv servisa, npr. Formspree], preko kog nam stižu poruke sa sajta.
 - **Hosting** — server na kom se sajt nalazi.
+- **Google reCAPTCHA** — servis kompanije Google koji štiti forme od spama i automatizovanih zloupotreba (vidi niže).
 
 Ovi servisi podatke obrađuju samo u meri potrebnoj da pruže svoju uslugu.
 
 ## Spoljni sadržaj
 
 Na stranici Kontakt prikazujemo Google mapu. Mapa se učitava sa servisa Google tek kada to dozvolite u podešavanjima kolačića; tada Google može prikupljati podatke u skladu sa svojom [politikom privatnosti](https://policies.google.com/privacy). Više o tome na stranici [Kolačići](/kolacici/).
+
+## Zaštita od spama (Google reCAPTCHA)
+
+Kontakt forma i forma za zakazivanje zaštićene su servisom Google reCAPTCHA v3. Da bi procenio da li formu popunjava čovek ili automatizovani program, reCAPTCHA prikuplja tehničke podatke o uređaju i ponašanju na stranici (npr. IP adresu, podatke o pregledaču, kretanje miša i vreme provedeno na stranici) i šalje ih kompaniji Google. Pri tome se mogu postaviti kolačići servisa Google.
+
+Pravni osnov je naš legitimni interes da zaštitimo sajt i forme od zloupotrebe. Na ovu obradu primenjuju se Google [Politika privatnosti](https://policies.google.com/privacy?hl=sr) i [Uslovi korišćenja](https://policies.google.com/terms?hl=sr).
 
 ## Koliko čuvamo podatke
 

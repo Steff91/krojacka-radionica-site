@@ -114,6 +114,9 @@
   .field-input-dark:focus { @apply border-gold; box-shadow: 0 0 0 4px rgba(201, 169, 110, .18); }
 }
 
+/* reCAPTCHA v3 badge hidden: allowed because every form shows the required notice (RecaptchaNotice.astro) */
+.grecaptcha-badge { visibility: hidden; }
+
 /* Subtle reveal on scroll — only when JS runs and motion is allowed */
 @media (prefers-reduced-motion: no-preference) {
   .js [data-reveal] {

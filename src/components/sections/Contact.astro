@@ -1,4 +1,5 @@
 ---
+import RecaptchaNotice from '../RecaptchaNotice.astro';
 import HeroTexture from '../HeroTexture.astro';
 import Icon from '../Icon.astro';
 import { getLang, getInfo, legalUrl, t } from '../../i18n';
@@ -73,6 +74,7 @@ const body = dark ? 'lead !text-on-dark-muted' : 'lead';
         <p class:list={['m-0 mt-3 text-[13px]', dark ? 'text-on-dark-muted' : 'text-muted']}>
           {ui.contact.consent} <a href={privacyUrl} class:list={[dark && 'text-on-dark hover:text-gold']}>{ui.contact.consentLink}</a>.
         </p>
+        <RecaptchaNotice dark={dark} />
       </div>
     </form>
   </div>

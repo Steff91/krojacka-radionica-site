@@ -23,6 +23,7 @@ Neki delovi sajta učitavaju sadržaj sa drugih servisa, koji mogu postaviti svo
 | Servis | Gde se koristi | Kada se učitava |
 |---|---|---|
 | Google Maps | Mapa na stranici Kontakt | Samo ako prihvatite spoljni sadržaj |
+| Google reCAPTCHA | Zaštita kontakt forme i forme za zakazivanje od spama | Na stranicama sa formom; neophodno za slanje forme |
 
 Ako spoljni sadržaj ne prihvatite, umesto mape vidite adresu i link ka Google mapama.
 
