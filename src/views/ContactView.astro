@@ -1,4 +1,5 @@
 ---
+import HeroTexture from '../components/HeroTexture.astro';
 import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SectionHeading from '../components/SectionHeading.astro';
@@ -16,7 +17,8 @@ const info = getInfo(lang);
   description={ui.contactPage.description(`${info.address}, ${info.addressNote}, ${info.city}`, info.phone)}
   alternates={alternatesFor('contact')}
 >
-  <section class="pt-12 pb-4 sm:pt-16">
+  <section class="relative isolate overflow-hidden pt-12 pb-4 sm:pt-16">
+    <HeroTexture side="right" compact />
     <div class="container-site flex flex-col gap-5">
       <Breadcrumbs items={[{ label: ui.contactPage.h1 }]} />
       <h1 class="h-display" data-reveal>{ui.contactPage.h1}</h1>

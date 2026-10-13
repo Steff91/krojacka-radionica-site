@@ -16,6 +16,7 @@
   --color-sand-dark: #E9DFD2;
   --color-gold: #C9A96E;
   --color-red: #A03C3C;
+  --color-wine: #6E2A30;   /* "trula višnja" — button outlines and hover */
   --color-sage: #8B9E8B;
   --color-sage-light: #E7ECE5;
   --color-ink: #2D2926;
@@ -84,14 +85,15 @@
     transition: background-color .3s ease, color .3s ease, border-color .3s ease;
   }
   .btn-sm { @apply min-h-11 px-[22px]; }
-  .btn-dark { @apply border-0 bg-ink text-on-dark; }
-  .btn-dark:hover { @apply bg-red text-ivory; }
-  .btn-outline { @apply border border-ink bg-transparent text-ink; }
-  .btn-outline:hover { @apply bg-ink text-on-dark; }
+  /* Primary (filled) and secondary (outline) buttons share the red / wine palette */
+  .btn-dark { @apply border-0 bg-red text-ivory; }
+  .btn-dark:hover { @apply bg-wine text-ivory; }
+  .btn-outline { @apply border border-wine bg-transparent text-wine; }
+  .btn-outline:hover { @apply border-red bg-red text-ivory; }
   .btn-gold { @apply border-0 bg-gold font-medium text-ink; }
   .btn-gold:hover { @apply bg-sand text-ink; }
   .btn-red { @apply border-0 bg-red font-medium text-ivory; }
-  .btn-red:hover { @apply bg-ink text-ivory; }
+  .btn-red:hover { @apply bg-wine text-ivory; }
   .btn-ghost { @apply min-h-11 border border-gold bg-transparent px-5 text-[13px] text-on-dark; }
   .btn-ghost:hover { @apply bg-gold text-ink; }
 

@@ -1,4 +1,5 @@
 ---
+import HeroTexture from '../HeroTexture.astro';
 import Placeholder from '../Placeholder.astro';
 import Icon from '../Icon.astro';
 import { getLang, getInfo, route, t } from '../../i18n';
@@ -7,7 +8,8 @@ const ui = t(lang);
 const info = getInfo(lang);
 ---
 
-<section class="relative overflow-x-clip pt-12 pb-28 sm:pt-16 sm:pb-32">
+<section class="relative isolate overflow-x-clip pt-12 pb-28 sm:pt-16 sm:pb-32">
+  <HeroTexture side="left" />
   <div class="container-site grid items-center gap-16 lg:grid-cols-[1.05fr_1fr]">
     <div class="flex flex-col gap-7">
       <p class="eyebrow !mb-0" data-reveal>{ui.hero.eyebrow} · {info.city}</p>

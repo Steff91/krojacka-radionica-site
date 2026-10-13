@@ -1,4 +1,5 @@
 ---
+import HeroTexture from '../components/HeroTexture.astro';
 // Services overview: target of the "Services" breadcrumb, and a hub page for SEO.
 import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
@@ -13,7 +14,8 @@ const p = ui.servicesPage;
 ---
 
 <Base title={p.title} description={p.description} alternates={alternatesFor('services')}>
-  <section class="pt-12 pb-4 sm:pt-16">
+  <section class="relative isolate overflow-hidden pt-12 pb-4 sm:pt-16">
+    <HeroTexture side="right" compact />
     <div class="container-site flex flex-col gap-5">
       <Breadcrumbs items={[{ label: p.h1 }]} />
       <h1 class="h-display" data-reveal>{p.h1}</h1>

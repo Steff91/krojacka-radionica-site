@@ -1,0 +1,97 @@
+---
+// Decorative hero background: dressmaker's pattern paper (dot grid with heavier 5 cm lines)
+// plus two sewing-pattern pieces — cutting line, dashed seam line, dart, notches and grainline arrow.
+// Place inside a `relative isolate` section. Purely decorative (aria-hidden).
+interface Props {
+  /** light = ivory sections, dark = ink sections (fashion brand) */
+  tone?: 'light' | 'dark';
+  /** Which side the pattern pieces sit on */
+  side?: 'left' | 'right';
+  /** Short page headers: smaller pattern pieces, vertically centred, hidden on phones */
+  compact?: boolean;
+  class?: string;
+}
+const { tone = 'light', side = 'left', compact = false, class: className = '' } = Astro.props;
+---
+
+<div class:list={['hero-texture pointer-events-none absolute inset-0 -z-10 overflow-hidden', `tone-${tone}`, compact && 'is-compact', className]} aria-hidden="true">
+  <div class="paper absolute inset-0"></div>
+  <svg
+    class:list={['pieces absolute', side === 'left' ? 'pieces-left' : 'pieces-right']}
+    viewBox="0 0 640 620"
+    fill="none"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <defs>
+      <marker id="grain-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L10 5 L0 10" fill="none" stroke="currentColor" stroke-width="1.4" />
+      </marker>
+    </defs>
+
+    <!-- Bodice front -->
+    <g transform="translate(20 30)">
+      <path class="cut" d="M40 70 L150 40 Q172 108 236 116 L236 470 L56 470 L36 230 Q72 196 58 140 Q52 100 40 70 Z" />
+      <path class="seam" d="M52 82 L144 57 Q166 120 222 129 L222 456 L69 456 L50 236 Q84 200 72 142 Q66 108 52 82 Z" />
+      <!-- Waist dart -->
+      <path class="seam" d="M118 456 L136 318 L154 456" />
+      <!-- Notches -->
+      <path class="cut" d="M36 230 l-10 -2 M58 140 l-10 2 M236 300 l10 0" />
+      <!-- Grainline -->
+      <path class="grain" d="M186 200 L186 410" marker-start="url(#grain-arrow)" marker-end="url(#grain-arrow)" />
+      <!-- Fold line marker on centre front -->
+      <path class="seam" d="M250 160 L250 430" />
+    </g>
+
+    <!-- Sleeve -->
+    <g transform="translate(330 20) rotate(8 140 280)">
+      <path class="cut" d="M10 190 Q70 22 140 14 Q210 22 270 190 L236 540 L44 540 Z" />
+      <path class="seam" d="M26 192 Q80 36 140 28 Q200 36 254 192 L222 526 L58 526 Z" />
+      <path class="cut" d="M60 108 l-9 -6 M88 74 l-9 -6 M220 108 l9 -6" />
+      <path class="grain" d="M140 160 L140 440" marker-start="url(#grain-arrow)" marker-end="url(#grain-arrow)" />
+    </g>
+
+    <!-- Tailor's chalk cross marks -->
+    <path class="cut" d="M300 560 l12 12 M312 560 l-12 12 M590 70 l12 12 M602 70 l-12 12" />
+  </svg>
+</div>
+
+<style>
+  .hero-texture { color: var(--color-ink); }
+  .tone-dark { color: var(--color-gold); }
+
+  /* Pattern paper: fine dot grid every 24px, slightly stronger line every 120px, fading out towards the content */
+  .paper {
+    --dot: rgba(45, 41, 38, .16);
+    --line: rgba(45, 41, 38, .06);
+    background-image:
+      radial-gradient(circle, var(--dot) 1px, transparent 1.2px),
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 24px 24px, 120px 120px, 120px 120px;
+    background-position: 0 0, -1px -1px, -1px -1px;
+    -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+  }
+  .tone-dark .paper {
+    --dot: rgba(201, 169, 110, .22);
+    --line: rgba(201, 169, 110, .08);
+  }
+
+  .pieces { width: min(640px, 70vw); opacity: .13; }
+  .tone-dark .pieces { opacity: .2; }
+  .pieces-left { left: -90px; bottom: -70px; }
+  .pieces-right { right: -60px; bottom: -80px; }
+  @media (max-width: 1023px) {
+    .pieces { width: 520px; opacity: .09; }
+    .pieces-left, .pieces-right { right: -180px; left: auto; bottom: -120px; }
+  }
+
+  .is-compact .pieces { width: 300px; opacity: .16; top: 50%; bottom: auto; right: 6%; left: auto; transform: translateY(-50%); }
+  @media (max-width: 1023px) { .is-compact .pieces { display: none; } }
+
+  .cut { stroke-width: 1.6; }
+  .seam { stroke-width: 1.1; stroke-dasharray: 7 6; }
+  .grain { stroke-width: 1.2; }
+</style>

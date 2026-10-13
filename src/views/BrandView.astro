@@ -1,4 +1,5 @@
 ---
+import HeroTexture from '../components/HeroTexture.astro';
 // Featured service (fashion brand development): its own layout (dark hero, gold CTA).
 // Shared fields (SEO, intro, gallery, FAQ) come from content/services/<lang>/razvijanje-modnog-brenda.md,
 // page-specific modules from data/<lang>/brand.json.
@@ -46,7 +47,8 @@ if (answered.length > 0) {
 
 <Base title={d.seoTitle ?? d.title} description={d.seoDescription ?? d.excerpt} schema={schema} alternates={alternates}>
   <!-- 1. Hero -->
-  <section class="overflow-x-clip bg-ink py-16 text-on-dark sm:py-24">
+  <section class="relative isolate overflow-x-clip bg-ink py-16 text-on-dark sm:py-24">
+    <HeroTexture tone="dark" side="left" />
     <div class="container-site grid items-center gap-16 lg:grid-cols-[1.05fr_1fr]">
       <div class="flex flex-col gap-6">
         <Breadcrumbs items={[{ label: ui.nav.services, href: route(lang, 'services') }, { label: d.title }]} dark />
