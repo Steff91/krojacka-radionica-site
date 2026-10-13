@@ -1,16 +1,27 @@
 ---
-// Decorative hero background: a small repeating tile of sewing motifs — dashed seam lines,
+// Decorative background: a small repeating tile of sewing motifs — dashed seam lines,
 // tailor's chalk crosses, buttons, notches and grainline arrows — kept very faint.
 // Place inside a `relative isolate` section. Purely decorative (aria-hidden).
+//  - Hero sections: <HeroTexture /> covers the section and fades out towards the bottom.
+//  - Other sections: <HeroTexture corner="tr" angle={-12} /> shows only in one corner,
+//    fading towards the centre where the text is, optionally at an angle.
 interface Props {
-  /** light = ivory sections, dark = ink sections (fashion brand) */
+  /** light = ivory/sand sections, dark = ink sections */
   tone?: 'light' | 'dark';
-  /** Kept for compatibility with earlier usage; the tile pattern doesn't need it */
+  /** Show only in this corner, fading towards the centre */
+  corner?: 'tl' | 'tr' | 'bl' | 'br';
+  /** Rotate the pattern (degrees) */
+  angle?: number;
+  /** Kept for compatibility with earlier usage */
   side?: 'left' | 'right';
   compact?: boolean;
   class?: string;
 }
-const { tone = 'light', class: className = '' } = Astro.props;
+const { tone = 'light', corner, angle = 0, class: className = '' } = Astro.props;
+const CORNERS = { tl: '0% 0%', tr: '100% 0%', bl: '0% 100%', br: '100% 100%' };
+const mask = corner
+  ? `radial-gradient(ellipse 55% 75% at ${CORNERS[corner]}, #000 0%, rgba(0,0,0,.5) 45%, transparent 100%)`
+  : 'linear-gradient(to bottom, #000 40%, transparent 100%)';
 
 const color = tone === 'dark' ? '#C9A96E' : '#2D2926';
 const tile = `
@@ -29,22 +40,32 @@ const uri = `url("data:image/svg+xml,${encodeURIComponent(tile.replace(/\s+/g, '
 ---
 
 <div
-  class:list={['hero-texture pointer-events-none absolute inset-0 -z-10', `tone-${tone}`, className]}
-  style={`--tile: ${uri}`}
+  class:list={['hero-texture pointer-events-none absolute inset-0 -z-10 overflow-hidden', `tone-${tone}`, corner && 'is-corner', className]}
+  style={`--tile: ${uri}; --mask: ${mask}; --angle: ${angle}deg`}
   aria-hidden="true"
-></div>
+>
+  <div class="tile absolute"></div>
+</div>
 
 <style>
   .hero-texture {
-    background-image: var(--tile);
-    background-size: 200px 200px;
     opacity: .07;
-    /* Fade out towards the bottom so the texture never ends on a hard edge */
-    -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+    /* Fade out (towards the bottom, or towards the centre for corners) so it never ends on a hard edge */
+    -webkit-mask-image: var(--mask);
+    mask-image: var(--mask);
   }
   .tone-dark { opacity: .12; }
+  /* Corners fade towards the centre, so they start a touch stronger */
+  .is-corner { opacity: .09; }
+  .is-corner.tone-dark { opacity: .15; }
+  /* Oversized so a rotated pattern still covers every corner */
+  .tile {
+    inset: -50%;
+    background-image: var(--tile);
+    background-size: 200px 200px;
+    transform: rotate(var(--angle));
+  }
   @media (max-width: 639px) {
-    .hero-texture { background-size: 160px 160px; }
+    .tile { background-size: 160px 160px; }
   }
 </style>

@@ -1,4 +1,5 @@
 ---
+import HeroTexture from '../HeroTexture.astro';
 import SectionHeading from '../SectionHeading.astro';
 import { getLang, getData, t } from '../../i18n';
 const lang = getLang(Astro.url);
@@ -6,7 +7,8 @@ const ui = t(lang);
 const process = getData(lang).process;
 ---
 
-<section class="bg-sand py-18 sm:py-28">
+<section class="relative isolate overflow-hidden bg-sand py-18 sm:py-28">
+  <HeroTexture corner="tr" angle={-14} />
   <div class="container-site flex flex-col gap-14">
     <SectionHeading
       eyebrow={ui.process.eyebrow}

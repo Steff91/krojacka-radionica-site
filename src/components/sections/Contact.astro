@@ -1,4 +1,5 @@
 ---
+import HeroTexture from '../HeroTexture.astro';
 import Icon from '../Icon.astro';
 import { getLang, getInfo, legalUrl, t } from '../../i18n';
 
@@ -33,7 +34,8 @@ const label = ['m-0 text-xs font-medium uppercase tracking-[0.22em]', dark ? 'te
 const body = dark ? 'lead !text-on-dark-muted' : 'lead';
 ---
 
-<section id="kontakt" class:list={['py-18 sm:py-30', { 'bg-ivory': tone === 'ivory', 'bg-sand': tone === 'sand', 'bg-ink text-on-dark': dark }]}>
+<section id="kontakt" class:list={['relative isolate overflow-hidden py-18 sm:py-30', { 'bg-ivory': tone === 'ivory', 'bg-sand': tone === 'sand', 'bg-ink text-on-dark': dark }]}>
+  <HeroTexture tone={dark ? 'dark' : 'light'} corner="br" angle={-10} />
   <div class="container-site grid gap-16 lg:grid-cols-2">
     <div class="flex flex-col gap-5">
       <p class:list={['eyebrow !mb-0', dark && '!text-gold']} data-reveal>{ui.contact.eyebrow}</p>

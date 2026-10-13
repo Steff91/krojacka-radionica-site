@@ -1,4 +1,5 @@
 ---
+import HeroTexture from '../HeroTexture.astro';
 // Google reviews as a chat-style slider (scroll-snap, prev/next buttons, progress line).
 import { getCollection } from 'astro:content';
 import SectionHeading from '../SectionHeading.astro';
@@ -26,7 +27,8 @@ const initials = (name: string) => name.split(/\s+/).map((w) => w[0]).slice(0, 2
 const avatarTones = ['bg-sage text-ivory', 'bg-gold text-ink', 'bg-red text-ivory'];
 ---
 
-<section class="overflow-x-clip bg-sage-light py-18 sm:py-28" data-testimonials>
+<section class="relative isolate overflow-hidden bg-sage-light py-18 sm:py-28" data-testimonials>
+  <HeroTexture corner="tl" angle={10} />
   <div class="container-site flex flex-col gap-12">
     <div class="flex flex-wrap items-end justify-between gap-8 lg:flex-nowrap">
       <SectionHeading

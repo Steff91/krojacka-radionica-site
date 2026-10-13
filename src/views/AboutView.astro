@@ -47,7 +47,8 @@ const shadow = 'shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)]';
   </section>
 
   <!-- 3. Founder -->
-  <section class="bg-sand py-18 sm:py-28">
+  <section class="relative isolate overflow-hidden bg-sand py-18 sm:py-28">
+    <HeroTexture corner="bl" angle={14} />
     <div class="container-site grid items-center gap-16 lg:grid-cols-[0.9fr_1.1fr]">
       <div class="relative order-2 lg:order-1" data-reveal>
         <div class="absolute top-[-12px] left-[-12px] right-3 bottom-3 border border-gold rounded-media sm:top-[-20px] sm:left-[-20px] sm:right-5 sm:bottom-5" aria-hidden="true"></div>
@@ -69,7 +70,8 @@ const shadow = 'shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)]';
   </section>
 
   <!-- 4. Film & stage -->
-  <section class="bg-ink py-18 text-on-dark sm:py-28">
+  <section class="relative isolate overflow-hidden bg-ink py-18 text-on-dark sm:py-28">
+    <HeroTexture tone="dark" corner="tr" angle={-8} />
     <div class="container-site grid gap-16 lg:grid-cols-[1fr_1fr]">
       <div class="flex flex-col gap-10">
         <SectionHeading eyebrow={film.eyebrow} title={film.title} titleEm={film.titleEm} text={film.text} dark />
