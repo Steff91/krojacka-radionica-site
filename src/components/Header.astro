@@ -2,7 +2,7 @@
 import Logo from './Logo.astro';
 import Icon from './Icon.astro';
 import LangSwitch from './LangSwitch.astro';
-import { getLang, getServices, route, t, type Alternates } from '../i18n';
+import { getInfo, getLang, getServices, route, t, type Alternates } from '../i18n';
 
 interface Props {
   alternates?: Alternates;
@@ -23,6 +23,13 @@ const linksAfter = [
 ];
 const isActive = (href: string) => !href.includes('#') && path.startsWith(href);
 const ctaHref = route(lang, 'booking');
+// Social links: the top bar hides them on phones, so the mobile menu carries them instead
+const info = getInfo(lang);
+const social = [
+  { icon: 'instagram', label: 'Instagram', href: info.instagram },
+  { icon: 'pinterest', label: 'Pinterest', href: info.pinterest },
+  { icon: 'youtube', label: 'YouTube', href: info.youtube },
+].filter((l) => l.href) as { icon: 'instagram' | 'pinterest' | 'youtube'; label: string; href: string }[];
 const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
 ---
 
@@ -133,6 +140,20 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
         <span>{ui.nav.language}</span>
         <LangSwitch alternates={alternates} class="text-ink" />
       </div>
+      {social.length > 0 && (
+        <div class="mt-4 flex items-center justify-between border-t border-line pt-4 font-sans text-[13px] font-medium uppercase tracking-[0.12em] text-muted">
+          <span>{ui.nav.follow}</span>
+          <ul class="m-0 flex list-none gap-2 p-0">
+            {social.map((l) => (
+              <li>
+                <a href={l.href} target="_blank" rel="noopener" aria-label={l.label} title={l.label} class="inline-flex h-11 w-11 items-center justify-center rounded-btn border border-line text-ink no-underline transition-colors duration-300 hover:border-red hover:text-red">
+                  <Icon name={l.icon} size={16} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   </nav>
 </header>

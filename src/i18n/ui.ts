@@ -22,6 +22,7 @@ const sr = {
     forDesigners: 'Za dizajnere i brendove',
     language: 'Jezik',
     switchTo: 'Switch to English',
+    follow: 'Pratite nas',
   },
   cta: {
     book: 'Zakažite konsultaciju',
@@ -243,6 +244,7 @@ const en: UI = {
     forDesigners: 'For designers and brands',
     language: 'Language',
     switchTo: 'Prebaci na srpski',
+    follow: 'Follow us',
   },
   cta: {
     book: 'Book a consultation',
