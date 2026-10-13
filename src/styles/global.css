@@ -28,10 +28,10 @@
   --color-on-dark-muted: #C9BFB3;
 
   /* Rounded, soft shapes: cards, photos, chat-style bubbles */
-  --radius-btn: 0.5rem;     /* 8px — buttons, chips, small icon buttons */
-  --radius-card: 0.75rem;   /* 12px — cards, form fields, panels */
-  --radius-media: 1rem;     /* 16px — photos, frames, large panels */
-  --radius-bubble: 1rem;    /* 16px — testimonial bubbles */
+  --radius-btn: 7px;        /* buttons, chips, form fields, small icon buttons */
+  --radius-card: 10px;      /* cards, panels */
+  --radius-media: 14px;     /* photos, frames, large panels */
+  --radius-bubble: 14px;    /* testimonial bubbles */
 
   --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: "DM Sans", system-ui, sans-serif;
