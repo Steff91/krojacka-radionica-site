@@ -17,6 +17,6 @@ const work = getData(lang).work;
 >
   <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
     <a href={route(lang, 'works')} class="btn btn-outline">{ui.cta.allWorks}<Icon name="chevron-right" size={11} class="chev" /></a>
-    <a href={info.instagram} class="link-arrow" rel="noopener">{ui.home.followInstagram} · {info.instagramHandle}<Icon name="chevron-right" size={12} class="chev" /></a>
+    <a href={info.instagram} class="link-arrow" target="_blank" rel="noopener">{ui.home.followInstagram} · {info.instagramHandle}<Icon name="chevron-right" size={12} class="chev" /></a>
   </div>
 </GallerySlider>

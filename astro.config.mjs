@@ -4,6 +4,8 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import fs from 'node:fs';
 import { ROUTES, slugsFromContent } from './src/i18n/routes.ts';
+import { satteri } from '@astrojs/markdown-satteri';
+import externalLinks from './src/lib/external-links.mjs';
 
 // Set per environment in the deploy workflow (repo variable SITE_URL); fallback for local builds.
 const site = process.env.SITE_URL || 'https://krojacka.upnestly.com';
@@ -34,6 +36,10 @@ for (const p of pairs) {
 export default defineConfig({
   site,
   trailingSlash: 'always',
+  markdown: {
+    // External links in Markdown content open in a new tab
+    processor: satteri({ hastPlugins: [externalLinks({ site })] }),
+  },
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/admin/'),
