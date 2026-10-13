@@ -30,9 +30,6 @@ gallery:
   - src: /uploads/radovi-kostim-stvorenje.webp
     alt: "Creature costume during a performance"
     position: 50% 30%
-  - src: /uploads/radovi-narandzasti-kostim.webp
-    alt: "Orange costume with ruffles and a laced waist"
-  - alt: "[Cosplay costume, full character]"
 faq:
   - q: What do I need to send to get started?
     a: "[E.g. photos of the character from several angles and the date you need the costume by.]"

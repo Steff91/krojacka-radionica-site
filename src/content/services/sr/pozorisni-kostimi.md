@@ -7,7 +7,7 @@ seoDescription: Izrada kostima za pozorišne predstave, operu i performanse — 
 heroTitle: Pozorišni kostimi
 heroTitleEm: spremni za scenu
 intro: Kostim na sceni mora da izgleda tačno kao na skici, ali i da izdrži probe, izvođenja i brze presvlake. Radimo sa kostimografima i produkcijama — od prvog crteža do kostima koji glumac nosi bez razmišljanja.
-image: /uploads/radovi-rokoko-kostim.webp
+image: /uploads/pozoriste-ansambl.webp
 imageLabel: "Pozorišni kostim na krojačkoj lutki"
 variant: default
 itemsEyebrow: Šta šijemo
@@ -23,21 +23,12 @@ items:
     text: Kostimi za umetničke performanse, koncerte i događaje, po vašoj ideji.
 galleryTitle: Kostimi iz radionice
 gallery:
+  - src: /uploads/pozoriste-ansambl.webp
+    alt: "Kostimi za ansambl predstave na sceni"
+    position: 50% 40%
   - src: /uploads/radovi-rokoko-kostim.webp
     alt: "Kostim u stilu rokokoa sa korsetom, volanima i ružičastom perikom"
     position: 50% 20%
-  - src: /uploads/radovi-dublet.webp
-    alt: "Prošiveni dublet u petrolej boji sa mesinganim kopčama, istorijski kostim"
-  - src: /uploads/radionica-istorijski-kostim.webp
-    alt: "Kostim sa korsetom i ljubičastom suknjom u radionici"
-  - src: /uploads/radovi-koncertni-kostimi.webp
-    alt: "Scenski kostimi za koncert sa velikim sjajnim plaštom"
-  - src: /uploads/radovi-scenski-plast.webp
-    alt: "Scenski plašt od metalik tkanine u ljubičastoj i crnoj"
-    position: 40% 30%
-  - src: /uploads/radovi-kostim-stvorenje.webp
-    alt: "Kostim fantastičnog stvorenja izrađen za scenski nastup"
-    position: 50% 30%
 faq:
   - q: Da li radite po skicama kostimografa?
     a: "[Kako izgleda saradnja sa kostimografom.]"

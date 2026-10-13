@@ -1,36 +1,28 @@
 {
   "items": [
     {
-      "src": "/uploads/hero-vencanica.webp",
-      "alt": "Wedding dress with a lace corset and organza ruffles on the shoulders"
+      "src": "/uploads/brend-perje-studio-2.webp",
+      "alt": "Feather top and satin skirt",
+      "position": "50% 30%"
     },
     {
-      "src": "/uploads/radovi-bela-haljina-ledja.webp",
-      "alt": "White gown with an open back and long sleeves"
+      "src": "/uploads/brend-pidzame-par.webp",
+      "alt": "Satin pyjamas for a fashion brand",
+      "position": "50% 45%"
     },
     {
-      "src": "/uploads/radovi-rokoko-kostim.webp",
-      "alt": "Rococo-style costume with a corset, ruffles and a pink wig",
-      "position": "50% 20%"
+      "src": "/uploads/brend-crveni-komplet.webp",
+      "alt": "Red shantung set with a white collar",
+      "position": "50% 30%"
     },
     {
-      "src": "/uploads/radovi-musko-odelo-kente.webp",
-      "alt": "Men's suit in kente-print fabric",
+      "src": "/uploads/slajder-krzneni-kaput.webp",
+      "alt": "Long fur coat in the snow",
       "position": "50% 35%"
     },
     {
-      "src": "/uploads/radovi-korset-talasi.webp",
-      "alt": "Navy corset with wave-patterned sequin embroidery"
-    },
-    {
-      "src": "/uploads/radovi-crveni-revijski-komad.webp",
-      "alt": "Runway look: red leather jacket with a fringed skirt",
-      "position": "50% 25%"
-    },
-    {
-      "src": "/uploads/radovi-vencano-odelo.webp",
-      "alt": "Bridal trouser suit: white jacket and wide-leg trousers",
-      "position": "50% 18%"
+      "src": "/uploads/radovi-teget-sako-ruze.webp",
+      "alt": "Navy peplum jacket with striped sleeves and fabric roses"
     },
     {
       "src": "/uploads/radovi-metalik-odelo.webp",
@@ -38,17 +30,9 @@
       "position": "50% 30%"
     },
     {
-      "src": "/uploads/radovi-dublet.webp",
-      "alt": "Quilted teal doublet with brass clasps"
-    },
-    {
-      "src": "/uploads/radovi-kostim-stvorenje-scena.webp",
-      "alt": "Fantasy creature costume on stage"
-    },
-    {
-      "src": "/uploads/radovi-maturska-haljina.webp",
-      "alt": "Jacquard prom dress with a tiered skirt",
-      "position": "50% 30%"
+      "src": "/uploads/radovi-scenski-plast.webp",
+      "alt": "Metallic stage cape in purple and black",
+      "position": "40% 30%"
     }
   ]
 }

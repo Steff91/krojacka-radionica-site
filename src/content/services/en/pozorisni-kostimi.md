@@ -8,7 +8,7 @@ seoDescription: Costumes for theatre productions, opera and performance — from
 heroTitle: Theatre costumes
 heroTitleEm: ready for the stage
 intro: A stage costume has to look exactly like the sketch, but it also has to survive rehearsals, performances and quick changes. We work with costume designers and productions — from the first drawing to a costume the actor wears without a second thought.
-image: /uploads/radovi-rokoko-kostim.webp
+image: /uploads/pozoriste-ansambl.webp
 imageLabel: "Theatre costume on a dress form"
 variant: default
 itemsEyebrow: What we make
@@ -24,21 +24,12 @@ items:
     text: Costumes for art performances, concerts and events, based on your idea.
 galleryTitle: Costumes from the workshop
 gallery:
+  - src: /uploads/pozoriste-ansambl.webp
+    alt: "Costumes for a theatre ensemble on stage"
+    position: 50% 40%
   - src: /uploads/radovi-rokoko-kostim.webp
     alt: "Rococo-style costume with a corset, ruffles and a pink wig"
     position: 50% 20%
-  - src: /uploads/radovi-dublet.webp
-    alt: "Quilted teal doublet with brass clasps, a period costume"
-  - src: /uploads/radionica-istorijski-kostim.webp
-    alt: "Costume with a corset and a purple skirt in the workshop"
-  - src: /uploads/radovi-koncertni-kostimi.webp
-    alt: "Concert stage costumes with a large glossy cape"
-  - src: /uploads/radovi-scenski-plast.webp
-    alt: "Metallic stage cape in purple and black"
-    position: 40% 30%
-  - src: /uploads/radovi-kostim-stvorenje.webp
-    alt: "Fantasy creature costume made for a stage performance"
-    position: 50% 30%
 faq:
   - q: Do you work from costume designers' sketches?
     a: "[What working with a costume designer looks like.]"

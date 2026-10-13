@@ -29,9 +29,6 @@ gallery:
   - src: /uploads/radovi-kostim-stvorenje.webp
     alt: "Kostim stvorenja tokom nastupa"
     position: 50% 30%
-  - src: /uploads/radovi-narandzasti-kostim.webp
-    alt: "Narandžasti kostim sa volanima i ukrasnim pertlanjem u struku"
-  - alt: "[Cosplay kostim, ceo lik]"
 faq:
   - q: Šta je potrebno da pošaljem za početak?
     a: "[Npr. fotografije lika sa više strana i rok do kog vam treba kostim.]"

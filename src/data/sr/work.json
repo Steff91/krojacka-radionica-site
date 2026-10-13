@@ -1,36 +1,28 @@
 {
   "items": [
     {
-      "src": "/uploads/hero-vencanica.webp",
-      "alt": "Venčanica sa čipkanim korsetom i volanima od organdina na ramenima"
+      "src": "/uploads/brend-perje-studio-2.webp",
+      "alt": "Top od perja i satenska suknja",
+      "position": "50% 30%"
     },
     {
-      "src": "/uploads/radovi-bela-haljina-ledja.webp",
-      "alt": "Bela haljina sa otvorenim leđima i dugim rukavima"
+      "src": "/uploads/brend-pidzame-par.webp",
+      "alt": "Satenske pidžame za modni brend",
+      "position": "50% 45%"
     },
     {
-      "src": "/uploads/radovi-rokoko-kostim.webp",
-      "alt": "Kostim u stilu rokokoa sa korsetom, volanima i ružičastom perikom",
-      "position": "50% 20%"
+      "src": "/uploads/brend-crveni-komplet.webp",
+      "alt": "Komplet od crvenog šantunga sa belim okovratnikom",
+      "position": "50% 30%"
     },
     {
-      "src": "/uploads/radovi-musko-odelo-kente.webp",
-      "alt": "Muško odelo od tkanine sa kente motivom",
+      "src": "/uploads/slajder-krzneni-kaput.webp",
+      "alt": "Dugi krzneni kaput na snegu",
       "position": "50% 35%"
     },
     {
-      "src": "/uploads/radovi-korset-talasi.webp",
-      "alt": "Teget korset sa talasastim vezom od šljokica"
-    },
-    {
-      "src": "/uploads/radovi-crveni-revijski-komad.webp",
-      "alt": "Revijski komad: crvena kožna jakna i suknja od resa",
-      "position": "50% 25%"
-    },
-    {
-      "src": "/uploads/radovi-vencano-odelo.webp",
-      "alt": "Venčano žensko odelo: beli sako i pantalone širokih nogavica",
-      "position": "50% 18%"
+      "src": "/uploads/radovi-teget-sako-ruze.webp",
+      "alt": "Teget sako sa peplumom, prugastim rukavima i ružama od tkanine"
     },
     {
       "src": "/uploads/radovi-metalik-odelo.webp",
@@ -38,17 +30,9 @@
       "position": "50% 30%"
     },
     {
-      "src": "/uploads/radovi-dublet.webp",
-      "alt": "Prošiveni dublet u petrolej boji sa mesinganim kopčama"
-    },
-    {
-      "src": "/uploads/radovi-kostim-stvorenje-scena.webp",
-      "alt": "Kostim fantastičnog stvorenja na sceni"
-    },
-    {
-      "src": "/uploads/radovi-maturska-haljina.webp",
-      "alt": "Maturska haljina od žakarda sa volanima na suknji",
-      "position": "50% 30%"
+      "src": "/uploads/radovi-scenski-plast.webp",
+      "alt": "Scenski plašt od metalik tkanine u ljubičastoj i crnoj",
+      "position": "40% 30%"
     }
   ]
 }

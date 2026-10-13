@@ -7,7 +7,7 @@ seoDescription: Venčanice i venčana odela šivena po vašoj meri — po vašoj
 heroTitle: Venčanice
 heroTitleEm: po vašoj viziji
 intro: Venčanicu koju ste zamislili često nema ni u jednoj radnji. Zato je šijemo od nule — prema vašoj ideji, fotografiji ili skici, uz probe na kojima zajedno dovodimo svaki detalj do kraja.
-image: /uploads/hero-vencanica.webp
+image: /uploads/vencanje-mladenci.webp
 imageLabel: "Venčanica na modelu, vertikalni kadar"
 variant: default
 itemsEyebrow: Šta šijemo
@@ -23,15 +23,18 @@ items:
     text: Čipka, volani, korset, postava — o svakom detalju odlučujemo zajedno, tokom proba.
 galleryTitle: Venčanice iz radionice
 gallery:
-  - src: /uploads/hero-vencanica.webp
-    alt: Venčanica sa čipkanim korsetom i volanima od organdina na ramenima
-  - src: /uploads/radovi-vencano-odelo.webp
-    alt: "Venčano žensko odelo: beli sako sa razrezima na rukavima i pantalone širokih nogavica"
-    position: 50% 18%
-  - src: /uploads/hero-detalj.webp
-    alt: Ručno ušivanje čipke na tilu
-  - alt: "[Venčanica, detalj leđa]"
-  - alt: "[Venčanica na probi]"
+  - src: /uploads/vencanje-mladenci.webp
+    alt: "Mlada u organdin bluzi i uskoj suknji, sa mladoženjom"
+    position: 40% 30%
+  - src: /uploads/pocetna-nevesta-ledja.webp
+    alt: "Venčani komplet od organdina, pogled s leđa"
+    position: 50% 25%
+  - src: /uploads/vencanje-organdin.webp
+    alt: "Organdin bluza sa mašnom i venčana suknja"
+    position: 50% 30%
+  - src: /uploads/radovi-maturska-haljina.webp
+    alt: "Haljina od žakarda sa volanima na suknji"
+    position: 50% 30%
 faq:
   - q: Koliko unapred treba da počnemo sa izradom venčanice?
     a: "[Preporučen rok pre venčanja.]"

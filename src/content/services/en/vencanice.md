@@ -8,7 +8,7 @@ seoDescription: Wedding dresses and bridal suits made to your measurements — f
 heroTitle: Wedding dresses
 heroTitleEm: as you envision them
 intro: The wedding dress you have in mind often can't be found in any shop. That's why we make it from scratch — from your idea, photo or sketch, with fittings where we perfect every detail together.
-image: /uploads/hero-vencanica.webp
+image: /uploads/vencanje-mladenci.webp
 imageLabel: "Wedding dress on a model, portrait format"
 variant: default
 itemsEyebrow: What we make
@@ -24,15 +24,18 @@ items:
     text: Lace, ruffles, corset, lining — we decide on every detail together, during the fittings.
 galleryTitle: Wedding dresses from the workshop
 gallery:
-  - src: /uploads/hero-vencanica.webp
-    alt: Wedding dress with a lace corset and organza ruffles on the shoulders
-  - src: /uploads/radovi-vencano-odelo.webp
-    alt: "Bridal trouser suit: white jacket with slit sleeves and wide-leg trousers"
-    position: 50% 18%
-  - src: /uploads/hero-detalj.webp
-    alt: Hand-stitching lace onto tulle
-  - alt: "[Wedding dress, back detail]"
-  - alt: "[Wedding dress at a fitting]"
+  - src: /uploads/vencanje-mladenci.webp
+    alt: "Bride in an organza blouse and fitted skirt, with the groom"
+    position: 40% 30%
+  - src: /uploads/pocetna-nevesta-ledja.webp
+    alt: "Organza bridal set, seen from the back"
+    position: 50% 25%
+  - src: /uploads/vencanje-organdin.webp
+    alt: "Organza blouse with a bow and a bridal skirt"
+    position: 50% 30%
+  - src: /uploads/radovi-maturska-haljina.webp
+    alt: "Jacquard dress with a tiered skirt"
+    position: 50% 30%
 faq:
   - q: How far in advance should we start making the wedding dress?
     a: "[Recommended lead time before the wedding.]"

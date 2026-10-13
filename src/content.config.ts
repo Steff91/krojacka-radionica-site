@@ -29,7 +29,8 @@ const services = defineCollection({
     itemsTitle: z.string().optional(),
     items: z.array(z.object({ title: z.string(), text: z.string() })).default([]),
     galleryTitle: z.string().optional(),
-    gallery: z.array(image.extend({ position: z.string().optional() })).default([]),
+    // inWorks: false keeps a photo on the service page but out of the works page (/radovi/)
+    gallery: z.array(image.extend({ position: z.string().optional(), inWorks: z.boolean().optional() })).default([]),
     faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
   }),
 });

@@ -4,21 +4,22 @@
   "hero": {
     "title": "O nama",
     "subtitle": "Odeća koja nastaje po vašoj meri, iz ruke majstora.",
-    "image": "/uploads/radionica-istorijski-kostim.webp",
+    "image": "/uploads/radionica-kimono.webp",
     "imageLabel": "Široka fotografija radionice: sto za krojenje, tkanine, krojačka lutka",
-    "imageAlt": "Radionica: kostim sa korsetom na krojačkoj lutki, tkanine i radni sto"
+    "imageAlt": "Radionica: šivaće mašine, tkanine i komad od teksasa u izradi",
+    "imagePosition": "50% 55%"
   },
   "story": {
     "eyebrow": "Naša priča",
     "title": "Tradicija zanata,",
     "titleEm": "moderna vizija",
     "paragraphs": [
-      "Radionica je nastala [godina / povod osnivanja] iz jednostavne ideje: da odeća treba da prati čoveka, a ne obrnuto. Ono što je počelo kao [kratak opis početka], danas je radionica u kojoj nastaju muška odela, svečane haljine i venčanice, ali i kostimi za pozorište, cosplay i uniforme.",
+      "Radionica je nastala [godina / povod osnivanja] iz jednostavne ideje: da odeća treba da prati čoveka, a ne obrnuto. Ono što je počelo kao [kratak opis početka], danas je radionica u kojoj nastaju muška odela, svečane haljine i venčanice, ali i kostimi za pozorište i cosplay.",
       "Svaki komad koji izađe iz radionice prolazi kroz iste ruke i isti proces — od prvog razgovora do poslednjeg šava."
     ],
-    "image": "/uploads/radovi-jakna-detalj-postava.webp",
+    "image": "/uploads/radionica-krojni-listovi.webp",
     "imageLabel": "Vertikalna fotografija: rad u toku, detalj šivenja",
-    "imageAlt": "Detalj jakne u izradi: rajsferšlus i postava"
+    "imageAlt": "Krojni listovi okačeni u radionici"
   },
   "founder": {
     "eyebrow": "Ko stoji iza radionice",
@@ -29,8 +30,9 @@
       "[1–2 rečenice: šta je njena specijalnost i šta je motiviše u radu.]"
     ],
     "quote": "[Kratka misao o zanatu, u njenim rečima — jedna do dve rečenice.]",
-    "image": "",
-    "imageLabel": "Portret: Slađana u radionici, prirodno svetlo"
+    "image": "/uploads/radionica-proba-sladjana.webp",
+    "imageLabel": "Portret: Slađana u radionici, prirodno svetlo",
+    "imageAlt": "Slađana na probi sa klijentom"
   },
   "film": {
     "eyebrow": "Film i scena",
@@ -61,16 +63,16 @@
     ],
     "images": [
       {
-        "src": "/uploads/radovi-koncertni-kostimi.webp",
-        "alt": "Scenski kostimi na koncertu"
+        "src": "/uploads/pozoriste-ansambl.webp",
+        "alt": "Kostimi za ansambl predstave na sceni"
       },
       {
         "src": "/uploads/radovi-rokoko-kostim.webp",
         "alt": "Kostim u stilu rokokoa sa ružičastom perikom"
       },
       {
-        "src": "/uploads/radovi-crveni-detalj-dugmici.webp",
-        "alt": "Detalj: presvučena dugmad i rajsferšlus"
+        "src": "/uploads/radovi-koncertni-kostimi.webp",
+        "alt": "Scenski kostimi na koncertu"
       }
     ]
   },
@@ -102,28 +104,20 @@
     "text": "[Jedna do dve rečenice o prostoru radionice i atmosferi u kojoj se radi.]",
     "items": [
       {
-        "src": "/uploads/hero-detalj.webp",
-        "alt": "Ručno ušivanje čipke na tilu"
+        "src": "/uploads/radionica-proba-sladjana.webp",
+        "alt": "Proba prsluka u radionici"
+      },
+      {
+        "src": "/uploads/radionica-kimono.webp",
+        "alt": "Komad od teksasa u izradi, na podu radionice"
+      },
+      {
+        "src": "/uploads/radionica-krojni-sto.webp",
+        "alt": "Krojenje po šablonu kredom na tkanini"
       },
       {
         "src": "/uploads/radionica-krojni-listovi.webp",
         "alt": "Krojni listovi okačeni u radionici"
-      },
-      {
-        "src": "/uploads/radovi-kaputi-print.webp",
-        "alt": "Kaputi sa printom na krojačkim lutkama"
-      },
-      {
-        "src": "/uploads/radovi-jakna-print-lutka.webp",
-        "alt": "Jakna u izradi na krojačkoj lutki"
-      },
-      {
-        "src": "/uploads/radovi-narandzasti-kostim.webp",
-        "alt": "Kostim na radnom stolu u radionici"
-      },
-      {
-        "src": "/uploads/radovi-zenski-sako-lutka.webp",
-        "alt": "Sako na krojačkoj lutki"
       }
     ]
   }

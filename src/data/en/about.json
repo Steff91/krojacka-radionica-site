@@ -4,21 +4,22 @@
   "hero": {
     "title": "About",
     "subtitle": "Clothing made to your measurements, by a master's hand.",
-    "image": "/uploads/radionica-istorijski-kostim.webp",
+    "image": "/uploads/radionica-kimono.webp",
     "imageLabel": "Wide photo of the workshop: cutting table, fabrics, dress form",
-    "imageAlt": "The workshop: a corset costume on a dress form, fabrics and the work table"
+    "imageAlt": "The workshop: sewing machines, fabrics and a denim piece in progress",
+    "imagePosition": "50% 55%"
   },
   "story": {
     "eyebrow": "Our story",
     "title": "A traditional craft,",
     "titleEm": "a modern vision",
     "paragraphs": [
-      "The workshop was founded [year / reason for founding] on a simple idea: clothing should follow the person, not the other way round. What started as [short description of the beginning] is today a workshop that makes men's suits, formal dresses and wedding dresses, as well as theatre and cosplay costumes and uniforms.",
+      "The workshop was founded [year / reason for founding] on a simple idea: clothing should follow the person, not the other way round. What started as [short description of the beginning] is today a workshop that makes men's suits, formal dresses and wedding dresses, as well as theatre and cosplay costumes.",
       "Every piece that leaves the workshop goes through the same hands and the same process — from the first conversation to the last stitch."
     ],
-    "image": "/uploads/radovi-jakna-detalj-postava.webp",
+    "image": "/uploads/radionica-krojni-listovi.webp",
     "imageLabel": "Portrait photo: work in progress, sewing detail",
-    "imageAlt": "Detail of a jacket in progress: zip and lining"
+    "imageAlt": "Pattern pieces hanging in the workshop"
   },
   "founder": {
     "eyebrow": "Behind the workshop",
@@ -29,8 +30,9 @@
       "[1–2 sentences: her speciality and what motivates her.]"
     ],
     "quote": "[A short thought about the craft, in her own words — one or two sentences.]",
-    "image": "",
-    "imageLabel": "Portrait: Slađana in the workshop, natural light"
+    "image": "/uploads/radionica-proba-sladjana.webp",
+    "imageLabel": "Portrait: Slađana in the workshop, natural light",
+    "imageAlt": "Slađana at a fitting with a client"
   },
   "film": {
     "eyebrow": "Film and stage",
@@ -61,16 +63,16 @@
     ],
     "images": [
       {
-        "src": "/uploads/radovi-koncertni-kostimi.webp",
-        "alt": "Stage costumes at a concert"
+        "src": "/uploads/pozoriste-ansambl.webp",
+        "alt": "Costumes for a theatre ensemble on stage"
       },
       {
         "src": "/uploads/radovi-rokoko-kostim.webp",
         "alt": "Rococo-style costume with a pink wig"
       },
       {
-        "src": "/uploads/radovi-crveni-detalj-dugmici.webp",
-        "alt": "Detail: covered buttons and a zip"
+        "src": "/uploads/radovi-koncertni-kostimi.webp",
+        "alt": "Stage costumes at a concert"
       }
     ]
   },
@@ -102,28 +104,20 @@
     "text": "[One or two sentences about the workshop space and its atmosphere.]",
     "items": [
       {
-        "src": "/uploads/hero-detalj.webp",
-        "alt": "Hand-stitching lace onto tulle"
+        "src": "/uploads/radionica-proba-sladjana.webp",
+        "alt": "Fitting a waistcoat in the workshop"
+      },
+      {
+        "src": "/uploads/radionica-kimono.webp",
+        "alt": "A denim piece in progress on the workshop floor"
+      },
+      {
+        "src": "/uploads/radionica-krojni-sto.webp",
+        "alt": "Marking a pattern on fabric with tailor's chalk"
       },
       {
         "src": "/uploads/radionica-krojni-listovi.webp",
         "alt": "Pattern pieces hanging in the workshop"
-      },
-      {
-        "src": "/uploads/radovi-kaputi-print.webp",
-        "alt": "Printed coats on dress forms"
-      },
-      {
-        "src": "/uploads/radovi-jakna-print-lutka.webp",
-        "alt": "A jacket in progress on a dress form"
-      },
-      {
-        "src": "/uploads/radovi-narandzasti-kostim.webp",
-        "alt": "A costume on the work table in the workshop"
-      },
-      {
-        "src": "/uploads/radovi-zenski-sako-lutka.webp",
-        "alt": "A tailored jacket on a dress form"
       }
     ]
   }

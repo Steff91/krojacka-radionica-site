@@ -13,37 +13,51 @@ imageLabel: "Skice, krojni listovi, kolekcija na vešalici"
 variant: featured
 galleryTitle: Uzorci i kolekcije
 gallery:
+  - src: /uploads/brend-crveni-komplet.webp
+    alt: "Komplet od crvenog šantunga sa belim okovratnikom"
+    position: 50% 30%
   - src: /uploads/radovi-crveni-revijski-komad.webp
     alt: "Revijski komad: crvena kožna jakna i suknja od resa"
     position: 50% 25%
-  - src: /uploads/radovi-serija-jakni-sljokice.webp
-    alt: "Serija jakni sa šljokicama i teksas kragnom za modni brend"
-  - src: /uploads/radovi-serija-pantalona-sljokice.webp
-    alt: "Serija pantalona sa šljokicama"
-  - src: /uploads/radovi-teget-sako-ruze.webp
-    alt: "Teget sako sa peplumom, prugastim rukavima i ružama od tkanine"
-  - src: /uploads/radovi-metalik-odelo.webp
-    alt: "Odelo od metalik tvida: sako i pantalone"
-    position: 50% 30%
-  - src: /uploads/radovi-prugasto-odelo-model.webp
-    alt: "Prugasti komplet: kratak sako sa tregerima i uska suknja"
+  - src: /uploads/brend-ljubicasti-sako.webp
+    alt: "Ljubičasti sako i crvena suknja sa ukrasnim rukavicama"
     position: 50% 25%
-  - src: /uploads/radovi-teksas-prsluk-suknja.webp
-    alt: "Komplet od teksasa sa printom: prsluk i suknja"
+  - src: /uploads/brend-narandzasti-kaput.webp
+    alt: "Narandžasti kaput sa volanima"
+    position: 50% 30%
+    inWorks: false
+  - src: /uploads/brend-crno-beli-komad.webp
+    alt: "Crno-beli revijski komad sa resama"
+    position: 50% 25%
+    inWorks: false
+  - src: /uploads/brend-perje-studio-2.webp
+    alt: "Top od perja i satenska suknja"
+    position: 50% 30%
+    inWorks: false
+  - src: /uploads/brend-perje-studio-1.webp
+    alt: "Top od perja, studijski snimak"
+    position: 50% 25%
+    inWorks: false
+  - src: /uploads/brend-perje-ljuljaska.webp
+    alt: "Komplet sa perjem na ljuljašci"
+    position: 50% 35%
+    inWorks: false
+  - src: /uploads/brend-srebrni-komplet.webp
+    alt: "Srebrni satenski komplet: korset-top i pantalone"
+    position: 50% 35%
+    inWorks: false
+  - src: /uploads/brend-plavi-komplet.webp
+    alt: "Plavi komplet: top i šorts"
+    position: 50% 35%
+    inWorks: false
+  - src: /uploads/brend-pidzame-par.webp
+    alt: "Satenske pidžame za modni brend"
+    position: 50% 45%
+    inWorks: false
+  - src: /uploads/brend-pidzame-zurka.webp
+    alt: "Satenske pidžame, kampanja"
     position: 50% 40%
-  - src: /uploads/radovi-farmerke-sljokice.webp
-    alt: "Farmerke sa šljokicama i trakama"
-  - src: /uploads/radovi-suknja-talasi.webp
-    alt: "Uska suknja sa vezom u obliku talasa"
-    position: 50% 40%
-  - src: /uploads/radovi-kaputi-print.webp
-    alt: "Kaputi sa printom na krojačkim lutkama"
-  - src: /uploads/radovi-jakna-print-lutka.webp
-    alt: "Teksas jakna sa batik printom na krojačkoj lutki"
-  - src: /uploads/radovi-narandzasta-jakna.webp
-    alt: "Jakna od narandžaste čupave tkanine"
-  - src: /uploads/radovi-zenski-sako-lutka.webp
-    alt: "Sivi sako po meri na krojačkoj lutki"
+    inWorks: false
 faq:
   - q: Kako da izbegnem početničke greške koje odnose vreme i novac?
     a: "[Odgovor.]"

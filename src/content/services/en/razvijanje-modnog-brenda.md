@@ -14,37 +14,51 @@ imageLabel: "Sketches, pattern pieces, a collection on a rail"
 variant: featured
 galleryTitle: Samples and collections
 gallery:
+  - src: /uploads/brend-crveni-komplet.webp
+    alt: "Red shantung set with a white collar"
+    position: 50% 30%
   - src: /uploads/radovi-crveni-revijski-komad.webp
     alt: "Runway look: red leather jacket with a fringed skirt"
     position: 50% 25%
-  - src: /uploads/radovi-serija-jakni-sljokice.webp
-    alt: "Production run of sequinned jackets with denim collars for a fashion brand"
-  - src: /uploads/radovi-serija-pantalona-sljokice.webp
-    alt: "Production run of sequinned trousers"
-  - src: /uploads/radovi-teget-sako-ruze.webp
-    alt: "Navy peplum jacket with striped sleeves and fabric roses"
-  - src: /uploads/radovi-metalik-odelo.webp
-    alt: "Metallic tweed suit: jacket and trousers"
-    position: 50% 30%
-  - src: /uploads/radovi-prugasto-odelo-model.webp
-    alt: "Pinstripe set: cropped jacket with suspenders and a pencil skirt"
+  - src: /uploads/brend-ljubicasti-sako.webp
+    alt: "Purple jacket and red skirt with decorative gloves"
     position: 50% 25%
-  - src: /uploads/radovi-teksas-prsluk-suknja.webp
-    alt: "Printed denim set: waistcoat and skirt"
+  - src: /uploads/brend-narandzasti-kaput.webp
+    alt: "Orange coat with ruffles"
+    position: 50% 30%
+    inWorks: false
+  - src: /uploads/brend-crno-beli-komad.webp
+    alt: "Black and white runway piece with fringing"
+    position: 50% 25%
+    inWorks: false
+  - src: /uploads/brend-perje-studio-2.webp
+    alt: "Feather top and satin skirt"
+    position: 50% 30%
+    inWorks: false
+  - src: /uploads/brend-perje-studio-1.webp
+    alt: "Feather top, studio shot"
+    position: 50% 25%
+    inWorks: false
+  - src: /uploads/brend-perje-ljuljaska.webp
+    alt: "Feather set on a swing"
+    position: 50% 35%
+    inWorks: false
+  - src: /uploads/brend-srebrni-komplet.webp
+    alt: "Silver satin set: bustier top and trousers"
+    position: 50% 35%
+    inWorks: false
+  - src: /uploads/brend-plavi-komplet.webp
+    alt: "Blue set: top and shorts"
+    position: 50% 35%
+    inWorks: false
+  - src: /uploads/brend-pidzame-par.webp
+    alt: "Satin pyjamas for a fashion brand"
+    position: 50% 45%
+    inWorks: false
+  - src: /uploads/brend-pidzame-zurka.webp
+    alt: "Satin pyjamas, campaign shot"
     position: 50% 40%
-  - src: /uploads/radovi-farmerke-sljokice.webp
-    alt: "Sequinned jeans with ties"
-  - src: /uploads/radovi-suknja-talasi.webp
-    alt: "Fitted skirt with wave embroidery"
-    position: 50% 40%
-  - src: /uploads/radovi-kaputi-print.webp
-    alt: "Printed coats on dress forms"
-  - src: /uploads/radovi-jakna-print-lutka.webp
-    alt: "Batik-print denim jacket on a dress form"
-  - src: /uploads/radovi-narandzasta-jakna.webp
-    alt: "Orange shaggy-fabric jacket"
-  - src: /uploads/radovi-zenski-sako-lutka.webp
-    alt: "Grey tailored jacket on a dress form"
+    inWorks: false
 faq:
   - q: How do I avoid beginner mistakes that cost time and money?
     a: "[Answer.]"

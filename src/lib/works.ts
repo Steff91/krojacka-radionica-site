@@ -34,7 +34,7 @@ export async function getWorks(lang: Lang) {
   for (const s of services) {
     const category = { id: s.key, label: label(s), href: s.url };
     for (const g of s.data.gallery) {
-      if (!g.src) continue;
+      if (!g.src || g.inWorks === false) continue;
       const existing = bySrc.get(g.src);
       if (existing) {
         existing.categories.push(category);
