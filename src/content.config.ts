@@ -36,12 +36,18 @@ const services = defineCollection({
 
 const testimonials = defineCollection({
   loader: file('src/content/testimonials.json'),
-  schema: z.object({
-    name: z.string(),
-    text: z.string(),
-    rating: z.number().int().min(1).max(5).default(5),
-    featured: z.boolean().default(false),
-  }),
+  // Google reviews. `text` = Serbian wording, `textEn` = English wording; each site shows its own
+  // language and falls back to the other one (marked with the right lang attribute).
+  schema: z
+    .object({
+      name: z.string(),
+      text: z.string().optional(),
+      textEn: z.string().optional(),
+      rating: z.number().int().min(1).max(5).default(5),
+      /** Show in the testimonials slider */
+      featured: z.boolean().default(true),
+    })
+    .refine((t) => t.text || t.textEn, { message: 'A testimonial needs text or textEn' }),
 });
 
 const legal = defineCollection({

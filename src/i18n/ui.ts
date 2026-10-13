@@ -88,6 +88,8 @@ const sr = {
     onGoogle: (n: string) => `${n} utisaka na Google-u`,
     all: 'Svi utisci',
     write: 'Ostavite utisak',
+    prev: 'Prethodni utisci',
+    next: 'Sledeći utisci',
   },
   contact: {
     eyebrow: 'Kontakt',
@@ -310,6 +312,8 @@ const en: UI = {
     onGoogle: (n: string) => `${n} reviews on Google`,
     all: 'All reviews',
     write: 'Leave a review',
+    prev: 'Previous reviews',
+    next: 'Next reviews',
   },
   contact: {
     eyebrow: 'Contact',

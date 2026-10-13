@@ -1,51 +1,78 @@
 ---
+// Google reviews as a chat-style slider (scroll-snap, prev/next buttons, progress line).
 import { getCollection } from 'astro:content';
 import SectionHeading from '../SectionHeading.astro';
 import Icon from '../Icon.astro';
 import info from '../../data/info.json';
-import { getLang, t } from '../../i18n';
+import { getLang, HTML_LANG, t } from '../../i18n';
 import raw from '../../content/testimonials.json';
 
+const lang = getLang(Astro.url);
+const ui = t(lang);
+
 // Keep the order from testimonials.json (the collection itself is unordered).
-const ui = t(getLang(Astro.url));
 const order = raw.map((r) => r.id);
 const items = (await getCollection('testimonials'))
   .filter((t) => t.data.featured)
   .sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id))
-  .slice(0, 3);
+  .map((t) => {
+    // Each site shows its own language and falls back to the other one
+    const own = lang === 'en' ? t.data.textEn : t.data.text;
+    const textLang = own ? lang : lang === 'en' ? 'sr' : 'en';
+    return { id: t.id, name: t.data.name, rating: t.data.rating, text: own ?? t.data.textEn ?? t.data.text ?? '', textLang };
+  });
 
 const initials = (name: string) => name.split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
 const avatarTones = ['bg-sage text-ivory', 'bg-gold text-ink', 'bg-red text-ivory'];
 ---
 
-<section class="bg-sage-light py-18 sm:py-28">
-  <div class="container-site flex flex-col gap-14">
-    <SectionHeading
-      eyebrow={ui.testimonials.eyebrow}
-      title={ui.testimonials.title}
-      text={ui.testimonials.text}
-    />
-    <!-- Chat-style reviews: avatar + name above a speech bubble whose corner points back at the author -->
-    <div class="grid items-start gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-      {items.map((t, i) => (
-        <figure class:list={['m-0 flex flex-col gap-3', i === 1 && 'lg:mt-14', i === 2 && 'lg:mt-6']} data-reveal style={`--i:${i}`}>
-          <figcaption class="flex items-center gap-3">
-            <span class:list={['inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full font-sans text-[15px] font-medium', avatarTones[i % avatarTones.length]]} aria-hidden="true">{initials(t.data.name)}</span>
-            <span class="flex flex-col leading-tight">
-              <span class="text-[15px] font-medium text-ink">{t.data.name}</span>
-              <span class="text-[13px] text-muted">Google</span>
-            </span>
-          </figcaption>
-          <div class="bubble relative ml-5 rounded-bubble rounded-tl-md bg-ivory px-6 py-5 shadow-[0_18px_40px_-24px_rgba(45,41,38,0.35)] sm:px-7 sm:py-6">
-            <blockquote lang="sr-Latn" class="m-0 text-[16px] leading-[1.7] text-ink">{t.data.text}</blockquote>
-            <span class="mt-4 inline-flex gap-1 text-gold" role="img" aria-label={ui.testimonials.rating(t.data.rating)}>
-              {Array.from({ length: 5 }, (_, n) => (
-                <Icon name="star" size={13} class={n < t.data.rating ? '' : 'opacity-25'} />
-              ))}
-            </span>
-          </div>
-        </figure>
-      ))}
+<section class="overflow-x-clip bg-sage-light py-18 sm:py-28" data-testimonials>
+  <div class="container-site flex flex-col gap-12">
+    <div class="flex flex-wrap items-end justify-between gap-8 lg:flex-nowrap">
+      <SectionHeading
+        class="min-w-0"
+        eyebrow={ui.testimonials.eyebrow}
+        title={ui.testimonials.title}
+        text={ui.testimonials.text}
+      />
+      <div class="flex shrink-0 items-center gap-3">
+        <button type="button" class="testi-btn" data-testi-prev aria-label={ui.testimonials.prev} aria-controls="testimonials-track">
+          <Icon name="chevron-right" size={14} class="rotate-180" />
+        </button>
+        <button type="button" class="testi-btn" data-testi-next aria-label={ui.testimonials.next} aria-controls="testimonials-track">
+          <Icon name="chevron-right" size={14} />
+        </button>
+      </div>
+    </div>
+
+    <div>
+      <!-- Chat-style reviews: avatar + name above a speech bubble whose corner points back at the author -->
+      <ul id="testimonials-track" class="testi-track m-0 flex list-none items-start gap-6 overflow-x-auto p-0 pt-1 pb-8" aria-label={ui.testimonials.eyebrow}>
+        {items.map((r, i) => (
+          <li class="testi-slide shrink-0">
+            <figure class="m-0 flex flex-col gap-3">
+              <figcaption class="flex items-center gap-3">
+                <span class:list={['inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full font-sans text-[15px] font-medium', avatarTones[i % avatarTones.length]]} aria-hidden="true">{initials(r.name)}</span>
+                <span class="flex flex-col leading-tight">
+                  <span class="text-[15px] font-medium text-ink">{r.name}</span>
+                  <span class="text-[13px] text-muted">Google</span>
+                </span>
+              </figcaption>
+              <div class="bubble relative ml-5 rounded-bubble rounded-tl-md bg-ivory px-6 py-5 shadow-[0_18px_40px_-24px_rgba(45,41,38,0.35)] sm:px-7 sm:py-6">
+                <blockquote lang={HTML_LANG[r.textLang]} class="m-0 text-[16px] leading-[1.7] text-ink">{r.text}</blockquote>
+                <span class="mt-4 inline-flex gap-1 text-gold" role="img" aria-label={ui.testimonials.rating(r.rating)}>
+                  {Array.from({ length: 5 }, (_, n) => (
+                    <Icon name="star" size={13} class={n < r.rating ? '' : 'opacity-25'} />
+                  ))}
+                </span>
+              </div>
+            </figure>
+          </li>
+        ))}
+      </ul>
+      <div class="h-px w-full bg-sage/40" aria-hidden="true">
+        <div class="testi-progress h-px bg-red" data-testi-progress></div>
+      </div>
     </div>
 
     <div class="flex flex-wrap items-center justify-between gap-x-8 gap-y-6 rounded-media bg-ivory/70 p-5 sm:py-4 sm:pr-4 sm:pl-8" data-reveal>
@@ -77,12 +104,71 @@ const avatarTones = ['bg-sage text-ivory', 'bg-gold text-ink', 'bg-red text-ivor
 </section>
 
 <style>
+  .testi-track {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+  .testi-track::-webkit-scrollbar { display: none; }
+  .testi-slide { scroll-snap-align: start; width: 86%; }
+  @media (min-width: 768px) { .testi-slide { width: calc((100% - 24px) / 2); } }
+  @media (min-width: 1024px) { .testi-slide { width: calc((100% - 48px) / 3); } }
+
+  .testi-progress { width: 33%; transition: width .4s ease, margin-left .4s ease; }
+
+  .testi-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 48px; height: 48px; border-radius: var(--radius-btn); cursor: pointer;
+    border: 1px solid var(--color-ink); background: transparent; color: var(--color-ink);
+    transition: background-color .3s ease, color .3s ease, opacity .3s ease;
+  }
+  .testi-btn:hover:not(:disabled) { background: var(--color-ink); color: var(--color-on-dark); }
+  .testi-btn:disabled { opacity: .3; cursor: default; }
+
   /* Small tail at the bubble's top-left corner, pointing up at the avatar */
   .bubble::before {
     content: ''; position: absolute; top: -9px; left: 0;
     width: 18px; height: 10px; background: var(--color-ivory);
     clip-path: polygon(0 100%, 0 0, 100% 100%);
   }
+
   .btn .chev { transition: transform .3s ease; }
   .btn:hover .chev { transform: translateX(4px); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .testi-track { scroll-behavior: auto; }
+    .testi-progress { transition: none; }
+  }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-testimonials]').forEach((root) => {
+    const track = root.querySelector<HTMLElement>('.testi-track');
+    const prev = root.querySelector<HTMLButtonElement>('[data-testi-prev]');
+    const next = root.querySelector<HTMLButtonElement>('[data-testi-next]');
+    const progress = root.querySelector<HTMLElement>('[data-testi-progress]');
+    if (!track) return;
+
+    const step = () => {
+      const slide = track.querySelector<HTMLElement>('.testi-slide');
+      return slide ? slide.offsetWidth + 24 : 320;
+    };
+    const update = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const x = track.scrollLeft;
+      if (prev) prev.disabled = x <= 2;
+      if (next) next.disabled = x >= max - 2;
+      if (progress) {
+        const visible = track.clientWidth / track.scrollWidth;
+        progress.style.width = `${visible * 100}%`;
+        progress.style.marginLeft = `${max > 0 ? (x / max) * (1 - visible) * 100 : 0}%`;
+      }
+    };
+    prev?.addEventListener('click', () => track.scrollBy({ left: -step() }));
+    next?.addEventListener('click', () => track.scrollBy({ left: step() }));
+    track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  });
+</script>

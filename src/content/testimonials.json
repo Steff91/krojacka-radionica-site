@@ -21,17 +21,46 @@
     "featured": true
   },
   {
+    "id": "dejan-jovanovic",
+    "name": "Dejan Jovanović",
+    "textEn": "Fantastic seamstress. She makes the models exactly the way I want them. Both the pants and jackets I made were perfectly made. Also very kind, patient and accurate which is very important. All recommendations!",
+    "rating": 5,
+    "featured": true
+  },
+  {
+    "id": "tamara-zivic",
+    "name": "Tamara Živić",
+    "textEn": "The dress is very well made and finished quickly without any mistakes. Every recommendation.",
+    "rating": 5,
+    "featured": true
+  },
+  {
+    "id": "natasa-konjevic",
+    "name": "Nataša Konjević",
+    "textEn": "Well done Sladjo, all praise and recommendation!!! She sewed my dress just like in the picture, exactly as I imagined, really big bravo and respect for the work 👏👏",
+    "rating": 5,
+    "featured": true
+  },
+  {
     "id": "marija-popovic",
     "name": "Marija Popović",
     "text": "Sarađujem sa krojačkom radionicom već pola godine. Prezadovoljna sam. Predantno, i pre svega uvek na vreme, što je izuzetno bitno u ovom poslu. Još uvek mi se nije desilo da sam im predložila neku ideju, a da nisu znale da je sprovedu u delo. 😁 Sve pohvale za divnu i uvek prijatnu Slađu i njen tim.",
+    "textEn": "I have been working with the tailoring workshop for half a year now. I am very satisfied. Dedicated, and above all, always on time, which is extremely important in this business. I have never had the opportunity to propose an idea to them and they did not know how to implement it. 😁 All praise for the wonderful and always pleasant Slađa and her team.",
     "rating": 5,
-    "featured": false
+    "featured": true
+  },
+  {
+    "id": "glory-ksh",
+    "name": "Glory Ksh",
+    "textEn": "Everything you sewed for me has become my favorite clothing items!! Kudos to you for being able to recognize style and give ideas. My eternal problem was explaining what I wanted. Yes, it was! I wouldn't change you!! RECOMMEND TO EVERYONE!",
+    "rating": 5,
+    "featured": true
   },
   {
     "id": "filareta-mary-smirnova",
     "name": "Filareta Mary Smirnova",
-    "text": "The best seamstress I've ever came to, always great results and Sladjana is very polite and attentive to details professional! I recommend to everyone!",
+    "textEn": "The best seamstress I've ever came to, always great results and Sladjana is very polite and attentive to details professional! I recommend to everyone!",
     "rating": 5,
-    "featured": false
+    "featured": true
   }
 ]
