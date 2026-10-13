@@ -60,7 +60,7 @@ const sr = {
     scroll: 'Skrolujte na usluge',
   },
   home: {
-    title: 'Krojačka radionica Beograd | Šivenje po meri — venčanice, kostimi, muška odeća',
+    title: 'Krojačka radionica Beograd | Šivenje po meri',
     servicesEyebrow: 'Šta radimo',
     servicesTitle: 'Krojeno za vas, od prvog do poslednjeg šava',
     servicesText: 'Šijemo mušku odeću, svečane haljine, venčanice, pozorišne i cosplay kostime i uniforme. Svaki komad nastaje ručno, po vašim merama i vašoj zamisli.',
@@ -116,7 +116,7 @@ const sr = {
     nextPhoto: 'Sledeća fotografija',
   },
   service: {
-    eyebrow: 'Usluge',
+    eyebrow: 'Šivenje po meri',
     itemsEyebrow: 'Šta šijemo',
     galleryEyebrow: 'Naš rad',
     galleryTitle: 'Izabrani radovi',
@@ -137,7 +137,7 @@ const sr = {
     contactTitleEm: 'prvi korak?',
   },
   works: {
-    title: 'Radovi | Venčanice, kostimi i odeća po meri — Krojačka radionica',
+    title: 'Radovi | Venčanice i kostimi po meri, Beograd',
     description: 'Venčanice, svečane haljine, korseti, pozorišni i cosplay kostimi, muška odeća i uniforme iz naše radionice u Beogradu.',
     h1: 'Radovi',
     lead: 'Svaki komad iz radionice ima svoju priču — od prve skice do poslednje probe. Pogledajte deo onoga što smo do sada sašili.',
@@ -284,7 +284,7 @@ const en: UI = {
     scroll: 'Scroll to services',
   },
   home: {
-    title: 'Tailoring Workshop in Belgrade | Made to Measure — Wedding Dresses, Costumes, Menswear',
+    title: 'Tailoring Workshop in Belgrade | Made to Measure',
     servicesEyebrow: 'What we do',
     servicesTitle: 'Made for you, from the first stitch to the last',
     servicesText: 'We make menswear, formal dresses, wedding dresses, theatre and cosplay costumes and uniforms. Every piece is made by hand, to your measurements and your vision.',
@@ -340,7 +340,7 @@ const en: UI = {
     nextPhoto: 'Next photo',
   },
   service: {
-    eyebrow: 'Services',
+    eyebrow: 'Made to measure',
     itemsEyebrow: 'What we make',
     galleryEyebrow: 'Our work',
     galleryTitle: 'Selected work',
@@ -350,7 +350,7 @@ const en: UI = {
     areaServed: 'Belgrade',
   },
   servicesPage: {
-    title: 'Services | Made to Measure — Tailoring Workshop Belgrade',
+    title: 'Services | Made-to-Measure Tailoring in Belgrade',
     description: 'Menswear, formal dresses, wedding dresses, theatre and cosplay costumes, uniforms and fashion brand development. Everything made to measure in our Belgrade workshop.',
     h1: 'Services',
     lead: 'From formal and wedding dresses to cosplay costumes — we make whatever you imagine, precisely to your measurements.',
@@ -361,7 +361,7 @@ const en: UI = {
     contactTitleEm: 'the first step?',
   },
   works: {
-    title: 'Work | Made-to-Measure Wedding Dresses, Costumes and Clothing — Tailoring Workshop',
+    title: 'Our Work | Made-to-Measure Dresses & Costumes, Belgrade',
     description: 'Wedding dresses, formal dresses, corsets, theatre and cosplay costumes, menswear and uniforms from our workshop in Belgrade.',
     h1: 'Work',
     lead: 'Every piece from the workshop has its own story — from the first sketch to the final fitting. Here is some of what we have made so far.',

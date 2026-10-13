@@ -44,7 +44,7 @@ const schema = [
 ];
 ---
 
-<Base title={d.seoTitle ?? `${d.title} ${ui.service.seoSuffix}`} description={d.seoDescription ?? d.excerpt} schema={schema} alternates={alternates}>
+<Base title={d.seoTitle ?? `${d.title} ${ui.service.seoSuffix}`} description={d.seoDescription ?? d.excerpt} schema={schema} alternates={alternates} image={d.image}>
   <!-- Hero -->
   <section class:list={['relative isolate overflow-x-clip py-16 sm:py-24', featured && 'bg-ink text-on-dark']}>
     <HeroTexture tone={featured ? 'dark' : 'light'} side="left" />
@@ -72,7 +72,7 @@ const schema = [
     <section class="border-t border-line py-18 sm:py-28">
       <div class="container-site flex flex-col gap-14">
         <SectionHeading eyebrow={d.itemsEyebrow ?? ui.service.itemsEyebrow} title={d.itemsTitle ?? d.title} />
-        <ul class="m-0 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
+        <ul class:list={['m-0 grid list-none gap-4 p-0 sm:grid-cols-2', d.items.length === 4 ? 'lg:grid-cols-2' : 'lg:grid-cols-3']}>
           {d.items.map((item, i) => (
             <li class="item-card flex flex-col gap-3 rounded-media border border-line bg-ivory p-8 sm:p-10" data-reveal style={`--i:${i % 3}`}>
               <span class="font-serif text-lg leading-none text-red italic">{String(i + 1).padStart(2, '0')}</span>

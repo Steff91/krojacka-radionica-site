@@ -45,7 +45,7 @@ if (answered.length > 0) {
 }
 ---
 
-<Base title={d.seoTitle ?? d.title} description={d.seoDescription ?? d.excerpt} schema={schema} alternates={alternates}>
+<Base title={d.seoTitle ?? d.title} description={d.seoDescription ?? d.excerpt} schema={schema} alternates={alternates} image={d.image}>
   <!-- 1. Hero -->
   <section class="relative isolate overflow-x-clip bg-ink py-16 text-on-dark sm:py-24">
     <HeroTexture tone="dark" side="left" />

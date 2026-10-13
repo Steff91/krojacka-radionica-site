@@ -129,25 +129,50 @@ const lightboxItems = works.map((w) => ({
   const empty = root?.querySelector<HTMLElement>('[data-works-empty]');
   const valid = new Set(chips.map((c) => c.dataset.filter));
 
-  const apply = (filter: string) => {
+  const grid = root?.querySelector<HTMLElement>('.masonry');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let current = '';
+  let busy: Animation | null = null;
+
+  const apply = (filter: string, animate = false) => {
     if (!valid.has(filter)) filter = 'sve';
+    if (filter === current) return;
+    current = filter;
     chips.forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.filter === filter)));
-    let shown = 0;
-    items.forEach((li) => {
-      const show = filter === 'sve' || (li.dataset.cats ?? '').split(' ').includes(filter);
-      li.hidden = !show;
-      if (show) shown++;
-    });
-    empty?.classList.toggle('hidden', shown > 0);
+
+    const swap = () => {
+      let shown = 0;
+      items.forEach((li) => {
+        const show = filter === 'sve' || (li.dataset.cats ?? '').split(' ').includes(filter);
+        li.hidden = !show;
+        if (show) shown++;
+      });
+      empty?.classList.toggle('hidden', shown > 0);
+      if (!animate) return;
+      if (grid) grid.style.opacity = '';
+      // Photos rise and fade in one after another
+      items.filter((li) => !li.hidden).forEach((li, i) => {
+        li.animate(
+          [{ opacity: 0, transform: 'translateY(14px) scale(.985)' }, { opacity: 1, transform: 'none' }],
+          { duration: 480, delay: Math.min(i, 10) * 45, easing: 'cubic-bezier(.2, .7, .2, 1)', fill: 'backwards' },
+        );
+      });
+    };
+
+    if (!animate || reduce.matches || !grid) return swap();
+    // Quick fade-out of the current set, then swap and bring the new set in
+    busy?.cancel();
+    busy = grid.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 160, easing: 'ease-out', fill: 'forwards' });
+    busy.onfinish = () => { busy?.cancel(); busy = null; swap(); };
   };
 
   chips.forEach((c) =>
     c.addEventListener('click', () => {
       const f = c.dataset.filter ?? 'sve';
       history.replaceState(null, '', f === 'sve' ? location.pathname : `#${f}`);
-      apply(f);
+      apply(f, true);
     }),
   );
-  window.addEventListener('hashchange', () => apply(location.hash.slice(1) || 'sve'));
+  window.addEventListener('hashchange', () => apply(location.hash.slice(1) || 'sve', true));
   apply(location.hash.slice(1) || 'sve');
 </script>

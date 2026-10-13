@@ -1,6 +1,7 @@
 // Language helpers. Serbian lives at the root, English under /en/ with translated slugs.
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { ui } from './ui';
+import { ROUTES } from './routes';
 import infoBase from '../data/info.json';
 import srSite from '../data/sr/site.json';
 import enSite from '../data/en/site.json';
@@ -26,18 +27,12 @@ export function getLang(url: URL): Lang {
 export const t = (lang: Lang) => ui[lang];
 
 // --- Static routes ---
-const ROUTES = {
-  home: { sr: '/', en: '/en/' },
-  services: { sr: '/usluge/', en: '/en/services/' },
-  about: { sr: '/o-nama/', en: '/en/about/' },
-  works: { sr: '/radovi/', en: '/en/work/' },
-  contact: { sr: '/kontakt/', en: '/en/contact/' },
-  booking: { sr: '/zakazite-konsultaciju/', en: '/en/book-a-consultation/' },
-} satisfies Record<string, Record<Lang, string>>;
+// ROUTES lives in ./routes.ts (shared with astro.config for the sitemap)
 export type RouteKey = keyof typeof ROUTES;
 
 export const route = (lang: Lang, key: RouteKey) => ROUTES[key][lang];
 export const alternatesFor = (key: RouteKey): Alternates => ({ ...ROUTES[key] });
+export { ROUTES };
 export const bookingUrl = (lang: Lang, serviceKey?: string) =>
   route(lang, 'booking') + (serviceKey ? `?usluga=${serviceKey}` : '');
 

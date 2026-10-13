@@ -22,12 +22,15 @@ interface Props {
   schema?: Record<string, unknown>[];
   /** URL of this page in each language (drives hreflang and the language switcher) */
   alternates?: Alternates;
+  /** Social share image (path under public/); defaults to /og-default.jpg */
+  image?: string;
 }
 
 const lang = getLang(Astro.url);
 const ui = t(lang);
 const info = getInfo(lang);
-const { title, description = ui.meta.siteDescription, schema = [], alternates = {} } = Astro.props;
+const { title, description = ui.meta.siteDescription, schema = [], alternates = {}, image = '/og-default.jpg' } = Astro.props;
+const ogImage = new URL(image, Astro.site);
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const hreflangs = LANGS.filter((l) => alternates[l]).map((l) => ({ hreflang: HTML_LANG[l], href: new URL(alternates[l]!, Astro.site) }));
@@ -79,6 +82,10 @@ const business = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={info.name} />
+    <meta property="og:image" content={ogImage} />
+    {image === '/og-default.jpg' && <><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /></>}
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#FDFAF6" />
     <script is:inline>document.documentElement.classList.add('js');</script>
     <script type="application/ld+json" set:html={JSON.stringify(business)} />
