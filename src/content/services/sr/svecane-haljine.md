@@ -7,7 +7,7 @@ seoDescription: Maturske, večernje i gala haljine, korseti i haljine za takmič
 heroTitle: Svečane haljine
 heroTitleEm: samo za vas
 intro: Haljina za veče koje se pamti ne treba da liči ni na jednu drugu. Polazimo od vaše ideje, skice ili fotografije, a kroj gradimo prema vašoj figuri — da sedi tačno onako kako ste zamislili.
-image: /uploads/radovi-korset-talasi.webp
+image: /uploads/radovi-bela-haljina-ledja.webp
 imageLabel: "Svečana haljina na modelu, vertikalni kadar"
 variant: default
 itemsEyebrow: Šta šijemo
@@ -25,13 +25,26 @@ items:
     text: Haljine za ples i scenu koje izgledaju dobro i dozvoljavaju slobodu pokreta.
 galleryTitle: Svečane haljine iz radionice
 gallery:
+  - src: /uploads/radovi-bela-haljina-ledja.webp
+    alt: "Bela haljina sa otvorenim leđima i dugim rukavima"
+  - src: /uploads/radovi-maturska-haljina.webp
+    alt: "Maturska haljina od žakarda sa volanima na suknji"
+    position: 50% 30%
+  - src: /uploads/radovi-bordo-haljina-korset.webp
+    alt: "Bordo haljina sa korsetom i čipkanim rukavima"
+    position: 50% 25%
+  - src: /uploads/radovi-crveni-komplet.webp
+    alt: "Crveni komplet: top sa otvorenim leđima i uska suknja"
+  - src: /uploads/radovi-crveni-detalj-dugmici.webp
+    alt: "Detalj crvenog kompleta: presvučena dugmad i rajsferšlus"
+  - src: /uploads/radovi-providna-haljina.webp
+    alt: "Haljina od providne tkanine sa printom, na krojačkoj lutki"
+  - src: /uploads/radovi-crni-sako-til.webp
+    alt: "Crni sako sa suknjom od tila, na krojačkoj lutki"
   - src: /uploads/radovi-korset-sljokice.webp
-    alt: Korset sa šljokicama krojen iz geometrijskih polja
+    alt: "Korset sa šljokicama krojen iz geometrijskih polja"
   - src: /uploads/radovi-korset-talasi.webp
-    alt: Teget korset sa talasastim vezom od šljokica
-  - alt: "[Maturska haljina]"
-  - alt: "[Večernja haljina]"
-  - alt: "[Haljina za takmičenje]"
+    alt: "Teget korset sa talasastim vezom od šljokica"
 faq:
   - q: Koliko unapred treba da se javim za maturu?
     a: "[Preporučen rok pre mature.]"

@@ -1,11 +1,54 @@
 {
   "items": [
-    { "src": "/uploads/hero-vencanica.webp", "alt": "Wedding dress with a lace corset and organza ruffles on the shoulders" },
-    { "src": "/uploads/radovi-vencano-odelo.webp", "alt": "Bridal trouser suit: white jacket with slit sleeves and wide-leg trousers", "position": "50% 18%" },
-    { "src": "/uploads/radovi-korset-sljokice.webp", "alt": "Sequinned corset cut from geometric panels" },
-    { "src": "/uploads/radovi-dublet.webp", "alt": "Quilted teal doublet with brass clasps, historical costume" },
-    { "src": "/uploads/radovi-korset-talasi.webp", "alt": "Navy corset with wave-patterned sequin embroidery" },
-    { "src": "/uploads/radovi-kostim-stvorenje.webp", "alt": "Fantasy creature costume made for a stage performance", "position": "50% 30%" },
-    { "src": "/uploads/hero-detalj.webp", "alt": "Hand-stitching lace onto tulle" }
+    {
+      "src": "/uploads/hero-vencanica.webp",
+      "alt": "Wedding dress with a lace corset and organza ruffles on the shoulders"
+    },
+    {
+      "src": "/uploads/radovi-bela-haljina-ledja.webp",
+      "alt": "White gown with an open back and long sleeves"
+    },
+    {
+      "src": "/uploads/radovi-rokoko-kostim.webp",
+      "alt": "Rococo-style costume with a corset, ruffles and a pink wig",
+      "position": "50% 20%"
+    },
+    {
+      "src": "/uploads/radovi-musko-odelo-kente.webp",
+      "alt": "Men's suit in kente-print fabric",
+      "position": "50% 35%"
+    },
+    {
+      "src": "/uploads/radovi-korset-talasi.webp",
+      "alt": "Navy corset with wave-patterned sequin embroidery"
+    },
+    {
+      "src": "/uploads/radovi-crveni-revijski-komad.webp",
+      "alt": "Runway look: red leather jacket with a fringed skirt",
+      "position": "50% 25%"
+    },
+    {
+      "src": "/uploads/radovi-vencano-odelo.webp",
+      "alt": "Bridal trouser suit: white jacket and wide-leg trousers",
+      "position": "50% 18%"
+    },
+    {
+      "src": "/uploads/radovi-metalik-odelo.webp",
+      "alt": "Metallic tweed suit: jacket and trousers",
+      "position": "50% 30%"
+    },
+    {
+      "src": "/uploads/radovi-dublet.webp",
+      "alt": "Quilted teal doublet with brass clasps"
+    },
+    {
+      "src": "/uploads/radovi-kostim-stvorenje-scena.webp",
+      "alt": "Fantasy creature costume on stage"
+    },
+    {
+      "src": "/uploads/radovi-maturska-haljina.webp",
+      "alt": "Jacquard prom dress with a tiered skirt",
+      "position": "50% 30%"
+    }
   ]
 }

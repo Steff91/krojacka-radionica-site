@@ -8,6 +8,7 @@ seoDescription: Jackets, coats, overcoats, bomber jackets and trousers made to y
 heroTitle: Menswear
 heroTitleEm: tailored to you
 intro: An overcoat that doesn't pull at the shoulders, a jacket that follows the line of your back, trousers of exactly the right length. The menswear we make starts from your measurements, not from a size chart.
+image: /uploads/radovi-musko-odelo-kente.webp
 imageLabel: "Men's piece on a model, portrait format"
 variant: default
 itemsEyebrow: What we make
@@ -27,11 +28,13 @@ items:
     text: The right drape, the exact length and a waist that doesn't need altering.
 galleryTitle: Menswear from the workshop
 gallery:
+  - src: /uploads/radovi-musko-odelo-kente.webp
+    alt: "Men's suit in kente-print fabric: jacket and trousers"
+    position: 50% 35%
+  - src: /uploads/radovi-kaput-detalj-dzep.webp
+    alt: "Wool coat detail: piped welt pocket"
   - alt: "[Made-to-measure jacket]"
   - alt: "[Coat]"
-  - alt: "[Overcoat]"
-  - alt: "[Bomber jacket]"
-  - alt: "[Trousers, detail]"
 faq:
   - q: How long does it take to make a jacket or coat?
     a: "[Approximate lead time.]"

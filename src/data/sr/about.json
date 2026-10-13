@@ -4,8 +4,9 @@
   "hero": {
     "title": "O nama",
     "subtitle": "Odeća koja nastaje po vašoj meri, iz ruke majstora.",
-    "image": "",
-    "imageLabel": "Široka fotografija radionice: sto za krojenje, tkanine, krojačka lutka"
+    "image": "/uploads/radionica-istorijski-kostim.webp",
+    "imageLabel": "Široka fotografija radionice: sto za krojenje, tkanine, krojačka lutka",
+    "imageAlt": "Radionica: kostim sa korsetom na krojačkoj lutki, tkanine i radni sto"
   },
   "story": {
     "eyebrow": "Naša priča",
@@ -15,8 +16,9 @@
       "Radionica je nastala [godina / povod osnivanja] iz jednostavne ideje: da odeća treba da prati čoveka, a ne obrnuto. Ono što je počelo kao [kratak opis početka], danas je radionica u kojoj nastaju muška odela, svečane haljine i venčanice, ali i kostimi za pozorište, cosplay i uniforme.",
       "Svaki komad koji izađe iz radionice prolazi kroz iste ruke i isti proces — od prvog razgovora do poslednjeg šava."
     ],
-    "image": "",
-    "imageLabel": "Vertikalna fotografija: rad u toku, detalj šivenja"
+    "image": "/uploads/radovi-jakna-detalj-postava.webp",
+    "imageLabel": "Vertikalna fotografija: rad u toku, detalj šivenja",
+    "imageAlt": "Detalj jakne u izradi: rajsferšlus i postava"
   },
   "founder": {
     "eyebrow": "Ko stoji iza radionice",
@@ -36,25 +38,62 @@
     "titleEm": "i pozorišnih scena",
     "text": "[2–3 rečenice o radu na filmu i u pozorištu: rokovi, tim, kostimi koji moraju da izdrže snimanje i izvođenje.]",
     "productions": [
-      { "year": "[Godina]", "title": "[Naziv produkcije]", "role": "[Film / serija / predstava — uloga u timu]" },
-      { "year": "[Godina]", "title": "[Naziv produkcije]", "role": "[Film / serija / predstava — uloga u timu]" },
-      { "year": "[Godina]", "title": "[Naziv produkcije]", "role": "[Film / serija / predstava — uloga u timu]" },
-      { "year": "[Godina]", "title": "[Naziv produkcije]", "role": "[Film / serija / predstava — uloga u timu]" }
+      {
+        "year": "[Godina]",
+        "title": "[Naziv produkcije]",
+        "role": "[Film / serija / predstava — uloga u timu]"
+      },
+      {
+        "year": "[Godina]",
+        "title": "[Naziv produkcije]",
+        "role": "[Film / serija / predstava — uloga u timu]"
+      },
+      {
+        "year": "[Godina]",
+        "title": "[Naziv produkcije]",
+        "role": "[Film / serija / predstava — uloga u timu]"
+      },
+      {
+        "year": "[Godina]",
+        "title": "[Naziv produkcije]",
+        "role": "[Film / serija / predstava — uloga u timu]"
+      }
     ],
     "images": [
-      { "alt": "[Fotografija sa seta]" },
-      { "alt": "[Kostim iz produkcije]" },
-      { "alt": "[Detalj kostima]" }
+      {
+        "src": "/uploads/radovi-koncertni-kostimi.webp",
+        "alt": "Scenski kostimi na koncertu"
+      },
+      {
+        "src": "/uploads/radovi-rokoko-kostim.webp",
+        "alt": "Kostim u stilu rokokoa sa ružičastom perikom"
+      },
+      {
+        "src": "/uploads/radovi-crveni-detalj-dugmici.webp",
+        "alt": "Detalj: presvučena dugmad i rajsferšlus"
+      }
     ]
   },
   "approach": {
     "eyebrow": "Naš pristup",
     "title": "Šta nas razlikuje",
     "items": [
-      { "title": "Sve počinje razgovorom", "text": "Pre nego što uzmemo meru, želimo da razumemo priliku, stil i način na koji ćete nositi komad." },
-      { "title": "Mera, ne veličina", "text": "Ne prepravljamo gotove modele. Svaki kroj nastaje od nule, prema vašim merama." },
-      { "title": "Detalj je deo kroja", "text": "Završni šavovi, postava, dugmad — ono što se ne vidi na prvi pogled je ono što pravi razliku." },
-      { "title": "Iskreni saveti", "text": "Preporučićemo materijal i kroj koji vam odgovaraju, ali poslednja reč je uvek vaša." }
+      {
+        "title": "Sve počinje razgovorom",
+        "text": "Pre nego što uzmemo meru, želimo da razumemo priliku, stil i način na koji ćete nositi komad."
+      },
+      {
+        "title": "Mera, ne veličina",
+        "text": "Ne prepravljamo gotove modele. Svaki kroj nastaje od nule, prema vašim merama."
+      },
+      {
+        "title": "Detalj je deo kroja",
+        "text": "Završni šavovi, postava, dugmad — ono što se ne vidi na prvi pogled je ono što pravi razliku."
+      },
+      {
+        "title": "Iskreni saveti",
+        "text": "Preporučićemo materijal i kroj koji vam odgovaraju, ali poslednja reč je uvek vaša."
+      }
     ]
   },
   "workshop": {
@@ -62,12 +101,30 @@
     "title": "Gde nastaju vaši komadi",
     "text": "[Jedna do dve rečenice o prostoru radionice i atmosferi u kojoj se radi.]",
     "items": [
-      { "src": "/uploads/hero-detalj.webp", "alt": "Ručno ušivanje čipke na tilu" },
-      { "alt": "[Sto za krojenje]" },
-      { "alt": "[Krojačka lutka sa komadom u izradi]" },
-      { "alt": "[Police sa tkaninama]" },
-      { "alt": "[Mašina za šivenje]" },
-      { "alt": "[Proba sa klijentom]" }
+      {
+        "src": "/uploads/hero-detalj.webp",
+        "alt": "Ručno ušivanje čipke na tilu"
+      },
+      {
+        "src": "/uploads/radionica-krojni-listovi.webp",
+        "alt": "Krojni listovi okačeni u radionici"
+      },
+      {
+        "src": "/uploads/radovi-kaputi-print.webp",
+        "alt": "Kaputi sa printom na krojačkim lutkama"
+      },
+      {
+        "src": "/uploads/radovi-jakna-print-lutka.webp",
+        "alt": "Jakna u izradi na krojačkoj lutki"
+      },
+      {
+        "src": "/uploads/radovi-narandzasti-kostim.webp",
+        "alt": "Kostim na radnom stolu u radionici"
+      },
+      {
+        "src": "/uploads/radovi-zenski-sako-lutka.webp",
+        "alt": "Sako na krojačkoj lutki"
+      }
     ]
   }
 }

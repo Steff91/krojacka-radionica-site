@@ -7,6 +7,7 @@ seoDescription: Sakoi, kaputi, mantili, jakne, bomberke i pantalone šiveni po v
 heroTitle: Muška odeća
 heroTitleEm: krojena po vama
 intro: Mantil koji ne vuče u ramenima, sako koji prati liniju leđa, pantalone tačne dužine. Muška garderoba koju šijemo nastaje od vaših mera, a ne od tabele veličina.
+image: /uploads/radovi-musko-odelo-kente.webp
 imageLabel: "Muški komad na modelu, vertikalni kadar"
 variant: default
 itemsEyebrow: Šta šijemo
@@ -26,11 +27,13 @@ items:
     text: Pravilan pad nogavice, tačna dužina i struk koji ne treba prepravljati.
 galleryTitle: Muška odeća iz radionice
 gallery:
+  - src: /uploads/radovi-musko-odelo-kente.webp
+    alt: "Muško odelo od tkanine sa kente motivom: sako i pantalone"
+    position: 50% 35%
+  - src: /uploads/radovi-kaput-detalj-dzep.webp
+    alt: "Detalj kaputa od vunenog štofa: paspulirani džep"
   - alt: "[Sako po meri]"
   - alt: "[Kaput]"
-  - alt: "[Mantil]"
-  - alt: "[Bomberka]"
-  - alt: "[Pantalone, detalj]"
 faq:
   - q: Koliko traje izrada sakoa ili kaputa?
     a: "[Okvirni rok izrade.]"

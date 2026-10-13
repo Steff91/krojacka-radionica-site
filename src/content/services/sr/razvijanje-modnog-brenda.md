@@ -8,14 +8,42 @@ seoDescription: "Od ideje do prve kolekcije: izbor materijala, obrada, veličine
 heroTitle: "Imate modnu ideju?"
 heroTitleEm: "Pretvorimo je u brend."
 intro: Imate ideju za kolekciju, ali niste sigurni kako da je pretvorite u komade spremne za prodaju? Pomažemo vam da prođete put od skice do uzorka — bez grešaka koje odnose vreme i novac.
+image: /uploads/radionica-krojni-listovi.webp
 imageLabel: "Skice, krojni listovi, kolekcija na vešalici"
 variant: featured
 galleryTitle: Uzorci i kolekcije
 gallery:
-  - alt: "[Uzorak iz kolekcije]"
-  - alt: "[Skica i gotov komad]"
-  - alt: "[Detalj obrade]"
-  - alt: "[Kolekcija na vešalici]"
+  - src: /uploads/radovi-crveni-revijski-komad.webp
+    alt: "Revijski komad: crvena kožna jakna i suknja od resa"
+    position: 50% 25%
+  - src: /uploads/radovi-serija-jakni-sljokice.webp
+    alt: "Serija jakni sa šljokicama i teksas kragnom za modni brend"
+  - src: /uploads/radovi-serija-pantalona-sljokice.webp
+    alt: "Serija pantalona sa šljokicama"
+  - src: /uploads/radovi-teget-sako-ruze.webp
+    alt: "Teget sako sa peplumom, prugastim rukavima i ružama od tkanine"
+  - src: /uploads/radovi-metalik-odelo.webp
+    alt: "Odelo od metalik tvida: sako i pantalone"
+    position: 50% 30%
+  - src: /uploads/radovi-prugasto-odelo-model.webp
+    alt: "Prugasti komplet: kratak sako sa tregerima i uska suknja"
+    position: 50% 25%
+  - src: /uploads/radovi-teksas-prsluk-suknja.webp
+    alt: "Komplet od teksasa sa printom: prsluk i suknja"
+    position: 50% 40%
+  - src: /uploads/radovi-farmerke-sljokice.webp
+    alt: "Farmerke sa šljokicama i trakama"
+  - src: /uploads/radovi-suknja-talasi.webp
+    alt: "Uska suknja sa vezom u obliku talasa"
+    position: 50% 40%
+  - src: /uploads/radovi-kaputi-print.webp
+    alt: "Kaputi sa printom na krojačkim lutkama"
+  - src: /uploads/radovi-jakna-print-lutka.webp
+    alt: "Teksas jakna sa batik printom na krojačkoj lutki"
+  - src: /uploads/radovi-narandzasta-jakna.webp
+    alt: "Jakna od narandžaste čupave tkanine"
+  - src: /uploads/radovi-zenski-sako-lutka.webp
+    alt: "Sivi sako po meri na krojačkoj lutki"
 faq:
   - q: Kako da izbegnem početničke greške koje odnose vreme i novac?
     a: "[Odgovor.]"

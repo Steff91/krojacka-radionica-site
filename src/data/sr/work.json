@@ -1,11 +1,54 @@
 {
   "items": [
-    { "src": "/uploads/hero-vencanica.webp", "alt": "Venčanica sa čipkanim korsetom i volanima od organdina na ramenima" },
-    { "src": "/uploads/radovi-vencano-odelo.webp", "alt": "Venčano žensko odelo: beli sako sa razrezima na rukavima i pantalone širokih nogavica", "position": "50% 18%" },
-    { "src": "/uploads/radovi-korset-sljokice.webp", "alt": "Korset sa šljokicama krojen iz geometrijskih polja" },
-    { "src": "/uploads/radovi-dublet.webp", "alt": "Prošiveni dublet u petrolej boji sa mesinganim kopčama, istorijski kostim" },
-    { "src": "/uploads/radovi-korset-talasi.webp", "alt": "Teget korset sa talasastim vezom od šljokica" },
-    { "src": "/uploads/radovi-kostim-stvorenje.webp", "alt": "Kostim fantastičnog stvorenja izrađen za scenski nastup", "position": "50% 30%" },
-    { "src": "/uploads/hero-detalj.webp", "alt": "Ručno ušivanje čipke na tilu" }
+    {
+      "src": "/uploads/hero-vencanica.webp",
+      "alt": "Venčanica sa čipkanim korsetom i volanima od organdina na ramenima"
+    },
+    {
+      "src": "/uploads/radovi-bela-haljina-ledja.webp",
+      "alt": "Bela haljina sa otvorenim leđima i dugim rukavima"
+    },
+    {
+      "src": "/uploads/radovi-rokoko-kostim.webp",
+      "alt": "Kostim u stilu rokokoa sa korsetom, volanima i ružičastom perikom",
+      "position": "50% 20%"
+    },
+    {
+      "src": "/uploads/radovi-musko-odelo-kente.webp",
+      "alt": "Muško odelo od tkanine sa kente motivom",
+      "position": "50% 35%"
+    },
+    {
+      "src": "/uploads/radovi-korset-talasi.webp",
+      "alt": "Teget korset sa talasastim vezom od šljokica"
+    },
+    {
+      "src": "/uploads/radovi-crveni-revijski-komad.webp",
+      "alt": "Revijski komad: crvena kožna jakna i suknja od resa",
+      "position": "50% 25%"
+    },
+    {
+      "src": "/uploads/radovi-vencano-odelo.webp",
+      "alt": "Venčano žensko odelo: beli sako i pantalone širokih nogavica",
+      "position": "50% 18%"
+    },
+    {
+      "src": "/uploads/radovi-metalik-odelo.webp",
+      "alt": "Odelo od metalik tvida: sako i pantalone",
+      "position": "50% 30%"
+    },
+    {
+      "src": "/uploads/radovi-dublet.webp",
+      "alt": "Prošiveni dublet u petrolej boji sa mesinganim kopčama"
+    },
+    {
+      "src": "/uploads/radovi-kostim-stvorenje-scena.webp",
+      "alt": "Kostim fantastičnog stvorenja na sceni"
+    },
+    {
+      "src": "/uploads/radovi-maturska-haljina.webp",
+      "alt": "Maturska haljina od žakarda sa volanima na suknji",
+      "position": "50% 30%"
+    }
   ]
 }

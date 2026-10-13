@@ -9,7 +9,7 @@ seoDescription: Cosplay costumes made to your design or reference — for conven
 heroTitle: Cosplay costumes
 heroTitleEm: from sketch to stage
 intro: The character you love deserves a costume that looks as if it stepped off the screen. Send us a reference or your own design — we work out the cut, materials and details, so the costume looks faithful and is easy to move in.
-image: /uploads/radovi-kostim-stvorenje.webp
+image: /uploads/radovi-kostim-stvorenje-scena.webp
 imageLabel: "Cosplay costume, full character"
 variant: default
 itemsEyebrow: What we make
@@ -25,12 +25,14 @@ items:
     text: When the character isn't human — layers, textures and shapes that turn an idea into a creature.
 galleryTitle: Cosplay from the workshop
 gallery:
+  - src: /uploads/radovi-kostim-stvorenje-scena.webp
+    alt: "Fantasy creature costume on stage"
   - src: /uploads/radovi-kostim-stvorenje.webp
-    alt: Fantasy creature costume made for a stage performance
+    alt: "Creature costume during a performance"
     position: 50% 30%
+  - src: /uploads/radovi-narandzasti-kostim.webp
+    alt: "Orange costume with ruffles and a laced waist"
   - alt: "[Cosplay costume, full character]"
-  - alt: "[Cosplay at a convention]"
-  - alt: "[Costume detail]"
 faq:
   - q: What do I need to send to get started?
     a: "[E.g. photos of the character from several angles and the date you need the costume by.]"

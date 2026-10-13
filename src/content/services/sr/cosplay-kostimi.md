@@ -8,7 +8,7 @@ seoDescription: Izrada cosplay kostima po vašem dizajnu ili referenci — za ko
 heroTitle: Cosplay kostimi
 heroTitleEm: od skice do scene
 intro: Lik koji volite zaslužuje kostim koji izgleda kao da je izašao sa ekrana. Pošaljite referencu ili svoj dizajn — mi rešavamo kroj, materijale i detalje, da kostim izgleda verno i da se u njemu lako krećete.
-image: /uploads/radovi-kostim-stvorenje.webp
+image: /uploads/radovi-kostim-stvorenje-scena.webp
 imageLabel: "Cosplay kostim, ceo lik"
 variant: default
 itemsEyebrow: Šta šijemo
@@ -24,12 +24,14 @@ items:
     text: Kada lik nije čovek — slojevi, teksture i oblici koji pretvaraju ideju u stvorenje.
 galleryTitle: Cosplay iz radionice
 gallery:
+  - src: /uploads/radovi-kostim-stvorenje-scena.webp
+    alt: "Kostim fantastičnog stvorenja na sceni"
   - src: /uploads/radovi-kostim-stvorenje.webp
-    alt: Kostim fantastičnog stvorenja izrađen za scenski nastup
+    alt: "Kostim stvorenja tokom nastupa"
     position: 50% 30%
+  - src: /uploads/radovi-narandzasti-kostim.webp
+    alt: "Narandžasti kostim sa volanima i ukrasnim pertlanjem u struku"
   - alt: "[Cosplay kostim, ceo lik]"
-  - alt: "[Cosplay na konvenciji]"
-  - alt: "[Detalj kostima]"
 faq:
   - q: Šta je potrebno da pošaljem za početak?
     a: "[Npr. fotografije lika sa više strana i rok do kog vam treba kostim.]"

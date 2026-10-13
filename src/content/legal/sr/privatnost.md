@@ -6,7 +6,7 @@ updated: "[DATUM]"
 
 ## Ko obrađuje podatke
 
-Rukovalac podacima je [puno poslovno ime], Nehruova 51a, lokal 93, TC Kula, Beograd, MB [MB], PIB [PIB] (u daljem tekstu: radionica). Za sva pitanja o obradi podataka možete nam se obratiti na [EMAIL] ili +381 60 684 4558.
+Rukovalac podacima je Slađana Guslov PR, Samostalna zanatska radnja ĐERDAN - S Beograd, Nehruova 51a, lokal 93, 11070 Novi Beograd, MB 62640049, PIB 107291028 (u daljem tekstu: radionica). Za sva pitanja o obradi podataka možete nam se obratiti na sladjanaguslov@gmail.com ili +381 60 684 4558.
 
 Podatke obrađujemo u skladu sa Zakonom o zaštiti podataka o ličnosti Republike Srbije.
 
@@ -51,7 +51,7 @@ Podatke iz upita čuvamo [rok, npr. 12 meseci od poslednjeg kontakta], osim ako 
 
 ## Vaša prava
 
-Imate pravo da zatražite uvid u svoje podatke, njihovu ispravku ili brisanje, ograničenje obrade, kao i da povučete pristanak u bilo kom trenutku. Zahtev nam možete poslati na [EMAIL].
+Imate pravo da zatražite uvid u svoje podatke, njihovu ispravku ili brisanje, ograničenje obrade, kao i da povučete pristanak u bilo kom trenutku. Zahtev nam možete poslati na sladjanaguslov@gmail.com.
 
 Ako smatrate da su vaša prava povređena, možete podneti pritužbu Povereniku za informacije od javnog značaja i zaštitu podataka o ličnosti.
 

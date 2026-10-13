@@ -29,7 +29,7 @@ const shadow = 'shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)]';
       </div>
       <div class="relative" data-reveal style="--i:2">
         <div class="absolute top-[-12px] right-[-12px] bottom-3 left-3 border border-gold rounded-media sm:top-[-20px] sm:right-[-20px] sm:bottom-5 sm:left-5" aria-hidden="true"></div>
-        <Placeholder label={hero.imageLabel} src={hero.image || undefined} alt={hero.title} eager class:list={['relative aspect-[4/3] sm:aspect-[21/9]', shadow]} />
+        <Placeholder label={hero.imageLabel} src={hero.image || undefined} alt={hero.imageAlt ?? hero.title} eager class:list={['relative aspect-[4/3] sm:aspect-[21/9]', shadow]} />
       </div>
     </div>
   </section>
@@ -42,7 +42,7 @@ const shadow = 'shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)]';
           {story.paragraphs.map((p, i) => <p class="lead" data-reveal style={`--i:${i + 2}`}>{p}</p>)}
         </div>
       </SectionHeading>
-      <Placeholder label={story.imageLabel} src={story.image || undefined} alt="" class:list={['aspect-[4/5]', shadow]} />
+      <Placeholder label={story.imageLabel} src={story.image || undefined} alt={story.imageAlt ?? ''} class:list={['aspect-[4/5]', shadow]} />
     </div>
   </section>
 

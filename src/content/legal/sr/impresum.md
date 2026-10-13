@@ -8,21 +8,21 @@ updated: "[DATUM]"
 
 | | |
 |---|---|
-| Naziv | [Puno poslovno ime, npr. preduzetnik / d.o.o.] |
-| Skraćeni naziv | [Skraćeno poslovno ime] |
-| Sedište | Nehruova 51a, lokal 93, TC Kula, Beograd |
-| Matični broj | [MB] |
-| PIB | [PIB] |
+| Naziv | Slađana Guslov PR, Samostalna zanatska radnja ĐERDAN - S Beograd |
+| Skraćeni naziv | ĐERDAN - S |
+| Sedište | Nehruova 51a, lokal 93, 11070 Novi Beograd (TC Kula) |
+| Matični broj | 62640049 |
+| PIB | 107291028 |
 | Šifra delatnosti | [Šifra i naziv delatnosti] |
 | Registar | Agencija za privredne registre (APR) |
-| Odgovorno lice | [Ime i prezime] |
+| Odgovorno lice | Slađana Guslov |
 
 ## Kontakt
 
 | | |
 |---|---|
 | Telefon | +381 60 684 4558 |
-| Email | [EMAIL] |
+| Email | [sladjanaguslov@gmail.com](mailto:sladjanaguslov@gmail.com) |
 | Radno vreme | Pon–Pet 9–17h, Subota 8–12h |
 
 ## Sadržaj sajta

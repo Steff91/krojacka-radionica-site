@@ -9,21 +9,21 @@ updated: "[DATE]"
 
 | | |
 |---|---|
-| Name | [Full business name, e.g. sole trader / d.o.o.] |
-| Short name | [Short business name] |
-| Registered office | Nehruova 51a, unit 93, TC Kula, Belgrade, Serbia |
-| Company registration no. | [MB] |
-| Tax ID (PIB) | [PIB] |
+| Name | Slađana Guslov PR, Samostalna zanatska radnja ĐERDAN - S Beograd (sole trader, craft workshop) |
+| Short name | ĐERDAN - S |
+| Registered office | Nehruova 51a, unit 93, 11070 Novi Beograd, Serbia (TC Kula) |
+| Company registration no. | 62640049 |
+| Tax ID (PIB) | 107291028 |
 | Activity code | [Code and name of activity] |
 | Register | Serbian Business Registers Agency (APR) |
-| Responsible person | [Full name] |
+| Responsible person | Slađana Guslov |
 
 ## Contact
 
 | | |
 |---|---|
 | Phone | +381 60 684 4558 |
-| Email | [EMAIL] |
+| Email | [sladjanaguslov@gmail.com](mailto:sladjanaguslov@gmail.com) |
 | Opening hours | Mon–Fri 9am–5pm, Saturday 8am–12pm |
 
 ## Website content
