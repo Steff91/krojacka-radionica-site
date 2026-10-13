@@ -28,9 +28,10 @@
   --color-on-dark-muted: #C9BFB3;
 
   /* Rounded, soft shapes: cards, photos, chat-style bubbles */
-  --radius-card: 1.25rem;
-  --radius-media: 1.75rem;
-  --radius-bubble: 1.5rem;
+  --radius-btn: 0.5rem;     /* 8px — buttons, chips, small icon buttons */
+  --radius-card: 0.75rem;   /* 12px — cards, form fields, panels */
+  --radius-media: 1rem;     /* 16px — photos, frames, large panels */
+  --radius-bubble: 1rem;    /* 16px — testimonial bubbles */
 
   --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: "DM Sans", system-ui, sans-serif;
@@ -79,7 +80,7 @@
   .link-arrow:hover .chev, .group:hover .chev { transform: translateX(4px); }
 
   .btn {
-    @apply inline-flex min-h-[52px] cursor-pointer items-center justify-center gap-2.5 rounded-full px-[30px] text-sm uppercase tracking-[0.12em] no-underline;
+    @apply inline-flex min-h-[52px] cursor-pointer items-center justify-center gap-2.5 rounded-btn px-[30px] text-sm uppercase tracking-[0.12em] no-underline;
     transition: background-color .3s ease, color .3s ease, border-color .3s ease;
   }
   .btn-sm { @apply min-h-11 px-[22px]; }
@@ -100,7 +101,7 @@
 
   /* Rounded form fields (contact + booking) */
   .field-input {
-    @apply min-h-[52px] w-full rounded-card border border-line bg-ivory px-5 font-sans text-[17px] font-light normal-case tracking-normal text-ink;
+    @apply min-h-[52px] w-full rounded-btn border border-line bg-ivory px-5 font-sans text-[17px] font-light normal-case tracking-normal text-ink;
     transition: border-color .3s ease, box-shadow .3s ease;
   }
   .field-input:focus { @apply border-red outline-none; box-shadow: 0 0 0 4px rgba(160, 60, 60, .12); }
