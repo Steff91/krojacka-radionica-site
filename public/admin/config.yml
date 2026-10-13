@@ -10,37 +10,30 @@ backend:
 media_folder: public/uploads
 public_folder: /uploads
 
+# Bilingual site: Serbian (default, site root) and English (/en/).
+# Services and legal pages live in <folder>/sr/<key>.md and <folder>/en/<key>.md — the editor shows both side by side.
+# Language-specific settings (hours, directions, process, featured work) are separate entries per language below.
+i18n:
+  structure: multiple_folders
+  locales: [sr, en]
+  default_locale: sr
+
 collections:
   - name: settings
     label: Podešavanja
     files:
       - name: info
-        label: Kontakt i radno vreme
+        label: Kontakt i mreže (oba jezika)
         file: src/data/info.json
         fields:
           - { name: name, label: Naziv, widget: string }
-          - { name: tagline, label: Slogan, widget: string }
           - { name: address, label: Adresa, widget: string }
           - { name: addressNote, label: Dodatak adresi (npr. TC Kula), widget: string, required: false }
-          - { name: city, label: Grad, widget: string }
           - { name: mapsLink, label: Link ka Google mapama, widget: string, required: false }
           - { name: mapsEmbed, label: "Google mapa — embed URL (bez API ključa)", widget: string, required: false }
-          - name: directions
-            label: Kako do nas
-            widget: list
-            required: false
-            fields:
-              - { name: title, label: Naslov, widget: string }
-              - { name: text, label: Tekst, widget: text }
           - { name: phone, label: Telefon (prikaz), widget: string }
           - { name: phoneHref, label: Telefon (link, +381...), widget: string }
           - { name: email, label: Email, widget: string }
-          - name: hours
-            label: Radno vreme
-            widget: list
-            fields:
-              - { name: day, label: Dani, widget: string }
-              - { name: time, label: Vreme, widget: string }
           - { name: instagram, label: Instagram URL, widget: string }
           - { name: instagramHandle, label: Instagram nalog (@...), widget: string }
           - { name: pinterest, label: Pinterest URL, widget: string, required: false }
@@ -51,10 +44,37 @@ collections:
           - { name: googleReviewCount, label: Broj Google utisaka, widget: string, required: false }
           - { name: formAction, label: Adresa za slanje forme (npr. Formspree), widget: string, required: false }
 
-      - name: process
-        label: Proces rada
-        file: src/data/process.json
-        fields:
+      - name: site_sr
+        label: Radno vreme, slogan, kako do nas (SR)
+        file: src/data/sr/site.json
+        fields: &site_fields
+          - { name: tagline, label: Slogan, widget: string }
+          - { name: address, label: "Adresa (samo ako se razlikuje od zajedničke, npr. 'unit 93' na engleskom)", widget: string, required: false }
+          - { name: city, label: Grad, widget: string }
+          - name: hours
+            label: Radno vreme
+            widget: list
+            fields:
+              - { name: day, label: Dani, widget: string }
+              - { name: time, label: Vreme, widget: string }
+              - { name: closed, label: Zatvoreno (ne prikazuj u traci na vrhu), widget: boolean, required: false, default: false }
+          - name: directions
+            label: Kako do nas
+            widget: list
+            required: false
+            fields:
+              - { name: title, label: Naslov, widget: string }
+              - { name: text, label: Tekst, widget: text }
+
+      - name: site_en
+        label: Radno vreme, slogan, kako do nas (EN)
+        file: src/data/en/site.json
+        fields: *site_fields
+
+      - name: process_sr
+        label: Proces rada (SR)
+        file: src/data/sr/process.json
+        fields: &process_fields
           - name: steps
             label: Koraci
             widget: list
@@ -62,10 +82,15 @@ collections:
               - { name: title, label: Naslov, widget: string }
               - { name: text, label: Tekst, widget: text }
 
-      - name: work
-        label: Izabrani radovi (slajder)
-        file: src/data/work.json
-        fields:
+      - name: process_en
+        label: Proces rada (EN)
+        file: src/data/en/process.json
+        fields: *process_fields
+
+      - name: work_sr
+        label: Izabrani radovi — slajder (SR)
+        file: src/data/sr/work.json
+        fields: &work_fields
           - name: items
             label: Fotografije
             widget: list
@@ -74,8 +99,13 @@ collections:
               - { name: alt, label: Opis fotografije, widget: string }
               - { name: position, label: "Fokus kadra (npr. 50% 20%)", widget: string, required: false }
 
+      - name: work_en
+        label: Izabrani radovi — slajder (EN)
+        file: src/data/en/work.json
+        fields: *work_fields
+
       - name: testimonials
-        label: Utisci klijenata
+        label: Utisci klijenata (prikazuju se u originalu na oba jezika)
         file: src/content/testimonials.json
         fields:
           - name: items
@@ -92,41 +122,47 @@ collections:
   - name: services
     label: Usluge
     folder: src/content/services
+    i18n: true
     create: true
     slug: "{{slug}}"
     sortable_fields: [order, title]
     fields:
-      - { name: title, label: Naziv, widget: string }
-      - { name: order, label: Redosled, widget: number, value_type: int }
-      - { name: excerpt, label: Kratak opis (kartica), widget: string }
-      - { name: seoTitle, label: SEO naslov, widget: string, required: false }
-      - { name: seoDescription, label: SEO opis, widget: text, required: false }
-      - { name: heroTitle, label: Naslov, widget: string }
-      - { name: heroTitleEm, label: Naslov – nastavak (kurziv), widget: string, required: false }
-      - { name: intro, label: Uvod, widget: text }
-      - { name: image, label: Glavna fotografija, widget: image, required: false }
-      - { name: imageLabel, label: Opis fotografije (dok nema slike), widget: string, required: false }
+      - { name: title, label: Naziv, widget: string, i18n: true }
+      - { name: urlSlug, label: "Adresa stranice (npr. wedding-dresses)", widget: string, required: false, i18n: true }
+      - { name: shortLabel, label: Kratak naziv (filter na stranici Radovi), widget: string, required: false, i18n: true }
+      - { name: order, label: Redosled, widget: number, value_type: int, i18n: duplicate }
+      - { name: excerpt, label: Kratak opis (kartica), widget: string, i18n: true }
+      - { name: seoTitle, label: SEO naslov, widget: string, required: false, i18n: true }
+      - { name: seoDescription, label: SEO opis, widget: text, required: false, i18n: true }
+      - { name: heroTitle, label: Naslov, widget: string, i18n: true }
+      - { name: heroTitleEm, label: Naslov – nastavak (kurziv), widget: string, required: false, i18n: true }
+      - { name: intro, label: Uvod, widget: text, i18n: true }
+      - { name: image, label: Glavna fotografija, widget: image, required: false, i18n: duplicate }
+      - { name: imageLabel, label: Opis fotografije (dok nema slike), widget: string, required: false, i18n: true }
       - name: variant
         label: Izgled
         widget: select
         default: default
+        i18n: duplicate
         options:
           - { label: Standardna usluga, value: default }
           - { label: Istaknuta (modni brend), value: featured }
-      - { name: itemsEyebrow, label: "Šta šijemo — labela", widget: string, required: false, default: Šta šijemo }
-      - { name: itemsTitle, label: "Šta šijemo — naslov", widget: string, required: false }
+      - { name: itemsEyebrow, label: "Šta šijemo — labela", widget: string, required: false, i18n: true }
+      - { name: itemsTitle, label: "Šta šijemo — naslov", widget: string, required: false, i18n: true }
       - name: items
         label: "Šta šijemo — kartice"
         widget: list
         required: false
+        i18n: true
         fields:
           - { name: title, label: Naziv, widget: string }
           - { name: text, label: Opis, widget: text }
-      - { name: galleryTitle, label: Naslov galerije, widget: string, required: false, default: Izabrani radovi }
+      - { name: galleryTitle, label: Naslov galerije, widget: string, required: false, i18n: true }
       - name: gallery
-        label: Galerija
+        label: "Galerija (fotografije dodati u obe jezičke verzije)"
         widget: list
         required: false
+        i18n: true
         fields:
           - { name: src, label: Fotografija, widget: image, required: false }
           - { name: alt, label: Opis fotografije, widget: string }
@@ -135,13 +171,14 @@ collections:
         label: Česta pitanja
         widget: list
         required: false
+        i18n: true
         fields:
           - { name: q, label: Pitanje, widget: string }
           - { name: a, label: Odgovor, widget: text }
-      - { name: body, label: Dodatni tekst, widget: markdown, required: false }
+      - { name: body, label: Dodatni tekst, widget: markdown, required: false, i18n: true }
 
   - name: blog
-    label: Blog
+    label: Blog (samo srpski)
     folder: src/content/blog
     create: true
     slug: "{{slug}}"
@@ -162,10 +199,12 @@ collections:
   - name: legal
     label: Pravne stranice
     folder: src/content/legal
+    i18n: true
     create: false
     delete: false
     fields:
-      - { name: title, label: Naslov, widget: string }
-      - { name: description, label: Opis (za pretraživače), widget: string }
-      - { name: updated, label: Poslednja izmena, widget: string }
-      - { name: body, label: Tekst, widget: markdown }
+      - { name: title, label: Naslov, widget: string, i18n: true }
+      - { name: urlSlug, label: "Adresa stranice (npr. privacy-policy)", widget: string, required: false, i18n: true }
+      - { name: description, label: Opis (za pretraživače), widget: string, i18n: true }
+      - { name: updated, label: Poslednja izmena, widget: string, i18n: true }
+      - { name: body, label: Tekst, widget: markdown, i18n: true }

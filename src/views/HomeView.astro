@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/sections/Hero.astro';
+import Services from '../components/sections/Services.astro';
+import Process from '../components/sections/Process.astro';
+import Brand from '../components/sections/Brand.astro';
+import Story from '../components/sections/Story.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import Work from '../components/sections/Work.astro';
+import Contact from '../components/sections/Contact.astro';
+import { alternatesFor, getLang, t } from '../i18n';
+
+const ui = t(getLang(Astro.url));
+---
+
+<Base title={ui.home.title} alternates={alternatesFor('home')}>
+  <Hero />
+  <Services />
+  <Process />
+  <Brand />
+  <Story />
+  <Testimonials />
+  <Work />
+  <Contact />
+</Base>

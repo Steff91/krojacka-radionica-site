@@ -1,16 +1,28 @@
 ---
+// The server serves one 404 page for every URL, so it carries both languages.
 import Base from '../layouts/Base.astro';
+import { route, t } from '../i18n';
+const sr = t('sr').notFound;
+const en = t('en').notFound;
 ---
 
-<Base title="Stranica nije pronađena | Krojačka radionica">
+<Base title={`${sr.title} · ${en.title}`}>
   <section class="py-24 sm:py-32">
     <div class="container-site flex max-w-[640px] flex-col gap-6">
-      <p class="eyebrow !mb-0">Greška 404</p>
-      <h1 class="h-display">Ova stranica <em class="font-normal text-red">ne postoji</em></h1>
-      <p class="lead text-[19px]">Možda je adresa pogrešno ukucana ili je stranica premeštena.</p>
+      <p class="eyebrow !mb-0">{sr.eyebrow}</p>
+      <h1 class="h-display">{sr.h1} <em class="font-normal text-red">{sr.h1Em}</em></h1>
+      <p class="lead text-[19px]">{sr.text}</p>
       <div class="flex flex-wrap gap-4">
-        <a href="/" class="btn btn-dark">Početna</a>
-        <a href="/usluge/" class="btn btn-outline">Usluge</a>
+        <a href={route('sr', 'home')} class="btn btn-dark">{sr.home}</a>
+        <a href={route('sr', 'services')} class="btn btn-outline">{sr.services}</a>
+      </div>
+      <div lang="en" class="mt-8 flex flex-col gap-3 border-t border-line pt-8">
+        <p class="m-0 font-serif text-[24px] uppercase tracking-[0.03em]">{en.h1} {en.h1Em}</p>
+        <p class="m-0 text-body">{en.text}</p>
+        <p class="m-0 flex flex-wrap gap-x-6 gap-y-2">
+          <a href={route('en', 'home')} class="link-arrow">{en.home}</a>
+          <a href={route('en', 'services')} class="link-arrow">{en.services}</a>
+        </p>
       </div>
     </div>
   </section>

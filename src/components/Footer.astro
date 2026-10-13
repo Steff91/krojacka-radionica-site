@@ -1,18 +1,25 @@
 ---
-import { getCollection } from 'astro:content';
 import Logo from './Logo.astro';
 import Icon from './Icon.astro';
 import Social from './Social.astro';
-import info from '../data/info.json';
+import { getLang, getInfo, getServices, legalUrl, route, t } from '../i18n';
 
-const all = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const lang = getLang(Astro.url);
+const ui = t(lang);
+const info = getInfo(lang);
+const all = await getServices(lang);
 const services = all.filter((s) => s.data.variant === 'default');
 const featured = all.find((s) => s.data.variant === 'featured');
 
 const heading = 'mb-2 text-xs font-medium uppercase tracking-[0.22em] text-gold';
 const link = 'text-on-dark no-underline hover:text-gold';
 const year = new Date().getFullYear();
-const ctaHref = '/zakazite-konsultaciju/';
+const ctaHref = route(lang, 'booking');
+const legal = {
+  imprint: await legalUrl(lang, 'impresum'),
+  privacy: await legalUrl(lang, 'privatnost'),
+  cookies: await legalUrl(lang, 'kolacici'),
+};
 ---
 
 <footer class="border-t border-line-dark bg-ink text-[15px] text-on-dark-muted">
@@ -23,26 +30,26 @@ const ctaHref = '/zakazite-konsultaciju/';
       <Social />
     </div>
 
-    <nav aria-label="Usluge" class="flex flex-col gap-2.5">
-      <p class={heading}>Usluge</p>
-      {services.map((s) => <a href={`/usluge/${s.id}/`} class={link}>{s.data.title}</a>)}
+    <nav aria-label={ui.nav.services} class="flex flex-col gap-2.5">
+      <p class={heading}>{ui.nav.services}</p>
+      {services.map((s) => <a href={s.url} class={link}>{s.data.title}</a>)}
       {featured && (
-        <a href={`/usluge/${featured.id}/`} class="group mt-1.5 inline-flex items-center gap-2 text-gold no-underline hover:text-on-dark">
+        <a href={featured.url} class="group mt-1.5 inline-flex items-center gap-2 text-gold no-underline hover:text-on-dark">
           {featured.data.title}<Icon name="chevron-right" size={11} class="chev" />
         </a>
       )}
     </nav>
 
-    <nav aria-label="Radionica" class="flex flex-col gap-2.5">
-      <p class={heading}>Radionica</p>
-      <a href="/o-nama/" class={link}>O nama</a>
-      <a href="/radovi/" class={link}>Radovi</a>
-      <a href="/blog/" class={link}>Blog</a>
-      <a href="/kontakt/" class={link}>Kontakt</a>
+    <nav aria-label={ui.nav.workshop} class="flex flex-col gap-2.5">
+      <p class={heading}>{ui.nav.workshop}</p>
+      <a href={route(lang, 'about')} class={link}>{ui.nav.about}</a>
+      <a href={route(lang, 'works')} class={link}>{ui.nav.works}</a>
+      {lang === 'sr' && <a href="/blog/" class={link}>{ui.nav.blog}</a>}
+      <a href={route(lang, 'contact')} class={link}>{ui.nav.contact}</a>
     </nav>
 
     <div class="flex flex-col gap-2.5">
-      <p class={heading}>Kontakt</p>
+      <p class={heading}>{ui.nav.contact}</p>
       <a href={`tel:${info.phoneHref}`} class="font-serif text-2xl text-on-dark no-underline hover:text-gold">{info.phone}</a>
       <a href={info.mapsLink} target="_blank" rel="noopener" class="group inline-flex items-start gap-2.5 text-on-dark-muted no-underline hover:text-gold">
         <Icon name="location" size={15} class="mt-1 text-gold" />
@@ -51,18 +58,18 @@ const ctaHref = '/zakazite-konsultaciju/';
       <dl class="m-0 mt-1 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
         {info.hours.map((h) => <><dt>{h.day}</dt><dd class="m-0 text-on-dark">{h.time}</dd></>)}
       </dl>
-      <a href={ctaHref} class="btn btn-ghost mt-3 self-start">Zakažite konsultaciju</a>
+      <a href={ctaHref} class="btn btn-ghost mt-3 self-start">{ui.cta.book}</a>
     </div>
   </div>
 
   <div class="border-t border-line-dark">
     <div class="container-site flex flex-wrap justify-between gap-4 py-6 text-[13px] text-[#A99E92]">
-      <span>© {year} {info.name}. Sva prava zadržana.</span>
+      <span>© {year} {info.name}. {ui.footer.rights}</span>
       <span class="flex flex-wrap gap-x-6 gap-y-2">
-        <a href="/impresum/" class="text-[#A99E92] hover:text-on-dark">Impresum</a>
-        <a href="/privatnost/" class="text-[#A99E92] hover:text-on-dark">Politika privatnosti</a>
-        <a href="/kolacici/" class="text-[#A99E92] hover:text-on-dark">Kolačići</a>
-        <a href="/kolacici/" class="text-[#A99E92] hover:text-on-dark" data-open-cookie-settings>Podešavanja kolačića</a>
+        <a href={legal.imprint} class="text-[#A99E92] hover:text-on-dark">{ui.footer.imprint}</a>
+        <a href={legal.privacy} class="text-[#A99E92] hover:text-on-dark">{ui.footer.privacy}</a>
+        <a href={legal.cookies} class="text-[#A99E92] hover:text-on-dark">{ui.footer.cookies}</a>
+        <a href={legal.cookies} class="text-[#A99E92] hover:text-on-dark" data-open-cookie-settings>{ui.footer.cookieSettings}</a>
       </span>
     </div>
   </div>

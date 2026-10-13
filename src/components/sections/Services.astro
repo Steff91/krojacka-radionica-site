@@ -1,30 +1,30 @@
 ---
-import { getCollection } from 'astro:content';
 import SectionHeading from '../SectionHeading.astro';
 import Placeholder from '../Placeholder.astro';
 import Icon from '../Icon.astro';
+import { getLang, getServices, t } from '../../i18n';
 
 interface Props {
-  /** Hide the section heading (e.g. on /usluge/, where the page H1 already introduces it) */
+  /** Hide the section heading (e.g. on the services page, where the page H1 already introduces it) */
   heading?: boolean;
 }
 const { heading = true } = Astro.props;
 
-const services = (await getCollection('services'))
-  .filter((s) => s.data.variant === 'default')
-  .sort((a, b) => a.data.order - b.data.order);
+const lang = getLang(Astro.url);
+const ui = t(lang);
+const services = (await getServices(lang)).filter((s) => s.data.variant === 'default');
 ---
 
 <section id="usluge" class:list={['py-18 sm:py-28', heading && 'border-t border-line']}>
   <div class="container-site flex flex-col gap-14">
     {heading && <SectionHeading
-      eyebrow="Šta radimo"
-      title="Krojeno za vas, od prvog do poslednjeg šava"
-      text="Šijemo mušku odeću, svečane haljine, venčanice, pozorišne i cosplay kostime i uniforme. Svaki komad nastaje ručno, po vašim merama i vašoj zamisli."
+      eyebrow={ui.home.servicesEyebrow}
+      title={ui.home.servicesTitle}
+      text={ui.home.servicesText}
     />}
     <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-x-8 gap-y-12">
       {services.map((s, i) => (
-        <a href={`/usluge/${s.id}/`} class="service-card group flex flex-col gap-4 no-underline hover:text-ink" data-reveal style={`--i:${i % 3}`}>
+        <a href={s.url} class="service-card group flex flex-col gap-4 no-underline hover:text-ink" data-reveal style={`--i:${i % 3}`}>
           <div class="relative aspect-[4/5] overflow-hidden">
             <div class="card-media h-full w-full">
               <Placeholder label={s.data.imageLabel} src={s.data.image} alt={s.data.title} class="h-full w-full" />
@@ -32,13 +32,13 @@ const services = (await getCollection('services'))
             <!-- Warm veil + label rising from the bottom -->
             <div class="card-veil pointer-events-none absolute inset-0" aria-hidden="true"></div>
             <span class="card-cta pointer-events-none absolute bottom-6 left-6 inline-flex items-center gap-2.5 rounded bg-ivory px-4 py-2.5 text-[13px] font-medium uppercase tracking-[0.12em] text-ink" aria-hidden="true">
-              Pogledajte<Icon name="chevron-right" size={11} />
+              {ui.cta.view}<Icon name="chevron-right" size={11} />
             </span>
           </div>
 
           <div class="relative flex items-baseline justify-between pb-3">
             <h3 class="h-card transition-colors duration-300 group-hover:text-red">{s.data.title}</h3>
-            <span class="inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.12em] text-red">Više<Icon name="chevron-right" size={12} class="chev" /></span>
+            <span class="inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.12em] text-red">{ui.cta.more}<Icon name="chevron-right" size={12} class="chev" /></span>
             <span class="absolute inset-x-0 bottom-0 h-px bg-gold" aria-hidden="true"></span>
             <span class="card-line absolute inset-x-0 bottom-0 h-px bg-red" aria-hidden="true"></span>
           </div>

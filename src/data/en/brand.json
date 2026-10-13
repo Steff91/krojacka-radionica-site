@@ -1,0 +1,41 @@
+{
+  "heroH1": "Fashion brand development",
+  "heroH1Em": "from idea to first collection",
+  "audience": {
+    "eyebrow": "Who it's for",
+    "title": "For those building",
+    "titleEm": "their own brand",
+    "items": [
+      { "title": "Designers starting out", "text": "You have sketches and a vision, and you need someone who knows how to turn them into garments." },
+      { "title": "Small brands", "text": "You want to raise the quality of your production or expand your collection." },
+      { "title": "An idea without production experience", "text": "You know what you want to sell, but not where to start." }
+    ]
+  },
+  "phases": {
+    "eyebrow": "What we guide you through",
+    "title": "From sketch to collection",
+    "items": [
+      { "title": "Fabrics and trims", "text": "Choosing fabrics to suit each design, which materials are good quality, how to choose and combine trims, and where to source them." },
+      { "title": "Cut and finishing", "text": "Inside and outside finishing for a professional look, size range suggestions and choosing labels." },
+      { "title": "Sample", "text": "Making the sample and refining it until it is ready for production or sale." },
+      { "title": "Collection and production", "text": "How many designs to include in a collection, and whether to start with batch production or made-to-order." }
+    ]
+  },
+  "start": {
+    "eyebrow": "How we start",
+    "title": "First steps",
+    "items": [
+      { "title": "Consultation", "text": "[What the first conversation looks like and what to bring.]" },
+      { "title": "Work plan", "text": "[What the client receives after the consultation.]" },
+      { "title": "Making the sample", "text": "[What making the first sample looks like.]" }
+    ]
+  },
+  "handbook": {
+    "enabled": false,
+    "eyebrow": "Coming soon",
+    "title": "A handbook for",
+    "titleEm": "new fashion brands",
+    "text": "[A short description of the handbook and who it is for.]",
+    "cta": "Notify me"
+  }
+}

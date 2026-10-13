@@ -1,6 +1,7 @@
-// Collects every real photo (with src) from all service galleries for the /radovi/ page.
+// Collects every real photo (with src) from all service galleries for the works page (/radovi/, /en/work/).
 // A photo used by several services appears once, tagged with all of their categories.
-import { getCollection } from 'astro:content';
+// Category ids are the language-neutral service keys (file names), so filter anchors match in both languages.
+import { getServices, type Lang } from '../i18n';
 import sharp from 'sharp'; // installed with Astro
 import path from 'node:path';
 
@@ -10,11 +11,6 @@ export type Work = {
   width: number;
   height: number;
   categories: { id: string; label: string; href: string }[];
-};
-
-const LABELS: Record<string, string> = {
-  'cosplay-kostimi': 'Cosplay',
-  'razvijanje-modnog-brenda': 'Modni brend',
 };
 
 const sizeCache = new Map<string, { width: number; height: number }>();
@@ -30,12 +26,13 @@ async function size(src: string) {
   return sizeCache.get(src)!;
 }
 
-export async function getWorks() {
-  const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+export async function getWorks(lang: Lang) {
+  const services = await getServices(lang);
+  const label = (s: (typeof services)[number]) => s.data.shortLabel ?? s.data.title;
   const bySrc = new Map<string, Work>();
 
   for (const s of services) {
-    const category = { id: s.id, label: LABELS[s.id] ?? s.data.title, href: `/usluge/${s.id}/` };
+    const category = { id: s.key, label: label(s), href: s.url };
     for (const g of s.data.gallery) {
       if (!g.src) continue;
       const existing = bySrc.get(g.src);
@@ -50,9 +47,9 @@ export async function getWorks() {
   const works = [...bySrc.values()];
   const categories = services
     .map((s) => ({
-      id: s.id,
-      label: LABELS[s.id] ?? s.data.title,
-      count: works.filter((w) => w.categories.some((c) => c.id === s.id)).length,
+      id: s.key,
+      label: label(s),
+      count: works.filter((w) => w.categories.some((c) => c.id === s.key)).length,
     }))
     .filter((c) => c.count > 0);
 

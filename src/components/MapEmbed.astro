@@ -3,12 +3,16 @@
 // The iframe is kept in a <template> and loads as soon as the visitor accepts external content
 // (cookie banner). Until then a placeholder with the address is shown.
 import Icon from './Icon.astro';
-import info from '../data/info.json';
+import { getLang, getInfo, legalUrl, t } from '../i18n';
 
 interface Props {
   class?: string;
 }
 const { class: className = '' } = Astro.props;
+const lang = getLang(Astro.url);
+const ui = t(lang);
+const info = getInfo(lang);
+const cookiesUrl = await legalUrl(lang, 'kolacici');
 ---
 
 {info.mapsEmbed && (
@@ -20,15 +24,15 @@ const { class: className = '' } = Astro.props;
       <p class="m-0 font-serif text-[24px] uppercase tracking-[0.03em]">{info.address}</p>
       <p class="m-0 -mt-2 text-body">{info.addressNote}, {info.city}</p>
       <div class="flex flex-wrap justify-center gap-3">
-        <button type="button" class="btn btn-dark btn-sm" data-consent-allow>Prikaži mapu</button>
-        <a href={info.mapsLink} target="_blank" rel="noopener" class="btn btn-outline btn-sm">Google mape</a>
+        <button type="button" class="btn btn-dark btn-sm" data-consent-allow>{ui.map.show}</button>
+        <a href={info.mapsLink} target="_blank" rel="noopener" class="btn btn-outline btn-sm">{ui.map.google}</a>
       </div>
-      <p class="m-0 max-w-[420px] text-[13px] text-muted">Mapa dolazi sa Google servisa. Prikazom mape prihvatate spoljni sadržaj (<a href="/kolacici/">kolačići</a>).</p>
+      <p class="m-0 max-w-[420px] text-[13px] text-muted">{ui.map.note} (<a href={cookiesUrl}>{ui.map.cookies}</a>).</p>
     </div>
     <template data-consent-content>
       <iframe
         src={info.mapsEmbed}
-        title="Mapa — lokacija krojačke radionice"
+        title={ui.map.title}
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         allowfullscreen

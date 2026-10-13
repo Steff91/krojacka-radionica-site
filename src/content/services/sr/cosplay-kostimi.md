@@ -1,5 +1,6 @@
 ---
 title: Cosplay kostimi
+shortLabel: Cosplay
 order: 5
 excerpt: Od skice do scene — precizna izrada cosplay kostima po vašem dizajnu.
 seoTitle: Cosplay kostimi po meri Beograd | Krojačka radionica

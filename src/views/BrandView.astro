@@ -1,21 +1,26 @@
 ---
-// Featured service: its own layout (dark hero, gold CTA "Zakažite konsultaciju").
-// Shared fields (SEO, intro, gallery, FAQ) come from content/services/razvijanje-modnog-brenda.md,
-// page-specific modules from data/brand.json.
-import { getEntry } from 'astro:content';
-import Base from '../../layouts/Base.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import SectionHeading from '../../components/SectionHeading.astro';
-import Placeholder from '../../components/Placeholder.astro';
-import GallerySlider from '../../components/GallerySlider.astro';
-import Faq from '../../components/Faq.astro';
-import Icon from '../../components/Icon.astro';
-import Contact from '../../components/sections/Contact.astro';
-import brand from '../../data/brand.json';
+// Featured service (fashion brand development): its own layout (dark hero, gold CTA).
+// Shared fields (SEO, intro, gallery, FAQ) come from content/services/<lang>/razvijanje-modnog-brenda.md,
+// page-specific modules from data/<lang>/brand.json.
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Placeholder from '../components/Placeholder.astro';
+import GallerySlider from '../components/GallerySlider.astro';
+import Faq from '../components/Faq.astro';
+import Icon from '../components/Icon.astro';
+import Contact from '../components/sections/Contact.astro';
+import { bookingUrl, getData, route, serviceAlternates, t, type Service } from '../i18n';
 
-const entry = await getEntry('services', 'razvijanje-modnog-brenda');
-if (!entry) throw new Error('Missing content/services/razvijanje-modnog-brenda.md');
-const d = entry.data;
+interface Props {
+  service: Service;
+}
+const { service } = Astro.props;
+const lang = service.lang;
+const ui = t(lang);
+const alternates = await serviceAlternates(service.key);
+const brand = getData(lang).brand;
+const d = service.data;
 const { audience, phases, start, handbook } = brand;
 
 const schema = [
@@ -24,7 +29,7 @@ const schema = [
     '@type': 'Service',
     name: d.title,
     description: d.seoDescription ?? d.excerpt,
-    areaServed: 'Beograd',
+    areaServed: ui.service.areaServed,
     provider: { '@id': new URL('/#radionica', Astro.site).toString() },
   },
 ];
@@ -39,16 +44,16 @@ if (answered.length > 0) {
 }
 ---
 
-<Base title={d.seoTitle ?? d.title} description={d.seoDescription ?? d.excerpt} schema={schema}>
+<Base title={d.seoTitle ?? d.title} description={d.seoDescription ?? d.excerpt} schema={schema} alternates={alternates}>
   <!-- 1. Hero -->
   <section class="overflow-x-clip bg-ink py-16 text-on-dark sm:py-24">
     <div class="container-site grid items-center gap-16 lg:grid-cols-[1.05fr_1fr]">
       <div class="flex flex-col gap-6">
-        <Breadcrumbs items={[{ label: 'Usluge', href: '/usluge/' }, { label: d.title }]} dark />
-        <p class="eyebrow !mb-0 !text-gold" data-reveal>Za dizajnere i brendove</p>
+        <Breadcrumbs items={[{ label: ui.nav.services, href: route(lang, 'services') }, { label: d.title }]} dark />
+        <p class="eyebrow !mb-0 !text-gold" data-reveal>{ui.nav.forDesigners}</p>
         <h1 class="h-display" data-reveal style="--i:1">{brand.heroH1} <em class="font-normal text-gold">{brand.heroH1Em}</em></h1>
         <p class="lead max-w-[520px] text-[19px] !text-[#D9D0C5]" data-reveal style="--i:2">{d.intro}</p>
-        <div data-reveal style="--i:3"><a href="/zakazite-konsultaciju/?usluga=razvijanje-modnog-brenda" class="btn btn-gold">Zakažite konsultaciju</a></div>
+        <div data-reveal style="--i:3"><a href={bookingUrl(lang, service.key)} class="btn btn-gold">{ui.cta.book}</a></div>
       </div>
       <div class="relative" data-reveal style="--i:2">
         <div class="absolute top-[-12px] right-[-12px] bottom-3 left-3 border border-gold/60 sm:top-[-20px] sm:right-[-20px] sm:bottom-5 sm:left-5" aria-hidden="true"></div>
@@ -109,14 +114,14 @@ if (answered.length > 0) {
   </section>
 
   <!-- 5. Samples -->
-  {d.gallery.length > 0 && <GallerySlider id="uzorci" eyebrow="Naš rad" title={d.galleryTitle} items={d.gallery}>
-      {d.gallery.some((g) => g.src) && <a href="/radovi/#razvijanje-modnog-brenda" class="link-arrow self-start">Još radova<Icon name="chevron-right" size={12} class="chev" /></a>}
+  {d.gallery.length > 0 && <GallerySlider id="uzorci" eyebrow={ui.service.galleryEyebrow} title={d.galleryTitle ?? ui.service.galleryTitle} items={d.gallery}>
+      {d.gallery.some((g) => g.src) && <a href={`${route(lang, 'works')}#${service.key}`} class="link-arrow self-start">{ui.cta.moreWorks}<Icon name="chevron-right" size={12} class="chev" /></a>}
     </GallerySlider>}
 
   <!-- 6. FAQ -->
   <Faq items={d.faq} />
 
-  <!-- Handbook teaser: turn on in data/brand.json → handbook.enabled -->
+  <!-- Handbook teaser: turn on in data/<lang>/brand.json → handbook.enabled -->
   {handbook.enabled && (
     <section class="bg-gold py-16 text-ink sm:py-20">
       <div class="container-site flex flex-wrap items-center justify-between gap-8">
@@ -131,5 +136,5 @@ if (answered.length > 0) {
   )}
 
   <!-- 7. Contact -->
-  <Contact service={d.title} tone="dark" title="Spremni za" titleEm="prvi korak?" submit="Zakažite konsultaciju" />
+  <Contact service={d.title} tone="dark" title={ui.brand.contactTitle} titleEm={ui.brand.contactTitleEm} submit={ui.cta.book} />
 </Base>

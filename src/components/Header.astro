@@ -1,21 +1,28 @@
 ---
-import { getCollection } from 'astro:content';
 import Logo from './Logo.astro';
 import Icon from './Icon.astro';
+import LangSwitch from './LangSwitch.astro';
+import { getLang, getServices, route, t, type Alternates } from '../i18n';
 
+interface Props {
+  alternates?: Alternates;
+}
+const { alternates } = Astro.props;
+const lang = getLang(Astro.url);
+const ui = t(lang);
 const path = Astro.url.pathname;
-const all = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const all = await getServices(lang);
 const services = all.filter((s) => s.data.variant === 'default');
 const brand = all.find((s) => s.data.variant === 'featured');
-const servicesActive = path.startsWith('/usluge');
+const servicesActive = path.startsWith(route(lang, 'services'));
 
 const linksAfter = [
-  { href: '/o-nama/', label: 'O nama' },
-  { href: '/radovi/', label: 'Radovi' },
-  { href: '/kontakt/', label: 'Kontakt' },
+  { href: route(lang, 'about'), label: ui.nav.about },
+  { href: route(lang, 'works'), label: ui.nav.works },
+  { href: route(lang, 'contact'), label: ui.nav.contact },
 ];
 const isActive = (href: string) => !href.includes('#') && path.startsWith(href);
-const ctaHref = '/zakazite-konsultaciju/';
+const ctaHref = route(lang, 'booking');
 const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
 ---
 
@@ -23,7 +30,7 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
   <div class="header-inner container-site flex items-center justify-between gap-6 py-4">
     <Logo />
 
-    <nav aria-label="Glavna navigacija" class="hidden items-center gap-6 whitespace-nowrap font-serif xl:gap-8 text-[18px] font-semibold uppercase tracking-[0.08em] min-[72rem]:flex">
+    <nav aria-label={ui.nav.main} class="hidden items-center gap-6 whitespace-nowrap font-serif xl:gap-8 text-[18px] font-semibold uppercase tracking-[0.08em] min-[72rem]:flex">
       <button
         type="button"
         id="mega-trigger"
@@ -34,7 +41,7 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
         aria-expanded="false"
         aria-controls="mega-menu"
       >
-        Usluge
+        {ui.nav.services}
         <span class="mega-chevron inline-flex"><Icon name="chevron-right" size={9} /></span>
       </button>
       {linksAfter.map((l) => (
@@ -42,14 +49,16 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
       ))}
     </nav>
 
-    <a href={ctaHref} class="btn btn-red btn-sm hidden whitespace-nowrap min-[72rem]:inline-flex">Zakažite konsultaciju</a>
+    <a href={ctaHref} class="btn btn-red btn-sm hidden whitespace-nowrap min-[72rem]:inline-flex">{ui.cta.book}</a>
 
     <button
       type="button"
       class="menu-toggle inline-flex h-11 w-11 cursor-pointer items-center justify-center border-0 bg-transparent text-ink min-[72rem]:hidden"
       aria-controls="mobile-nav"
       aria-expanded="false"
-      aria-label="Otvori meni"
+      aria-label={ui.nav.openMenu}
+      data-label-open={ui.nav.openMenu}
+      data-label-close={ui.nav.closeMenu}
     >
       <span class="menu-icon" aria-hidden="true"><span></span></span>
     </button>
@@ -59,13 +68,13 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
   <div id="mega-menu" class="mega absolute inset-x-0 top-full hidden border-b border-line bg-ivory shadow-[0_30px_60px_-30px_rgba(45,41,38,0.35)] min-[72rem]:block" data-open="false">
     <div class="container-site grid grid-cols-[1fr_320px] gap-10 py-10">
       <div>
-        <p class="eyebrow">Šta radimo</p>
+        <p class="eyebrow">{ui.nav.whatWeDo}</p>
         <ul class="m-0 grid list-none grid-cols-3 gap-x-8 gap-y-2 p-0">
           {services.map((s) => {
-            const active = path.startsWith(`/usluge/${s.id}`);
+            const active = path.startsWith(s.url);
             return (
               <li>
-                <a href={`/usluge/${s.id}/`} class="mega-item group flex gap-4 rounded p-4 no-underline hover:bg-sand hover:text-ink" aria-current={active ? 'page' : undefined}>
+                <a href={s.url} class="mega-item group flex gap-4 rounded p-4 no-underline hover:bg-sand hover:text-ink" aria-current={active ? 'page' : undefined}>
                   <span class="pt-1 font-serif text-lg leading-none text-red italic">{String(s.data.order).padStart(2, '0')}</span>
                   <span class="flex flex-col gap-1.5">
                     <span class:list={['inline-flex items-center gap-2 whitespace-nowrap font-serif text-lg font-medium uppercase tracking-[0.04em]', active && 'text-red']}>
@@ -82,10 +91,10 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
       </div>
 
       {brand && (
-        <a href={`/usluge/${brand.id}/`} class="group relative flex flex-col justify-end overflow-hidden rounded bg-ink p-7 text-on-dark no-underline hover:text-on-dark">
+        <a href={brand.url} class="group relative flex flex-col justify-end overflow-hidden rounded bg-ink p-7 text-on-dark no-underline hover:text-on-dark">
           <span class="absolute top-0 right-0 h-28 w-28 translate-x-10 -translate-y-10 rounded-full border border-gold/40" aria-hidden="true"></span>
           <span class="absolute top-0 right-0 h-44 w-44 translate-x-14 -translate-y-14 rounded-full border border-gold/20" aria-hidden="true"></span>
-          <span class="mb-3 text-xs font-medium uppercase tracking-[0.22em] text-gold">Za dizajnere i brendove</span>
+          <span class="mb-3 text-xs font-medium uppercase tracking-[0.22em] text-gold">{ui.nav.forDesigners}</span>
           <span class="font-serif text-[28px] leading-[1.15] uppercase tracking-[0.03em]">
             {brand.data.heroTitle} <em class="font-normal text-gold">{brand.data.heroTitleEm}</em>
           </span>
@@ -98,7 +107,7 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
   </div>
 
   <!-- Mobile menu -->
-  <nav id="mobile-nav" aria-label="Mobilna navigacija" class="mobile-nav max-h-[calc(100dvh-80px)] overflow-y-auto border-t border-line min-[72rem]:hidden" hidden>
+  <nav id="mobile-nav" aria-label={ui.nav.mobile} class="mobile-nav max-h-[calc(100dvh-80px)] overflow-y-auto border-t border-line min-[72rem]:hidden" hidden>
     <div class="container-site flex flex-col py-4 font-serif text-[18px] font-semibold uppercase tracking-[0.08em]">
       <button
         type="button"
@@ -110,16 +119,20 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
         aria-expanded="false"
         aria-controls="mobile-services"
       >
-        Usluge
+        {ui.nav.services}
         <span class="mega-chevron inline-flex"><Icon name="chevron-right" size={10} /></span>
       </button>
       <div id="mobile-services" class="flex flex-col border-b border-line py-2 pl-4" hidden>
         {all.map((s) => (
-          <a href={`/usluge/${s.id}/`} class:list={['py-2.5 text-[16px] no-underline', s.data.variant === 'featured' ? 'text-red' : 'text-body']}>{s.data.title}</a>
+          <a href={s.url} class:list={['py-2.5 text-[16px] no-underline', s.data.variant === 'featured' ? 'text-red' : 'text-body']}>{s.data.title}</a>
         ))}
       </div>
       {linksAfter.map((l) => <a href={l.href} class={mobileLink}>{l.label}</a>)}
-      <a href={ctaHref} class="btn btn-red mt-5 font-sans">Zakažite konsultaciju</a>
+      <a href={ctaHref} class="btn btn-red mt-5 font-sans">{ui.cta.book}</a>
+      <div class="mt-5 flex items-center justify-between border-t border-line pt-4 font-sans text-[13px] font-medium uppercase tracking-[0.12em] text-muted">
+        <span>{ui.nav.language}</span>
+        <LangSwitch alternates={alternates} class="text-ink" />
+      </div>
     </div>
   </nav>
 </header>
@@ -236,7 +249,7 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
   const setMobile = (open: boolean) => {
     if (!toggle || !mobileNav) return;
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Zatvori meni' : 'Otvori meni');
+    toggle.setAttribute('aria-label', (open ? toggle.dataset.labelClose : toggle.dataset.labelOpen) ?? '');
     mobileNav.hidden = !open;
   };
   toggle?.addEventListener('click', () => setMobile(toggle.getAttribute('aria-expanded') !== 'true'));

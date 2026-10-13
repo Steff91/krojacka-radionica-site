@@ -1,6 +1,6 @@
 ---
-import info from '../../data/info.json';
 import Icon from '../Icon.astro';
+import { getLang, getInfo, legalUrl, t } from '../../i18n';
 
 interface Props {
   /** Service name sent with the form, so inquiries say where they came from */
@@ -12,16 +12,21 @@ interface Props {
   titleEm?: string;
   submit?: string;
 }
+const lang = getLang(Astro.url);
+const ui = t(lang);
+const info = getInfo(lang);
+const privacyUrl = await legalUrl(lang, 'privatnost');
 const {
-  service = 'Opšti upit',
+  service = ui.contact.general,
   tone = 'sand',
-  title = 'Imate ideju?',
-  titleEm = 'Javite nam se.',
-  submit = 'Pošaljite upit',
+  title = ui.contact.title,
+  titleEm = ui.contact.titleEm,
+  submit = ui.contact.send,
 } = Astro.props;
 const dark = tone === 'dark';
 
 // Static site: the form posts to an external handler (e.g. Formspree) set in info.json → formAction.
+// Field names stay Serbian in both languages so the inbox gets consistent keys; `jezik` says which site version sent it.
 const field = ['flex flex-col gap-2 text-[13px] uppercase tracking-[0.12em]', dark ? 'text-on-dark-muted' : 'text-body'];
 const input = [
   'min-h-12 border-0 border-b bg-transparent font-sans text-[17px] font-light normal-case tracking-normal focus:outline-none',
@@ -34,17 +39,17 @@ const body = dark ? 'lead !text-on-dark-muted' : 'lead';
 <section id="kontakt" class:list={['py-18 sm:py-30', { 'bg-ivory': tone === 'ivory', 'bg-sand': tone === 'sand', 'bg-ink text-on-dark': dark }]}>
   <div class="container-site grid gap-16 lg:grid-cols-2">
     <div class="flex flex-col gap-5">
-      <p class:list={['eyebrow !mb-0', dark && '!text-gold']} data-reveal>Kontakt</p>
+      <p class:list={['eyebrow !mb-0', dark && '!text-gold']} data-reveal>{ui.contact.eyebrow}</p>
       <h2 class="h-section" data-reveal style="--i:1">{title} <em class:list={['font-normal', dark ? 'text-gold' : 'text-red']}>{titleEm}</em></h2>
       <a href={`tel:${info.phoneHref}`} class:list={['inline-flex min-h-11 items-center font-serif text-[32px] no-underline', dark && 'text-on-dark hover:text-gold']} data-reveal style="--i:2">{info.phone}</a>
       <div class="mt-2 grid gap-8 sm:grid-cols-2" data-reveal style="--i:3">
         <div class="flex flex-col gap-2">
-          <p class:list={label}>Adresa</p>
+          <p class:list={label}>{ui.contact.address}</p>
           <p class={body}>{info.address}<br />{info.addressNote}, {info.city}</p>
-          <a href={info.mapsLink} target="_blank" rel="noopener" class:list={['link-arrow self-start !min-h-0 !text-[13px]', dark && 'text-gold hover:text-on-dark']}>Otvorite mapu<Icon name="chevron-right" size={10} class="chev" /></a>
+          <a href={info.mapsLink} target="_blank" rel="noopener" class:list={['link-arrow self-start !min-h-0 !text-[13px]', dark && 'text-gold hover:text-on-dark']}>{ui.contact.openMap}<Icon name="chevron-right" size={10} class="chev" /></a>
         </div>
         <div class="flex flex-col gap-2">
-          <p class:list={label}>Radno vreme</p>
+          <p class:list={label}>{ui.contact.hours}</p>
           <dl class:list={[body, 'm-0 grid grid-cols-[auto_1fr] gap-x-5 gap-y-0.5']}>
             {info.hours.map((h) => <><dt>{h.day}</dt><dd class:list={['m-0', dark ? 'text-on-dark' : 'text-ink']}>{h.time}</dd></>)}
           </dl>
@@ -54,19 +59,20 @@ const body = dark ? 'lead !text-on-dark-muted' : 'lead';
 
     <form method="POST" action={info.formAction || undefined} class="flex flex-col gap-5" data-reveal style="--i:1">
       <input type="hidden" name="usluga" value={service} />
-      <label class:list={field}>Ime
+      <input type="hidden" name="jezik" value={lang} />
+      <label class:list={field}>{ui.contact.name}
         <input type="text" name="ime" autocomplete="name" required class:list={input} />
       </label>
-      <label class:list={field}>Telefon ili email
+      <label class:list={field}>{ui.contact.contact}
         <input type="text" name="kontakt" autocomplete="email" required class:list={input} />
       </label>
-      <label class:list={field}>Poruka
+      <label class:list={field}>{ui.contact.message}
         <textarea name="poruka" rows="4" class:list={[...input, 'resize-y pt-3']}></textarea>
       </label>
       <div>
         <button type="submit" class:list={['btn', dark ? 'btn-gold' : 'btn-red']}>{submit}</button>
         <p class:list={['m-0 mt-3 text-[13px]', dark ? 'text-on-dark-muted' : 'text-muted']}>
-          Slanjem forme prihvatate obradu podataka u skladu sa <a href="/privatnost/" class:list={[dark && 'text-on-dark hover:text-gold']}>Politikom privatnosti</a>.
+          {ui.contact.consent} <a href={privacyUrl} class:list={[dark && 'text-on-dark hover:text-gold']}>{ui.contact.consentLink}</a>.
         </p>
       </div>
     </form>

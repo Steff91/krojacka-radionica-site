@@ -1,9 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
 import SectionHeading from '../SectionHeading.astro';
 import Placeholder from '../Placeholder.astro';
+import { getLang, getServices, bookingUrl, t } from '../../i18n';
 
-const brand = (await getCollection('services')).find((s) => s.data.variant === 'featured');
+const lang = getLang(Astro.url);
+const ui = t(lang);
+const brand = (await getServices(lang)).find((s) => s.data.variant === 'featured');
 ---
 
 {brand && (
@@ -11,14 +13,14 @@ const brand = (await getCollection('services')).find((s) => s.data.variant === '
     <div class="container-site grid items-center gap-16 lg:grid-cols-2">
       <Placeholder label={brand.data.imageLabel} src={brand.data.image} alt={brand.data.title} tone="dark" class="h-[360px] sm:h-[480px]" />
       <SectionHeading
-        eyebrow="Za dizajnere i brendove"
+        eyebrow={ui.nav.forDesigners}
         title={brand.data.heroTitle}
         titleEm={brand.data.heroTitleEm}
         text={brand.data.excerpt}
         dark
       >
         <div class="mt-8" data-reveal style="--i:3">
-          <a href={`/zakazite-konsultaciju/?usluga=${brand.id}`} class="btn btn-gold">Zakažite konsultaciju</a>
+          <a href={bookingUrl(lang, brand.key)} class="btn btn-gold">{ui.cta.book}</a>
         </div>
       </SectionHeading>
     </div>

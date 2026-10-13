@@ -1,0 +1,11 @@
+{
+  "items": [
+    { "src": "/uploads/hero-vencanica.webp", "alt": "Wedding dress with a lace corset and organza ruffles on the shoulders" },
+    { "src": "/uploads/radovi-vencano-odelo.webp", "alt": "Bridal trouser suit: white jacket with slit sleeves and wide-leg trousers", "position": "50% 18%" },
+    { "src": "/uploads/radovi-korset-sljokice.webp", "alt": "Sequinned corset cut from geometric panels" },
+    { "src": "/uploads/radovi-dublet.webp", "alt": "Quilted teal doublet with brass clasps, historical costume" },
+    { "src": "/uploads/radovi-korset-talasi.webp", "alt": "Navy corset with wave-patterned sequin embroidery" },
+    { "src": "/uploads/radovi-kostim-stvorenje.webp", "alt": "Fantasy creature costume made for a stage performance", "position": "50% 30%" },
+    { "src": "/uploads/hero-detalj.webp", "alt": "Hand-stitching lace onto tulle" }
+  ]
+}

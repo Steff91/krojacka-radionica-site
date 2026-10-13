@@ -2,6 +2,10 @@
 // Cookie consent. Categories: necessary (always on) and external content (Google Maps).
 // Add an "analytics" category here before adding any analytics script.
 // Embeds that need consent: wrap them in [data-consent-embed] with a <template data-consent-content> (see MapEmbed.astro).
+import { getLang, legalUrl, t } from '../i18n';
+const lang = getLang(Astro.url);
+const ui = t(lang);
+const cookiesUrl = await legalUrl(lang, 'kolacici');
 ---
 
 <div
@@ -13,28 +17,28 @@
   class="fixed inset-x-4 bottom-4 z-[60] max-w-[460px] rounded border border-line bg-ivory p-6 shadow-[0_24px_60px_-20px_rgba(45,41,38,0.45)] sm:right-auto sm:bottom-6 sm:left-6"
   hidden
 >
-  <p id="cookie-title" class="m-0 font-serif text-[22px] font-medium uppercase tracking-[0.04em]">Kolačići</p>
+  <p id="cookie-title" class="m-0 font-serif text-[22px] font-medium uppercase tracking-[0.04em]">{ui.cookie.title}</p>
   <p id="cookie-text" class="mt-2 mb-0 text-[15px] leading-relaxed text-body">
-    Sajt ne koristi kolačiće za praćenje. Mapa na stranici Kontakt dolazi sa Google servisa, koji može postaviti svoje kolačiće.{' '}
-    <a href="/kolacici/">Saznajte više</a>.
+    {ui.cookie.text}{' '}
+    <a href={cookiesUrl}>{ui.cookie.more}</a>.
   </p>
 
   <form class="mt-4 flex flex-col gap-3 border-t border-line pt-4" data-cookie-prefs hidden>
     <label class="flex items-start gap-3 text-[14px] text-body">
       <input type="checkbox" checked disabled class="mt-1 h-4 w-4 accent-[#A03C3C]" />
-      <span><span class="text-[13px] font-medium uppercase tracking-[0.08em] text-ink">Neophodni</span><br />Pamćenje vašeg izbora. Uvek uključeno.</span>
+      <span><span class="text-[13px] font-medium uppercase tracking-[0.08em] text-ink">{ui.cookie.necessary}</span><br />{ui.cookie.necessaryText}</span>
     </label>
     <label class="flex items-start gap-3 text-[14px] text-body">
       <input type="checkbox" name="external" class="mt-1 h-4 w-4 accent-[#A03C3C]" />
-      <span><span class="text-[13px] font-medium uppercase tracking-[0.08em] text-ink">Spoljni sadržaj</span><br />Google mapa na stranici Kontakt.</span>
+      <span><span class="text-[13px] font-medium uppercase tracking-[0.08em] text-ink">{ui.cookie.external}</span><br />{ui.cookie.externalText}</span>
     </label>
   </form>
 
   <div class="mt-5 flex flex-wrap items-center gap-2.5">
-    <button type="button" class="btn btn-red btn-sm" data-cookie-accept>Prihvati sve</button>
-    <button type="button" class="btn btn-outline btn-sm" data-cookie-necessary>Samo neophodni</button>
-    <button type="button" class="cursor-pointer border-0 bg-transparent px-1 text-[13px] text-red underline-offset-4 hover:underline" data-cookie-settings>Podešavanja</button>
-    <button type="button" class="btn btn-outline btn-sm" data-cookie-save hidden>Sačuvaj izbor</button>
+    <button type="button" class="btn btn-red btn-sm" data-cookie-accept>{ui.cookie.acceptAll}</button>
+    <button type="button" class="btn btn-outline btn-sm" data-cookie-necessary>{ui.cookie.onlyNecessary}</button>
+    <button type="button" class="cursor-pointer border-0 bg-transparent px-1 text-[13px] text-red underline-offset-4 hover:underline" data-cookie-settings>{ui.cookie.settings}</button>
+    <button type="button" class="btn btn-outline btn-sm" data-cookie-save hidden>{ui.cookie.save}</button>
   </div>
 </div>
 
@@ -97,7 +101,7 @@
     wrap.querySelector('[data-consent-allow]')?.addEventListener('click', () => write(true));
   });
 
-  // Footer link "Podešavanja kolačića"
+  // Footer link "Cookie settings"
   document.querySelectorAll('[data-open-cookie-settings]').forEach((el) =>
     el.addEventListener('click', (e) => { e.preventDefault(); open(true); }),
   );

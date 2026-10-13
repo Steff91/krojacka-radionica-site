@@ -1,20 +1,23 @@
 ---
 import Placeholder from '../Placeholder.astro';
 import Icon from '../Icon.astro';
-import info from '../../data/info.json';
+import { getLang, getInfo, route, t } from '../../i18n';
+const lang = getLang(Astro.url);
+const ui = t(lang);
+const info = getInfo(lang);
 ---
 
 <section class="relative overflow-x-clip pt-12 pb-28 sm:pt-16 sm:pb-32">
   <div class="container-site grid items-center gap-16 lg:grid-cols-[1.05fr_1fr]">
     <div class="flex flex-col gap-7">
-      <p class="eyebrow !mb-0" data-reveal>Krojačka radionica · {info.city}</p>
-      <h1 class="h-display" data-reveal style="--i:1">Vaša ideja <em class="font-normal text-red">u našim rukama</em></h1>
+      <p class="eyebrow !mb-0" data-reveal>{ui.hero.eyebrow} · {info.city}</p>
+      <h1 class="h-display" data-reveal style="--i:1">{ui.hero.h1} <em class="font-normal text-red">{ui.hero.h1Em}</em></h1>
       <p class="lead max-w-[480px] text-[19px]" data-reveal style="--i:2">
-        Od svečanih haljina i venčanica do cosplay kostima — krojimo sve što zamislite, tačno po vašoj meri.
+        {ui.hero.lead}
       </p>
       <div class="flex flex-wrap gap-4" data-reveal style="--i:3">
-        <a href="#usluge" class="btn btn-dark">Pogledajte naše usluge</a>
-        <a href="/zakazite-konsultaciju/" class="btn btn-outline">Zakažite konsultaciju</a>
+        <a href="#usluge" class="btn btn-dark">{ui.hero.seeServices}</a>
+        <a href={route(lang, 'booking')} class="btn btn-outline">{ui.cta.book}</a>
       </div>
     </div>
 
@@ -23,9 +26,9 @@ import info from '../../data/info.json';
       <div class="absolute top-[-12px] right-[-12px] bottom-3 left-[52px] border border-gold sm:top-[-20px] sm:right-[-20px] sm:bottom-5 sm:left-[84px]" aria-hidden="true"></div>
 
       <Placeholder
-        label="Fotografija: model u venčanici ili svečanoj haljini, vertikalni kadar"
+        label={ui.hero.imageLabel}
         src="/uploads/hero-vencanica.webp"
-        alt="Mlada u venčanici sa čipkanim korsetom i volanima od organdina na ramenima, krojenoj po meri"
+        alt={ui.hero.imageAlt}
         position="60% 25%"
         eager
         class="absolute inset-y-0 right-0 left-10 shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)] sm:left-16"
@@ -33,9 +36,9 @@ import info from '../../data/info.json';
 
       <div class="hero-detail absolute bottom-12 left-0 z-10">
         <Placeholder
-          label="Detalj: ruke, igla, tkanina"
+          label={ui.hero.detailLabel}
           src="/uploads/hero-detalj.webp"
-          alt="Ručno ušivanje čipke na tilu iglom i naprstkom"
+          alt={ui.hero.detailAlt}
           position="55% 40%"
           eager
           tone="sage"
@@ -51,7 +54,7 @@ import info from '../../data/info.json';
             <path id="badge-circle" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"></path>
           </defs>
           <text font-size="10.5" letter-spacing="2.2" fill="currentColor" font-family="DM Sans, sans-serif" font-weight="500">
-            <textPath href="#badge-circle" textLength="270">ŠIVENO PO MERI · KROJAČKA RADIONICA ·</textPath>
+            <textPath href="#badge-circle" textLength="270">{ui.hero.badge}</textPath>
           </text>
         </svg>
         <img src="/logo.png" alt="" width="22" height="27" class="absolute top-1/2 left-1/2 w-[22px] -translate-x-1/2 -translate-y-1/2 mix-blend-multiply sm:w-[28px]" />
@@ -60,7 +63,7 @@ import info from '../../data/info.json';
   </div>
 
   <!-- Scroll hint -->
-  <a href="#usluge" class="scroll-hint absolute bottom-6 left-1/2 inline-flex h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full border border-line text-ink no-underline transition-colors duration-300 hover:border-red hover:text-red sm:bottom-8" aria-label="Skrolujte na usluge">
+  <a href="#usluge" class="scroll-hint absolute bottom-6 left-1/2 inline-flex h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full border border-line text-ink no-underline transition-colors duration-300 hover:border-red hover:text-red sm:bottom-8" aria-label={ui.hero.scroll}>
     <Icon name="chevron-right" size={12} />
   </a>
 </section>

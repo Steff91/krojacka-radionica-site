@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import MapEmbed from '../components/MapEmbed.astro';
+import Contact from '../components/sections/Contact.astro';
+import { alternatesFor, getInfo, getLang, t } from '../i18n';
+
+const lang = getLang(Astro.url);
+const ui = t(lang);
+const info = getInfo(lang);
+---
+
+<Base
+  title={ui.contactPage.title}
+  description={ui.contactPage.description(`${info.address}, ${info.addressNote}, ${info.city}`, info.phone)}
+  alternates={alternatesFor('contact')}
+>
+  <section class="pt-12 pb-4 sm:pt-16">
+    <div class="container-site flex flex-col gap-5">
+      <Breadcrumbs items={[{ label: ui.contactPage.h1 }]} />
+      <h1 class="h-display" data-reveal>{ui.contactPage.h1}</h1>
+      <p class="lead max-w-[600px] text-[19px]" data-reveal style="--i:1">
+        {ui.contactPage.lead}
+      </p>
+    </div>
+  </section>
+
+  <Contact service={ui.nav.contact} tone="ivory" title={ui.contactPage.formTitle} titleEm={ui.contactPage.formTitleEm} />
+
+  <!-- Map -->
+  <section class="pb-18 sm:pb-28">
+    <div class="container-site">
+      <MapEmbed class="h-[420px] sm:h-[520px]" />
+    </div>
+  </section>
+
+  <!-- Directions -->
+  <section class="bg-sand py-18 sm:py-28">
+    <div class="container-site flex flex-col gap-14">
+      <SectionHeading eyebrow={ui.contactPage.directionsEyebrow} title={ui.contactPage.directionsTitle} />
+      <ul class="m-0 grid list-none gap-10 p-0 md:grid-cols-3">
+        {info.directions.map((d, i) => (
+          <li class="flex flex-col gap-3 border-t border-gold pt-6" data-reveal style={`--i:${i}`}>
+            <h3 class="h-card">{d.title}</h3>
+            <p class="m-0 text-base text-body">{d.text}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+</Base>

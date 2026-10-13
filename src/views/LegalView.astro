@@ -1,0 +1,53 @@
+---
+// Legal page (imprint, privacy, cookies) in either language.
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import info from '../data/info.json';
+import { legalAlternates, t, type Legal } from '../i18n';
+
+interface Props {
+  page: Legal;
+}
+const { page } = Astro.props;
+const ui = t(page.lang);
+const alternates = await legalAlternates(page.key);
+const { Content } = await render(page);
+---
+
+<Base title={`${page.data.title} | ${info.name}`} description={page.data.description} alternates={alternates}>
+  <section class="container-site pt-16 pb-12">
+    <div class="mb-7"><Breadcrumbs items={[{ label: page.data.title }]} /></div>
+    <h1 class="h-section">{page.data.title}</h1>
+    <p class="mt-4 mb-0 text-[13px] text-muted">{ui.legal.updated}: {page.data.updated}</p>
+  </section>
+  <section class="border-t border-line">
+    <div class="container-site py-16">
+      <article class="legal max-w-[760px] text-base leading-[1.75] text-body">
+        <Content />
+      </article>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .legal :global(h2) {
+    margin: 2.5rem 0 1rem;
+    font-size: 24px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--color-ink);
+  }
+  .legal :global(h2:first-child) { margin-top: 0; }
+  .legal :global(p) { margin: 0 0 1rem; }
+  .legal :global(ul) { margin: 0 0 1.25rem; padding-left: 1.25rem; list-style: disc; }
+  .legal :global(li) { margin-bottom: .4rem; }
+  .legal :global(li::marker) { color: var(--color-red); }
+  .legal :global(strong) { color: var(--color-ink); font-weight: 500; }
+  .legal :global(table) { width: 100%; margin: 0 0 1.75rem; border-collapse: collapse; font-size: 15px; }
+  .legal :global(th), .legal :global(td) { padding: .75rem .9rem .75rem 0; border-bottom: 1px solid var(--color-line); text-align: left; vertical-align: top; }
+  .legal :global(th) { font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--color-muted); }
+  .legal :global(thead:has(th:empty)) { display: none; }
+  .legal :global(td:first-child) { color: var(--color-ink); width: 40%; }
+  .legal :global(code) { font-size: 14px; background: var(--color-sand); padding: 1px 6px; border-radius: 3px; }
+</style>

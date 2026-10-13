@@ -4,6 +4,7 @@ import SectionHeading from './SectionHeading.astro';
 import Placeholder from './Placeholder.astro';
 import Icon from './Icon.astro';
 import Lightbox from './Lightbox.astro';
+import { getLang, t } from '../i18n';
 
 type Item = { src?: string; alt: string; position?: string };
 interface Props {
@@ -18,6 +19,7 @@ interface Props {
 const { id, eyebrow, title, titleEm, text, items, class: className = '' } = Astro.props;
 const tones = ['sand', 'sand-dark'] as const;
 const clean = (s: string) => s.replace(/[[\]]/g, '');
+const ui = t(getLang(Astro.url));
 ---
 
 <section id={id} class:list={['overflow-x-clip py-18 sm:py-28', className]} data-gallery data-lightbox-root>
@@ -25,10 +27,10 @@ const clean = (s: string) => s.replace(/[[\]]/g, '');
     <div class="flex flex-wrap items-end justify-between gap-8 lg:flex-nowrap">
       <SectionHeading class="min-w-0" eyebrow={eyebrow} title={title} titleEm={titleEm} text={text} />
       <div class="flex shrink-0 items-center gap-3">
-        <button type="button" class="slider-btn" data-slider-prev aria-label="Prethodne fotografije" aria-controls={`${id}-track`}>
+        <button type="button" class="slider-btn" data-slider-prev aria-label={ui.gallery.prev} aria-controls={`${id}-track`}>
           <Icon name="chevron-right" size={14} class="rotate-180" />
         </button>
-        <button type="button" class="slider-btn" data-slider-next aria-label="Sledeće fotografije" aria-controls={`${id}-track`}>
+        <button type="button" class="slider-btn" data-slider-next aria-label={ui.gallery.next} aria-controls={`${id}-track`}>
           <Icon name="chevron-right" size={14} />
         </button>
       </div>
@@ -42,7 +44,7 @@ const clean = (s: string) => s.replace(/[[\]]/g, '');
               type="button"
               class="group block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left"
               data-lightbox-open={i}
-              aria-label={`Uvećaj fotografiju: ${clean(item.alt)}`}
+              aria-label={`${ui.gallery.zoom}: ${clean(item.alt)}`}
             >
               <Placeholder label={clean(item.alt)} src={item.src} alt={item.alt} position={item.position} tone={tones[i % 2]} class="aspect-[4/5]" />
             </button>

@@ -1,5 +1,6 @@
 ---
 import info from '../data/info.json';
+import { getLang, route } from '../i18n';
 
 interface Props {
   dark?: boolean;
@@ -8,9 +9,10 @@ interface Props {
 const { dark = false, stacked = false } = Astro.props;
 // /logo.png is trimmed to the artwork (no built-in whitespace) so it aligns with the content edge.
 // TODO: replace with an SVG version of the logo when available
+const home = route(getLang(Astro.url), 'home');
 ---
 
-<a href="/" class:list={['flex items-center gap-3.5 no-underline', dark ? 'text-on-dark hover:text-on-dark' : 'text-ink hover:text-ink']}>
+<a href={home} class:list={['flex items-center gap-3.5 no-underline', dark ? 'text-on-dark hover:text-on-dark' : 'text-ink hover:text-ink']}>
   <img
     src="/logo.png"
     alt=""

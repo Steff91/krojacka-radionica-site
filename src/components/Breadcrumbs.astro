@@ -1,13 +1,16 @@
 ---
 // Visible breadcrumb trail + BreadcrumbList JSON-LD. The last item is the current page (no link).
 import Icon from './Icon.astro';
+import { getLang, route, t } from '../i18n';
 interface Crumb { label: string; href?: string }
 interface Props {
   items: Crumb[];
   dark?: boolean;
 }
 const { items, dark = false } = Astro.props;
-const trail: Crumb[] = [{ label: 'Početna', href: '/' }, ...items];
+const lang = getLang(Astro.url);
+const ui = t(lang);
+const trail: Crumb[] = [{ label: ui.breadcrumbs.home, href: route(lang, 'home') }, ...items];
 
 const schema = {
   '@context': 'https://schema.org',
@@ -22,7 +25,7 @@ const schema = {
 const muted = dark ? 'text-on-dark-muted' : 'text-muted';
 ---
 
-<nav aria-label="Putanja" class:list={['text-[13px]', muted]}>
+<nav aria-label={ui.breadcrumbs.label} class:list={['text-[13px]', muted]}>
   <ol class="m-0 flex list-none flex-wrap items-center gap-x-2.5 gap-y-1 p-0">
     {trail.map((c, i) => (
       <li class="flex items-center gap-2.5">

@@ -22,27 +22,37 @@ npm run preview
 
 ```
 src/
-  data/info.json            # name, address, phone, hours, Instagram, form endpoint
-  data/process.json         # 4 process steps (homepage + every service page)
+  i18n/
+    index.ts                # languages, routes per language, getInfo/getData/getServices/getLegal helpers
+    ui.ts                   # interface copy (buttons, labels, page titles) for sr + en
+  data/
+    info.json               # language-neutral: name, address, phone, social links, form endpoint
+    sr/ en/                 # per language: site.json (tagline, hours, directions), process, work, about, brand
   content/
-    services/*.md           # one file per service → /usluge/<file-name>/
-                            # variant: featured = fashion brand development (dark layout)
-    testimonials.json       # client testimonials; featured: true → homepage
-    legal/*.md              # /privatnost/, /kolacici/
+    services/sr/*.md        # one file per service → /usluge/<urlSlug or file name>/
+    services/en/*.md        # same file name = same service → /en/services/<urlSlug>/
+                            # variant: featured = fashion brand development (BrandView layout)
+    legal/sr/*.md, en/*.md  # imprint, privacy, cookies (urlSlug sets the English URL)
+    blog/*.md               # Serbian only
+    testimonials.json       # Google reviews, shown in the original on both languages
   content.config.ts         # collection schemas
+  views/                    # page bodies shared by both languages (HomeView, ServiceView, BrandView, …)
+  pages/                    # thin routes: Serbian at the root, English under pages/en/
   components/
     sections/               # homepage sections (Hero, Services, Process, Brand, Story, …)
-    Header, Footer, Logo, Icon (Font Awesome SVG), Placeholder, SectionHeading, BackToTop
-  layouts/Base.astro        # <head>, LocalBusiness JSON-LD, reveal-on-scroll script
-  pages/
-    index.astro
-    usluge/[slug].astro     # shared template for all service pages (+ Service JSON-LD)
-    [legal].astro
+    Header, Footer, TopBar, LangSwitch, Logo, Icon, Placeholder, SectionHeading, BackToTop, …
+  layouts/Base.astro        # <head>, hreflang, LocalBusiness JSON-LD, reveal-on-scroll script
 public/
-  admin/                    # Sveltia CMS config
+  admin/                    # Sveltia CMS config (i18n: multiple_folders)
   uploads/                  # CMS media
   logo.png
 ```
+
+### Languages
+
+Serbian lives at the root, English under `/en/` with translated slugs. The language comes from the URL.
+To add a page in both languages: write a view in `src/views/`, add a route under `pages/` and `pages/en/`,
+and register both URLs in `ROUTES` (`src/i18n/index.ts`) so the language switch and hreflang find them.
 
 ## Design tokens
 

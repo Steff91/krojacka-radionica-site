@@ -1,0 +1,150 @@
+---
+// Booking request form. Preselect a service with ?usluga=<service-key> (all CTAs on service pages do this).
+// Static site: posts to the same external form handler as the contact form (info.json → formAction).
+// Field names stay Serbian in both languages; `jezik` says which site version sent the request.
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Icon from '../components/Icon.astro';
+import { alternatesFor, getInfo, getLang, getServices, legalUrl, t } from '../i18n';
+
+const lang = getLang(Astro.url);
+const ui = t(lang);
+const b = ui.booking;
+const info = getInfo(lang);
+const services = await getServices(lang);
+const privacyUrl = await legalUrl(lang, 'privatnost');
+
+const field = 'flex flex-col gap-2 text-[13px] uppercase tracking-[0.12em] text-body';
+const input = 'min-h-12 w-full border-0 border-b border-muted bg-transparent font-sans text-[17px] font-light normal-case tracking-normal text-ink focus:border-red focus:outline-none';
+const steps = b.steps;
+---
+
+<Base title={b.title} description={b.description} alternates={alternatesFor('booking')}>
+  <section class="pt-12 pb-10 sm:pt-16">
+    <div class="container-site flex flex-col gap-5">
+      <Breadcrumbs items={[{ label: ui.cta.book }]} />
+      <h1 class="h-display" data-reveal>{b.h1} <em class="font-normal text-red">{b.h1Em}</em></h1>
+      <p class="lead max-w-[620px] text-[19px]" data-reveal style="--i:1">
+        {b.lead}
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-18 sm:pb-28">
+    <div class="container-site grid items-start gap-14 lg:grid-cols-[1.25fr_0.75fr]">
+      <!-- Form -->
+      <form id="kontakt" method="POST" action={info.formAction || undefined} class="grid gap-x-8 gap-y-7 sm:grid-cols-2" data-booking-form>
+        <input type="hidden" name="_tema" value={b.subject} />
+        <input type="hidden" name="jezik" value={lang} />
+
+        <label class:list={[field, 'sm:col-span-2']}>{b.service}
+          <select name="usluga" required class:list={[input, 'cursor-pointer']} data-service-select>
+            <option value="" disabled selected>{b.choose}</option>
+            {services.map((s) => <option value={s.data.title} data-id={s.key}>{s.data.title}</option>)}
+            <option value={b.other}>{b.other}</option>
+          </select>
+        </label>
+
+        <label class={field}>{b.name}
+          <input type="text" name="ime" autocomplete="name" required class={input} />
+        </label>
+        <label class={field}>{b.phone}
+          <input type="tel" name="telefon" autocomplete="tel" required class={input} />
+        </label>
+        <label class:list={[field, 'sm:col-span-2']}>{b.email}
+          <input type="email" name="email" autocomplete="email" class={input} />
+        </label>
+
+        <label class={field}>{b.date}
+          <input type="date" name="datum" class={input} data-min-today />
+        </label>
+        <label class={field}>{b.daypart}
+          <select name="deo_dana" class:list={[input, 'cursor-pointer']}>
+            {b.dayparts.map((o) => <option>{o}</option>)}
+          </select>
+        </label>
+
+        <label class:list={[field, 'sm:col-span-2']}>{b.deadline}
+          <input type="text" name="rok" placeholder={b.deadlinePlaceholder} class:list={[input, 'placeholder:text-muted/70']} />
+        </label>
+
+        <fieldset class="m-0 flex flex-col gap-3 border-0 p-0 sm:col-span-2">
+          <legend class="mb-3 text-[13px] uppercase tracking-[0.12em] text-body">{b.via}</legend>
+          <div class="flex flex-wrap gap-2">
+            {b.viaOptions.map((o, i) => (
+              <label class="choice">
+                <input type="radio" name="kontakt_preko" value={o} checked={i === 0} class="sr-only" />
+                <span>{o}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <label class:list={[field, 'sm:col-span-2']}>{b.idea}
+          <textarea name="poruka" rows="4" class:list={[input, 'resize-y pt-3']}></textarea>
+        </label>
+        <label class:list={[field, 'sm:col-span-2']}>{b.inspiration}
+          <input type="url" name="inspiracija" placeholder="https://" class:list={[input, 'placeholder:text-muted/70']} />
+        </label>
+
+        <div class="sm:col-span-2">
+          <button type="submit" class="btn btn-red">{b.send}<Icon name="chevron-right" size={11} class="chev" /></button>
+          <p class="m-0 mt-3 text-[13px] text-muted">{b.confirm} {ui.contact.consent} <a href={privacyUrl}>{ui.contact.consentLink}</a>.</p>
+        </div>
+      </form>
+
+      <!-- Aside -->
+      <aside class="flex flex-col gap-8 bg-sand p-8 sm:p-10 lg:sticky lg:top-28">
+        <div>
+          <p class="eyebrow">{b.howTitle}</p>
+          <ol class="m-0 flex list-none flex-col gap-5 p-0">
+            {steps.map((s, i) => (
+              <li class="grid grid-cols-[36px_1fr] gap-3">
+                <span class="font-serif text-[28px] leading-none text-red italic">{String(i + 1).padStart(2, '0')}</span>
+                <span class="flex flex-col gap-1">
+                  <span class="font-serif text-lg font-medium uppercase tracking-[0.04em]">{s.title}</span>
+                  <span class="text-[15px] text-body">{s.text}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <div class="border-t border-line pt-7">
+          <p class="eyebrow">{b.callInstead}</p>
+          <a href={`tel:${info.phoneHref}`} class="font-serif text-[28px] no-underline">{info.phone}</a>
+          <dl class="m-0 mt-3 grid grid-cols-[auto_1fr] gap-x-5 gap-y-0.5 text-[15px] text-body">
+            {info.hours.map((h) => <><dt>{h.day}</dt><dd class="m-0 text-ink">{h.time}</dd></>)}
+          </dl>
+          <p class="mt-4 mb-0 text-[15px] text-body">{info.address}, {info.addressNote}</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .choice span {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; cursor: pointer;
+    border: 1px solid var(--color-line); border-radius: 999px;
+    font: 500 13px/1 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; color: var(--color-ink);
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+  }
+  .choice span:hover { border-color: var(--color-ink); }
+  .choice input:checked + span { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-on-dark); }
+  .choice input:focus-visible + span { outline: 2px solid var(--color-red); outline-offset: 2px; }
+  select:invalid { color: var(--color-muted); }
+  @media (prefers-reduced-motion: reduce) { .choice span { transition: none; } }
+</style>
+
+<script>
+  // Preselect the service from ?usluga=<key>
+  const id = new URLSearchParams(location.search).get('usluga');
+  const select = document.querySelector<HTMLSelectElement>('[data-service-select]');
+  const option = id ? select?.querySelector<HTMLOptionElement>(`option[data-id="${CSS.escape(id)}"]`) : null;
+  if (select && option) select.value = option.value;
+
+  // No past dates
+  const today = new Date();
+  const iso = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  document.querySelectorAll<HTMLInputElement>('[data-min-today]').forEach((el) => (el.min = iso));
+</script>

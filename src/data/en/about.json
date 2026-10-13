@@ -1,0 +1,73 @@
+{
+  "seoTitle": "About | Tailoring Workshop Belgrade",
+  "seoDescription": "Meet our tailoring workshop in Belgrade — experience from film sets and theatre stages, made to measure from the first conversation to the last stitch.",
+  "hero": {
+    "title": "About",
+    "subtitle": "Clothing made to your measurements, by a master's hand.",
+    "image": "",
+    "imageLabel": "Wide photo of the workshop: cutting table, fabrics, dress form"
+  },
+  "story": {
+    "eyebrow": "Our story",
+    "title": "A traditional craft,",
+    "titleEm": "a modern vision",
+    "paragraphs": [
+      "The workshop was founded [year / reason for founding] on a simple idea: clothing should follow the person, not the other way round. What started as [short description of the beginning] is today a workshop that makes men's suits, formal dresses and wedding dresses, as well as theatre and cosplay costumes and uniforms.",
+      "Every piece that leaves the workshop goes through the same hands and the same process — from the first conversation to the last stitch."
+    ],
+    "image": "",
+    "imageLabel": "Portrait photo: work in progress, sewing detail"
+  },
+  "founder": {
+    "eyebrow": "Behind the workshop",
+    "title": "Meet",
+    "titleEm": "Slađana",
+    "paragraphs": [
+      "[2–3 sentences: training and how she came to the craft.]",
+      "[1–2 sentences: her speciality and what motivates her.]"
+    ],
+    "quote": "[A short thought about the craft, in her own words — one or two sentences.]",
+    "image": "",
+    "imageLabel": "Portrait: Slađana in the workshop, natural light"
+  },
+  "film": {
+    "eyebrow": "Film and stage",
+    "title": "From film sets",
+    "titleEm": "to theatre stages",
+    "text": "[2–3 sentences about working in film and theatre: deadlines, teamwork, costumes that have to survive shooting and performances.]",
+    "productions": [
+      { "year": "[Year]", "title": "[Production title]", "role": "[Film / series / play — role in the team]" },
+      { "year": "[Year]", "title": "[Production title]", "role": "[Film / series / play — role in the team]" },
+      { "year": "[Year]", "title": "[Production title]", "role": "[Film / series / play — role in the team]" },
+      { "year": "[Year]", "title": "[Production title]", "role": "[Film / series / play — role in the team]" }
+    ],
+    "images": [
+      { "alt": "[Photo from the set]" },
+      { "alt": "[Costume from a production]" },
+      { "alt": "[Costume detail]" }
+    ]
+  },
+  "approach": {
+    "eyebrow": "Our approach",
+    "title": "What sets us apart",
+    "items": [
+      { "title": "It all starts with a conversation", "text": "Before we take a single measurement, we want to understand the occasion, the style and how you will wear the piece." },
+      { "title": "Measurements, not sizes", "text": "We don't alter ready-made patterns. Every cut is made from scratch, to your measurements." },
+      { "title": "Details are part of the cut", "text": "Finishing seams, lining, buttons — what you don't notice at first glance is what makes the difference." },
+      { "title": "Honest advice", "text": "We will recommend the fabric and cut that suit you, but the final word is always yours." }
+    ]
+  },
+  "workshop": {
+    "eyebrow": "Inside the workshop",
+    "title": "Where your pieces are made",
+    "text": "[One or two sentences about the workshop space and its atmosphere.]",
+    "items": [
+      { "src": "/uploads/hero-detalj.webp", "alt": "Hand-stitching lace onto tulle" },
+      { "alt": "[Cutting table]" },
+      { "alt": "[Dress form with a piece in progress]" },
+      { "alt": "[Shelves of fabric]" },
+      { "alt": "[Sewing machine]" },
+      { "alt": "[Fitting with a client]" }
+    ]
+  }
+}

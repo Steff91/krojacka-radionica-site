@@ -1,0 +1,12 @@
+---
+import ServiceView from '../../../views/ServiceView.astro';
+import BrandView from '../../../views/BrandView.astro';
+import { getServices } from '../../../i18n';
+
+export async function getStaticPaths() {
+  return (await getServices('en')).map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
+}
+const { service } = Astro.props;
+---
+
+{service.data.variant === 'featured' ? <BrandView service={service} /> : <ServiceView service={service} />}

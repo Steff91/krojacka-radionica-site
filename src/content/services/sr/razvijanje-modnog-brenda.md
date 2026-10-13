@@ -1,5 +1,6 @@
 ---
 title: Razvijanje modnog brenda
+shortLabel: Modni brend
 order: 7
 excerpt: Od koncepta i dizajna do prvih komada i pozicioniranja.
 seoTitle: Razvijanje modnog brenda | Konsultacije i uzorci, Beograd

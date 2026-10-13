@@ -1,0 +1,32 @@
+---
+// "SR / EN" switcher. Links to the same page in the other language when it exists, otherwise to that language's home page.
+import { LANGS, HTML_LANG, getLang, route, t, type Alternates } from '../i18n';
+
+interface Props {
+  alternates?: Alternates;
+  class?: string;
+}
+const { alternates = {}, class: className = '' } = Astro.props;
+const current = getLang(Astro.url);
+const ui = t(current);
+---
+
+<ul class:list={['m-0 flex list-none items-center gap-1 p-0 font-sans text-[13px] font-medium uppercase tracking-[0.12em]', className]} aria-label={ui.nav.language}>
+  {LANGS.map((l, i) => (
+    <>
+      {i > 0 && <li aria-hidden="true" class="opacity-40">/</li>}
+      <li>
+        {l === current
+          ? <span class="inline-flex min-h-9 items-center px-1.5 text-red" aria-current="true">{l}</span>
+          : <a
+              href={alternates[l] ?? route(l, 'home')}
+              hreflang={HTML_LANG[l]}
+              lang={HTML_LANG[l]}
+              title={t(l).langName}
+              aria-label={ui.nav.switchTo}
+              class="inline-flex min-h-9 items-center px-1.5 text-current no-underline hover:text-red"
+            >{l}</a>}
+      </li>
+    </>
+  ))}
+</ul>

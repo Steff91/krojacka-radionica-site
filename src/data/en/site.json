@@ -1,0 +1,34 @@
+{
+  "address": "Nehruova 51a, unit 93",
+  "tagline": "Your idea in our hands.",
+  "city": "Belgrade",
+  "hours": [
+    {
+      "day": "Mon–Fri",
+      "time": "9am–5pm"
+    },
+    {
+      "day": "Saturday",
+      "time": "8am–12pm"
+    },
+    {
+      "day": "Sunday",
+      "time": "Closed",
+      "closed": true
+    }
+  ],
+  "directions": [
+    {
+      "title": "Finding the workshop",
+      "text": "The workshop is in the TC Kula shopping centre, unit 93. [Short directions: entrance, floor, landmark.]"
+    },
+    {
+      "title": "Parking",
+      "text": "[Where it is easiest to park nearby.]"
+    },
+    {
+      "title": "Public transport",
+      "text": "[Nearest stops and lines.]"
+    }
+  ]
+}

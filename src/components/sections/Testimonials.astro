@@ -3,9 +3,11 @@ import { getCollection } from 'astro:content';
 import SectionHeading from '../SectionHeading.astro';
 import Icon from '../Icon.astro';
 import info from '../../data/info.json';
+import { getLang, t } from '../../i18n';
 import raw from '../../content/testimonials.json';
 
 // Keep the order from testimonials.json (the collection itself is unordered).
+const ui = t(getLang(Astro.url));
 const order = raw.map((r) => r.id);
 const items = (await getCollection('testimonials'))
   .filter((t) => t.data.featured)
@@ -16,16 +18,16 @@ const items = (await getCollection('testimonials'))
 <section class="bg-sage-light py-18 sm:py-28">
   <div class="container-site flex flex-col gap-14">
     <SectionHeading
-      eyebrow="Reči naših klijenata"
-      title="Zadovoljstvo koje se vidi i nosi"
-      text="Najbolja preporuka je gotov komad koji klijent nosi sa zadovoljstvom. Evo šta kažu oni koji su nam ukazali poverenje."
+      eyebrow={ui.testimonials.eyebrow}
+      title={ui.testimonials.title}
+      text={ui.testimonials.text}
     />
     <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] items-start gap-8">
       {items.map((t, i) => (
         <figure class="m-0 flex flex-col gap-6 border-t-[3px] border-sage bg-ivory p-8 sm:p-10" data-reveal style={`--i:${i}`}>
-          <blockquote class="m-0 font-serif text-[22px] leading-[1.45] italic">„{t.data.text}“</blockquote>
+          <blockquote lang="sr-Latn" class="m-0 font-serif text-[22px] leading-[1.45] italic">„{t.data.text}“</blockquote>
           <figcaption class="flex flex-col gap-2.5">
-            <span class="inline-flex gap-1 text-gold" role="img" aria-label={`Ocena: ${t.data.rating} od 5`}>
+            <span class="inline-flex gap-1 text-gold" role="img" aria-label={ui.testimonials.rating(t.data.rating)}>
               {Array.from({ length: 5 }, (_, n) => (
                 <Icon name="star" size={15} class={n < t.data.rating ? '' : 'opacity-25'} />
               ))}
@@ -44,19 +46,19 @@ const items = (await getCollection('testimonials'))
             <span class="inline-flex gap-1 text-gold" aria-hidden="true">
               {Array.from({ length: 5 }, () => <Icon name="star" size={14} />)}
             </span>
-            <span class="text-sm text-body underline">{info.googleReviewCount} utisaka na Google-u</span>
+            <span class="text-sm text-body underline">{ui.testimonials.onGoogle(info.googleReviewCount)}</span>
           </span>
         </a>
       )}
       <div class="flex flex-wrap gap-4">
         {info.googleReviews && (
           <a href={info.googleReviews} class="btn btn-outline" target="_blank" rel="noopener">
-            Svi utisci<Icon name="chevron-right" size={11} class="chev" />
+            {ui.testimonials.all}<Icon name="chevron-right" size={11} class="chev" />
           </a>
         )}
         {info.googleWriteReview && (
           <a href={info.googleWriteReview} class="btn btn-dark" target="_blank" rel="noopener">
-            Ostavite utisak<Icon name="chevron-right" size={11} class="chev" />
+            {ui.testimonials.write}<Icon name="chevron-right" size={11} class="chev" />
           </a>
         )}
       </div>

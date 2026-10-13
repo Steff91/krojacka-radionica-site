@@ -5,7 +5,7 @@ import TopBar from '../components/TopBar.astro';
 import Footer from '../components/Footer.astro';
 import BackToTop from '../components/BackToTop.astro';
 import CookieBanner from '../components/CookieBanner.astro';
-import info from '../data/info.json';
+import { getLang, getInfo, t, HTML_LANG, LANGS, type Alternates } from '../i18n';
 // Above-the-fold fonts, preloaded so text doesn't flash in a fallback font on first load
 import cg500 from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff2?url';
 import cg500ext from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-ext-500-normal.woff2?url';
@@ -20,20 +20,25 @@ interface Props {
   description?: string;
   /** Extra JSON-LD objects for this page (e.g. a Service) */
   schema?: Record<string, unknown>[];
+  /** URL of this page in each language (drives hreflang and the language switcher) */
+  alternates?: Alternates;
 }
 
-const {
-  title,
-  description = 'Krojačka radionica u Beogradu — muška odeća, svečane haljine, venčanice, pozorišni i cosplay kostimi i uniforme, šiveni po meri.',
-  schema = [],
-} = Astro.props;
+const lang = getLang(Astro.url);
+const ui = t(lang);
+const info = getInfo(lang);
+const { title, description = ui.meta.siteDescription, schema = [], alternates = {} } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const hreflangs = LANGS.filter((l) => alternates[l]).map((l) => ({ hreflang: HTML_LANG[l], href: new URL(alternates[l]!, Astro.site) }));
+const xDefault = alternates.sr ? new URL(alternates.sr, Astro.site) : null;
+const ogAlt = LANGS.filter((l) => l !== lang && alternates[l]).map((l) => t(l).meta.ogLocale);
 
 const business = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   '@id': new URL('/#radionica', Astro.site).toString(),
+  inLanguage: HTML_LANG[lang],
   name: info.name,
   description,
   telephone: info.phoneHref,
@@ -46,7 +51,7 @@ const business = {
     addressCountry: 'RS',
   },
   hasMap: info.mapsLink,
-  // Keep in sync with info.json → hours
+  // Keep in sync with data/<lang>/site.json → hours
   openingHoursSpecification: [
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '17:00' },
     { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '08:00', closes: '12:00' },
@@ -56,7 +61,7 @@ const business = {
 ---
 
 <!doctype html>
-<html lang="sr-Latn">
+<html lang={HTML_LANG[lang]}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -64,10 +69,13 @@ const business = {
     <meta name="description" content={description} />
     {import.meta.env.PUBLIC_NOINDEX === 'true' && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
+    {hreflangs.length > 1 && hreflangs.map((h) => <link rel="alternate" hreflang={h.hreflang} href={h.href} />)}
+    {hreflangs.length > 1 && xDefault && <link rel="alternate" hreflang="x-default" href={xDefault} />}
     <link rel="icon" type="image/png" href="/favicon.png" />
     {preloadFonts.map((href) => <link rel="preload" as="font" type="font/woff2" href={href} crossorigin />)}
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="sr_RS" />
+    <meta property="og:locale" content={ui.meta.ogLocale} />
+    {ogAlt.map((l) => <meta property="og:locale:alternate" content={l} />)}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
@@ -78,8 +86,8 @@ const business = {
     <slot name="head" />
   </head>
   <body>
-    <TopBar />
-    <Header />
+    <TopBar alternates={alternates} />
+    <Header alternates={alternates} />
     <main>
       <slot />
     </main>

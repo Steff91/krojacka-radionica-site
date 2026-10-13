@@ -3,18 +3,20 @@
 //  - buttons with [data-lightbox-open="<index>"] (hidden buttons are skipped while browsing)
 //  - <script type="application/json" data-lightbox-items> with [{ src?, alt, link?: { href, label } }]
 import Icon from './Icon.astro';
+import { getLang, t } from '../i18n';
+const ui = t(getLang(Astro.url));
 ---
 
-<dialog class="lightbox" aria-label="Pregled fotografija">
+<dialog class="lightbox" aria-label={ui.gallery.viewer}>
   <div class="flex h-full w-full flex-col">
     <div class="flex items-center justify-between px-4 py-4 text-on-dark sm:px-8">
       <span class="text-sm tracking-[0.12em]" data-lightbox-counter></span>
-      <button type="button" class="lb-btn" data-lightbox-close aria-label="Zatvori">
+      <button type="button" class="lb-btn" data-lightbox-close aria-label={ui.gallery.close}>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"></path></svg>
       </button>
     </div>
     <div class="relative flex min-h-0 flex-1 items-center justify-center px-4 pb-6 sm:px-24">
-      <button type="button" class="lb-btn lb-nav left-3 sm:left-8" data-lightbox-prev aria-label="Prethodna fotografija">
+      <button type="button" class="lb-btn lb-nav left-3 sm:left-8" data-lightbox-prev aria-label={ui.gallery.prevPhoto}>
         <Icon name="chevron-right" size={16} class="rotate-180" />
       </button>
       <figure class="m-0 flex h-full max-h-full w-full flex-col items-center justify-center gap-4">
@@ -25,7 +27,7 @@ import Icon from './Icon.astro';
           <a data-lightbox-link hidden class="inline-flex items-center gap-2 text-[13px] font-medium uppercase tracking-[0.12em] text-gold no-underline hover:text-on-dark"></a>
         </figcaption>
       </figure>
-      <button type="button" class="lb-btn lb-nav right-3 sm:right-8" data-lightbox-next aria-label="Sledeća fotografija">
+      <button type="button" class="lb-btn lb-nav right-3 sm:right-8" data-lightbox-next aria-label={ui.gallery.nextPhoto}>
         <Icon name="chevron-right" size={16} />
       </button>
     </div>

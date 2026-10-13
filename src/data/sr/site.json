@@ -1,0 +1,33 @@
+{
+  "tagline": "Vaša ideja u našim rukama.",
+  "city": "Beograd",
+  "hours": [
+    {
+      "day": "Pon–Pet",
+      "time": "9–17h"
+    },
+    {
+      "day": "Subota",
+      "time": "8–12h"
+    },
+    {
+      "day": "Nedelja",
+      "time": "Zatvoreno",
+      "closed": true
+    }
+  ],
+  "directions": [
+    {
+      "title": "Kako do lokala",
+      "text": "Radionica je u TC Kula, lokal 93. [Kratko uputstvo: ulaz, sprat, orijentir.]"
+    },
+    {
+      "title": "Parking",
+      "text": "[Gde se najlakše parkira u blizini.]"
+    },
+    {
+      "title": "Javni prevoz",
+      "text": "[Najbliže stanice i linije.]"
+    }
+  ]
+}

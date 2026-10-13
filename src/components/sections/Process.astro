@@ -1,14 +1,17 @@
 ---
 import SectionHeading from '../SectionHeading.astro';
-import process from '../../data/process.json';
+import { getLang, getData, t } from '../../i18n';
+const lang = getLang(Astro.url);
+const ui = t(lang);
+const process = getData(lang).process;
 ---
 
 <section class="bg-sand py-18 sm:py-28">
   <div class="container-site flex flex-col gap-14">
     <SectionHeading
-      eyebrow="Kako radimo"
-      title="Od ideje do gotovog komada"
-      text="Od prvog razgovora do poslednje probe — svaki korak je tu da vaš komad bude tačno onakav kakav ste zamislili. Bez žurbe, bez kompromisa."
+      eyebrow={ui.process.eyebrow}
+      title={ui.process.title}
+      text={ui.process.text}
     />
     <ol class="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-10 p-0">
       {process.steps.map((step, i) => (

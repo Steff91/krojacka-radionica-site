@@ -1,12 +1,14 @@
 ---
 import SectionHeading from './SectionHeading.astro';
+import { getLang, t } from '../i18n';
 
 interface Props {
   items: { q: string; a: string }[];
   eyebrow?: string;
   title?: string;
 }
-const { items, eyebrow = 'Česta pitanja', title = 'Pitanja o usluzi' } = Astro.props;
+const ui = t(getLang(Astro.url));
+const { items, eyebrow = ui.service.faqEyebrow, title = ui.service.faqTitle } = Astro.props;
 ---
 
 {items.length > 0 && (

@@ -1,0 +1,131 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Placeholder from '../components/Placeholder.astro';
+import GallerySlider from '../components/GallerySlider.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import Contact from '../components/sections/Contact.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { alternatesFor, getData, getLang, t } from '../i18n';
+
+const lang = getLang(Astro.url);
+const ui = t(lang);
+const about = getData(lang).about;
+
+const { hero, story, founder, film, approach, workshop } = about;
+const shadow = 'shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)]';
+---
+
+<Base title={about.seoTitle} description={about.seoDescription} alternates={alternatesFor('about')}>
+  <!-- 1. Hero -->
+  <section class="overflow-x-clip pt-12 pb-18 sm:pt-16 sm:pb-24">
+    <div class="container-site flex flex-col gap-12">
+      <div class="flex flex-col gap-5">
+        <Breadcrumbs items={[{ label: hero.title }]} />
+        <h1 class="h-display" data-reveal>{hero.title}</h1>
+        <p class="lead max-w-[560px] text-[19px]" data-reveal style="--i:1">{hero.subtitle}</p>
+      </div>
+      <div class="relative" data-reveal style="--i:2">
+        <div class="absolute top-[-12px] right-[-12px] bottom-3 left-3 border border-gold sm:top-[-20px] sm:right-[-20px] sm:bottom-5 sm:left-5" aria-hidden="true"></div>
+        <Placeholder label={hero.imageLabel} src={hero.image || undefined} alt={hero.title} eager class:list={['relative aspect-[4/3] sm:aspect-[21/9]', shadow]} />
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Story -->
+  <section class="border-t border-line py-18 sm:py-28">
+    <div class="container-site grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
+      <SectionHeading eyebrow={story.eyebrow} title={story.title} titleEm={story.titleEm}>
+        <div class="mt-6 flex flex-col gap-4">
+          {story.paragraphs.map((p, i) => <p class="lead" data-reveal style={`--i:${i + 2}`}>{p}</p>)}
+        </div>
+      </SectionHeading>
+      <Placeholder label={story.imageLabel} src={story.image || undefined} alt="" class:list={['aspect-[4/5]', shadow]} />
+    </div>
+  </section>
+
+  <!-- 3. Founder -->
+  <section class="bg-sand py-18 sm:py-28">
+    <div class="container-site grid items-center gap-16 lg:grid-cols-[0.9fr_1.1fr]">
+      <div class="relative order-2 lg:order-1" data-reveal>
+        <div class="absolute top-[-12px] left-[-12px] right-3 bottom-3 border border-gold sm:top-[-20px] sm:left-[-20px] sm:right-5 sm:bottom-5" aria-hidden="true"></div>
+        <Placeholder label={founder.imageLabel} src={founder.image || undefined} alt={ui.aboutPage.founderAlt} tone="sand-dark" class:list={['relative aspect-[4/5]', shadow]} />
+      </div>
+      <div class="order-1 lg:order-2">
+        <SectionHeading eyebrow={founder.eyebrow} title={founder.title} titleEm={founder.titleEm}>
+          <div class="mt-6 flex flex-col gap-4">
+            {founder.paragraphs.map((p, i) => <p class="lead" data-reveal style={`--i:${i + 2}`}>{p}</p>)}
+          </div>
+          <blockquote class="m-0 mt-10 border-l border-gold pl-8" data-reveal style="--i:4">
+            <span class="block h-8 font-serif text-[72px] leading-[0.9] text-red/70" aria-hidden="true">“</span>
+            <p class="m-0 font-serif text-[26px] leading-[1.35] italic">{founder.quote}</p>
+            <footer class="mt-4 text-[13px] font-medium uppercase tracking-[0.22em] text-red">— Slađana</footer>
+          </blockquote>
+        </SectionHeading>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Film & stage -->
+  <section class="bg-ink py-18 text-on-dark sm:py-28">
+    <div class="container-site grid gap-16 lg:grid-cols-[1fr_1fr]">
+      <div class="flex flex-col gap-10">
+        <SectionHeading eyebrow={film.eyebrow} title={film.title} titleEm={film.titleEm} text={film.text} dark />
+        <ol class="m-0 list-none p-0">
+          {film.productions.map((p, i) => (
+            <li class="grid grid-cols-[80px_1fr] gap-4 border-t border-line-dark py-5 last:border-b" data-reveal style={`--i:${i}`}>
+              <span class="pt-1 font-serif text-lg text-gold italic">{p.year}</span>
+              <span class="flex flex-col gap-1">
+                <span class="font-serif text-xl font-medium uppercase tracking-[0.04em]">{p.title}</span>
+                <span class="text-[15px] text-on-dark-muted">{p.role}</span>
+              </span>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div class="grid grid-cols-2 gap-3 self-start" data-reveal style="--i:2">
+        {film.images.map((img, i) => (
+          <Placeholder
+            label={img.alt.replace(/[[\]]/g, '')}
+            src={(img as { src?: string }).src}
+            alt={img.alt}
+            tone="dark"
+            class={i === 0 ? 'col-span-2 aspect-[16/10]' : 'aspect-[4/5]'}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Approach -->
+  <section class="py-18 sm:py-28">
+    <div class="container-site flex flex-col gap-14">
+      <SectionHeading eyebrow={approach.eyebrow} title={approach.title} />
+      <ol class="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-10 p-0">
+        {approach.items.map((item, i) => (
+          <li class="flex flex-col gap-3 border-t border-gold pt-6" data-reveal style={`--i:${i}`}>
+            <span class="font-serif text-[56px] leading-none text-red italic">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="h-card">{item.title}</h3>
+            <p class="m-0 text-base text-body">{item.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- 6. Workshop gallery -->
+  <GallerySlider
+    id="radionica"
+    class="border-t border-line"
+    eyebrow={workshop.eyebrow}
+    title={workshop.title}
+    text={workshop.text}
+    items={workshop.items}
+  />
+
+  <!-- 7. Testimonials -->
+  <Testimonials />
+
+  <!-- 8. Contact -->
+  <Contact service={ui.nav.about} tone="ivory" />
+</Base>
