@@ -47,7 +47,7 @@ const lightboxItems = works.map((w) => ({
       <ul class="masonry m-0 list-none p-0">
         {works.map((w, i) => (
           <li class="masonry-item mb-4 break-inside-avoid" data-cats={w.categories.map((c) => c.id).join(' ')}>
-            <button type="button" class="work group relative block w-full cursor-zoom-in overflow-hidden border-0 bg-sand p-0 text-left" data-lightbox-open={i} aria-label={`${ui.gallery.zoom}: ${w.alt}`}>
+            <button type="button" class="work group relative isolate block w-full cursor-zoom-in overflow-hidden rounded-card border-0 bg-sand p-0 text-left" data-lightbox-open={i} aria-label={`${ui.gallery.zoom}: ${w.alt}`}>
               <img src={w.src} alt={w.alt} width={w.width} height={w.height} loading={i < 6 ? 'eager' : 'lazy'} class="work-img block h-auto w-full" />
               <span class="work-veil pointer-events-none absolute inset-0" aria-hidden="true"></span>
               <span class="work-caption pointer-events-none absolute inset-x-0 bottom-0 flex flex-col gap-1 p-5 text-ivory" aria-hidden="true">

@@ -74,7 +74,7 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
             const active = path.startsWith(s.url);
             return (
               <li>
-                <a href={s.url} class="mega-item group flex gap-4 rounded p-4 no-underline hover:bg-sand hover:text-ink" aria-current={active ? 'page' : undefined}>
+                <a href={s.url} class="mega-item group flex gap-4 rounded-card p-4 no-underline hover:bg-sand hover:text-ink" aria-current={active ? 'page' : undefined}>
                   <span class="pt-1 font-serif text-lg leading-none text-red italic">{String(s.data.order).padStart(2, '0')}</span>
                   <span class="flex flex-col gap-1.5">
                     <span class:list={['inline-flex items-center gap-2 whitespace-nowrap font-serif text-lg font-medium uppercase tracking-[0.04em]', active && 'text-red']}>
@@ -91,7 +91,7 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
       </div>
 
       {brand && (
-        <a href={brand.url} class="group relative flex flex-col justify-end overflow-hidden rounded bg-ink p-7 text-on-dark no-underline hover:text-on-dark">
+        <a href={brand.url} class="group relative flex flex-col justify-end overflow-hidden rounded-media bg-ink p-7 text-on-dark no-underline hover:text-on-dark">
           <span class="absolute top-0 right-0 h-28 w-28 translate-x-10 -translate-y-10 rounded-full border border-gold/40" aria-hidden="true"></span>
           <span class="absolute top-0 right-0 h-44 w-44 translate-x-14 -translate-y-14 rounded-full border border-gold/20" aria-hidden="true"></span>
           <span class="mb-3 text-xs font-medium uppercase tracking-[0.22em] text-gold">{ui.nav.forDesigners}</span>

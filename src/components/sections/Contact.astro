@@ -28,10 +28,7 @@ const dark = tone === 'dark';
 // Static site: the form posts to an external handler (e.g. Formspree) set in info.json → formAction.
 // Field names stay Serbian in both languages so the inbox gets consistent keys; `jezik` says which site version sent it.
 const field = ['flex flex-col gap-2 text-[13px] uppercase tracking-[0.12em]', dark ? 'text-on-dark-muted' : 'text-body'];
-const input = [
-  'min-h-12 border-0 border-b bg-transparent font-sans text-[17px] font-light normal-case tracking-normal focus:outline-none',
-  dark ? 'border-on-dark-muted text-on-dark focus:border-gold' : 'border-muted text-ink focus:border-red',
-];
+const input = ['field-input', dark && 'field-input-dark'];
 const label = ['m-0 text-xs font-medium uppercase tracking-[0.22em]', dark ? 'text-on-dark-muted' : 'text-muted'];
 const body = dark ? 'lead !text-on-dark-muted' : 'lead';
 ---
@@ -67,7 +64,7 @@ const body = dark ? 'lead !text-on-dark-muted' : 'lead';
         <input type="text" name="kontakt" autocomplete="email" required class:list={input} />
       </label>
       <label class:list={field}>{ui.contact.message}
-        <textarea name="poruka" rows="4" class:list={[...input, 'resize-y pt-3']}></textarea>
+        <textarea name="poruka" rows="4" class:list={input}></textarea>
       </label>
       <div>
         <button type="submit" class:list={['btn', dark ? 'btn-gold' : 'btn-red']}>{submit}</button>

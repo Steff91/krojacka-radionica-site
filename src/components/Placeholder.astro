@@ -10,8 +10,12 @@ interface Props {
   position?: string;
   /** Load immediately (above-the-fold images such as the hero) */
   eager?: boolean;
+  /** Square corners (when a parent already clips to a rounded shape) */
+  square?: boolean;
 }
-const { label, src, alt = '', class: className = '', tone = 'sand', position = 'center', eager = false } = Astro.props;
+const { label, src, alt = '', class: className = '', tone = 'sand', position = 'center', eager = false, square = false } = Astro.props;
+// isolate keeps the rounded clip while the image scales on hover (Safari)
+const shape = square ? '' : 'rounded-media isolate';
 const tones = {
   sand: '',
   'sand-dark': '!bg-sand-dark',
@@ -21,7 +25,7 @@ const tones = {
 ---
 
 {src ? (
-  <div class:list={['overflow-hidden', className]}>
+  <div class:list={['overflow-hidden', shape, className]}>
     <img
       src={src}
       alt={alt}
@@ -32,5 +36,5 @@ const tones = {
     />
   </div>
 ) : (
-  <div class:list={['placeholder', tones[tone], className]}>[{label}]</div>
+  <div class:list={['placeholder', shape, tones[tone], className]}>[{label}]</div>
 )}

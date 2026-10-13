@@ -27,6 +27,11 @@
   --color-on-dark: #F0EAE0;
   --color-on-dark-muted: #C9BFB3;
 
+  /* Rounded, soft shapes: cards, photos, chat-style bubbles */
+  --radius-card: 1.25rem;
+  --radius-media: 1.75rem;
+  --radius-bubble: 1.5rem;
+
   --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: "DM Sans", system-ui, sans-serif;
 }
@@ -74,7 +79,7 @@
   .link-arrow:hover .chev, .group:hover .chev { transform: translateX(4px); }
 
   .btn {
-    @apply inline-flex min-h-[52px] cursor-pointer items-center justify-center gap-2.5 rounded px-[30px] text-sm uppercase tracking-[0.12em] no-underline;
+    @apply inline-flex min-h-[52px] cursor-pointer items-center justify-center gap-2.5 rounded-full px-[30px] text-sm uppercase tracking-[0.12em] no-underline;
     transition: background-color .3s ease, color .3s ease, border-color .3s ease;
   }
   .btn-sm { @apply min-h-11 px-[22px]; }
@@ -92,6 +97,18 @@
   .placeholder {
     @apply flex items-center justify-center bg-sand p-6 text-center text-[13px] tracking-[0.08em] text-muted;
   }
+
+  /* Rounded form fields (contact + booking) */
+  .field-input {
+    @apply min-h-[52px] w-full rounded-card border border-line bg-ivory px-5 font-sans text-[17px] font-light normal-case tracking-normal text-ink;
+    transition: border-color .3s ease, box-shadow .3s ease;
+  }
+  .field-input:focus { @apply border-red outline-none; box-shadow: 0 0 0 4px rgba(160, 60, 60, .12); }
+  .field-input::placeholder { color: color-mix(in srgb, var(--color-muted) 70%, transparent); }
+  textarea.field-input { @apply resize-y py-4; }
+  select.field-input { @apply cursor-pointer appearance-none pr-12; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 320 512'%3E%3Cpath fill='%232D2926' d='M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z' transform='rotate(90 160 256)'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 20px center; }
+  .field-input-dark { @apply border-line-dark bg-ink-soft text-on-dark; }
+  .field-input-dark:focus { @apply border-gold; box-shadow: 0 0 0 4px rgba(201, 169, 110, .18); }
 }
 
 /* Subtle reveal on scroll — only when JS runs and motion is allowed */

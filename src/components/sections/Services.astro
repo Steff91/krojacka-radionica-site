@@ -25,13 +25,13 @@ const services = (await getServices(lang)).filter((s) => s.data.variant === 'def
     <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-x-8 gap-y-12">
       {services.map((s, i) => (
         <a href={s.url} class="service-card group flex flex-col gap-4 no-underline hover:text-ink" data-reveal style={`--i:${i % 3}`}>
-          <div class="relative aspect-[4/5] overflow-hidden">
+          <div class="relative isolate aspect-[4/5] overflow-hidden rounded-media">
             <div class="card-media h-full w-full">
-              <Placeholder label={s.data.imageLabel} src={s.data.image} alt={s.data.title} class="h-full w-full" />
+              <Placeholder label={s.data.imageLabel} src={s.data.image} alt={s.data.title} class="h-full w-full" square />
             </div>
             <!-- Warm veil + label rising from the bottom -->
             <div class="card-veil pointer-events-none absolute inset-0" aria-hidden="true"></div>
-            <span class="card-cta pointer-events-none absolute bottom-6 left-6 inline-flex items-center gap-2.5 rounded bg-ivory px-4 py-2.5 text-[13px] font-medium uppercase tracking-[0.12em] text-ink" aria-hidden="true">
+            <span class="card-cta pointer-events-none absolute bottom-6 left-6 inline-flex items-center gap-2.5 rounded-full bg-ivory px-4 py-2.5 text-[13px] font-medium uppercase tracking-[0.12em] text-ink" aria-hidden="true">
               {ui.cta.view}<Icon name="chevron-right" size={11} />
             </span>
           </div>

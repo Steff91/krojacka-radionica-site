@@ -26,7 +26,7 @@ const shadow = 'shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)]';
         <p class="lead max-w-[560px] text-[19px]" data-reveal style="--i:1">{hero.subtitle}</p>
       </div>
       <div class="relative" data-reveal style="--i:2">
-        <div class="absolute top-[-12px] right-[-12px] bottom-3 left-3 border border-gold sm:top-[-20px] sm:right-[-20px] sm:bottom-5 sm:left-5" aria-hidden="true"></div>
+        <div class="absolute top-[-12px] right-[-12px] bottom-3 left-3 border border-gold rounded-media sm:top-[-20px] sm:right-[-20px] sm:bottom-5 sm:left-5" aria-hidden="true"></div>
         <Placeholder label={hero.imageLabel} src={hero.image || undefined} alt={hero.title} eager class:list={['relative aspect-[4/3] sm:aspect-[21/9]', shadow]} />
       </div>
     </div>
@@ -48,7 +48,7 @@ const shadow = 'shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)]';
   <section class="bg-sand py-18 sm:py-28">
     <div class="container-site grid items-center gap-16 lg:grid-cols-[0.9fr_1.1fr]">
       <div class="relative order-2 lg:order-1" data-reveal>
-        <div class="absolute top-[-12px] left-[-12px] right-3 bottom-3 border border-gold sm:top-[-20px] sm:left-[-20px] sm:right-5 sm:bottom-5" aria-hidden="true"></div>
+        <div class="absolute top-[-12px] left-[-12px] right-3 bottom-3 border border-gold rounded-media sm:top-[-20px] sm:left-[-20px] sm:right-5 sm:bottom-5" aria-hidden="true"></div>
         <Placeholder label={founder.imageLabel} src={founder.image || undefined} alt={ui.aboutPage.founderAlt} tone="sand-dark" class:list={['relative aspect-[4/5]', shadow]} />
       </div>
       <div class="order-1 lg:order-2">

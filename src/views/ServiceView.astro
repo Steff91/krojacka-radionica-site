@@ -59,7 +59,7 @@ const schema = [
         </div>
       </div>
       <div class="relative" data-reveal style="--i:2">
-        <div class="absolute top-[-12px] right-[-12px] bottom-3 left-3 border border-gold sm:top-[-20px] sm:right-[-20px] sm:bottom-5 sm:left-5" aria-hidden="true"></div>
+        <div class="absolute top-[-12px] right-[-12px] bottom-3 left-3 border border-gold rounded-media sm:top-[-20px] sm:right-[-20px] sm:bottom-5 sm:left-5" aria-hidden="true"></div>
         <Placeholder label={d.imageLabel} src={d.image} alt={d.title} eager tone={featured ? 'dark' : 'sand'} class:list={['relative aspect-[4/5] lg:aspect-auto lg:h-[600px]', shadow]} />
       </div>
     </div>
@@ -70,10 +70,9 @@ const schema = [
     <section class="border-t border-line py-18 sm:py-28">
       <div class="container-site flex flex-col gap-14">
         <SectionHeading eyebrow={d.itemsEyebrow ?? ui.service.itemsEyebrow} title={d.itemsTitle ?? d.title} />
-        <!-- Overlapping 1px borders (-m-px) so a partial last row leaves no filled gaps -->
-        <ul class="m-0 grid list-none pt-px pl-px sm:grid-cols-2 lg:grid-cols-3">
+        <ul class="m-0 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
           {d.items.map((item, i) => (
-            <li class="item-card -mt-px -ml-px flex flex-col gap-3 border border-line bg-ivory p-8 sm:p-10" data-reveal style={`--i:${i % 3}`}>
+            <li class="item-card flex flex-col gap-3 rounded-media border border-line bg-ivory p-8 sm:p-10" data-reveal style={`--i:${i % 3}`}>
               <span class="font-serif text-lg leading-none text-red italic">{String(i + 1).padStart(2, '0')}</span>
               <h3 class="h-card mt-2">{item.title}</h3>
               <p class="m-0 text-base text-body">{item.text}</p>

@@ -15,7 +15,7 @@ const services = await getServices(lang);
 const privacyUrl = await legalUrl(lang, 'privatnost');
 
 const field = 'flex flex-col gap-2 text-[13px] uppercase tracking-[0.12em] text-body';
-const input = 'min-h-12 w-full border-0 border-b border-muted bg-transparent font-sans text-[17px] font-light normal-case tracking-normal text-ink focus:border-red focus:outline-none';
+const input = 'field-input';
 const steps = b.steps;
 ---
 
@@ -38,7 +38,7 @@ const steps = b.steps;
         <input type="hidden" name="jezik" value={lang} />
 
         <label class:list={[field, 'sm:col-span-2']}>{b.service}
-          <select name="usluga" required class:list={[input, 'cursor-pointer']} data-service-select>
+          <select name="usluga" required class={input} data-service-select>
             <option value="" disabled selected>{b.choose}</option>
             {services.map((s) => <option value={s.data.title} data-id={s.key}>{s.data.title}</option>)}
             <option value={b.other}>{b.other}</option>
@@ -59,13 +59,13 @@ const steps = b.steps;
           <input type="date" name="datum" class={input} data-min-today />
         </label>
         <label class={field}>{b.daypart}
-          <select name="deo_dana" class:list={[input, 'cursor-pointer']}>
+          <select name="deo_dana" class={input}>
             {b.dayparts.map((o) => <option>{o}</option>)}
           </select>
         </label>
 
         <label class:list={[field, 'sm:col-span-2']}>{b.deadline}
-          <input type="text" name="rok" placeholder={b.deadlinePlaceholder} class:list={[input, 'placeholder:text-muted/70']} />
+          <input type="text" name="rok" placeholder={b.deadlinePlaceholder} class={input} />
         </label>
 
         <fieldset class="m-0 flex flex-col gap-3 border-0 p-0 sm:col-span-2">
@@ -81,10 +81,10 @@ const steps = b.steps;
         </fieldset>
 
         <label class:list={[field, 'sm:col-span-2']}>{b.idea}
-          <textarea name="poruka" rows="4" class:list={[input, 'resize-y pt-3']}></textarea>
+          <textarea name="poruka" rows="4" class={input}></textarea>
         </label>
         <label class:list={[field, 'sm:col-span-2']}>{b.inspiration}
-          <input type="url" name="inspiracija" placeholder="https://" class:list={[input, 'placeholder:text-muted/70']} />
+          <input type="url" name="inspiracija" placeholder="https://" class={input} />
         </label>
 
         <div class="sm:col-span-2">
@@ -94,7 +94,7 @@ const steps = b.steps;
       </form>
 
       <!-- Aside -->
-      <aside class="flex flex-col gap-8 bg-sand p-8 sm:p-10 lg:sticky lg:top-28">
+      <aside class="flex flex-col gap-8 rounded-media bg-sand p-8 sm:p-10 lg:sticky lg:top-28">
         <div>
           <p class="eyebrow">{b.howTitle}</p>
           <ol class="m-0 flex list-none flex-col gap-5 p-0">

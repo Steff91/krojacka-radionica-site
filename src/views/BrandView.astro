@@ -56,7 +56,7 @@ if (answered.length > 0) {
         <div data-reveal style="--i:3"><a href={bookingUrl(lang, service.key)} class="btn btn-gold">{ui.cta.book}</a></div>
       </div>
       <div class="relative" data-reveal style="--i:2">
-        <div class="absolute top-[-12px] right-[-12px] bottom-3 left-3 border border-gold/60 sm:top-[-20px] sm:right-[-20px] sm:bottom-5 sm:left-5" aria-hidden="true"></div>
+        <div class="absolute top-[-12px] right-[-12px] bottom-3 left-3 border border-gold/60 rounded-media sm:top-[-20px] sm:right-[-20px] sm:bottom-5 sm:left-5" aria-hidden="true"></div>
         <Placeholder label={d.imageLabel} src={d.image} alt={d.title} eager tone="dark" class="relative aspect-[4/5] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)] lg:aspect-auto lg:h-[600px]" />
       </div>
     </div>
@@ -68,7 +68,7 @@ if (answered.length > 0) {
       <SectionHeading eyebrow={audience.eyebrow} title={audience.title} titleEm={audience.titleEm} />
       <ul class="m-0 grid list-none gap-8 p-0 md:grid-cols-3">
         {audience.items.map((a, i) => (
-          <li class="flex flex-col gap-4 border-t-[3px] border-gold bg-sand p-8 sm:p-10" data-reveal style={`--i:${i}`}>
+          <li class="flex flex-col gap-4 rounded-media bg-sand p-8 sm:p-10" data-reveal style={`--i:${i}`}>
             <h3 class="h-card">{a.title}</h3>
             <p class="m-0 text-base text-body">{a.text}</p>
           </li>
