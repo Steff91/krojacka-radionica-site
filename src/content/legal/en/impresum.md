@@ -2,7 +2,7 @@
 title: Imprint
 urlSlug: imprint
 description: Details of the legal entity behind the tailoring workshop's website.
-updated: "[DATE]"
+updated: "13 October 2026"
 ---
 
 ## Company details

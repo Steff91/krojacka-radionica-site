@@ -2,7 +2,7 @@
 title: Privacy Policy
 urlSlug: privacy-policy
 description: How the tailoring workshop collects, uses and stores personal data sent through the website.
-updated: "[DATE]"
+updated: "13 October 2026"
 ---
 
 ## Who processes the data

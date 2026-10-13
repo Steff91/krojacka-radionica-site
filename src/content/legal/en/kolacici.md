@@ -2,7 +2,7 @@
 title: Cookies
 urlSlug: cookies
 description: Which cookies and local data the tailoring workshop's website uses and how you can change your choice.
-updated: "[DATE]"
+updated: "13 October 2026"
 ---
 
 ## What cookies are

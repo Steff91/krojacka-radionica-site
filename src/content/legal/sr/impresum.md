@@ -1,7 +1,7 @@
 ---
 title: Impresum
 description: Podaci o pravnom licu koje stoji iza sajta krojačke radionice.
-updated: "[DATUM]"
+updated: "13. 10. 2026."
 ---
 
 ## Podaci o firmi

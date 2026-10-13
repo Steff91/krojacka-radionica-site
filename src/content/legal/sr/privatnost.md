@@ -1,7 +1,7 @@
 ---
 title: Politika privatnosti
 description: Kako krojačka radionica prikuplja, koristi i čuva podatke o ličnosti poslate preko sajta.
-updated: "[DATUM]"
+updated: "13. 10. 2026."
 ---
 
 ## Ko obrađuje podatke

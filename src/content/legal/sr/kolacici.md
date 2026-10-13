@@ -1,7 +1,7 @@
 ---
 title: Kolačići
 description: Koje kolačiće i lokalne podatke koristi sajt krojačke radionice i kako možete promeniti svoj izbor.
-updated: "[DATUM]"
+updated: "13. 10. 2026."
 ---
 
 ## Šta su kolačići
