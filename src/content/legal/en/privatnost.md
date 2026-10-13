@@ -30,7 +30,8 @@ The legal basis for processing is your request for us to contact you before ente
 
 ## Who else has access to the data
 
-- **Form service** — [service name, e.g. Formspree], through which messages from the website reach us.
+- **Hosting provider** — form messages are processed by the server the site runs on and sent to our email address; they are not stored in a database on the site.
+- **Instagram (Meta) and Behold** — the home page shows our latest Instagram posts; the images load from their servers, so they see your IP address and browser data.
 - **Hosting** — the server on which the website is hosted.
 - **Google reCAPTCHA** — a Google service that protects the forms against spam and automated abuse (see below).
 

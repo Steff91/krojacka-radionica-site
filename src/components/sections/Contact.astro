@@ -1,4 +1,5 @@
 ---
+import FormStatus from '../FormStatus.astro';
 import RecaptchaNotice from '../RecaptchaNotice.astro';
 import HeroTexture from '../HeroTexture.astro';
 import Icon from '../Icon.astro';
@@ -57,7 +58,7 @@ const body = dark ? 'lead !text-on-dark-muted' : 'lead';
       </div>
     </div>
 
-    <form method="POST" action={info.formAction || undefined} class="flex flex-col gap-5" data-reveal style="--i:1">
+    <form method="POST" action={info.formAction || undefined} class="relative flex flex-col gap-5" data-reveal style="--i:1" data-site-form>
       <input type="hidden" name="usluga" value={service} />
       <input type="hidden" name="jezik" value={lang} />
       <label class:list={field}>{ui.contact.name}
@@ -75,6 +76,7 @@ const body = dark ? 'lead !text-on-dark-muted' : 'lead';
           {ui.contact.consent} <a href={privacyUrl} class:list={[dark && 'text-on-dark hover:text-gold']}>{ui.contact.consentLink}</a>.
         </p>
         <RecaptchaNotice dark={dark} />
+        <FormStatus dark={dark} />
       </div>
     </form>
   </div>

@@ -15,5 +15,7 @@
   "googleWriteReview": "https://search.google.com/local/writereview?placeid=ChIJBRIw6sdvWkcR9AHcgfg2zT8",
   "googleRating": "5.0",
   "googleReviewCount": "28",
-  "formAction": ""
+  "formAction": "/api/send.php",
+  "instagramFeed": "https://feeds.behold.so/R3jDaOTCPIFNXpXHbtKy",
+  "recaptchaSiteKey": "6Ld9w-0tAAAAAC4CR7j5cUM8KjLTfAfuOcHofmEZ"
 }

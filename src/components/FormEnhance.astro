@@ -1,0 +1,72 @@
+---
+// Sends [data-site-form] forms with fetch, adds a reCAPTCHA v3 token, and shows the result inline.
+// The reCAPTCHA script loads only when a visitor starts filling in a form.
+// Without JavaScript the form still posts normally and send.php redirects back with ?poslato=1|0.
+import info from '../data/info.json';
+const siteKey = (info as { recaptchaSiteKey?: string }).recaptchaSiteKey ?? '';
+---
+
+<script is:inline define:vars={{ siteKey }}>
+  (() => {
+    const forms = document.querySelectorAll('form[data-site-form]');
+    if (!forms.length) return;
+
+    let loading = null;
+    const loadRecaptcha = () => {
+      if (!siteKey) return Promise.resolve(null);
+      if (loading) return loading;
+      loading = new Promise((resolve) => {
+        const s = document.createElement('script');
+        s.src = 'https://www.google.com/recaptcha/api.js?render=' + encodeURIComponent(siteKey);
+        s.async = true;
+        s.onload = () => window.grecaptcha.ready(() => resolve(window.grecaptcha));
+        s.onerror = () => resolve(null);
+        document.head.appendChild(s);
+      });
+      return loading;
+    };
+
+    const show = (el, kind) => {
+      if (!el) return;
+      el.textContent = el.dataset['msg' + kind[0].toUpperCase() + kind.slice(1)] || '';
+      el.dataset.kind = kind;
+      el.hidden = false;
+    };
+
+    forms.forEach((form) => {
+      const status = form.querySelector('[data-form-status]');
+      const button = form.querySelector('[type="submit"]');
+
+      // Start loading reCAPTCHA as soon as someone interacts with the form
+      form.addEventListener('focusin', loadRecaptcha, { once: true });
+
+      // Came back from a no-JS submit
+      const flag = new URLSearchParams(location.search).get('poslato');
+      if (flag !== null && form.closest('#kontakt, [id="kontakt"]')) show(status, flag === '1' ? 'success' : 'error');
+
+      form.addEventListener('submit', async (e) => {
+        if (!form.action) return;
+        e.preventDefault();
+        if (button) button.disabled = true;
+        show(status, 'sending');
+        try {
+          const data = new FormData(form);
+          const g = await loadRecaptcha();
+          if (g) data.set('g-recaptcha-response', await g.execute(siteKey, { action: 'submit' }));
+          const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+          const json = await res.json().catch(() => ({ ok: false }));
+          if (json.ok) {
+            show(status, 'success');
+            form.reset();
+          } else {
+            show(status, 'error');
+          }
+        } catch {
+          show(status, 'error');
+        } finally {
+          if (button) button.disabled = false;
+        }
+      });
+    });
+  })();
+</script>

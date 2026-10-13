@@ -1,4 +1,4 @@
-# Apache (Plesk). Static site: no PHP, no server-side code.
+# Apache (Plesk). Static site; the only server-side code is api/send.php (form handler).
 
 # --- Security headers ---
 <IfModule mod_headers.c>
@@ -33,4 +33,9 @@ ErrorDocument 404 /404.html
   <FilesMatch "\.html$">
     Header set Cache-Control "no-cache"
   </FilesMatch>
+</IfModule>
+
+# --- /api/: only the form handler is reachable ---
+<IfModule mod_rewrite.c>
+  RewriteRule ^api/(?!send\.php$) - [F]
 </IfModule>

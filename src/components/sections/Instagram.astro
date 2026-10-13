@@ -1,0 +1,66 @@
+---
+// Latest Instagram posts (Behold feed, read at build time — see lib/instagram.ts). Sits above the footer on the home page.
+import SectionHeading from '../SectionHeading.astro';
+import Icon from '../Icon.astro';
+import info from '../../data/info.json';
+import { getInstagramPosts } from '../../lib/instagram';
+import { getLang, t } from '../../i18n';
+
+const ui = t(getLang(Astro.url));
+const posts = await getInstagramPosts(6);
+---
+
+{posts.length > 0 && (
+  <section class="py-18 sm:py-24">
+    <div class="container-site flex flex-col gap-10">
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        <SectionHeading eyebrow={`${ui.instagram.eyebrow} · ${info.instagramHandle}`} title={ui.instagram.title} titleEm={ui.instagram.titleEm} text={ui.instagram.text} />
+        <a href={info.instagram} target="_blank" rel="noopener" class="btn btn-outline shrink-0">
+          <Icon name="instagram" size={15} />{ui.instagram.open}
+        </a>
+      </div>
+
+      <ul class="m-0 grid list-none grid-cols-2 gap-3 p-0 sm:grid-cols-3 lg:grid-cols-6">
+        {posts.map((p, i) => (
+          <li data-reveal style={`--i:${i % 6}`}>
+            <a
+              href={p.permalink}
+              target="_blank"
+              rel="noopener"
+              class="ig-tile group relative isolate block aspect-square overflow-hidden rounded-card bg-sand no-underline"
+              aria-label={p.caption ? `${ui.instagram.post}: ${p.caption}` : ui.instagram.post}
+            >
+              <img
+                src={p.image.mediaUrl}
+                alt={p.caption}
+                width={p.image.width}
+                height={p.image.height}
+                loading="lazy"
+                decoding="async"
+                class="ig-img h-full w-full object-cover"
+              />
+              <span class="ig-veil pointer-events-none absolute inset-0 flex items-center justify-center text-ivory" aria-hidden="true">
+                <Icon name="instagram" size={26} />
+              </span>
+              {p.mediaType === 'VIDEO' && (
+                <span class="pointer-events-none absolute top-2.5 right-2.5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-ink/60 text-ivory" title={ui.instagram.video} aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M2 1 L9 5 L2 9 Z" /></svg>
+                </span>
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
+
+<style>
+  .ig-img { transition: transform .8s cubic-bezier(.2, .7, .2, 1); }
+  .ig-veil { background: rgba(45, 41, 38, .45); opacity: 0; transition: opacity .4s ease; }
+  .ig-tile:hover .ig-img, .ig-tile:focus-visible .ig-img { transform: scale(1.05); }
+  .ig-tile:hover .ig-veil, .ig-tile:focus-visible .ig-veil { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) {
+    .ig-img, .ig-veil { transition: none; }
+  }
+</style>

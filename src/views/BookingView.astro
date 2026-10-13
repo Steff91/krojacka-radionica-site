@@ -1,4 +1,5 @@
 ---
+import FormStatus from '../components/FormStatus.astro';
 import RecaptchaNotice from '../components/RecaptchaNotice.astro';
 import HeroTexture from '../components/HeroTexture.astro';
 // Booking request form. Preselect a service with ?usluga=<service-key> (all CTAs on service pages do this).
@@ -36,7 +37,7 @@ const steps = b.steps;
   <section class="pb-18 sm:pb-28">
     <div class="container-site grid items-start gap-14 lg:grid-cols-[1.25fr_0.75fr]">
       <!-- Form -->
-      <form id="kontakt" method="POST" action={info.formAction || undefined} class="grid gap-x-8 gap-y-7 sm:grid-cols-2" data-booking-form>
+      <form id="kontakt" method="POST" action={info.formAction || undefined} class="relative grid gap-x-8 gap-y-7 sm:grid-cols-2" data-booking-form data-site-form>
         <input type="hidden" name="_tema" value={b.subject} />
         <input type="hidden" name="jezik" value={lang} />
 
@@ -94,6 +95,7 @@ const steps = b.steps;
           <button type="submit" class="btn btn-red">{b.send}<Icon name="chevron-right" size={11} class="chev" /></button>
           <p class="m-0 mt-3 text-[13px] text-muted">{b.confirm} {ui.contact.consent} <a href={privacyUrl}>{ui.contact.consentLink}</a>.</p>
           <RecaptchaNotice />
+          <FormStatus />
         </div>
       </form>
 

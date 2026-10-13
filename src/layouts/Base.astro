@@ -5,6 +5,7 @@ import TopBar from '../components/TopBar.astro';
 import Footer from '../components/Footer.astro';
 import BackToTop from '../components/BackToTop.astro';
 import CookieBanner from '../components/CookieBanner.astro';
+import FormEnhance from '../components/FormEnhance.astro';
 import { getLang, getInfo, t, HTML_LANG, LANGS, type Alternates } from '../i18n';
 // Above-the-fold fonts, preloaded so text doesn't flash in a fallback font on first load
 import cg500 from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff2?url';
@@ -101,6 +102,7 @@ const business = {
     <Footer />
     <BackToTop />
     <CookieBanner />
+    <FormEnhance />
 
     <script>
       // Subtle reveal: elements with [data-reveal] fade up once, staggered by --i.

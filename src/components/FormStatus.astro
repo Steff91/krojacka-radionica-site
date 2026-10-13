@@ -1,0 +1,28 @@
+---
+// Hidden honeypot field + status line for forms handled by FormEnhance (public/api/send.php).
+import info from '../data/info.json';
+import { getLang, t } from '../i18n';
+interface Props {
+  dark?: boolean;
+}
+const { dark = false } = Astro.props;
+const ui = t(getLang(Astro.url));
+---
+
+<div class="hp-field" aria-hidden="true">
+  <label>{ui.form.honeypot}<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+</div>
+<p
+  class:list={['form-status m-0 mt-4 rounded-card px-4 py-3 text-[15px]', dark ? 'bg-ink-soft text-on-dark' : 'bg-sand text-ink']}
+  role="status"
+  aria-live="polite"
+  data-form-status
+  data-msg-sending={ui.form.sending}
+  data-msg-success={ui.form.success}
+  data-msg-error={`${ui.form.error} ${info.phone}.`}
+  hidden
+></p>
+
+<style>
+  .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+</style>

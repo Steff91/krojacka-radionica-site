@@ -29,7 +29,8 @@ Pravni osnov obrade je vaš zahtev da sa vama stupimo u kontakt pre zaključenja
 
 ## Ko još ima pristup podacima
 
-- **Servis za prijem formi** — [naziv servisa, npr. Formspree], preko kog nam stižu poruke sa sajta.
+- **Hosting provajder** — poruke iz formi obrađuje server na kom je sajt i šalje ih na našu email adresu; ne čuvaju se u bazi na sajtu.
+- **Instagram (Meta) i Behold** — na početnoj strani prikazujemo poslednje objave sa našeg Instagram profila; slike se učitavaju sa njihovih servera, pa oni vide vašu IP adresu i podatke o pregledaču.
 - **Hosting** — server na kom se sajt nalazi.
 - **Google reCAPTCHA** — servis kompanije Google koji štiti forme od spama i automatizovanih zloupotreba (vidi niže).
 

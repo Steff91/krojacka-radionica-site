@@ -199,6 +199,21 @@ const sr = {
     callInstead: 'Radije pozovite?',
   },
   legal: { updated: 'Poslednja izmena' },
+  instagram: {
+    eyebrow: 'Instagram',
+    title: 'Pratite nas',
+    titleEm: 'na Instagramu',
+    text: 'Najnoviji radovi, probe i rad u toku — iz radionice, svakodnevno.',
+    open: 'Otvorite Instagram',
+    post: 'Objava na Instagramu',
+    video: 'Video',
+  },
+  form: {
+    sending: 'Šaljem…',
+    success: 'Hvala! Poruka je poslata — javićemo vam se uskoro.',
+    error: 'Poruka nije poslata. Pokušajte ponovo ili nas pozovite na',
+    honeypot: 'Ne popunjavajte ovo polje',
+  },
   recaptcha: {
     // Wording Google requires when the reCAPTCHA badge is hidden
     before: 'Ovaj sajt je zaštićen sistemom reCAPTCHA i na njega se primenjuju Google',
@@ -431,6 +446,21 @@ const en: UI = {
     callInstead: 'Prefer to call?',
   },
   legal: { updated: 'Last updated' },
+  instagram: {
+    eyebrow: 'Instagram',
+    title: 'Follow us',
+    titleEm: 'on Instagram',
+    text: 'The latest pieces, fittings and work in progress — straight from the workshop.',
+    open: 'Open Instagram',
+    post: 'Instagram post',
+    video: 'Video',
+  },
+  form: {
+    sending: 'Sending…',
+    success: 'Thank you! Your message has been sent — we will get back to you soon.',
+    error: 'Your message could not be sent. Please try again or call us on',
+    honeypot: 'Leave this field empty',
+  },
   recaptcha: {
     before: 'This site is protected by reCAPTCHA and the Google',
     privacy: 'Privacy Policy',

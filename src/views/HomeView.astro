@@ -8,6 +8,7 @@ import Story from '../components/sections/Story.astro';
 import Testimonials from '../components/sections/Testimonials.astro';
 import Work from '../components/sections/Work.astro';
 import Contact from '../components/sections/Contact.astro';
+import Instagram from '../components/sections/Instagram.astro';
 import { alternatesFor, getLang, t } from '../i18n';
 
 const ui = t(getLang(Astro.url));
@@ -22,4 +23,5 @@ const ui = t(getLang(Astro.url));
   <Testimonials />
   <Work />
   <Contact />
+  <Instagram />
 </Base>
