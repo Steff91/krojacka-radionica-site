@@ -31,4 +31,4 @@ Tekstovi i fotografije na ovom sajtu vlasništvo su radionice, osim ako nije dru
 
 ## Izrada sajta
 
-[Ime izrađivača sajta i link — opciono.]
+Sajt je izradio [wp-creative.com](https://wp-creative.com).

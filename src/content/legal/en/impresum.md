@@ -32,4 +32,4 @@ The text and photographs on this website are the property of the workshop unless
 
 ## Website design
 
-[Name of the website developer and link — optional.]
+Website by [wp-creative.com](https://wp-creative.com).
