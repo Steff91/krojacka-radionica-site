@@ -13,6 +13,7 @@ const categories = [...new Set(posts.map((p) => p.data.category))];
   title="Blog | Saveti o šivenju po meri — Krojačka radionica Beograd"
   description="Saveti o izboru materijala, kroja i pripremi za konsultaciju, priče iz radionice i kostimografije."
 >
+  {posts.length === 0 && <div data-blog-empty hidden></div>}
   <section class="pt-12 pb-10 sm:pt-16">
     <div class="container-site flex flex-col gap-5">
       <Breadcrumbs items={[{ label: 'Blog' }]} />

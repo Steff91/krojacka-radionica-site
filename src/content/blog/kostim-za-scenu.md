@@ -1,6 +1,7 @@
 ---
 title: "[Primer] Kostim za scenu: od skice do premijere"
 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit — placeholder opis članka za pretraživače i kartice."
+draft: true
 date: 2026-08-18
 category: Kostimi
 image: /uploads/radovi-dublet.webp

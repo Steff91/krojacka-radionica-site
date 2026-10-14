@@ -34,6 +34,10 @@ for (const p of pairs) {
   alternates.set(new URL(p.en, site).href, links);
 }
 
+// Blog stays out of the sitemap until at least one post is published (draft: false / no draft field)
+const blogDir = './src/content/blog';
+const blogLive = readdir(blogDir).some((f) => f.endsWith('.md') && !/^draft:\s*true\s*$/m.test(read(`${blogDir}/${f}`)));
+
 export default defineConfig({
   site,
   trailingSlash: 'always',
@@ -45,7 +49,7 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/admin/') && !page.includes('/uskoro/'),
+      filter: (page) => !page.includes('/admin/') && !page.includes('/uskoro/') && (blogLive || !page.includes('/blog/')),
       serialize: (item) => {
         const links = alternates.get(item.url);
         return links ? { ...item, links } : item;

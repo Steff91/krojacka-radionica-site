@@ -1,6 +1,7 @@
 ---
 title: "[Primer] Kako izabrati materijal za venčanicu"
 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit — placeholder opis članka za pretraživače i kartice."
+draft: true
 date: 2026-10-05
 category: Venčanice
 image: /uploads/hero-vencanica.webp

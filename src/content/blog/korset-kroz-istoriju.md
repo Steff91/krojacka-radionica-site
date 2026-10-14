@@ -1,6 +1,7 @@
 ---
 title: "[Primer] Korset kroz istoriju"
 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit — placeholder opis članka za pretraživače i kartice."
+draft: true
 date: 2026-09-02
 category: Iz radionice
 image: /uploads/radovi-korset-talasi.webp

@@ -3,6 +3,7 @@ import Logo from './Logo.astro';
 import Icon from './Icon.astro';
 import Social from './Social.astro';
 import { getLang, getInfo, getServices, legalUrl, route, t } from '../i18n';
+import { getPosts } from '../lib/blog';
 
 const lang = getLang(Astro.url);
 const ui = t(lang);
@@ -10,6 +11,8 @@ const info = getInfo(lang);
 const all = await getServices(lang);
 const services = all.filter((s) => s.data.variant === 'default');
 const featured = all.find((s) => s.data.variant === 'featured');
+// The blog link appears once at least one post is published (not a draft)
+const hasPosts = (await getPosts()).length > 0;
 
 const heading = 'mb-2 text-xs font-medium uppercase tracking-[0.22em] text-gold';
 const link = 'text-on-dark no-underline hover:text-gold';
@@ -44,7 +47,7 @@ const legal = {
       <p class={heading}>{ui.nav.workshop}</p>
       <a href={route(lang, 'about')} class={link}>{ui.nav.about}</a>
       <a href={route(lang, 'works')} class={link}>{ui.nav.works}</a>
-      {lang === 'sr' && <a href="/blog/" class={link}>{ui.nav.blog}</a>}
+      {lang === 'sr' && hasPosts && <a href="/blog/" class={link}>{ui.nav.blog}</a>}
       <a href={route(lang, 'contact')} class={link}>{ui.nav.contact}</a>
     </nav>
 

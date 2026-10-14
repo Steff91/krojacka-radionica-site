@@ -2,7 +2,7 @@
 //  - COMING_SOON (src/lib/coming-soon.mjs) → install the coming soon gate (gate.php + .htaccess rules)
 //  - responsive image copies in /uploads/_w/
 //  - otherwise → remove the coming soon page from the output
-import { copyFileSync, appendFileSync, rmSync } from 'node:fs';
+import { copyFileSync, appendFileSync, rmSync, readFileSync, existsSync } from 'node:fs';
 import { COMING_SOON } from '../src/lib/coming-soon.mjs';
 import { WIDTHS } from '../src/lib/responsive-widths.mjs';
 import { readdirSync, mkdirSync } from 'node:fs';
@@ -10,6 +10,13 @@ import sharp from 'sharp';
 
 const dist = new URL('../dist/', import.meta.url);
 const on = COMING_SOON;
+
+// Blog with no published posts (all drafts): leave it out of the site entirely
+const blogIndex = new URL('blog/index.html', dist);
+if (existsSync(blogIndex) && readFileSync(blogIndex, 'utf8').includes('data-blog-empty')) {
+  rmSync(new URL('blog/', dist), { recursive: true, force: true });
+  console.log('[postbuild] blog hidden (no published posts)');
+}
 
 // Responsive copies of /uploads images (see src/lib/responsive.ts)
 const uploads = new URL('uploads/', dist);

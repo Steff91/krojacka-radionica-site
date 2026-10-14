@@ -1,6 +1,7 @@
 ---
 title: "[Primer] Šta poneti na prvu konsultaciju"
 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit — placeholder opis članka za pretraživače i kartice."
+draft: true
 date: 2026-09-21
 category: Saveti
 image: /uploads/hero-detalj.webp
