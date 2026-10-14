@@ -2,9 +2,10 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 
 export type Post = CollectionEntry<'blog'>;
 
-/** Published posts, newest first. Drafts are visible only in `npm run dev`. */
+/** Published posts, newest first. Drafts are hidden everywhere (set PUBLIC_SHOW_DRAFTS=true to preview them locally). */
 export async function getPosts() {
-  const posts = await getCollection('blog', (p) => import.meta.env.DEV || !p.data.draft);
+  const showDrafts = import.meta.env.PUBLIC_SHOW_DRAFTS === 'true';
+  const posts = await getCollection('blog', (p) => showDrafts || !p.data.draft);
   return posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
 
