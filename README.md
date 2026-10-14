@@ -84,13 +84,14 @@ Repository variables: `SITE_URL`, `NOINDEX` (`true` on a preview subdomain), `CO
 
 ### Coming soon / preview password
 
-Build with `PUBLIC_COMING_SOON=true` (repo variable `COMING_SOON=true`) while the site is not public:
+One switch, `DEFAULT` in `src/lib/coming-soon.mjs` (currently `true`), applies to local builds, `npm run dev` and GitHub deploys. `PUBLIC_COMING_SOON=true|false` (repo variable `COMING_SOON`) overrides it.
 
 - every page shows `/uskoro/` (contact details + preview form), robots.txt disallows everything, `X-Robots-Tag: noindex`
+- `npm run dev` shows the same gate (password check in Node)
 - after the preview password, `gate.php` sets a 30-day cookie and serves the real pages
 - password: `preview_password` in `krojacka-config.php` (above httpdocs); without it a built-in default is used (bcrypt hash in `server/gate.php`)
 
-Go live: remove the variable (or set it to `false`) and rebuild — `gate.php` and `/uskoro/` are left out of the output.
+Go live: set `DEFAULT = false` and rebuild — `gate.php` and `/uskoro/` are left out of the output.
 
 ## TODO
 

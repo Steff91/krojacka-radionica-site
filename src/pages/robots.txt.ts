@@ -3,9 +3,10 @@
 // Staging (PUBLIC_NOINDEX) still allows crawling: pages carry <meta name="robots" content="noindex">,
 // which crawlers can only see if they are allowed to fetch the page.
 import type { APIRoute } from 'astro';
+import { COMING_SOON } from '../lib/coming-soon.mjs';
 
 export const GET: APIRoute = ({ site }) => {
-  if (import.meta.env.PUBLIC_COMING_SOON === 'true') {
+  if (COMING_SOON) {
     return new Response('User-agent: *\nDisallow: /\n', { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
   }
   const sitemap = new URL('/sitemap-index.xml', site).href;

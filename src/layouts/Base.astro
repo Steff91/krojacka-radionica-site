@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro';
 import BackToTop from '../components/BackToTop.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import FormEnhance from '../components/FormEnhance.astro';
+import { COMING_SOON } from '../lib/coming-soon.mjs';
 import { getLang, getInfo, t, HTML_LANG, LANGS, type Alternates } from '../i18n';
 // Above-the-fold fonts, preloaded so text doesn't flash in a fallback font on first load
 import cg500 from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff2?url';
@@ -71,7 +72,7 @@ const business = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    {(import.meta.env.PUBLIC_NOINDEX === 'true' || import.meta.env.PUBLIC_COMING_SOON === 'true') && <meta name="robots" content="noindex, nofollow" />}
+    {(import.meta.env.PUBLIC_NOINDEX === 'true' || COMING_SOON) && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
     {hreflangs.length > 1 && hreflangs.map((h) => <link rel="alternate" hreflang={h.hreflang} href={h.href} />)}
     {hreflangs.length > 1 && xDefault && <link rel="alternate" hreflang="x-default" href={xDefault} />}

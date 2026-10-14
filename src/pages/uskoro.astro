@@ -58,7 +58,14 @@ import site from '../data/sr/site.json';
     </main>
     <script is:inline>
       // Return to the page that was originally requested
-      if (location.pathname !== '/gate.php') document.querySelector('[data-gate-next]').value = location.pathname + location.search;
+      const q = new URLSearchParams(location.search);
+      const next = document.querySelector('[data-gate-next]');
+      if (q.get('next')) next.value = q.get('next');
+      else if (location.pathname !== '/gate.php' && location.pathname !== '/uskoro/') next.value = location.pathname + location.search;
+      if (q.get('greska')) {
+        document.querySelector('[data-gate-error]').hidden = false;
+        document.querySelector('[data-gate-details]').open = true;
+      }
     </script>
   </body>
 </html>

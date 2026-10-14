@@ -1,17 +1,18 @@
 // After `astro build`:
-//  - PUBLIC_COMING_SOON=true → install the coming soon gate (gate.php + .htaccess rules)
+//  - COMING_SOON (src/lib/coming-soon.mjs) → install the coming soon gate (gate.php + .htaccess rules)
 //  - otherwise → remove the coming soon page from the output
 import { copyFileSync, appendFileSync, rmSync } from 'node:fs';
+import { COMING_SOON } from '../src/lib/coming-soon.mjs';
 
 const dist = new URL('../dist/', import.meta.url);
-const on = process.env.PUBLIC_COMING_SOON === 'true';
+const on = COMING_SOON;
 
 if (on) {
   copyFileSync(new URL('../server/gate.php', import.meta.url), new URL('gate.php', dist));
   appendFileSync(
     new URL('.htaccess', dist),
     `
-# --- Coming soon gate (PUBLIC_COMING_SOON=true) ---
+# --- Coming soon gate (src/lib/coming-soon.mjs) ---
 # Pages go through gate.php: coming soon page, or the real page after the preview password.
 <IfModule mod_headers.c>
   Header always set X-Robots-Tag "noindex, nofollow"

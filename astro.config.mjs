@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import { ROUTES, slugsFromContent } from './src/i18n/routes.ts';
 import { satteri } from '@astrojs/markdown-satteri';
 import externalLinks from './src/lib/external-links.mjs';
+import { comingSoonDev } from './src/lib/coming-soon.mjs';
 
 // Set per environment in the deploy workflow (repo variable SITE_URL); fallback for local builds.
 const site = process.env.SITE_URL || 'https://krojacka.upnestly.com';
@@ -50,6 +51,6 @@ export default defineConfig({
     }),
   ],
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), comingSoonDev()],
   },
 });
