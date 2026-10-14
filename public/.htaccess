@@ -17,6 +17,17 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteRule "(^|/)\.(?!well-known/)" - [F]
+
+  # --- One address: https://krojackaradionicabg.rs (no www) ---
+  # www → without www
+  RewriteCond %{HTTP_HOST} ^www\.krojackaradionicabg\.rs$ [NC]
+  RewriteRule ^ https://krojackaradionicabg.rs%{REQUEST_URI} [R=301,L]
+  # http → https (also behind Cloudflare, which reports the visitor's scheme in headers)
+  RewriteCond %{HTTP_HOST} ^krojackaradionicabg\.rs$ [NC]
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteCond %{HTTP:CF-Visitor} !https
+  RewriteRule ^ https://krojackaradionicabg.rs%{REQUEST_URI} [R=301,L]
 </IfModule>
 
 # --- Compression (text files; images and fonts are already compressed) ---

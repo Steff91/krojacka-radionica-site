@@ -8,8 +8,8 @@ import { satteri } from '@astrojs/markdown-satteri';
 import externalLinks from './src/lib/external-links.mjs';
 import { comingSoonDev } from './src/lib/coming-soon.mjs';
 
-// Set per environment in the deploy workflow (repo variable SITE_URL); fallback for local builds.
-const site = process.env.SITE_URL || 'https://krojacka.upnestly.com';
+// Production domain (without www). A preview/staging build can override it with SITE_URL (repo variable).
+const site = process.env.SITE_URL || 'https://krojackaradionicabg.rs';
 
 // Pairs of Serbian / English paths, so the sitemap can list both language versions of each page (hreflang).
 const readdir = (d) => (fs.existsSync(d) ? fs.readdirSync(d) : []);

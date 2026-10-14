@@ -101,4 +101,4 @@ Go live: set `DEFAULT = false` and rebuild — `gate.php` and `/uskoro/` are lef
 - [ ] Address, email, form handler (`formAction`) and success/error states
 - [ ] SVG version of the logo
 - [ ] Instagram feed (widget or static grid)
-- [ ] Set production domain in `astro.config.mjs` (`site`)
+- [x] Production domain: https://krojackaradionicabg.rs (no www; .htaccess redirects www and http)
