@@ -10,12 +10,9 @@ import { COMING_SOON } from '../lib/coming-soon.mjs';
 import { getLang, getInfo, t, HTML_LANG, LANGS, type Alternates } from '../i18n';
 // Above-the-fold fonts, preloaded so text doesn't flash in a fallback font on first load
 import cg500 from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff2?url';
-import cg500ext from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-ext-500-normal.woff2?url';
-import cg500i from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-italic.woff2?url';
-import cg600 from '@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-normal.woff2?url';
 import dm300 from '@fontsource/dm-sans/files/dm-sans-latin-300-normal.woff2?url';
-import dm500 from '@fontsource/dm-sans/files/dm-sans-latin-500-normal.woff2?url';
-const preloadFonts = [cg500, cg500ext, cg500i, cg600, dm300, dm500];
+// Only the two faces the first screen needs most; the rest load on demand (font-display: swap)
+const preloadFonts = [cg500, dm300];
 
 interface Props {
   title: string;
@@ -47,12 +44,14 @@ const business = {
   name: info.name,
   description,
   telephone: info.phoneHref,
+  email: info.email,
   url: Astro.site?.toString(),
   image: new URL('/logo.png', Astro.site).toString(),
   address: {
     '@type': 'PostalAddress',
     streetAddress: `${info.address}, ${info.addressNote}`,
     addressLocality: info.city,
+    postalCode: '11070',
     addressCountry: 'RS',
   },
   hasMap: info.mapsLink,
@@ -77,6 +76,7 @@ const business = {
     {hreflangs.length > 1 && hreflangs.map((h) => <link rel="alternate" hreflang={h.hreflang} href={h.href} />)}
     {hreflangs.length > 1 && xDefault && <link rel="alternate" hreflang="x-default" href={xDefault} />}
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     {preloadFonts.map((href) => <link rel="preload" as="font" type="font/woff2" href={href} crossorigin />)}
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={ui.meta.ogLocale} />

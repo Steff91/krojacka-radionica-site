@@ -19,6 +19,17 @@ Options -Indexes
   RewriteRule "(^|/)\.(?!well-known/)" - [F]
 </IfModule>
 
+# --- Compression (text files; images and fonts are already compressed) ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript text/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# --- Correct types for modern formats ---
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
+</IfModule>
+
 # --- Custom 404 ---
 ErrorDocument 404 /404.html
 

@@ -32,7 +32,7 @@ const posts = await getInstagramPosts(6);
             >
               <img
                 src={p.image.mediaUrl}
-                alt={p.caption}
+                alt={p.caption || `${ui.instagram.post} ${info.instagramHandle}`}
                 width={p.image.width}
                 height={p.image.height}
                 loading="lazy"

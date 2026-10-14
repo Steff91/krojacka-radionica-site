@@ -37,6 +37,8 @@ for (const p of pairs) {
 export default defineConfig({
   site,
   trailingSlash: 'always',
+  // One request less before first paint (CSS is ~10 KB gzipped)
+  build: { inlineStylesheets: 'always' },
   markdown: {
     // External links in Markdown content open in a new tab
     processor: satteri({ hastPlugins: [externalLinks({ site })] }),

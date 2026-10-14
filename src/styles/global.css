@@ -126,6 +126,15 @@
     transition-delay: calc(var(--i, 0) * 90ms);
   }
   .js [data-reveal].is-visible { opacity: 1; transform: none; }
+  /* First section (hero): CSS-only, so the main photo/heading paint without waiting for JS (LCP) */
+  @keyframes reveal-in { from { opacity: 0; transform: translateY(14px); } }
+  .js main > section:first-of-type [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: reveal-in .6s ease both;
+    animation-delay: calc(var(--i, 0) * 70ms);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -94,6 +94,7 @@ const shadow = 'shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)]';
             src={(img as { src?: string }).src}
             alt={img.alt}
             tone="dark"
+            sizes={i === 0 ? '(min-width: 1024px) 50vw, 100vw' : '(min-width: 1024px) 25vw, 50vw'}
             class={i === 0 ? 'col-span-2 aspect-[16/10]' : 'aspect-[4/5]'}
           />
         ))}

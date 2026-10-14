@@ -42,6 +42,16 @@ const cookiesUrl = await legalUrl(lang, 'kolacici');
   </div>
 </div>
 
+<script is:inline>
+  // Show the banner in the first paint (not after the bundled script loads), so it doesn't delay LCP
+  try {
+    var kc = JSON.parse(localStorage.getItem('kr-consent') || 'null');
+    if (!kc || kc.v !== 1) document.getElementById('cookie-banner').hidden = false;
+  } catch (e) {
+    document.getElementById('cookie-banner').hidden = false;
+  }
+</script>
+
 <script>
   const KEY = 'kr-consent';
   const VERSION = 1;

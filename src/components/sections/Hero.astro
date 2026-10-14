@@ -33,6 +33,7 @@ const info = getInfo(lang);
         alt={ui.hero.imageAlt}
         position="50% 22%"
         eager
+        sizes="(min-width: 1024px) 600px, 92vw"
         class="absolute inset-y-0 right-0 left-10 shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)] sm:left-16"
       />
 
@@ -43,6 +44,7 @@ const info = getInfo(lang);
           alt={ui.hero.detailAlt}
           position="50% 45%"
           eager
+          sizes="220px"
           tone="sage"
           class="h-[200px] w-[170px] border-8 border-ivory shadow-[0_28px_50px_-18px_rgba(45,41,38,0.5)] sm:h-[260px] sm:w-[220px]"
         />
@@ -59,7 +61,7 @@ const info = getInfo(lang);
             <textPath href="#badge-circle" textLength="270">{ui.hero.badge}</textPath>
           </text>
         </svg>
-        <img src="/logo.png" alt="" width="22" height="27" class="absolute top-1/2 left-1/2 w-[22px] -translate-x-1/2 -translate-y-1/2 mix-blend-multiply sm:w-[28px]" />
+        <img src="/logo-sm.png" alt="" width="22" height="27" class="absolute top-1/2 left-1/2 w-[22px] -translate-x-1/2 -translate-y-1/2 mix-blend-multiply sm:w-[28px]" />
       </div>
     </div>
   </div>

@@ -46,7 +46,7 @@ const ui = t(getLang(Astro.url));
               data-lightbox-open={i}
               aria-label={`${ui.gallery.zoom}: ${clean(item.alt)}`}
             >
-              <Placeholder label={clean(item.alt)} src={item.src} alt={item.alt} position={item.position} tone={tones[i % 2]} class="aspect-[4/5]" />
+              <Placeholder label={clean(item.alt)} src={item.src} alt={item.alt} position={item.position} tone={tones[i % 2]} class="aspect-[4/5]" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 72vw" />
             </button>
           </li>
         ))}

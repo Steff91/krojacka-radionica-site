@@ -15,7 +15,7 @@ const d = post.data;
 <article class:list={['post-card group relative', featured ? 'grid items-center gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-14' : 'flex flex-col gap-5']}>
   <div class:list={['overflow-hidden', featured ? 'aspect-[4/3] lg:aspect-[5/4]' : 'aspect-[4/3]']}>
     <div class="post-media h-full w-full">
-      <Placeholder label="Naslovna fotografija članka" src={d.image} alt={d.imageAlt} class="h-full w-full" />
+      <Placeholder label="Naslovna fotografija članka" src={d.image} alt={d.imageAlt} class="h-full w-full" sizes={featured ? "(min-width: 1024px) 55vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"} />
     </div>
   </div>
   <div class="flex flex-col gap-3">

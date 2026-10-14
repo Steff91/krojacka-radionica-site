@@ -9,11 +9,17 @@ import Icon from '../components/Icon.astro';
 import Contact from '../components/sections/Contact.astro';
 import info from '../data/info.json';
 import { getWorks } from '../lib/works';
+import { responsive } from '../lib/responsive';
 import { alternatesFor, getLang, t } from '../i18n';
 
 const lang = getLang(Astro.url);
 const ui = t(lang);
 const { works, categories } = await getWorks(lang);
+// Masonry fills columns top to bottom, so the first photo of each column is above the fold (2 or 3 columns)
+const n = works.length;
+const tops = new Set([0, 1, Math.ceil(n / 2), Math.ceil(n / 2) + 1, Math.ceil(n / 3), Math.ceil((2 * n) / 3)]);
+const first = new Set([0, Math.ceil(n / 2)]);
+const srcsets = new Map(await Promise.all(works.map(async (w) => [w.src, (await responsive(w.src))?.srcset] as const)));
 const lightboxItems = works.map((w) => ({
   src: w.src,
   alt: w.alt,
@@ -50,7 +56,7 @@ const lightboxItems = works.map((w) => ({
         {works.map((w, i) => (
           <li class="masonry-item mb-4 break-inside-avoid" data-cats={w.categories.map((c) => c.id).join(' ')}>
             <button type="button" class="work group relative isolate block w-full cursor-zoom-in overflow-hidden rounded-card border-0 bg-sand p-0 text-left" data-lightbox-open={i} aria-label={`${ui.gallery.zoom}: ${w.alt}`}>
-              <img src={w.src} alt={w.alt} width={w.width} height={w.height} loading={i < 6 ? 'eager' : 'lazy'} class="work-img block h-auto w-full" />
+              <img src={w.src} srcset={srcsets.get(w.src)} sizes="(min-width: 768px) 33vw, 50vw" alt={w.alt} width={w.width} height={w.height} loading={tops.has(i) ? 'eager' : 'lazy'} fetchpriority={first.has(i) ? 'high' : undefined} class="work-img block h-auto w-full" />
               <span class="work-veil pointer-events-none absolute inset-0" aria-hidden="true"></span>
               <span class="work-caption pointer-events-none absolute inset-x-0 bottom-0 flex flex-col gap-1 p-5 text-ivory" aria-hidden="true">
                 <span class="text-[12px] font-medium uppercase tracking-[0.22em] text-gold">{w.categories.map((c) => c.label).join(' · ')}</span>

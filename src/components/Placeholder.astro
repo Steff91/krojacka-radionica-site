@@ -1,4 +1,5 @@
 ---
+import { responsive } from '../lib/responsive';
 // Image slot. Pass `src` once real photos exist; until then renders a labelled placeholder.
 interface Props {
   label: string;
@@ -12,8 +13,11 @@ interface Props {
   eager?: boolean;
   /** Square corners (when a parent already clips to a rounded shape) */
   square?: boolean;
+  /** Rendered width hint for the browser's srcset choice */
+  sizes?: string;
 }
-const { label, src, alt = '', class: className = '', tone = 'sand', position = 'center', eager = false, square = false } = Astro.props;
+const { label, src, alt = '', class: className = '', tone = 'sand', position = 'center', eager = false, square = false, sizes = '(min-width: 1024px) 50vw, 100vw' } = Astro.props;
+const r = await responsive(src);
 // isolate keeps the rounded clip while the image scales on hover (Safari)
 const shape = square ? '' : 'rounded-media isolate';
 const tones = {
@@ -28,6 +32,10 @@ const tones = {
   <div class:list={['overflow-hidden', shape, className]}>
     <img
       src={src}
+      srcset={r?.srcset}
+      sizes={r ? sizes : undefined}
+      width={r?.width}
+      height={r?.height}
       alt={alt}
       loading={eager ? 'eager' : 'lazy'}
       fetchpriority={eager ? 'high' : undefined}

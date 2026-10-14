@@ -223,8 +223,8 @@ const sr = {
   },
   cookie: {
     title: 'Kolačići',
-    text: 'Sajt ne koristi kolačiće za praćenje. Mapa na stranici Kontakt dolazi sa Google servisa, koji može postaviti svoje kolačiće.',
-    more: 'Saznajte više',
+    text: 'Sajt ne koristi kolačiće za praćenje. Google mapa na stranici Kontakt i reCAPTCHA zaštita formi mogu postaviti svoje kolačiće.',
+    more: 'Politika kolačića',
     necessary: 'Neophodni',
     necessaryText: 'Pamćenje vašeg izbora. Uvek uključeno.',
     external: 'Spoljni sadržaj',
@@ -469,8 +469,8 @@ const en: UI = {
   },
   cookie: {
     title: 'Cookies',
-    text: 'This site does not use tracking cookies. The map on the Contact page is provided by Google, which may set its own cookies.',
-    more: 'Learn more',
+    text: 'This site does not use tracking cookies. The Google map on the Contact page and the reCAPTCHA form protection may set their own cookies.',
+    more: 'Cookie policy',
     necessary: 'Necessary',
     necessaryText: 'Remembers your choice. Always on.',
     external: 'External content',
