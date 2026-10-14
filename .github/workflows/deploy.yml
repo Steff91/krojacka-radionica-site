@@ -17,6 +17,8 @@ jobs:
       # Repository variables (Settings → Secrets and variables → Actions → Variables)
       SITE_URL: ${{ vars.SITE_URL }}
       PUBLIC_NOINDEX: ${{ vars.NOINDEX }}
+      # true = coming soon page + preview password, bots blocked (server/gate.php)
+      PUBLIC_COMING_SOON: ${{ vars.COMING_SOON }}
     steps:
       - uses: actions/checkout@v4
 

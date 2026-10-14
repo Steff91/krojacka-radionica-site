@@ -80,6 +80,18 @@ Push to `main` runs `.github/workflows/deploy.yml`. Add repository secrets:
 
 Without `SSH_HOST` the workflow only builds (useful as a CI check).
 
+Repository variables: `SITE_URL`, `NOINDEX` (`true` on a preview subdomain), `COMING_SOON`.
+
+### Coming soon / preview password
+
+Build with `PUBLIC_COMING_SOON=true` (repo variable `COMING_SOON=true`) while the site is not public:
+
+- every page shows `/uskoro/` (contact details + preview form), robots.txt disallows everything, `X-Robots-Tag: noindex`
+- after the preview password, `gate.php` sets a 30-day cookie and serves the real pages
+- password: `preview_password` in `krojacka-config.php` (above httpdocs); without it a built-in default is used (bcrypt hash in `server/gate.php`)
+
+Go live: remove the variable (or set it to `false`) and rebuild — `gate.php` and `/uskoro/` are left out of the output.
+
 ## TODO
 
 - [ ] Service page copy (all six + fashion brand development)

@@ -71,7 +71,7 @@ const business = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    {import.meta.env.PUBLIC_NOINDEX === 'true' && <meta name="robots" content="noindex, nofollow" />}
+    {(import.meta.env.PUBLIC_NOINDEX === 'true' || import.meta.env.PUBLIC_COMING_SOON === 'true') && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
     {hreflangs.length > 1 && hreflangs.map((h) => <link rel="alternate" hreflang={h.hreflang} href={h.href} />)}
     {hreflangs.length > 1 && xDefault && <link rel="alternate" hreflang="x-default" href={xDefault} />}

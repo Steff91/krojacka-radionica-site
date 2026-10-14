@@ -42,7 +42,7 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/admin/'),
+      filter: (page) => !page.includes('/admin/') && !page.includes('/uskoro/'),
       serialize: (item) => {
         const links = alternates.get(item.url);
         return links ? { ...item, links } : item;

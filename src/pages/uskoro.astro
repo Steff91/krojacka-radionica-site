@@ -1,0 +1,64 @@
+---
+// "Coming soon" page shown by server/gate.php while the site is closed (PUBLIC_COMING_SOON=true).
+// Bilingual on one page; the password form lets the client and the team preview the site.
+// Removed from the build output when the gate is off (scripts/postbuild.mjs).
+import '../styles/global.css';
+import HeroTexture from '../components/HeroTexture.astro';
+import info from '../data/info.json';
+import site from '../data/sr/site.json';
+---
+
+<!doctype html>
+<html lang="sr-Latn">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Krojačka radionica — uskoro</title>
+    <meta name="description" content="Krojačka radionica, TC Kula, Novi Beograd. Novi sajt stiže uskoro." />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+  <body class="min-h-screen">
+    <main class="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-4 py-16">
+      <HeroTexture />
+      <div class="w-full max-w-xl text-center">
+        <img src="/logo.png" alt="Krojačka radionica" width="117" height="146" class="mx-auto mb-8 h-auto w-[96px]" />
+        <p class="m-0 mb-3 text-[13px] font-medium uppercase tracking-[0.2em] text-red">Uskoro · Coming soon</p>
+        <h1 class="m-0 text-[clamp(2.4rem,7vw,3.6rem)] leading-[1.05]">
+          Novi sajt <em class="text-red">stiže uskoro</em>
+        </h1>
+        <p class="mx-auto mt-5 max-w-md text-body">
+          Do tada nas pozovite, pišite nam ili svratite u radionicu.
+          <span class="mt-2 block text-[15px] text-muted">Our new website is on its way. Meanwhile, call us, write to us or drop by the workshop.</span>
+        </p>
+
+        <ul class="mx-auto mt-8 flex max-w-md list-none flex-col gap-2 p-0 text-[16px]">
+          <li><a href={`tel:${info.phoneHref}`} class="no-underline">{info.phone}</a></li>
+          <li><a href={`mailto:${info.email}`} class="no-underline">{info.email}</a></li>
+          <li><a href={info.instagram} target="_blank" rel="noopener noreferrer" class="no-underline">Instagram {info.instagramHandle}</a></li>
+          <li class="text-body">
+            <a href={info.mapsLink} target="_blank" rel="noopener noreferrer" class="no-underline">{info.address}, {info.addressNote}</a>
+          </li>
+          <li class="text-[15px] text-muted">{site.hours.map((h: { day: string; time: string }) => `${h.day} ${h.time}`).join(' · ')}</li>
+        </ul>
+
+        <details class="mx-auto mt-12 max-w-xs text-left text-[14px] text-muted" data-gate-details>
+          <summary class="cursor-pointer text-center">Pregled sajta · Preview</summary>
+          <form method="POST" action="/gate.php" class="mt-4 flex flex-col gap-3">
+            <input type="hidden" name="next" value="/" data-gate-next />
+            <label class="flex flex-col gap-1">
+              Šifra · Password
+              <input type="password" name="password" required autocomplete="current-password" class="rounded-btn border border-line bg-white px-3 py-2 text-ink" />
+            </label>
+            <p class="m-0 text-red" data-gate-error hidden>Pogrešna šifra · Wrong password</p>
+            <button type="submit" class="btn btn-dark">Uđi · Enter</button>
+          </form>
+        </details>
+      </div>
+    </main>
+    <script is:inline>
+      // Return to the page that was originally requested
+      if (location.pathname !== '/gate.php') document.querySelector('[data-gate-next]').value = location.pathname + location.search;
+    </script>
+  </body>
+</html>

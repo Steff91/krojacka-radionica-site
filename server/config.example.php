@@ -17,6 +17,9 @@ return [
     // 0.0 (bot) – 1.0 (human); 0.5 is Google's suggested starting point
     'recaptcha_min_score' => 0.5,
 
+    // Coming soon gate (PUBLIC_COMING_SOON=true): preview password. Leave empty to use the built-in default.
+    'preview_password' => '',
+
     // Accept posts only from these hosts (leave empty to skip the check)
     'allowed_hosts' => ['krojackaradionicabg.rs', 'www.krojackaradionicabg.rs'],
 ];
