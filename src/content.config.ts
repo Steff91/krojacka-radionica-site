@@ -15,6 +15,8 @@ const services = defineCollection({
     shortLabel: z.string().optional(),
     order: z.number(),
     excerpt: z.string(),
+    /** Shorter text for the header mega menu (defaults to excerpt) */
+    menuExcerpt: z.string().optional(),
     seoTitle: z.string().optional(),
     seoDescription: z.string().optional(),
     heroTitle: z.string(),

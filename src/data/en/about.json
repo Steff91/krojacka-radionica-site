@@ -4,9 +4,9 @@
   "hero": {
     "title": "About",
     "subtitle": "Clothing made to your measurements, by a master's hand.",
-    "image": "/uploads/radionica-kimono.webp",
+    "image": "/uploads/onama-presa-dugmad.webp",
     "imageLabel": "Wide photo of the workshop: cutting table, fabrics, dress form",
-    "imageAlt": "The workshop: sewing machines, fabrics and a denim piece in progress",
+    "imageAlt": "Button press, scissors and brass buttons on fabric in the workshop",
     "imagePosition": "50% 55%"
   },
   "story": {
@@ -108,16 +108,16 @@
         "alt": "Fitting a waistcoat in the workshop"
       },
       {
-        "src": "/uploads/radionica-kimono.webp",
-        "alt": "A denim piece in progress on the workshop floor"
+        "src": "/uploads/onama-masina-stara.webp",
+        "alt": "An old industrial sewing machine with a lamp"
       },
       {
         "src": "/uploads/radionica-krojni-sto.webp",
         "alt": "Marking a pattern on fabric with tailor's chalk"
       },
       {
-        "src": "/uploads/radionica-krojni-listovi.webp",
-        "alt": "Pattern pieces hanging in the workshop"
+        "src": "/uploads/onama-tegle-dugmad.webp",
+        "alt": "Jars full of buttons and eyelets in the workshop"
       }
     ]
   }

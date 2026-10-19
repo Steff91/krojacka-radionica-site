@@ -1,4 +1,5 @@
 ---
+import { inlineMd } from '../lib/inline-md';
 import SectionHeading from './SectionHeading.astro';
 import { getLang, t } from '../i18n';
 
@@ -23,7 +24,7 @@ const { items, eyebrow = ui.service.faqEyebrow, title = ui.service.faqTitle } = 
               <span class="faq-icon relative h-4 w-4 shrink-0" aria-hidden="true"></span>
             </summary>
             <div class="faq-body overflow-hidden">
-              <p class="faq-text m-0 pb-6 text-body">{f.a}</p>
+              <p class="faq-text m-0 pb-6 text-body" set:html={inlineMd(f.a)} />
             </div>
           </details>
         ))}

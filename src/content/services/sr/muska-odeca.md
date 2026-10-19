@@ -1,7 +1,8 @@
 ---
 title: Muška odeća
 order: 1
-excerpt: Mantili, sakoi, kaputi, pantalone — krojena muška garderoba od merenja do poslednjeg šava.
+excerpt: "Pravimo i odeću za muškarce: mantili, sakoi, kaputi, pantalone, jakne, prsluci…"
+menuExcerpt: "Mantili, sakoi, kaputi, pantalone, jakne, prsluci…"
 seoTitle: Muška odeća po meri Beograd | Krojačka radionica
 seoDescription: Sakoi, kaputi, mantili, jakne, bomberke i pantalone šiveni po vašim merama. Krojačka radionica u Beogradu, TC Kula. Zakažite konsultaciju.
 heroTitle: Muška odeća
@@ -42,6 +43,15 @@ gallery:
   - src: /uploads/radionica-proba-sladjana.webp
     alt: "Slađana na probi prsluka sa klijentom u radionici"
     position: 50% 35%
+  - src: /uploads/muska-crni-kaput.webp
+    alt: "Crni muški kaput po meri"
+    position: 50% 30%
+  - src: /uploads/muska-sivi-kaput.webp
+    alt: "Sivi muški kaput dugog kroja"
+    position: 50% 30%
+  - src: /uploads/muska-prsluk-sivi.webp
+    alt: "Sivi prsluk sa paisley šarom i sako"
+    position: 50% 40%
 faq:
   - q: Koliko traje izrada sakoa ili kaputa?
     a: "[Okvirni rok izrade.]"

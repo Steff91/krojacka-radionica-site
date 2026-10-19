@@ -2,7 +2,7 @@
 title: Razvijanje modnog brenda
 shortLabel: Modni brend
 order: 7
-excerpt: Od koncepta i dizajna do prvih komada i pozicioniranja.
+excerpt: "Radili smo s velikim brojem brendova i skupili smo dosta iskustva. Odabir materijala, etiketa, veličina, modelara — tu smo za sve što vas zanima."
 seoTitle: Razvijanje modnog brenda | Konsultacije i uzorci, Beograd
 seoDescription: "Od ideje do prve kolekcije: izbor materijala, obrada, veličine, etikete i izrada uzorka. Konsultacije za dizajnere i nove modne brendove u Beogradu."
 heroTitle: "Imate modnu ideju?"
@@ -58,6 +58,9 @@ gallery:
     alt: "Satenske pidžame, kampanja"
     position: 50% 40%
     inWorks: false
+  - src: /uploads/brend-jakne-sljokice.webp
+    alt: "Jakne sa šljokicama u izradi za modni brend"
+    position: 50% 40%
 faq:
   - q: Kako da izbegnem početničke greške koje odnose vreme i novac?
     a: "[Odgovor.]"

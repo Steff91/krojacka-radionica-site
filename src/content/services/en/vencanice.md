@@ -2,7 +2,8 @@
 title: Wedding Dresses
 urlSlug: wedding-dresses
 order: 3
-excerpt: The wedding dress of your dreams, made to your measurements and your vision.
+excerpt: "The wedding dress of your dreams — the one you have always imagined."
+menuExcerpt: "The wedding dress of your dreams — the one you have always imagined."
 seoTitle: Made-to-Measure Wedding Dresses in Belgrade | Tailoring Workshop
 seoDescription: Wedding dresses and bridal suits made to your measurements — from your idea, sketch or photo. Tailoring workshop in Belgrade, TC Kula. Book a consultation.
 heroTitle: Wedding dresses
@@ -36,6 +37,15 @@ gallery:
   - src: /uploads/radovi-maturska-haljina.webp
     alt: "Jacquard dress with a tiered skirt"
     position: 50% 30%
+  - src: /uploads/vencanice-mladenci-park.webp
+    alt: "Bride and groom in a park, wedding dress with a veil"
+    position: 50% 35%
+  - src: /uploads/vencanice-veo.webp
+    alt: "Off-the-shoulder wedding dress with a veil"
+    position: 50% 25%
+  - src: /uploads/vencanice-belo-odelo.webp
+    alt: "White bridal trouser suit"
+    position: 50% 25%
 faq:
   - q: How far in advance should we start making the wedding dress?
     a: "[Recommended lead time before the wedding.]"

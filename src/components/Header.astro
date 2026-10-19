@@ -88,7 +88,7 @@ const mobileLink = 'border-b border-line py-3.5 font-semibold no-underline';
                       {s.data.title}
                       <Icon name="chevron-right" size={10} class="chev text-red opacity-0 transition-all duration-300 group-hover:opacity-100" />
                     </span>
-                    <span class="text-[14px] leading-snug text-body">{s.data.excerpt}</span>
+                    <span class="text-[14px] leading-snug text-body">{s.data.menuExcerpt ?? s.data.excerpt}</span>
                   </span>
                 </a>
               </li>

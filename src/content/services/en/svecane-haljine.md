@@ -2,7 +2,8 @@
 title: Formal Dresses
 urlSlug: formal-dresses
 order: 2
-excerpt: For proms, celebrations and gala evenings — a dress that is yours alone.
+excerpt: "Formal and prom dresses, made to your own idea and inspiration."
+menuExcerpt: "Formal and prom dresses, made to your own idea and inspiration."
 seoTitle: Made-to-Measure Formal Dresses in Belgrade | Tailoring Workshop
 seoDescription: Prom, evening and gala dresses, corsets and competition dresses, made to your measurements and your idea. Tailoring workshop in Belgrade, TC Kula.
 heroTitle: Formal dresses
@@ -32,9 +33,6 @@ gallery:
   - src: /uploads/svecane-perje.webp
     alt: "Two feather tops with fitted satin skirts"
     position: 50% 30%
-  - src: /uploads/radovi-bordo-haljina-korset.webp
-    alt: "Burgundy gown with a corset bodice and lace sleeves"
-    position: 50% 25%
   - src: /uploads/radovi-crveni-komplet.webp
     alt: "Red two-piece: open-back top and pencil skirt"
   - src: /uploads/svecane-saten-teget-1.webp

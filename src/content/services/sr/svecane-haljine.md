@@ -1,7 +1,8 @@
 ---
 title: Svečane haljine
 order: 2
-excerpt: Za mature, svečanosti i gala večeri — haljina koja je samo vaša.
+excerpt: "Svečane haljine ili maturske, i to po vašoj zamisli i inspiraciji."
+menuExcerpt: "Svečane haljine ili maturske, i to po vašoj zamisli i inspiraciji."
 seoTitle: Svečane haljine po meri Beograd | Krojačka radionica
 seoDescription: Maturske, večernje i gala haljine, korseti i haljine za takmičenja, šivene po vašim merama i vašoj ideji. Krojačka radionica u Beogradu, TC Kula.
 heroTitle: Svečane haljine
@@ -31,9 +32,6 @@ gallery:
   - src: /uploads/svecane-perje.webp
     alt: "Dva kompleta sa perjem i uskim satenskim suknjama"
     position: 50% 30%
-  - src: /uploads/radovi-bordo-haljina-korset.webp
-    alt: "Bordo haljina sa korsetom i čipkanim rukavima"
-    position: 50% 25%
   - src: /uploads/radovi-crveni-komplet.webp
     alt: "Crveni komplet: top sa otvorenim leđima i uska suknja"
   - src: /uploads/svecane-saten-teget-1.webp

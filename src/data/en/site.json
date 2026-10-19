@@ -20,15 +20,15 @@
   "directions": [
     {
       "title": "Finding the workshop",
-      "text": "The workshop is in the TC Kula shopping centre, unit 93. [Short directions: entrance, floor, landmark.]"
+      "text": "The workshop is in Block 44, in the shopping centre between the health centre and the market; the shop is inside, on the first floor."
     },
     {
       "title": "Parking",
-      "text": "[Where it is easiest to park nearby.]"
+      "text": "There is free parking. It is harder to find a spot at weekends, but on weekdays it is usually easy."
     },
     {
       "title": "Public transport",
-      "text": "[Nearest stops and lines.]"
+      "text": "Bus lines that stop nearby: 95, 89, 73, 94, 7A, 610, 45."
     }
   ]
 }

@@ -7,12 +7,12 @@ interface Props {
 }
 const { class: className = '' } = Astro.props;
 
-// YouTube: icon is shown already; set info.json → youtube once the channel exists.
+// An empty link in info.json hides that icon (Pinterest and YouTube are off for now)
 const links = [
   { name: 'instagram', label: 'Instagram', href: info.instagram },
   { name: 'pinterest', label: 'Pinterest', href: info.pinterest },
-  { name: 'youtube', label: 'YouTube', href: info.youtube || '#' },
-] as const;
+  { name: 'youtube', label: 'YouTube', href: info.youtube },
+].filter((l) => l.href) as { name: 'instagram' | 'pinterest' | 'youtube'; label: string; href: string }[];
 ---
 
 <ul class:list={['m-0 flex list-none gap-2 p-0', className]}>

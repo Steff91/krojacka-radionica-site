@@ -2,7 +2,8 @@
 title: Menswear
 urlSlug: menswear
 order: 1
-excerpt: Overcoats, jackets, coats, trousers — tailored menswear from the first measurement to the last stitch.
+excerpt: "We make menswear too: overcoats, jackets, coats, trousers, outerwear, waistcoats…"
+menuExcerpt: "Overcoats, jackets, coats, trousers, outerwear, waistcoats…"
 seoTitle: Made-to-Measure Menswear in Belgrade | Tailoring Workshop
 seoDescription: Jackets, coats, overcoats, bomber jackets and trousers made to your measurements. Tailoring workshop in Belgrade, TC Kula. Book a consultation.
 heroTitle: Menswear
@@ -43,6 +44,15 @@ gallery:
   - src: /uploads/radionica-proba-sladjana.webp
     alt: "Slađana fitting a waistcoat on a client in the workshop"
     position: 50% 35%
+  - src: /uploads/muska-crni-kaput.webp
+    alt: "Made-to-measure black men's coat"
+    position: 50% 30%
+  - src: /uploads/muska-sivi-kaput.webp
+    alt: "Long grey men's coat"
+    position: 50% 30%
+  - src: /uploads/muska-prsluk-sivi.webp
+    alt: "Grey paisley waistcoat with a suit jacket"
+    position: 50% 40%
 faq:
   - q: How long does it take to make a jacket or coat?
     a: "[Approximate lead time.]"

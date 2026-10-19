@@ -1,7 +1,8 @@
 ---
 title: Venčanice
 order: 3
-excerpt: Venčanica iz snova, šivena po vašoj meri i vašoj viziji.
+excerpt: "Venčanice iz snova o kakvima ste oduvek maštale."
+menuExcerpt: "Venčanice iz snova o kakvima ste oduvek maštale."
 seoTitle: Venčanice po meri Beograd | Krojačka radionica
 seoDescription: Venčanice i venčana odela šivena po vašoj meri — po vašoj ideji, skici ili fotografiji. Krojačka radionica u Beogradu, TC Kula. Zakažite konsultaciju.
 heroTitle: Venčanice
@@ -35,6 +36,15 @@ gallery:
   - src: /uploads/radovi-maturska-haljina.webp
     alt: "Haljina od žakarda sa volanima na suknji"
     position: 50% 30%
+  - src: /uploads/vencanice-mladenci-park.webp
+    alt: "Mladenci u parku, venčanica sa velom"
+    position: 50% 35%
+  - src: /uploads/vencanice-veo.webp
+    alt: "Venčanica sa spuštenim ramenima i velom"
+    position: 50% 25%
+  - src: /uploads/vencanice-belo-odelo.webp
+    alt: "Belo venčano odelo za mladu"
+    position: 50% 25%
 faq:
   - q: Koliko unapred treba da počnemo sa izradom venčanice?
     a: "[Preporučen rok pre venčanja.]"

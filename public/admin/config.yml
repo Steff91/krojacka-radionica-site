@@ -104,6 +104,26 @@ collections:
         file: src/data/en/work.json
         fields: *work_fields
 
+      - name: works_tags
+        label: Radovi — dodatni tagovi i fotografije
+        file: src/data/works-tags.json
+        fields:
+          - name: tags
+            label: Tagovi (filteri na stranici Radovi, pored usluga)
+            widget: list
+            fields:
+              - { name: id, label: "ID (mala slova, bez razmaka)", widget: string }
+              - { name: sr, label: Naziv (SR), widget: string }
+              - { name: en, label: Naziv (EN), widget: string }
+          - name: items
+            label: Fotografije
+            widget: list
+            fields:
+              - { name: src, label: Fotografija, widget: image }
+              - { name: tags, label: "Tagovi (ID-jevi)", widget: list }
+              - { name: sr, label: Opis fotografije (SR), widget: string }
+              - { name: en, label: Opis fotografije (EN), widget: string }
+
       - name: testimonials
         label: Utisci klijenata (slajder)
         file: src/content/testimonials.json
@@ -133,6 +153,7 @@ collections:
       - { name: shortLabel, label: Kratak naziv (filter na stranici Radovi), widget: string, required: false, i18n: true }
       - { name: order, label: Redosled, widget: number, value_type: int, i18n: duplicate }
       - { name: excerpt, label: Kratak opis (kartica), widget: string, i18n: true }
+      - { name: menuExcerpt, label: Opis u meniju (kraći), widget: string, i18n: true, required: false }
       - { name: seoTitle, label: SEO naslov, widget: string, required: false, i18n: true }
       - { name: seoDescription, label: SEO opis, widget: text, required: false, i18n: true }
       - { name: heroTitle, label: Naslov, widget: string, i18n: true }

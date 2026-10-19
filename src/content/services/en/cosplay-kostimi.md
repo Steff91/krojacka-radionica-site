@@ -3,7 +3,8 @@ title: Cosplay Costumes
 urlSlug: cosplay-costumes
 shortLabel: Cosplay
 order: 5
-excerpt: From sketch to stage — precisely made cosplay costumes to your design.
+excerpt: "Cosplay costumes made to the design you have imagined."
+menuExcerpt: "Cosplay costumes made to the design you have imagined."
 seoTitle: Made-to-Measure Cosplay Costumes in Belgrade | Tailoring Workshop
 seoDescription: Cosplay costumes made to your design or reference — for conventions, competitions and events, for children and adults. Tailoring workshop in Belgrade.
 heroTitle: Cosplay costumes

@@ -141,3 +141,10 @@
   html { scroll-behavior: auto; }
   .btn, .link-arrow .chev { transition: none; }
 }
+
+/* Links inside CMS text (service intro, FAQ answers) */
+.lead a, .faq-text a {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-gold) 80%, transparent);
+  text-underline-offset: 0.2em;
+}

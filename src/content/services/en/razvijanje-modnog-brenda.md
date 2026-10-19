@@ -3,7 +3,7 @@ title: Fashion Brand Development
 urlSlug: fashion-brand-development
 shortLabel: Fashion brand
 order: 7
-excerpt: From concept and design to first pieces and positioning.
+excerpt: "We have worked with many brands and gathered plenty of experience. Choosing materials, labels, sizes, pattern makers — we are here for whatever you need."
 seoTitle: Fashion Brand Development | Consultations and Samples, Belgrade
 seoDescription: "From idea to first collection: choosing fabrics, finishing, sizing, labels and sample making. Consultations for designers and new fashion brands in Belgrade."
 heroTitle: "Have a fashion idea?"
@@ -59,6 +59,9 @@ gallery:
     alt: "Satin pyjamas, campaign shot"
     position: 50% 40%
     inWorks: false
+  - src: /uploads/brend-jakne-sljokice.webp
+    alt: "Sequin jackets in production for a fashion brand"
+    position: 50% 40%
 faq:
   - q: How do I avoid beginner mistakes that cost time and money?
     a: "[Answer.]"

@@ -20,11 +20,15 @@ const n = works.length;
 const tops = new Set([0, 1, Math.ceil(n / 2), Math.ceil(n / 2) + 1, Math.ceil(n / 3), Math.ceil((2 * n) / 3)]);
 const first = new Set([0, Math.ceil(n / 2)]);
 const srcsets = new Map(await Promise.all(works.map(async (w) => [w.src, (await responsive(w.src))?.srcset] as const)));
-const lightboxItems = works.map((w) => ({
-  src: w.src,
-  alt: w.alt,
-  link: { href: w.categories[0].href, label: `${ui.works.viewService}: ${w.categories[0].label}` },
-}));
+// "View service" link only for photos that belong to a service (not for works-only tags)
+const lightboxItems = works.map((w) => {
+  const service = w.categories.find((c) => c.href !== Astro.url.pathname);
+  return {
+    src: w.src,
+    alt: w.alt,
+    link: service ? { href: service.href, label: `${ui.works.viewService}: ${service.label}` } : undefined,
+  };
+});
 ---
 
 <Base title={ui.works.title} description={ui.works.description} alternates={alternatesFor('works')}>

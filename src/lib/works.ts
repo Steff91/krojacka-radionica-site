@@ -4,6 +4,7 @@
 import { getServices, type Lang } from '../i18n';
 import sharp from 'sharp'; // installed with Astro
 import path from 'node:path';
+import extra from '../data/works-tags.json';
 
 export type Work = {
   src: string;
@@ -44,13 +45,24 @@ export async function getWorks(lang: Lang) {
     }
   }
 
+  // Extra tags for the works page only (src/data/works-tags.json); a photo already in a service gallery
+  // gets the tag added, other photos appear on the works page only.
+  const tagLabel = new Map(extra.tags.map((t) => [t.id, t[lang]]));
+  const worksHref = lang === 'sr' ? '/radovi/' : '/en/work/';
+  for (const item of extra.items) {
+    const cats = item.tags.filter((id) => tagLabel.has(id)).map((id) => ({ id, label: tagLabel.get(id)!, href: worksHref }));
+    const existing = bySrc.get(item.src);
+    if (existing) existing.categories.push(...cats);
+    else bySrc.set(item.src, { src: item.src, alt: item[lang], ...(await size(item.src)), categories: cats });
+  }
+
   const works = [...bySrc.values()];
-  const categories = services
-    .map((s) => ({
-      id: s.key,
-      label: label(s),
-      count: works.filter((w) => w.categories.some((c) => c.id === s.key)).length,
-    }))
+  const all = [
+    ...services.map((s) => ({ id: s.key, label: label(s) })),
+    ...extra.tags.map((t) => ({ id: t.id, label: t[lang] })),
+  ];
+  const categories = all
+    .map((c) => ({ ...c, count: works.filter((w) => w.categories.some((x) => x.id === c.id)).length }))
     .filter((c) => c.count > 0);
 
   return { works, categories };

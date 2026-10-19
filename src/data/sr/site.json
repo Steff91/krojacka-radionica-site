@@ -19,15 +19,15 @@
   "directions": [
     {
       "title": "Kako do lokala",
-      "text": "Radionica je u TC Kula, lokal 93. [Kratko uputstvo: ulaz, sprat, orijentir.]"
+      "text": "Radionica se nalazi u bloku 44, u tržnom centru između doma zdravlja i pijace, a lokal je unutra, na prvom spratu."
     },
     {
       "title": "Parking",
-      "text": "[Gde se najlakše parkira u blizini.]"
+      "text": "Parking postoji i ne plaća se. Vikendom je teže naći mesto, ali radnim danima je to vrlo izvodljivo."
     },
     {
       "title": "Javni prevoz",
-      "text": "[Najbliže stanice i linije.]"
+      "text": "Autobuske linije kojima možete doći do lokala: 95, 89, 73, 94, 7A, 610, 45."
     }
   ]
 }

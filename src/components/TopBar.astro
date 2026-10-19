@@ -21,8 +21,8 @@ const [hoursFirst, ...hoursRest] = open;
 const links = [
   { icon: 'instagram', label: 'Instagram', href: info.instagram, external: true },
   { icon: 'pinterest', label: 'Pinterest', href: info.pinterest, external: true },
-  { icon: 'youtube', label: 'YouTube', href: info.youtube || '#', external: Boolean(info.youtube) },
-] as const;
+  { icon: 'youtube', label: 'YouTube', href: info.youtube, external: true },
+].filter((l) => l.href); // empty link in info.json = icon hidden
 const icon = 'inline-flex h-9 w-9 items-center justify-center text-ink no-underline transition-colors duration-300 hover:text-red';
 ---
 

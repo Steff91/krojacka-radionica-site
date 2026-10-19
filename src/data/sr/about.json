@@ -4,9 +4,9 @@
   "hero": {
     "title": "O nama",
     "subtitle": "Odeća koja nastaje po vašoj meri, iz ruke majstora.",
-    "image": "/uploads/radionica-kimono.webp",
+    "image": "/uploads/onama-presa-dugmad.webp",
     "imageLabel": "Široka fotografija radionice: sto za krojenje, tkanine, krojačka lutka",
-    "imageAlt": "Radionica: šivaće mašine, tkanine i komad od teksasa u izradi",
+    "imageAlt": "Presa za dugmad, makaze i mesingana dugmad na tkanini u radionici",
     "imagePosition": "50% 55%"
   },
   "story": {
@@ -108,16 +108,16 @@
         "alt": "Proba prsluka u radionici"
       },
       {
-        "src": "/uploads/radionica-kimono.webp",
-        "alt": "Komad od teksasa u izradi, na podu radionice"
+        "src": "/uploads/onama-masina-stara.webp",
+        "alt": "Stara industrijska šivaća mašina sa lampom"
       },
       {
         "src": "/uploads/radionica-krojni-sto.webp",
         "alt": "Krojenje po šablonu kredom na tkanini"
       },
       {
-        "src": "/uploads/radionica-krojni-listovi.webp",
-        "alt": "Krojni listovi okačeni u radionici"
+        "src": "/uploads/onama-tegle-dugmad.webp",
+        "alt": "Tegle pune dugmadi i okaca u radionici"
       }
     ]
   }
