@@ -37,6 +37,8 @@ const posts = await getInstagramPosts(6);
                 height={p.image.height}
                 loading="lazy"
                 decoding="async"
+                data-fallback={p.fallback}
+                onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback}else{this.style.visibility='hidden'}"
                 class="ig-img h-full w-full object-cover"
               />
               <span class="ig-veil pointer-events-none absolute inset-0 flex items-center justify-center text-ivory" aria-hidden="true">

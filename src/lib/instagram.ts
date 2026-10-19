@@ -11,8 +11,22 @@ export type InstagramPost = {
   mediaType: 'IMAGE' | 'VIDEO' | 'CAROUSEL_ALBUM' | string;
   caption: string;
   image: Size;
+  /** Instagram's own cover image (videos), used when Behold's copy can't be loaded */
+  fallback?: string;
 };
-type Feed = { posts: { id: string; permalink: string; mediaType: string; prunedCaption?: string; sizes: Record<string, Size> }[] };
+type Feed = {
+  posts: { id: string; permalink: string; mediaType: string; prunedCaption?: string; thumbnailUrl?: string; sizes: Record<string, Size> }[];
+};
+
+// Behold doesn't always have a processed image for videos (reels); check before using it.
+async function reachable(url: string) {
+  try {
+    const res = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(5000) });
+    return res.ok && (res.headers.get('content-type') ?? 'image').startsWith('image');
+  } catch {
+    return true; // offline build: keep the URL, the browser-side fallback still applies
+  }
+}
 
 let cache: Promise<InstagramPost[]> | null = null;
 
@@ -31,13 +45,23 @@ async function load(): Promise<Feed> {
 
 export function getInstagramPosts(limit = 6): Promise<InstagramPost[]> {
   cache ??= load().then((feed) =>
-    (feed.posts ?? []).slice(0, limit).map((p) => ({
-      id: p.id,
-      permalink: p.permalink,
-      mediaType: p.mediaType,
-      caption: p.prunedCaption ?? '',
-      image: p.sizes.medium ?? p.sizes.large ?? p.sizes.small,
-    })),
+    Promise.all(
+      (feed.posts ?? []).slice(0, limit).map(async (p) => {
+        const size = p.sizes?.medium ?? p.sizes?.large ?? p.sizes?.small;
+        let image: Size = size ?? { mediaUrl: p.thumbnailUrl ?? '', width: 640, height: 640 };
+        if (size && p.thumbnailUrl && p.mediaType === 'VIDEO' && !(await reachable(size.mediaUrl))) {
+          image = { ...size, mediaUrl: p.thumbnailUrl };
+        }
+        return {
+          id: p.id,
+          permalink: p.permalink,
+          mediaType: p.mediaType,
+          caption: p.prunedCaption ?? '',
+          image,
+          fallback: p.thumbnailUrl && p.thumbnailUrl !== image.mediaUrl ? p.thumbnailUrl : undefined,
+        };
+      }),
+    ),
   );
   return cache;
 }
