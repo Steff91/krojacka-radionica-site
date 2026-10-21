@@ -7,7 +7,7 @@ seoTitle: Razvijanje modnog brenda | Konsultacije i uzorci, Beograd
 seoDescription: "Od ideje do prve kolekcije: izbor materijala, obrada, veličine, etikete i izrada uzorka. Konsultacije za dizajnere i nove modne brendove u Beogradu."
 heroTitle: "Imate modnu ideju?"
 heroTitleEm: "Pretvorimo je u brend."
-intro: Imate ideju za kolekciju, ali niste sigurni kako da je pretvorite u komade spremne za prodaju? Pomažemo vam da prođete put od skice do uzorka — bez grešaka koje odnose vreme i novac.
+intro: "Već dugo u glavi imate ideju za modni brend, ali ne znate odakle da krenete i kako da te ideje prevedete u stvarnost? Pomažemo vam da prođete taj trnoviti put, od skice do uzorka i spremnih komada, kako biste izbegli greške koje mnogi prave."
 image: /uploads/radionica-krojni-listovi.webp
 imageLabel: "Skice, krojni listovi, kolekcija na vešalici"
 variant: featured
@@ -62,16 +62,18 @@ gallery:
     alt: "Jakne sa šljokicama u izradi za modni brend"
     position: 50% 40%
 faq:
-  - q: Kako da izbegnem početničke greške koje odnose vreme i novac?
-    a: "[Odgovor.]"
-  - q: Kako da izaberem materijal koji odgovara modelu?
-    a: "[Odgovor.]"
-  - q: Kakva obrada daje komadu profesionalan izgled?
-    a: "[Odgovor.]"
-  - q: Kako da odredim veličine za kolekciju?
-    a: "[Odgovor.]"
-  - q: Koliko modela treba da ima prva kolekcija?
-    a: "[Odgovor.]"
-  - q: "Proizvodnja serije ili izrada po porudžbini — šta je bolje za mene?"
-    a: "[Odgovor.]"
+  - q: "Sa koliko komada da započnem brend?"
+    a: "Ne više od pet."
+  - q: "Kako da izaberem odgovarajući materijal?"
+    a: "Lako, samo se obavezno konsultujte sa mnom."
+  - q: "Kako da odredim veličine?"
+    a: "Postoje standardne veličine, a biraju se u zavisnosti od vrste odeće i ciljne grupe."
+  - q: "Da li možete da mi pomognete sa izborom pozamanterije i sitnog pribora?"
+    a: "Da, naravno."
+  - q: "Kako da odaberem prikladnu etiketu?"
+    a: "Vrlo lako, i za to vam mogu pomoći."
+  - q: "Da li s vama mogu da se konsultujem u vezi sa unutrašnjom obradom modela?"
+    a: "Da, naravno."
+  - q: "Da li mogu da imam konsultacije s vama u vezi sa svojim modnim brendom, nezavisno od toga da li ću kod vas praviti odeću?"
+    a: "Da, naravno."
 ---

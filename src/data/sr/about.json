@@ -14,8 +14,7 @@
     "title": "Tradicija zanata,",
     "titleEm": "moderna vizija",
     "paragraphs": [
-      "Radionica je nastala [godina / povod osnivanja] iz jednostavne ideje: da odeća treba da prati čoveka, a ne obrnuto. Ono što je počelo kao [kratak opis početka], danas je radionica u kojoj nastaju muška odela, svečane haljine i venčanice, ali i kostimi za pozorište i cosplay.",
-      "Svaki komad koji izađe iz radionice prolazi kroz iste ruke i isti proces — od prvog razgovora do poslednjeg šava."
+      "Iza krojačke radionice stoji Slađana Guslov, koja ima iskustvo od preko 20 godina i želju da u stvarnost prevede ono što ste vi zamislili. To je ona ukratko, a ako želite više da saznate o njoj i da vidite s kojom lakoćom će razumeti to što želite i pomoći vam da to i nosite, onda je najbolje da je potražite u njenoj radionici."
     ],
     "image": "/uploads/radionica-krojni-listovi.webp",
     "imageLabel": "Vertikalna fotografija: rad u toku, detalj šivenja",
@@ -25,11 +24,8 @@
     "eyebrow": "Ko stoji iza radionice",
     "title": "Upoznajte",
     "titleEm": "Slađanu",
-    "paragraphs": [
-      "[2–3 rečenice: obrazovanje i kako je ušla u zanat.]",
-      "[1–2 rečenice: šta je njena specijalnost i šta je motiviše u radu.]"
-    ],
-    "quote": "[Kratka misao o zanatu, u njenim rečima — jedna do dve rečenice.]",
+    "paragraphs": [],
+    "quote": "Moja radionica je moj drugi dom i nema većeg zadovoljstva nego kada mušterija izađe iz nje srećna zato što sam joj pomogla da se bolje oseća u svojoj odeći.",
     "image": "/uploads/radionica-proba-sladjana.webp",
     "imageLabel": "Portret: Slađana u radionici, prirodno svetlo",
     "imageAlt": "Slađana na probi sa klijentom"
@@ -38,29 +34,8 @@
     "eyebrow": "Film i scena",
     "title": "Sa filmskih setova",
     "titleEm": "i pozorišnih scena",
-    "text": "[2–3 rečenice o radu na filmu i u pozorištu: rokovi, tim, kostimi koji moraju da izdrže snimanje i izvođenje.]",
-    "productions": [
-      {
-        "year": "[Godina]",
-        "title": "[Naziv produkcije]",
-        "role": "[Film / serija / predstava — uloga u timu]"
-      },
-      {
-        "year": "[Godina]",
-        "title": "[Naziv produkcije]",
-        "role": "[Film / serija / predstava — uloga u timu]"
-      },
-      {
-        "year": "[Godina]",
-        "title": "[Naziv produkcije]",
-        "role": "[Film / serija / predstava — uloga u timu]"
-      },
-      {
-        "year": "[Godina]",
-        "title": "[Naziv produkcije]",
-        "role": "[Film / serija / predstava — uloga u timu]"
-      }
-    ],
+    "text": "Radeći svoj posao, uvek sam želela sve veće izazove, i oni su došli u vidu saradnje sa filmskim i pozorišnim produkcijama i rada na raznim kostimima, jer oni često moraju da budu kompleksni, u duhu epohe, ali i da izdrže probe i izvođenja. Radila sam kostime za pozorišta, filmove, spotove, koncerte i reklame, a sarađivala sam sa kostimografima poput [Bojane Nikitović](https://sr.wikipedia.org/wiki/%D0%91%D0%BE%D1%98%D0%B0%D0%BD%D0%B0_%D0%9D%D0%B8%D0%BA%D0%B8%D1%82%D0%BE%D0%B2%D0%B8%D1%9B), [Milice Kolarić](https://www.imdb.com/name/nm2379946/), [Dragice Laušević](https://www.imdb.com/name/nm3691699/), [Lene Antić](https://www.imdb.com/name/nm16107524/), [Jane Zaharijević](https://janazaharijevic.com/) i [Kristine Kostić](https://www.imdb.com/name/nm6566160/).",
+    "productions": [],
     "images": [
       {
         "src": "/uploads/pozoriste-ansambl.webp",

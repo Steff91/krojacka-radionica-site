@@ -1,4 +1,5 @@
 ---
+import { inlineMd } from '../lib/inline-md';
 import HeroTexture from '../components/HeroTexture.astro';
 import Base from '../layouts/Base.astro';
 import SectionHeading from '../components/SectionHeading.astro';
@@ -56,10 +57,12 @@ const shadow = 'shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)]';
       </div>
       <div class="order-1 lg:order-2">
         <SectionHeading eyebrow={founder.eyebrow} title={founder.title} titleEm={founder.titleEm}>
-          <div class="mt-6 flex flex-col gap-4">
-            {founder.paragraphs.map((p, i) => <p class="lead" data-reveal style={`--i:${i + 2}`}>{p}</p>)}
-          </div>
-          <blockquote class="m-0 mt-10 border-l border-gold pl-8" data-reveal style="--i:4">
+          {founder.paragraphs.length > 0 && (
+            <div class="mt-6 flex flex-col gap-4">
+              {founder.paragraphs.map((p, i) => <p class="lead" data-reveal style={`--i:${i + 2}`}>{p}</p>)}
+            </div>
+          )}
+          <blockquote class:list={['m-0 border-l border-gold pl-8', founder.paragraphs.length > 0 ? 'mt-10' : 'mt-8']} data-reveal style="--i:4">
             <span class="block h-8 font-serif text-[72px] leading-[0.9] text-red/70" aria-hidden="true">“</span>
             <p class="m-0 font-serif text-[26px] leading-[1.35] italic">{founder.quote}</p>
             <footer class="mt-4 text-[13px] font-medium uppercase tracking-[0.22em] text-red">— Slađana</footer>
@@ -74,8 +77,10 @@ const shadow = 'shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)]';
     <HeroTexture tone="dark" corner="tr" angle={-8} />
     <div class="container-site grid gap-16 lg:grid-cols-[1fr_1fr]">
       <div class="flex flex-col gap-10">
-        <SectionHeading eyebrow={film.eyebrow} title={film.title} titleEm={film.titleEm} text={film.text} dark />
-        <ol class="m-0 list-none p-0">
+        <SectionHeading eyebrow={film.eyebrow} title={film.title} titleEm={film.titleEm} dark>
+          {film.text && <p class="lead mt-4 !text-[#D9D0C5]" data-reveal style="--i:2" set:html={inlineMd(film.text)} />}
+        </SectionHeading>
+        {film.productions.length > 0 && <ol class="m-0 list-none p-0">
           {film.productions.map((p, i) => (
             <li class="grid grid-cols-[80px_1fr] gap-4 border-t border-line-dark py-5 last:border-b" data-reveal style={`--i:${i}`}>
               <span class="pt-1 font-serif text-lg text-gold italic">{p.year}</span>
@@ -85,7 +90,7 @@ const shadow = 'shadow-[0_40px_80px_-40px_rgba(45,41,38,0.45)]';
               </span>
             </li>
           ))}
-        </ol>
+        </ol>}
       </div>
       <div class="grid grid-cols-2 gap-3 self-start" data-reveal style="--i:2">
         {film.images.map((img, i) => (

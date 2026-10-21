@@ -47,12 +47,12 @@ gallery:
     alt: "White bridal trouser suit"
     position: 50% 25%
 faq:
-  - q: How far in advance should we start making the wedding dress?
-    a: "[Recommended lead time before the wedding.]"
-  - q: How many fittings are needed?
-    a: "[Usual number of fittings.]"
-  - q: Can we work together if I don't live in Belgrade?
-    a: "[E.g. yes — we can agree everything online and schedule fittings when you arrive.]"
-  - q: How is the price calculated?
-    a: "[E.g. it depends on the design and fabric — you get an estimate after the consultation.]"
+  - q: "How far in advance should I start making my wedding dress?"
+    a: "Three months."
+  - q: "How many fittings does a wedding dress need?"
+    a: "Two fittings."
+  - q: "How is the price of a wedding dress calculated?"
+    a: "It depends on the design and the fabric — you get the price after the consultation."
+  - q: "Can I bring a photo for you to make a wedding dress from?"
+    a: "Yes, of course."
 ---

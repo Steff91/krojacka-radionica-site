@@ -32,12 +32,12 @@ gallery:
     alt: "Creature costume during a performance"
     position: 50% 30%
 faq:
-  - q: What do I need to send to get started?
-    a: "[E.g. photos of the character from several angles and the date you need the costume by.]"
-  - q: Do you also make armour, wigs or props?
-    a: "[What the workshop does and doesn't do.]"
-  - q: How long does it take?
-    a: "[Approximate lead time, depending on complexity.]"
-  - q: How is the price calculated?
-    a: "[E.g. it depends on complexity and materials — you get an estimate after the consultation.]"
+  - q: "What do I need to send to get started?"
+    a: "Photos are enough, but ideally we would also meet and talk through what you would like made."
+  - q: "Do you provide the materials?"
+    a: "No, I don't — you bring them, but with my suggestions."
+  - q: "How long does a cosplay costume take?"
+    a: "It is very individual, but two weeks is about average."
+  - q: "How is the price of a cosplay costume calculated?"
+    a: "It depends on the design and the fabric — you get the price after the consultation."
 ---

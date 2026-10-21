@@ -144,7 +144,10 @@
 
 /* Links inside CMS text (service intro, FAQ answers) */
 .lead a, .faq-text a {
+  color: inherit;
   text-decoration: underline;
   text-decoration-color: color-mix(in srgb, var(--color-gold) 80%, transparent);
   text-underline-offset: 0.2em;
 }
+.lead a:hover, .faq-text a:hover { color: var(--color-red); }
+.bg-ink .lead a:hover { color: var(--color-gold); }

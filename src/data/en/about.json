@@ -14,8 +14,7 @@
     "title": "A traditional craft,",
     "titleEm": "a modern vision",
     "paragraphs": [
-      "The workshop was founded [year / reason for founding] on a simple idea: clothing should follow the person, not the other way round. What started as [short description of the beginning] is today a workshop that makes men's suits, formal dresses and wedding dresses, as well as theatre and cosplay costumes.",
-      "Every piece that leaves the workshop goes through the same hands and the same process — from the first conversation to the last stitch."
+      "Behind the tailoring workshop is Slađana Guslov, who has more than 20 years of experience and the wish to turn what you have imagined into reality. That is her in a nutshell — and if you want to know more about her, and see how easily she understands what you want and helps you wear it, the best thing is to visit her at the workshop."
     ],
     "image": "/uploads/radionica-krojni-listovi.webp",
     "imageLabel": "Portrait photo: work in progress, sewing detail",
@@ -25,11 +24,8 @@
     "eyebrow": "Behind the workshop",
     "title": "Meet",
     "titleEm": "Slađana",
-    "paragraphs": [
-      "[2–3 sentences: training and how she came to the craft.]",
-      "[1–2 sentences: her speciality and what motivates her.]"
-    ],
-    "quote": "[A short thought about the craft, in her own words — one or two sentences.]",
+    "paragraphs": [],
+    "quote": "My workshop is my second home, and there is no greater satisfaction than when a client leaves happy because I helped her feel better in her clothes.",
     "image": "/uploads/radionica-proba-sladjana.webp",
     "imageLabel": "Portrait: Slađana in the workshop, natural light",
     "imageAlt": "Slađana at a fitting with a client"
@@ -38,29 +34,8 @@
     "eyebrow": "Film and stage",
     "title": "From film sets",
     "titleEm": "to theatre stages",
-    "text": "[2–3 sentences about working in film and theatre: deadlines, teamwork, costumes that have to survive shooting and performances.]",
-    "productions": [
-      {
-        "year": "[Year]",
-        "title": "[Production title]",
-        "role": "[Film / series / play — role in the team]"
-      },
-      {
-        "year": "[Year]",
-        "title": "[Production title]",
-        "role": "[Film / series / play — role in the team]"
-      },
-      {
-        "year": "[Year]",
-        "title": "[Production title]",
-        "role": "[Film / series / play — role in the team]"
-      },
-      {
-        "year": "[Year]",
-        "title": "[Production title]",
-        "role": "[Film / series / play — role in the team]"
-      }
-    ],
+    "text": "In my work I have always looked for bigger challenges, and they came through collaborations with film and theatre productions and work on all kinds of costumes — they often have to be complex and true to their period, yet survive rehearsals and performances. I have made costumes for theatre, film, music videos, concerts and commercials, working with costume designers such as [Bojana Nikitović](https://sr.wikipedia.org/wiki/%D0%91%D0%BE%D1%98%D0%B0%D0%BD%D0%B0_%D0%9D%D0%B8%D0%BA%D0%B8%D1%82%D0%BE%D0%B2%D0%B8%D1%9B), [Milica Kolarić](https://www.imdb.com/name/nm2379946/), [Dragica Laušević](https://www.imdb.com/name/nm3691699/), [Lena Antić](https://www.imdb.com/name/nm16107524/), [Jana Zaharijević](https://janazaharijevic.com/) and [Kristina Kostić](https://www.imdb.com/name/nm6566160/).",
+    "productions": [],
     "images": [
       {
         "src": "/uploads/pozoriste-ansambl.webp",

@@ -31,12 +31,12 @@ gallery:
     alt: "Kostim stvorenja tokom nastupa"
     position: 50% 30%
 faq:
-  - q: Šta je potrebno da pošaljem za početak?
-    a: "[Npr. fotografije lika sa više strana i rok do kog vam treba kostim.]"
-  - q: Da li izrađujete i oklope, perike ili rekvizite?
-    a: "[Šta radionica radi, a šta ne.]"
-  - q: Koliko traje izrada?
-    a: "[Okvirni rok, zavisno od složenosti.]"
-  - q: Kako se formira cena?
-    a: "[Npr. zavisi od složenosti i materijala — okvirnu cenu dobijate posle konsultacije.]"
+  - q: "Šta je potrebno da pošaljem za početak?"
+    a: "Fotografije su dovoljne, ali idealno bi bilo i da se vidimo i usmeno prođemo ono što biste hteli da se napravi."
+  - q: "Da li vi imate materijale?"
+    a: "Ne, nemam — vi ih donosite, ali uz moju sugestiju."
+  - q: "Koliko traje izrada cosplay kostima?"
+    a: "Sve je to vrlo individualno, ali dve nedelje je neki prosek."
+  - q: "Kako se formira cena za izradu cosplay kostima?"
+    a: "U zavisnosti od modela i materijala, cenu dobijate nakon konsultacija."
 ---

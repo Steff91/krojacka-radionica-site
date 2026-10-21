@@ -24,6 +24,8 @@ items:
     text: Strukturirani korseti koji oblikuju siluetu i nose se uz suknju, pantalone ili kao deo haljine.
   - title: Haljine za nastupe i takmičenja
     text: Haljine za ples i scenu koje izgledaju dobro i dozvoljavaju slobodu pokreta.
+  - title: Jednostavne haljine
+    text: Nekada ne treba komplikovati, jer najjednostavniji komad odeće može da ostavi najjači utisak.
 galleryTitle: Svečane haljine iz radionice
 gallery:
   - src: /uploads/svecane-satenska-suknja.webp
@@ -41,12 +43,14 @@ gallery:
     alt: "Teget satenski komplet sa halter izrezom"
     position: 60% 40%
 faq:
-  - q: Koliko unapred treba da se javim za maturu?
-    a: "[Preporučen rok pre mature.]"
-  - q: Mogu li da donesem fotografiju haljine koja mi se dopada?
-    a: "[Npr. da — na osnovu fotografije zajedno prilagođavamo kroj vašoj figuri.]"
-  - q: Da li pomažete oko izbora materijala?
-    a: "[Kako izgleda izbor materijala.]"
-  - q: Kako se formira cena?
-    a: "[Npr. zavisi od modela i materijala — okvirnu cenu dobijate posle konsultacije.]"
+  - q: "Koliko unapred treba da se javim za matursku haljinu?"
+    a: "Za maturu je neophodno da mi se javite najmanje dva meseca ranije."
+  - q: "Mogu li da donesem fotografiju haljine koja mi se dopada?"
+    a: "Da, naravno."
+  - q: "Da li pomažete oko izbora materijala za haljine?"
+    a: "Da, naravno."
+  - q: "Kako se formira cena za izradu svečanije haljine?"
+    a: "U zavisnosti od modela i materijala, cenu dobijate nakon konsultacija."
+  - q: "Koliko proba je neophodno?"
+    a: "Dve probe su neophodne."
 ---

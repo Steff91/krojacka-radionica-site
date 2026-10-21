@@ -46,12 +46,12 @@ gallery:
     alt: "Belo venčano odelo za mladu"
     position: 50% 25%
 faq:
-  - q: Koliko unapred treba da počnemo sa izradom venčanice?
-    a: "[Preporučen rok pre venčanja.]"
-  - q: Koliko proba je potrebno?
-    a: "[Uobičajen broj proba.]"
-  - q: Da li možemo da radimo ako ne živim u Beogradu?
-    a: "[Npr. da — dogovor može i online, a probe se zakazuju po dolasku.]"
-  - q: Kako se formira cena?
-    a: "[Npr. zavisi od modela i materijala — okvirnu cenu dobijate posle konsultacije.]"
+  - q: "Koliko unapred treba da počnem sa izradom venčanice?"
+    a: "Tri meseca."
+  - q: "Koliko proba je potrebno za venčanicu?"
+    a: "Dve probe."
+  - q: "Kako se formira cena za izradu venčanice?"
+    a: "U zavisnosti od modela i materijala, cenu dobijate nakon konsultacija."
+  - q: "Da li mogu da vam dođem sa fotografijom na osnovu koje biste napravili venčanicu?"
+    a: "Da, naravno."
 ---

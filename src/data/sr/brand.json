@@ -6,28 +6,58 @@
     "title": "Za one koji grade",
     "titleEm": "sopstveni brend",
     "items": [
-      { "title": "Dizajneri na početku", "text": "Imate skice i viziju, a treba vam neko ko zna kako se to sašije." },
-      { "title": "Mali brendovi", "text": "Želite da podignete kvalitet izrade ili proširite kolekciju." },
-      { "title": "Ideja bez iskustva u proizvodnji", "text": "Znate šta želite da prodajete, ali ne i odakle da krenete." }
+      {
+        "title": "Dizajneri na početku",
+        "text": "Imate skice i viziju, a treba vam neko ko zna kako se to sašije."
+      },
+      {
+        "title": "Mali brendovi",
+        "text": "Želite da podignete kvalitet izrade ili proširite kolekciju."
+      },
+      {
+        "title": "Ideja bez iskustva u proizvodnji",
+        "text": "Znate šta želite da prodajete, ali ne i odakle da krenete."
+      }
     ]
   },
   "phases": {
     "eyebrow": "Kroz šta vas vodimo",
     "title": "Od skice do kolekcije",
     "items": [
-      { "title": "Materijali i pozamanterija", "text": "Izbor materijala u skladu sa modelom, koji su materijali kvalitetni, kako se bira i kombinuje pozamanterija i gde se nabavlja." },
-      { "title": "Kroj i obrada", "text": "Unutrašnja i spoljna obrada za profesionalan izgled, predlog veličina i izbor etiketa." },
-      { "title": "Uzorak", "text": "Izrada uzorka i izmene dok ne bude spreman za proizvodnju ili prodaju." },
-      { "title": "Kolekcija i proizvodnja", "text": "Koliko modela u kolekciji i da li krenuti sa proizvodnjom serije ili izradom po porudžbini." }
+      {
+        "title": "Materijali i pozamanterija",
+        "text": "Izbor materijala u skladu sa modelom, koji su materijali kvalitetni, kako se bira i kombinuje pozamanterija i gde se nabavlja."
+      },
+      {
+        "title": "Kroj i obrada",
+        "text": "Unutrašnja i spoljna obrada za profesionalan izgled, predlog veličina i izbor etiketa."
+      },
+      {
+        "title": "Uzorak",
+        "text": "Izrada uzorka i izmene dok ne bude spreman za proizvodnju ili prodaju."
+      },
+      {
+        "title": "Kolekcija i proizvodnja",
+        "text": "Koliko modela u kolekciji i da li krenuti sa proizvodnjom serije ili izradom po porudžbini."
+      }
     ]
   },
   "start": {
     "eyebrow": "Kako počinjemo",
     "title": "Prvi koraci",
     "items": [
-      { "title": "Konsultacija", "text": "[Kako izgleda prvi razgovor i šta je dobro poneti.]" },
-      { "title": "Plan rada", "text": "[Šta klijent dobija posle konsultacije.]" },
-      { "title": "Izrada uzorka", "text": "[Kako izgleda izrada prvog uzorka.]" }
+      {
+        "title": "Konsultacije",
+        "text": "Pogledam šta želite, pričamo, upoznamo se i dam vam preporuku za modelara."
+      },
+      {
+        "title": "Modelar",
+        "text": "Modelar radi šablon, a ja radim prvi uzorak, nakon čega se kod modelara radi umanjivanje i uvećavanje šablona."
+      },
+      {
+        "title": "Izrada manjih serija",
+        "text": "Nakon toga može da se počne sa izradom manjih serija."
+      }
     ]
   },
   "handbook": {

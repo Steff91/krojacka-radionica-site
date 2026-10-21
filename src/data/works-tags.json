@@ -1,20 +1,116 @@
 {
   "tags": [
-    { "id": "kostimi-za-reklame", "sr": "Kostimi za reklame", "en": "Costumes for commercials" },
-    { "id": "kostimi-za-koncerte", "sr": "Kostimi za koncerte i spotove", "en": "Concert and music video costumes" },
-    { "id": "zenski-sakoi", "sr": "Ženski sakoi", "en": "Women's jackets" },
-    { "id": "zenski-kaputi", "sr": "Ženski kaputi", "en": "Women's coats" },
-    { "id": "decja-odeca", "sr": "Dečja odeća", "en": "Children's clothing" }
+    {
+      "id": "kostimi-za-reklame",
+      "sr": "Kostimi za reklame",
+      "en": "Costumes for commercials"
+    },
+    {
+      "id": "kostimi-za-koncerte",
+      "sr": "Kostimi za koncerte i spotove",
+      "en": "Concert and music video costumes"
+    },
+    {
+      "id": "zenski-sakoi",
+      "sr": "Ženski sakoi",
+      "en": "Women's jackets"
+    },
+    {
+      "id": "zenski-kaputi",
+      "sr": "Ženski kaputi",
+      "en": "Women's coats"
+    },
+    {
+      "id": "decja-odeca",
+      "sr": "Dečja odeća",
+      "en": "Children's clothing"
+    },
+    {
+      "id": "muske-kosulje",
+      "sr": "Muške košulje",
+      "en": "Men's shirts"
+    }
   ],
   "items": [
-    { "src": "/uploads/kostimi-reklama-karirana-haljina.webp", "tags": ["kostimi-za-reklame"], "sr": "Karirana haljina sa ogromnom suknjom za reklamu", "en": "Gingham dress with a giant skirt for a commercial" },
-    { "src": "/uploads/kostimi-reklama-zuti-kompleti.webp", "tags": ["kostimi-za-reklame"], "sr": "Žuti kompleti za reklamu, tri izvođačice", "en": "Yellow outfits for a commercial, three performers" },
-    { "src": "/uploads/kostimi-koncert-beli-korset.webp", "tags": ["kostimi-za-koncerte"], "sr": "Beli koncertni kostim sa korsetom, na sceni", "en": "White concert costume with a corset, on stage" },
-    { "src": "/uploads/kostimi-koncert-plavi-plast.webp", "tags": ["kostimi-za-koncerte"], "sr": "Koncertni kostim sa velikim plavim plaštom", "en": "Concert costume with a huge blue cape" },
-    { "src": "/uploads/kostimi-koncert-srebrna-kosa.webp", "tags": ["kostimi-za-koncerte"], "sr": "Scenski kostim sa sjajnim ljubičastim plaštom", "en": "Stage costume with a glossy purple cape" },
-    { "src": "/uploads/zenski-sako-frak.webp", "tags": ["zenski-sakoi"], "sr": "Ženski sako sa frak repom, na krojačkoj lutki", "en": "Women's tailcoat-style jacket on a dress form" },
-    { "src": "/uploads/zenski-kaput-patchwork.webp", "tags": ["zenski-kaputi"], "sr": "Ženski kaput od kombinovanih tkanina", "en": "Women's patchwork coat in mixed fabrics" },
-    { "src": "/uploads/zenski-kaput-patchwork-proba.webp", "tags": ["zenski-kaputi"], "sr": "Ženski kaput od kombinovanih tkanina, na probi", "en": "Women's patchwork coat at a fitting" },
-    { "src": "/uploads/decja-narandzasta-jakna.webp", "tags": ["decja-odeca"], "sr": "Narandžasta dečja jakna", "en": "Orange children's jacket" }
+    {
+      "src": "/uploads/kostimi-reklama-karirana-haljina.webp",
+      "tags": [
+        "kostimi-za-reklame"
+      ],
+      "sr": "Karirana haljina sa ogromnom suknjom za reklamu",
+      "en": "Gingham dress with a giant skirt for a commercial"
+    },
+    {
+      "src": "/uploads/kostimi-reklama-zuti-kompleti.webp",
+      "tags": [
+        "kostimi-za-reklame"
+      ],
+      "sr": "Žuti kompleti za reklamu, tri izvođačice",
+      "en": "Yellow outfits for a commercial, three performers"
+    },
+    {
+      "src": "/uploads/kostimi-koncert-beli-korset.webp",
+      "tags": [
+        "kostimi-za-koncerte"
+      ],
+      "sr": "Beli koncertni kostim sa korsetom, na sceni",
+      "en": "White concert costume with a corset, on stage"
+    },
+    {
+      "src": "/uploads/kostimi-koncert-plavi-plast.webp",
+      "tags": [
+        "kostimi-za-koncerte"
+      ],
+      "sr": "Koncertni kostim sa velikim plavim plaštom",
+      "en": "Concert costume with a huge blue cape"
+    },
+    {
+      "src": "/uploads/kostimi-koncert-srebrna-kosa.webp",
+      "tags": [
+        "kostimi-za-koncerte"
+      ],
+      "sr": "Scenski kostim sa sjajnim ljubičastim plaštom",
+      "en": "Stage costume with a glossy purple cape"
+    },
+    {
+      "src": "/uploads/zenski-sako-frak.webp",
+      "tags": [
+        "zenski-sakoi"
+      ],
+      "sr": "Ženski sako sa frak repom, na krojačkoj lutki",
+      "en": "Women's tailcoat-style jacket on a dress form"
+    },
+    {
+      "src": "/uploads/zenski-kaput-patchwork.webp",
+      "tags": [
+        "zenski-kaputi"
+      ],
+      "sr": "Ženski kaput od kombinovanih tkanina",
+      "en": "Women's patchwork coat in mixed fabrics"
+    },
+    {
+      "src": "/uploads/zenski-kaput-patchwork-proba.webp",
+      "tags": [
+        "zenski-kaputi"
+      ],
+      "sr": "Ženski kaput od kombinovanih tkanina, na probi",
+      "en": "Women's patchwork coat at a fitting"
+    },
+    {
+      "src": "/uploads/decja-narandzasta-jakna.webp",
+      "tags": [
+        "decja-odeca"
+      ],
+      "sr": "Narandžasta dečja jakna",
+      "en": "Orange children's jacket"
+    },
+    {
+      "src": "/uploads/muska-kosulja-pruge.webp",
+      "tags": [
+        "muske-kosulje"
+      ],
+      "sr": "Muška košulja sa dijagonalnim prugama",
+      "en": "Men's shirt with diagonal stripes"
+    }
   ]
 }

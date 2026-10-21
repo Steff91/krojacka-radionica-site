@@ -29,6 +29,15 @@ items:
     text: The right drape, the exact length and a waist that doesn't need altering.
 galleryTitle: Menswear from the workshop
 gallery:
+  - src: /uploads/muski-sako-metalik.webp
+    alt: "Men's jacket in metallic brocade"
+    position: 50% 35%
+  - src: /uploads/muski-sako-metalik-profil.webp
+    alt: "Men's metallic brocade jacket, side view"
+    position: 50% 35%
+  - src: /uploads/muska-kosulja-pruge.webp
+    alt: "Men's shirt with diagonal stripes"
+    position: 50% 35%
   - src: /uploads/musko-plava-jakna.webp
     alt: "Blue zip jacket and kente-print trousers"
     position: 50% 30%
@@ -54,12 +63,12 @@ gallery:
     alt: "Grey paisley waistcoat with a suit jacket"
     position: 50% 40%
 faq:
-  - q: How long does it take to make a jacket or coat?
-    a: "[Approximate lead time.]"
-  - q: Can I bring my own fabric?
-    a: "[Yes / no and under what conditions.]"
-  - q: How many fittings are needed?
-    a: "[Usual number of fittings.]"
-  - q: How is the price calculated?
-    a: "[E.g. it depends on the design and fabric — you get an estimate after the consultation.]"
+  - q: "How long does it take to make a men's coat?"
+    a: "Making a men's coat takes 15 days."
+  - q: "Do you provide the materials?"
+    a: "No, I don't — you bring them, but with my suggestions."
+  - q: "How many fittings does menswear need?"
+    a: "Two fittings."
+  - q: "How is the price of menswear calculated?"
+    a: "It depends on the design and the fabric — you get the price after the consultation."
 ---

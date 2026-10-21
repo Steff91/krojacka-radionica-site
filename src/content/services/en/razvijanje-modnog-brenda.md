@@ -8,7 +8,7 @@ seoTitle: Fashion Brand Development | Consultations and Samples, Belgrade
 seoDescription: "From idea to first collection: choosing fabrics, finishing, sizing, labels and sample making. Consultations for designers and new fashion brands in Belgrade."
 heroTitle: "Have a fashion idea?"
 heroTitleEm: "Let's turn it into a brand."
-intro: You have an idea for a collection but aren't sure how to turn it into pieces ready to sell? We help you get from sketch to sample — without the mistakes that cost time and money.
+intro: "Have you had an idea for a fashion brand in your head for a long time, but don't know where to start or how to turn it into reality? We help you through that thorny path — from sketch to sample and finished pieces — so you avoid the mistakes many people make."
 image: /uploads/radionica-krojni-listovi.webp
 imageLabel: "Sketches, pattern pieces, a collection on a rail"
 variant: featured
@@ -63,16 +63,18 @@ gallery:
     alt: "Sequin jackets in production for a fashion brand"
     position: 50% 40%
 faq:
-  - q: How do I avoid beginner mistakes that cost time and money?
-    a: "[Answer.]"
-  - q: How do I choose the right fabric for a design?
-    a: "[Answer.]"
-  - q: What kind of finishing gives a piece a professional look?
-    a: "[Answer.]"
-  - q: How do I decide on sizes for a collection?
-    a: "[Answer.]"
-  - q: How many designs should a first collection have?
-    a: "[Answer.]"
-  - q: "Batch production or made-to-order — which is better for me?"
-    a: "[Answer.]"
+  - q: "How many pieces should I start my brand with?"
+    a: "No more than five."
+  - q: "How do I choose the right fabric?"
+    a: "Easily — just make sure you consult me."
+  - q: "How do I decide on sizes?"
+    a: "There are standard sizes, chosen according to the type of garment and the target group."
+  - q: "Can you help me choose trims and small accessories?"
+    a: "Yes, of course."
+  - q: "How do I choose a suitable label?"
+    a: "Very easily, and I can help you with that too."
+  - q: "Can I consult you about the inside finishing of a design?"
+    a: "Yes, of course."
+  - q: "Can I book consultations about my fashion brand even if I don't have my clothes made with you?"
+    a: "Yes, of course."
 ---

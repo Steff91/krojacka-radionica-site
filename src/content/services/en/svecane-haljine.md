@@ -25,6 +25,8 @@ items:
     text: Structured corsets that shape the silhouette, worn with a skirt, trousers or as part of a dress.
   - title: Performance and competition dresses
     text: Dresses for dance and the stage that look good and allow freedom of movement.
+  - title: Simple dresses
+    text: Sometimes there is no need to complicate things — the simplest piece can make the strongest impression.
 galleryTitle: Formal dresses from the workshop
 gallery:
   - src: /uploads/svecane-satenska-suknja.webp
@@ -42,12 +44,14 @@ gallery:
     alt: "Navy satin set with a halter neckline"
     position: 60% 40%
 faq:
-  - q: How far in advance should I get in touch before my prom?
-    a: "[Recommended lead time before the prom.]"
-  - q: Can I bring a photo of a dress I like?
-    a: "[E.g. yes — based on the photo we adapt the cut to your figure together.]"
-  - q: Do you help with choosing the fabric?
-    a: "[What choosing the fabric looks like.]"
-  - q: How is the price calculated?
-    a: "[E.g. it depends on the design and fabric — you get an estimate after the consultation.]"
+  - q: "How far in advance should I get in touch about a prom dress?"
+    a: "For a prom, please get in touch at least two months in advance."
+  - q: "Can I bring a photo of a dress I like?"
+    a: "Yes, of course."
+  - q: "Do you help with choosing the fabric?"
+    a: "Yes, of course."
+  - q: "How is the price of a formal dress calculated?"
+    a: "It depends on the design and the fabric — you get the price after the consultation."
+  - q: "How many fittings are needed?"
+    a: "Two fittings are needed."
 ---

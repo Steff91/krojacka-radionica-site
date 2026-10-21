@@ -28,6 +28,15 @@ items:
     text: Pravilan pad nogavice, tačna dužina i struk koji ne treba prepravljati.
 galleryTitle: Muška odeća iz radionice
 gallery:
+  - src: /uploads/muski-sako-metalik.webp
+    alt: "Muški sako od metalik brokata"
+    position: 50% 35%
+  - src: /uploads/muski-sako-metalik-profil.webp
+    alt: "Muški sako od metalik brokata, iz profila"
+    position: 50% 35%
+  - src: /uploads/muska-kosulja-pruge.webp
+    alt: "Muška košulja sa dijagonalnim prugama"
+    position: 50% 35%
   - src: /uploads/musko-plava-jakna.webp
     alt: "Plava jakna sa rajsferšlusom i pantalone od tkanine sa kente motivom"
     position: 50% 30%
@@ -53,12 +62,12 @@ gallery:
     alt: "Sivi prsluk sa paisley šarom i sako"
     position: 50% 40%
 faq:
-  - q: Koliko traje izrada sakoa ili kaputa?
-    a: "[Okvirni rok izrade.]"
-  - q: Da li mogu da donesem svoj materijal?
-    a: "[Da / ne i pod kojim uslovima.]"
-  - q: Koliko proba je potrebno?
-    a: "[Uobičajen broj proba.]"
-  - q: Kako se formira cena?
-    a: "[Npr. zavisi od modela i materijala — okvirnu cenu dobijate posle konsultacije.]"
+  - q: "Koliko traje izrada muškog kaputa?"
+    a: "Izrada muškog kaputa traje 15 dana."
+  - q: "Da li vi imate materijale?"
+    a: "Ne, nemam — vi ih donosite, ali uz moju sugestiju."
+  - q: "Koliko proba je neophodno za izradu muških komada odeće?"
+    a: "Dve probe."
+  - q: "Kako se formira cena za izradu muških komada odeće?"
+    a: "U zavisnosti od modela i materijala, cenu dobijate nakon konsultacija."
 ---
