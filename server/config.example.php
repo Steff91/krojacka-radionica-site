@@ -6,7 +6,7 @@
  */
 return [
     // Where enquiries from the contact and booking forms are delivered
-    'to' => 'sladjanaguslov@gmail.com',
+    'to' => 'krojackaradionicabg@gmail.com',
 
     // Sender address on the site's own domain (needed for delivery; set SPF/DKIM for the domain in Plesk/Cloudflare)
     'from' => 'noreply@krojackaradionicabg.rs',

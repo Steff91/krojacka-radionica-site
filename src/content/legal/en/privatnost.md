@@ -7,7 +7,7 @@ updated: "13 October 2026"
 
 ## Who processes the data
 
-The data controller is Slađana Guslov PR, Samostalna zanatska radnja ĐERDAN - S Beograd, Nehruova 51a, unit 93, 11070 Novi Beograd, Serbia, company registration no. 62640049, tax ID 107291028 (hereinafter: the workshop). For any questions about data processing, you can contact us at sladjanaguslov@gmail.com or +381 60 684 4558.
+The data controller is Slađana Guslov PR, Samostalna zanatska radnja ĐERDAN - S Beograd, Nehruova 51a, unit 93, 11070 Novi Beograd, Serbia, company registration no. 62640049, tax ID 107291028 (hereinafter: the workshop). For any questions about data processing, you can contact us at krojackaradionicabg@gmail.com or +381 60 684 4558.
 
 We process data in accordance with the Personal Data Protection Law of the Republic of Serbia.
 
@@ -53,7 +53,7 @@ We keep enquiry data for [period, e.g. 12 months from last contact], unless the 
 
 ## Your rights
 
-You have the right to request access to your data, its correction or deletion, restriction of processing, and to withdraw your consent at any time. You can send us your request at sladjanaguslov@gmail.com.
+You have the right to request access to your data, its correction or deletion, restriction of processing, and to withdraw your consent at any time. You can send us your request at krojackaradionicabg@gmail.com.
 
 If you believe your rights have been violated, you can file a complaint with the Commissioner for Information of Public Importance and Personal Data Protection.
 

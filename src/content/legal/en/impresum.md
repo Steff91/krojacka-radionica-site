@@ -23,7 +23,7 @@ updated: "3 November 2026"
 | | |
 |---|---|
 | Phone | +381 60 684 4558 |
-| Email | [sladjanaguslov@gmail.com](mailto:sladjanaguslov@gmail.com) |
+| Email | [krojackaradionicabg@gmail.com](mailto:krojackaradionicabg@gmail.com) |
 | Opening hours | Mon–Fri 9am–5pm, Saturday 8am–12pm |
 
 ## Website content
