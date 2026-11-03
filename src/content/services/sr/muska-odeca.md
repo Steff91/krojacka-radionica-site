@@ -28,38 +28,44 @@ items:
     text: Pravilan pad nogavice, tačna dužina i struk koji ne treba prepravljati.
 galleryTitle: Muška odeća iz radionice
 gallery:
+  - src: /uploads/muski-kaput-film.webp
+    alt: "Muški kaput rađen za potrebe filma"
+    position: 50% 30%
+  - src: /uploads/muski-sako-print.webp
+    alt: "Muški sako rađen po meri"
+    position: 50% 35%
+  - src: /uploads/muska-jakna-brend.webp
+    alt: "Muška jakna rađena za brend"
+    position: 50% 30%
   - src: /uploads/muski-sako-metalik.webp
-    alt: "Muški sako od metalik brokata"
+    alt: "Muški sako od metalik brokata, rađen po meri"
     position: 50% 35%
   - src: /uploads/muski-sako-metalik-profil.webp
-    alt: "Muški sako od metalik brokata, iz profila"
+    alt: "Muški sako od metalik brokata, iz profila, rađen po meri"
     position: 50% 35%
   - src: /uploads/muska-kosulja-pruge.webp
-    alt: "Muška košulja sa dijagonalnim prugama"
+    alt: "Muška košulja, rađena po meri"
     position: 50% 35%
   - src: /uploads/musko-plava-jakna.webp
-    alt: "Plava jakna sa rajsferšlusom i pantalone od tkanine sa kente motivom"
+    alt: "Plava jakna sa rajsferšlusom i pantalone od tkanine sa kente motivom, rađeno po meri"
     position: 50% 30%
   - src: /uploads/musko-bomber-crveni.webp
-    alt: "Crvena bomber jakna po meri"
+    alt: "Crvena bomber jakna, rađena po meri"
     position: 50% 25%
   - src: /uploads/musko-bomber-teget.webp
-    alt: "Teget bomber jakna po meri"
+    alt: "Teget bomberka, rađena po meri"
     position: 50% 25%
   - src: /uploads/musko-prsluk.webp
     alt: "Muški prsluk po meri"
     position: 50% 30%
   - src: /uploads/radionica-proba-sladjana.webp
-    alt: "Slađana na probi prsluka sa klijentom u radionici"
+    alt: "Prsluk od modnog brokata, rađen po meri"
     position: 50% 35%
   - src: /uploads/muska-crni-kaput.webp
     alt: "Crni muški kaput po meri"
     position: 50% 30%
-  - src: /uploads/muska-sivi-kaput.webp
-    alt: "Sivi muški kaput dugog kroja"
-    position: 50% 30%
   - src: /uploads/muska-prsluk-sivi.webp
-    alt: "Sivi prsluk sa paisley šarom i sako"
+    alt: "Sivi prsluk sa paisley šarom i sako, rađeni po meri"
     position: 50% 40%
 faq:
   - q: "Koliko traje izrada muškog kaputa?"

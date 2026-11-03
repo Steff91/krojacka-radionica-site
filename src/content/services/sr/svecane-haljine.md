@@ -28,19 +28,31 @@ items:
     text: Nekada ne treba komplikovati, jer najjednostavniji komad odeće može da ostavi najjači utisak.
 galleryTitle: Svečane haljine iz radionice
 gallery:
+  - src: /uploads/haljina-svila.webp
+    alt: "Haljina od svile rađena po meri"
+    position: 50% 30%
+  - src: /uploads/haljina-crvena-masna.webp
+    alt: "Svečana haljina sašivena po meri"
+    position: 50% 35%
+  - src: /uploads/haljina-bez-bretela.webp
+    alt: "Haljina sašivena po meri"
+    position: 50% 30%
+  - src: /uploads/haljina-plis.webp
+    alt: "Haljina od pliša rađena po meri"
+    position: 50% 40%
   - src: /uploads/svecane-satenska-suknja.webp
-    alt: "Satenska suknja na zvono sa belim korset-topom"
+    alt: "Suknja od modnog brokata sa belim korset topom, rađena po meri"
     position: 50% 30%
   - src: /uploads/svecane-perje.webp
-    alt: "Dva kompleta sa perjem i uskim satenskim suknjama"
+    alt: "Saten suknje u kombinaciji sa topovima od nojevog perja, rađeno po meri"
     position: 50% 30%
   - src: /uploads/radovi-crveni-komplet.webp
     alt: "Crveni komplet: top sa otvorenim leđima i uska suknja"
   - src: /uploads/svecane-saten-teget-1.webp
-    alt: "Teget satenski komplet sa otvorenim leđima"
+    alt: "Teget satenska haljina sa otvorenim leđima, rađeno po meri"
     position: 50% 30%
   - src: /uploads/svecane-saten-teget-2.webp
-    alt: "Teget satenski komplet sa halter izrezom"
+    alt: "Teget satenska haljina sa otvorenim leđima, rađeno po meri"
     position: 60% 40%
 faq:
   - q: "Koliko unapred treba da se javim za matursku haljinu?"

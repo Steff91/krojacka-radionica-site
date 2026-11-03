@@ -1,38 +1,49 @@
 {
   "items": [
     {
-      "src": "/uploads/brend-perje-studio-2.webp",
-      "alt": "Top od perja i satenska suknja",
+      "src": "/uploads/slajder-haljina-sljokice.webp",
+      "alt": "Haljina rađena za modni brend",
       "position": "50% 30%"
     },
     {
-      "src": "/uploads/brend-pidzame-par.webp",
-      "alt": "Satenske pidžame za modni brend",
-      "position": "50% 45%"
-    },
-    {
-      "src": "/uploads/brend-crveni-komplet.webp",
-      "alt": "Komplet od crvenog šantunga sa belim okovratnikom",
+      "src": "/uploads/haljina-svila.webp",
+      "alt": "Haljina od svile rađena po meri",
       "position": "50% 30%"
     },
     {
-      "src": "/uploads/slajder-krzneni-kaput.webp",
-      "alt": "Dugi krzneni kaput na snegu",
-      "position": "50% 35%"
-    },
-    {
-      "src": "/uploads/radovi-teget-sako-ruze.webp",
-      "alt": "Teget sako sa peplumom, prugastim rukavima i ružama od tkanine"
-    },
-    {
-      "src": "/uploads/radovi-metalik-odelo.webp",
-      "alt": "Odelo od metalik tvida: sako i pantalone",
+      "src": "/uploads/kostim-revijski-santung.webp",
+      "alt": "Revijski kostim, kombinacija šantung svile i skube",
       "position": "50% 30%"
     },
     {
-      "src": "/uploads/radovi-scenski-plast.webp",
-      "alt": "Scenski plašt od metalik tkanine u ljubičastoj i crnoj",
-      "position": "40% 30%"
+      "src": "/uploads/kostim-spot-proba.webp",
+      "alt": "Kostim za potrebe spota, na probi, rađeno po meri",
+      "position": "50% 30%"
+    },
+    {
+      "src": "/uploads/brend-blejzer-lutka.webp",
+      "alt": "Blejzer na lutki, rađen za modni brend",
+      "position": "50% 40%"
+    },
+    {
+      "src": "/uploads/brend-blejzer-proba.webp",
+      "alt": "Blejzer rađen za modni brend, proba",
+      "position": "50% 30%"
+    },
+    {
+      "src": "/uploads/brend-komplet-blejzer.webp",
+      "alt": "Komplet, blejzer i pantalone, rađeno za modni brend",
+      "position": "50% 30%"
+    },
+    {
+      "src": "/uploads/muski-kaput-film.webp",
+      "alt": "Muški kaput rađen za potrebe filma",
+      "position": "50% 30%"
+    },
+    {
+      "src": "/uploads/vencanica-otvorena-ledja.webp",
+      "alt": "Venčanica rađena po meri, pogled s leđa",
+      "position": "50% 40%"
     }
   ]
 }

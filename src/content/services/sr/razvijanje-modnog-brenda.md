@@ -13,14 +13,32 @@ imageLabel: "Skice, krojni listovi, kolekcija na vešalici"
 variant: featured
 galleryTitle: Uzorci i kolekcije
 gallery:
+  - src: /uploads/brend-komplet-blejzer.webp
+    alt: "Komplet, blejzer i pantalone, rađeno za modni brend"
+    position: 50% 30%
+  - src: /uploads/brend-haljina-sljokice.webp
+    alt: "Haljina rađena za modni brend"
+    position: 50% 30%
+  - src: /uploads/brend-blejzer-proba.webp
+    alt: "Blejzer rađen za modni brend, proba"
+    position: 50% 30%
+  - src: /uploads/brend-blejzer-lutka.webp
+    alt: "Blejzer na lutki, rađen za modni brend"
+    position: 50% 40%
+  - src: /uploads/brend-blejzer-detalj.webp
+    alt: "Blejzer rađen za modni brend"
+    position: 50% 40%
+  - src: /uploads/decja-narandzasta-jakna.webp
+    alt: "Narandžasta bomberka, rađena za modni brend"
+    position: 50% 50%
   - src: /uploads/brend-crveni-komplet.webp
-    alt: "Komplet od crvenog šantunga sa belim okovratnikom"
+    alt: "Revijski komad: komplet od crvenog šantunga, rađen za dizajnerku Taru Lalić"
     position: 50% 30%
   - src: /uploads/radovi-crveni-revijski-komad.webp
-    alt: "Revijski komad: crvena kožna jakna i suknja od resa"
+    alt: "Revijski komad: crvena kožna jakna i suknja sa laserski isečenim donjim delom, rađeno za dizajnerku Taru Lalić"
     position: 50% 25%
   - src: /uploads/brend-ljubicasti-sako.webp
-    alt: "Ljubičasti sako i crvena suknja sa ukrasnim rukavicama"
+    alt: "Revijski komad: ljubičasti sako i crvene pantalone, rađeno za dizajnerku Taru Lalić"
     position: 50% 25%
   - src: /uploads/brend-narandzasti-kaput.webp
     alt: "Narandžasti kaput sa volanima"
@@ -59,7 +77,7 @@ gallery:
     position: 50% 40%
     inWorks: false
   - src: /uploads/brend-jakne-sljokice.webp
-    alt: "Jakne sa šljokicama u izradi za modni brend"
+    alt: "Jakne sa šljokicama, rađene za modni brend"
     position: 50% 40%
 faq:
   - q: "Sa koliko komada da započnem brend?"

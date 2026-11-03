@@ -14,14 +14,32 @@ imageLabel: "Sketches, pattern pieces, a collection on a rail"
 variant: featured
 galleryTitle: Samples and collections
 gallery:
+  - src: /uploads/brend-komplet-blejzer.webp
+    alt: "Blazer and trousers set made for a fashion brand"
+    position: 50% 30%
+  - src: /uploads/brend-haljina-sljokice.webp
+    alt: "Dress made for a fashion brand"
+    position: 50% 30%
+  - src: /uploads/brend-blejzer-proba.webp
+    alt: "Blazer made for a fashion brand, at a fitting"
+    position: 50% 30%
+  - src: /uploads/brend-blejzer-lutka.webp
+    alt: "Blazer on a dress form, made for a fashion brand"
+    position: 50% 40%
+  - src: /uploads/brend-blejzer-detalj.webp
+    alt: "Blazer made for a fashion brand"
+    position: 50% 40%
+  - src: /uploads/decja-narandzasta-jakna.webp
+    alt: "Orange bomber jacket made for a fashion brand"
+    position: 50% 50%
   - src: /uploads/brend-crveni-komplet.webp
-    alt: "Red shantung set with a white collar"
+    alt: "Runway piece: red shantung set, made for designer Tara Lalić"
     position: 50% 30%
   - src: /uploads/radovi-crveni-revijski-komad.webp
-    alt: "Runway look: red leather jacket with a fringed skirt"
+    alt: "Runway piece: red leather jacket and a skirt with a laser-cut hem, made for designer Tara Lalić"
     position: 50% 25%
   - src: /uploads/brend-ljubicasti-sako.webp
-    alt: "Purple jacket and red skirt with decorative gloves"
+    alt: "Runway piece: purple jacket and red trousers, made for designer Tara Lalić"
     position: 50% 25%
   - src: /uploads/brend-narandzasti-kaput.webp
     alt: "Orange coat with ruffles"
@@ -60,7 +78,7 @@ gallery:
     position: 50% 40%
     inWorks: false
   - src: /uploads/brend-jakne-sljokice.webp
-    alt: "Sequin jackets in production for a fashion brand"
+    alt: "Sequin jackets made for a fashion brand"
     position: 50% 40%
 faq:
   - q: "How many pieces should I start my brand with?"

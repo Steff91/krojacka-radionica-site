@@ -26,32 +26,44 @@ items:
     text: Inspirisani epohom ili jednostavniji kostimi koji se nose s lakoćom. Radili smo sa domaćim i stranim produkcijama.
 galleryTitle: Kostimi iz radionice
 gallery:
+  - src: /uploads/kostim-pozoriste-predstava.webp
+    alt: "Pozorišni kostimi"
+    position: 50% 40%
+  - src: /uploads/kostim-revijski-santung.webp
+    alt: "Revijski kostim, kombinacija šantung svile i skube"
+    position: 50% 30%
+  - src: /uploads/kostim-maks-ernst.webp
+    alt: "Rekreacija Maksa Ernsta sa čuvene slike Leonore Karington, fotografisala Katarina Marković"
+    position: 50% 40%
+  - src: /uploads/kostim-scenski-sljokice.webp
+    alt: "Scenski kostim rađen po meri"
+    position: 50% 30%
+  - src: /uploads/kostim-spot.webp
+    alt: "Kostim za potrebe spota, rađeno po meri"
+    position: 50% 40%
+  - src: /uploads/kostim-spot-proba.webp
+    alt: "Kostim za potrebe spota, na probi, rađeno po meri"
+    position: 50% 30%
+  - src: /uploads/kostim-serija.webp
+    alt: "Kostim za snimanje serije"
+    position: 50% 30%
   - src: /uploads/pozoriste-ansambl.webp
     alt: "Kostimi za ansambl predstave na sceni"
     position: 50% 40%
-  - src: /uploads/kostimi-koncert-beli-korset.webp
-    alt: "Beli koncertni kostim sa korsetom, na sceni"
-    position: 50% 20%
   - src: /uploads/kostimi-reklama-zuti-kompleti.webp
-    alt: "Žuti kompleti za reklamu, tri izvođačice"
+    alt: "Žuti kompleti za reklamu, rađeni po meri"
     position: 50% 30%
-  - src: /uploads/kostimi-koncert-plavi-plast.webp
-    alt: "Koncertni kostim sa velikim plavim plaštom"
-    position: 50% 40%
   - src: /uploads/kostimi-reklama-karirana-haljina.webp
-    alt: "Karirana haljina sa ogromnom suknjom za reklamu"
+    alt: "Karirana haljina rađena za reklamu"
     position: 50% 60%
-  - src: /uploads/kostimi-koncert-srebrna-kosa.webp
-    alt: "Scenski kostim sa sjajnim ljubičastim plaštom"
-    position: 50% 25%
   - src: /uploads/kostimi-crveni-til.webp
-    alt: "Kostim od crvenog tila u slojevima, na krojačkoj lutki"
+    alt: "Kostim od crvenog tila u slojevima, na krojačkoj lutki, rađeno za pozorišnu predstavu"
     position: 50% 30%
   - src: /uploads/kostimi-crvene-pantalone.webp
-    alt: "Crvene scenske pantalone sa metalnim okcima"
+    alt: "Crvene scenske pantalone sa metalnim okcima, rađeno za pozorišnu predstavu"
     position: 50% 30%
   - src: /uploads/radovi-rokoko-kostim.webp
-    alt: "Kostim u stilu rokokoa sa korsetom, volanima i ružičastom perikom"
+    alt: "Kostim u stilu rokokoa sa korsetom, rađeno po meri, za reklamu"
     position: 50% 20%
 faq:
   - q: Da li radite po skicama kostimografa?

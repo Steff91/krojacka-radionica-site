@@ -52,7 +52,8 @@ export async function getWorks(lang: Lang) {
   for (const item of extra.items) {
     const cats = item.tags.filter((id) => tagLabel.has(id)).map((id) => ({ id, label: tagLabel.get(id)!, href: worksHref }));
     const existing = bySrc.get(item.src);
-    if (existing) existing.categories.push(...cats);
+    // replaceService: show the photo under these tags only, not under its service
+    if (existing) existing.categories = (item as { replaceService?: boolean }).replaceService ? cats : [...existing.categories, ...cats];
     else bySrc.set(item.src, { src: item.src, alt: item[lang], ...(await size(item.src)), categories: cats });
   }
 

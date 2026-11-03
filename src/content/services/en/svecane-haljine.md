@@ -29,19 +29,31 @@ items:
     text: Sometimes there is no need to complicate things — the simplest piece can make the strongest impression.
 galleryTitle: Formal dresses from the workshop
 gallery:
+  - src: /uploads/haljina-svila.webp
+    alt: "Made-to-measure silk dress"
+    position: 50% 30%
+  - src: /uploads/haljina-crvena-masna.webp
+    alt: "Made-to-measure formal dress"
+    position: 50% 35%
+  - src: /uploads/haljina-bez-bretela.webp
+    alt: "Made-to-measure dress"
+    position: 50% 30%
+  - src: /uploads/haljina-plis.webp
+    alt: "Made-to-measure velvet dress"
+    position: 50% 40%
   - src: /uploads/svecane-satenska-suknja.webp
-    alt: "Full satin skirt with a white strapless top"
+    alt: "Fashion brocade skirt with a white corset top, made to measure"
     position: 50% 30%
   - src: /uploads/svecane-perje.webp
-    alt: "Two feather tops with fitted satin skirts"
+    alt: "Satin skirts with ostrich feather tops, made to measure"
     position: 50% 30%
   - src: /uploads/radovi-crveni-komplet.webp
     alt: "Red two-piece: open-back top and pencil skirt"
   - src: /uploads/svecane-saten-teget-1.webp
-    alt: "Navy satin set with an open back"
+    alt: "Navy satin open-back dress, made to measure"
     position: 50% 30%
   - src: /uploads/svecane-saten-teget-2.webp
-    alt: "Navy satin set with a halter neckline"
+    alt: "Navy satin open-back dress, made to measure"
     position: 60% 40%
 faq:
   - q: "How far in advance should I get in touch about a prom dress?"

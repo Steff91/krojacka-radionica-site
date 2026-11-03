@@ -6,29 +6,34 @@
       "en": "Costumes for commercials"
     },
     {
-      "id": "kostimi-za-koncerte",
-      "sr": "Kostimi za koncerte i spotove",
-      "en": "Concert and music video costumes"
-    },
-    {
-      "id": "zenski-sakoi",
-      "sr": "Ženski sakoi",
-      "en": "Women's jackets"
-    },
-    {
-      "id": "zenski-kaputi",
-      "sr": "Ženski kaputi",
-      "en": "Women's coats"
-    },
-    {
-      "id": "decja-odeca",
-      "sr": "Dečja odeća",
-      "en": "Children's clothing"
-    },
-    {
       "id": "muske-kosulje",
       "sr": "Muške košulje",
       "en": "Men's shirts"
+    },
+    {
+      "id": "muski-kaput",
+      "sr": "Muški kaput",
+      "en": "Men's coats"
+    },
+    {
+      "id": "muski-sako",
+      "sr": "Muški sako",
+      "en": "Men's jackets"
+    },
+    {
+      "id": "pozorisni-kostim",
+      "sr": "Pozorišni kostim",
+      "en": "Theatre costumes"
+    },
+    {
+      "id": "revijski-kostim",
+      "sr": "Revijski kostim",
+      "en": "Runway pieces"
+    },
+    {
+      "id": "scenski-kostim",
+      "sr": "Scenski kostim",
+      "en": "Stage costumes"
     }
   ],
   "items": [
@@ -37,80 +42,115 @@
       "tags": [
         "kostimi-za-reklame"
       ],
-      "sr": "Karirana haljina sa ogromnom suknjom za reklamu",
-      "en": "Gingham dress with a giant skirt for a commercial"
+      "sr": "Karirana haljina rađena za reklamu",
+      "en": "Gingham dress made for a commercial"
     },
     {
       "src": "/uploads/kostimi-reklama-zuti-kompleti.webp",
       "tags": [
         "kostimi-za-reklame"
       ],
-      "sr": "Žuti kompleti za reklamu, tri izvođačice",
-      "en": "Yellow outfits for a commercial, three performers"
-    },
-    {
-      "src": "/uploads/kostimi-koncert-beli-korset.webp",
-      "tags": [
-        "kostimi-za-koncerte"
-      ],
-      "sr": "Beli koncertni kostim sa korsetom, na sceni",
-      "en": "White concert costume with a corset, on stage"
-    },
-    {
-      "src": "/uploads/kostimi-koncert-plavi-plast.webp",
-      "tags": [
-        "kostimi-za-koncerte"
-      ],
-      "sr": "Koncertni kostim sa velikim plavim plaštom",
-      "en": "Concert costume with a huge blue cape"
-    },
-    {
-      "src": "/uploads/kostimi-koncert-srebrna-kosa.webp",
-      "tags": [
-        "kostimi-za-koncerte"
-      ],
-      "sr": "Scenski kostim sa sjajnim ljubičastim plaštom",
-      "en": "Stage costume with a glossy purple cape"
-    },
-    {
-      "src": "/uploads/zenski-sako-frak.webp",
-      "tags": [
-        "zenski-sakoi"
-      ],
-      "sr": "Ženski sako sa frak repom, na krojačkoj lutki",
-      "en": "Women's tailcoat-style jacket on a dress form"
-    },
-    {
-      "src": "/uploads/zenski-kaput-patchwork.webp",
-      "tags": [
-        "zenski-kaputi"
-      ],
-      "sr": "Ženski kaput od kombinovanih tkanina",
-      "en": "Women's patchwork coat in mixed fabrics"
-    },
-    {
-      "src": "/uploads/zenski-kaput-patchwork-proba.webp",
-      "tags": [
-        "zenski-kaputi"
-      ],
-      "sr": "Ženski kaput od kombinovanih tkanina, na probi",
-      "en": "Women's patchwork coat at a fitting"
-    },
-    {
-      "src": "/uploads/decja-narandzasta-jakna.webp",
-      "tags": [
-        "decja-odeca"
-      ],
-      "sr": "Narandžasta dečja jakna",
-      "en": "Orange children's jacket"
+      "sr": "Žuti kompleti za reklamu, rađeni po meri",
+      "en": "Yellow outfits for a commercial, made to measure"
     },
     {
       "src": "/uploads/muska-kosulja-pruge.webp",
       "tags": [
         "muske-kosulje"
       ],
-      "sr": "Muška košulja sa dijagonalnim prugama",
-      "en": "Men's shirt with diagonal stripes"
+      "sr": "Muška košulja, rađena po meri",
+      "en": "Made-to-measure men's shirt"
+    },
+    {
+      "src": "/uploads/muski-kaput-film.webp",
+      "tags": [
+        "muski-kaput"
+      ],
+      "sr": "Muški kaput rađen za potrebe filma",
+      "en": "Men's coat made for a film"
+    },
+    {
+      "src": "/uploads/muski-sako-print.webp",
+      "tags": [
+        "muski-sako"
+      ],
+      "sr": "Muški sako rađen po meri",
+      "en": "Made-to-measure men's jacket"
+    },
+    {
+      "src": "/uploads/kostim-pozoriste-predstava.webp",
+      "tags": [
+        "pozorisni-kostim"
+      ],
+      "sr": "Pozorišni kostimi",
+      "en": "Theatre costumes"
+    },
+    {
+      "src": "/uploads/kostim-revijski-santung.webp",
+      "tags": [
+        "revijski-kostim"
+      ],
+      "sr": "Revijski kostim, kombinacija šantung svile i skube",
+      "en": "Runway costume, shantung silk combined with scuba"
+    },
+    {
+      "src": "/uploads/kostim-maks-ernst.webp",
+      "tags": [
+        "scenski-kostim"
+      ],
+      "sr": "Rekreacija Maksa Ernsta sa čuvene slike Leonore Karington, fotografisala Katarina Marković",
+      "en": "Max Ernst recreated from Leonora Carrington's famous painting, photographed by Katarina Marković"
+    },
+    {
+      "src": "/uploads/kostim-scenski-sljokice.webp",
+      "tags": [
+        "scenski-kostim"
+      ],
+      "sr": "Scenski kostim rađen po meri",
+      "en": "Made-to-measure stage costume"
+    },
+    {
+      "src": "/uploads/kostim-spot.webp",
+      "tags": [
+        "scenski-kostim"
+      ],
+      "sr": "Kostim za potrebe spota, rađeno po meri",
+      "en": "Costume for a music video, made to measure"
+    },
+    {
+      "src": "/uploads/kostim-spot-proba.webp",
+      "tags": [
+        "scenski-kostim"
+      ],
+      "sr": "Kostim za potrebe spota, na probi, rađeno po meri",
+      "en": "Costume for a music video at a fitting, made to measure"
+    },
+    {
+      "src": "/uploads/brend-crveni-komplet.webp",
+      "tags": [
+        "revijski-kostim"
+      ],
+      "sr": "Revijski komad: komplet od crvenog šantunga, rađen za dizajnerku Taru Lalić",
+      "en": "Runway piece: red shantung set, made for designer Tara Lalić",
+      "replaceService": true
+    },
+    {
+      "src": "/uploads/radovi-crveni-revijski-komad.webp",
+      "tags": [
+        "revijski-kostim"
+      ],
+      "sr": "Revijski komad: crvena kožna jakna i suknja sa laserski isečenim donjim delom, rađeno za dizajnerku Taru Lalić",
+      "en": "Runway piece: red leather jacket and a skirt with a laser-cut hem, made for designer Tara Lalić",
+      "replaceService": true
+    },
+    {
+      "src": "/uploads/brend-ljubicasti-sako.webp",
+      "tags": [
+        "revijski-kostim"
+      ],
+      "sr": "Revijski komad: ljubičasti sako i crvene pantalone, rađeno za dizajnerku Taru Lalić",
+      "en": "Runway piece: purple jacket and red trousers, made for designer Tara Lalić",
+      "replaceService": true
     }
   ]
 }

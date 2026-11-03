@@ -24,23 +24,26 @@ items:
     text: Čipka, volani, korset, postava — o svakom detalju odlučujemo zajedno, tokom proba.
 galleryTitle: Venčanice iz radionice
 gallery:
+  - src: /uploads/vencanica-otvorena-ledja.webp
+    alt: "Venčanica rađena po meri, pogled s leđa"
+    position: 50% 40%
   - src: /uploads/vencanje-mladenci.webp
-    alt: "Mlada u organdin bluzi i uskoj suknji, sa mladoženjom"
+    alt: "Mlada u organdin bluzi i uskoj haljini, rađeno po meri"
     position: 40% 30%
   - src: /uploads/pocetna-nevesta-ledja.webp
-    alt: "Venčani komplet od organdina, pogled s leđa"
+    alt: "Mlada u organdin bluzi i uskoj haljini, rađeno po meri, pogled s leđa"
     position: 50% 25%
   - src: /uploads/vencanje-organdin.webp
-    alt: "Organdin bluza sa mašnom i venčana suknja"
+    alt: "Mlada u organdin bluzi i uskoj haljini, rađeno po meri"
     position: 50% 30%
   - src: /uploads/radovi-maturska-haljina.webp
-    alt: "Haljina od žakarda sa volanima na suknji"
+    alt: "Haljina od žakarda sa karnerima, rađeno po meri"
     position: 50% 30%
   - src: /uploads/vencanice-mladenci-park.webp
-    alt: "Mladenci u parku, venčanica sa velom"
+    alt: "Venčanica sa velom, rađeno po meri"
     position: 50% 35%
   - src: /uploads/vencanice-veo.webp
-    alt: "Venčanica sa spuštenim ramenima i velom"
+    alt: "Venčanica sa velom, rađeno po meri, pogled s leđa"
     position: 50% 25%
   - src: /uploads/vencanice-belo-odelo.webp
     alt: "Belo venčano odelo za mladu"

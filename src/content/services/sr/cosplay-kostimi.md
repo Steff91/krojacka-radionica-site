@@ -26,9 +26,9 @@ items:
 galleryTitle: Cosplay iz radionice
 gallery:
   - src: /uploads/radovi-kostim-stvorenje-scena.webp
-    alt: "Kostim fantastičnog stvorenja na sceni"
+    alt: "Gringotski zmaj u letu, kostim rađen po meri"
   - src: /uploads/radovi-kostim-stvorenje.webp
-    alt: "Kostim stvorenja tokom nastupa"
+    alt: "Gringotski zmaj, kostim rađen po meri"
     position: 50% 30%
 faq:
   - q: "Šta je potrebno da pošaljem za početak?"

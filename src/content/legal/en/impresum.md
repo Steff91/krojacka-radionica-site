@@ -2,7 +2,7 @@
 title: Imprint
 urlSlug: imprint
 description: Details of the legal entity behind the tailoring workshop's website.
-updated: "19 October 2026"
+updated: "3 November 2026"
 ---
 
 ## Company details
@@ -28,11 +28,27 @@ updated: "19 October 2026"
 
 ## Website content
 
-The content and structure of the website krojackaradionicabg.rs are protected by copyright. Reproducing information or data, in particular using texts, parts of texts or images, requires the prior consent of the copyright holder – ĐERDAN - S.
+The website krojackaradionicabg.rs presents the services and work of the tailoring workshop ĐERDAN - S.
 
-ĐERDAN - S accepts no liability for the timeliness, accuracy, completeness or quality of the information provided. Claims for damages against ĐERDAN - S relating to material or non-material damage caused by using or not using the information provided, or by using incorrect or incomplete information, are excluded in principle, unless intent or gross negligence on the part of ĐERDAN - S can be demonstrated.
+## Copyright and photographs
 
-Where this website links directly or indirectly to third-party websites, ĐERDAN - S distances itself from their content. Linked and external content does not originate from ĐERDAN - S, nor can ĐERDAN - S influence it. Third-party content that ĐERDAN - S links to does not reflect the views of ĐERDAN - S and serves for information purposes only. ĐERDAN - S is not responsible for such content; responsibility lies solely with its provider.
+The texts, photographs and other content published on this website are protected by copyright in accordance with applicable law. The rights to individual content belong to the workshop ĐERDAN - S or to their authors or other rights holders.
+
+The photographs we use to present the workshop's work show clothing made in the ĐERDAN - S workshop. Some of them were taken or provided by our clients, and some are by other authors. The fact that the clothing shown was made in our workshop does not mean that ĐERDAN - S owns the copyright to the photograph itself, or that it is the author of the design of every garment shown.
+
+Downloading, copying, publishing or otherwise using the content of this website is not permitted without the prior consent of the relevant rights holder, except where permitted by law.
+
+For questions about authorship, author credits or the use of a particular photograph, please contact us using the contact details on this website.
+
+## Information about our services
+
+We strive to keep the information on this website accurate, clear and up to date. The website presents our services and past work. Details of the work, choice of materials, prices and deadlines are agreed individually, according to the client's requirements and the workshop's capacity.
+
+We reserve the right to change and supplement the content of this website. Nothing in this text excludes or limits any liability that cannot be excluded or limited under applicable law.
+
+## Links to other websites
+
+This website may contain links to third-party websites, provided for additional information. ĐERDAN - S does not edit the content of those websites and has no control over changes to them. Their owners or content providers are responsible for their content, in accordance with applicable law.
 
 ## Website design
 

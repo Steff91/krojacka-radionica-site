@@ -27,9 +27,9 @@ items:
 galleryTitle: Cosplay from the workshop
 gallery:
   - src: /uploads/radovi-kostim-stvorenje-scena.webp
-    alt: "Fantasy creature costume on stage"
+    alt: "Gringotts dragon in flight, made-to-measure costume"
   - src: /uploads/radovi-kostim-stvorenje.webp
-    alt: "Creature costume during a performance"
+    alt: "Gringotts dragon, made-to-measure costume"
     position: 50% 30%
 faq:
   - q: "What do I need to send to get started?"

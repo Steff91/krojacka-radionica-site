@@ -57,7 +57,7 @@ const sr = {
     detailLabel: 'Detalj: ruke, igla, tkanina',
     detailAlt: 'Detalj: crveni saten i metalni rajsferšlus na komadu u izradi',
     eyebrow: 'Krojačka radionica',
-    badge: 'ŠIVENO PO MERI · KROJAČKA RADIONICA ·',
+    badge: 'ŠIVENO PO MERI · KROJAČKA RADIONICA BG ·',
     scroll: 'Skrolujte na usluge',
   },
   home: {
@@ -305,7 +305,7 @@ const en: UI = {
     detailLabel: 'Detail: hands, needle, fabric',
     detailAlt: 'Detail: red satin and a metal zip on a piece in progress',
     eyebrow: 'Tailoring workshop',
-    badge: 'MADE TO MEASURE · KROJAČKA RADIONICA ·',
+    badge: 'MADE TO MEASURE · KROJAČKA RADIONICA BG ·',
     scroll: 'Scroll to services',
   },
   home: {

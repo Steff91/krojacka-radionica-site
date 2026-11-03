@@ -121,6 +121,7 @@ collections:
             fields:
               - { name: src, label: Fotografija, widget: image }
               - { name: tags, label: "Tagovi (ID-jevi)", widget: list }
+              - { name: replaceService, label: "Samo pod ovim tagovima (ne i pod uslugom)", widget: boolean, required: false }
               - { name: sr, label: Opis fotografije (SR), widget: string }
               - { name: en, label: Opis fotografije (EN), widget: string }
 

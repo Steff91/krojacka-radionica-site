@@ -25,23 +25,26 @@ items:
     text: Lace, ruffles, corset, lining — we decide on every detail together, during the fittings.
 galleryTitle: Wedding dresses from the workshop
 gallery:
+  - src: /uploads/vencanica-otvorena-ledja.webp
+    alt: "Made-to-measure wedding dress, seen from the back"
+    position: 50% 40%
   - src: /uploads/vencanje-mladenci.webp
-    alt: "Bride in an organza blouse and fitted skirt, with the groom"
+    alt: "Bride in an organza blouse and fitted dress, made to measure"
     position: 40% 30%
   - src: /uploads/pocetna-nevesta-ledja.webp
-    alt: "Organza bridal set, seen from the back"
+    alt: "Bride in an organza blouse and fitted dress, made to measure, seen from the back"
     position: 50% 25%
   - src: /uploads/vencanje-organdin.webp
-    alt: "Organza blouse with a bow and a bridal skirt"
+    alt: "Bride in an organza blouse and fitted dress, made to measure"
     position: 50% 30%
   - src: /uploads/radovi-maturska-haljina.webp
-    alt: "Jacquard dress with a tiered skirt"
+    alt: "Jacquard dress with ruffles, made to measure"
     position: 50% 30%
   - src: /uploads/vencanice-mladenci-park.webp
-    alt: "Bride and groom in a park, wedding dress with a veil"
+    alt: "Wedding dress with a veil, made to measure"
     position: 50% 35%
   - src: /uploads/vencanice-veo.webp
-    alt: "Off-the-shoulder wedding dress with a veil"
+    alt: "Wedding dress with a veil, made to measure, seen from the back"
     position: 50% 25%
   - src: /uploads/vencanice-belo-odelo.webp
     alt: "White bridal trouser suit"

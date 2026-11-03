@@ -29,38 +29,44 @@ items:
     text: The right drape, the exact length and a waist that doesn't need altering.
 galleryTitle: Menswear from the workshop
 gallery:
+  - src: /uploads/muski-kaput-film.webp
+    alt: "Men's coat made for a film"
+    position: 50% 30%
+  - src: /uploads/muski-sako-print.webp
+    alt: "Made-to-measure men's jacket"
+    position: 50% 35%
+  - src: /uploads/muska-jakna-brend.webp
+    alt: "Men's jacket made for a brand"
+    position: 50% 30%
   - src: /uploads/muski-sako-metalik.webp
-    alt: "Men's jacket in metallic brocade"
+    alt: "Made-to-measure men's jacket in metallic brocade"
     position: 50% 35%
   - src: /uploads/muski-sako-metalik-profil.webp
-    alt: "Men's metallic brocade jacket, side view"
+    alt: "Made-to-measure men's metallic brocade jacket, side view"
     position: 50% 35%
   - src: /uploads/muska-kosulja-pruge.webp
-    alt: "Men's shirt with diagonal stripes"
+    alt: "Made-to-measure men's shirt"
     position: 50% 35%
   - src: /uploads/musko-plava-jakna.webp
-    alt: "Blue zip jacket and kente-print trousers"
+    alt: "Blue zip jacket and kente-print trousers, made to measure"
     position: 50% 30%
   - src: /uploads/musko-bomber-crveni.webp
-    alt: "Made-to-measure red bomber jacket"
+    alt: "Red bomber jacket, made to measure"
     position: 50% 25%
   - src: /uploads/musko-bomber-teget.webp
-    alt: "Made-to-measure navy bomber jacket"
+    alt: "Navy bomber jacket, made to measure"
     position: 50% 25%
   - src: /uploads/musko-prsluk.webp
     alt: "Made-to-measure men's waistcoat"
     position: 50% 30%
   - src: /uploads/radionica-proba-sladjana.webp
-    alt: "Slađana fitting a waistcoat on a client in the workshop"
+    alt: "Fashion brocade waistcoat, made to measure"
     position: 50% 35%
   - src: /uploads/muska-crni-kaput.webp
     alt: "Made-to-measure black men's coat"
     position: 50% 30%
-  - src: /uploads/muska-sivi-kaput.webp
-    alt: "Long grey men's coat"
-    position: 50% 30%
   - src: /uploads/muska-prsluk-sivi.webp
-    alt: "Grey paisley waistcoat with a suit jacket"
+    alt: "Grey paisley waistcoat and suit jacket, made to measure"
     position: 50% 40%
 faq:
   - q: "How long does it take to make a men's coat?"

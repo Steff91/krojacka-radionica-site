@@ -26,32 +26,44 @@ items:
     text: Period-inspired or simpler costumes that are easy to wear. We have worked with local and international productions.
 galleryTitle: Costumes from the workshop
 gallery:
+  - src: /uploads/kostim-pozoriste-predstava.webp
+    alt: "Theatre costumes"
+    position: 50% 40%
+  - src: /uploads/kostim-revijski-santung.webp
+    alt: "Runway costume, shantung silk combined with scuba"
+    position: 50% 30%
+  - src: /uploads/kostim-maks-ernst.webp
+    alt: "Max Ernst recreated from Leonora Carrington's famous painting, photographed by Katarina Marković"
+    position: 50% 40%
+  - src: /uploads/kostim-scenski-sljokice.webp
+    alt: "Made-to-measure stage costume"
+    position: 50% 30%
+  - src: /uploads/kostim-spot.webp
+    alt: "Costume for a music video, made to measure"
+    position: 50% 40%
+  - src: /uploads/kostim-spot-proba.webp
+    alt: "Costume for a music video at a fitting, made to measure"
+    position: 50% 30%
+  - src: /uploads/kostim-serija.webp
+    alt: "Costume for a TV series shoot"
+    position: 50% 30%
   - src: /uploads/pozoriste-ansambl.webp
     alt: "Costumes for a theatre ensemble on stage"
     position: 50% 40%
-  - src: /uploads/kostimi-koncert-beli-korset.webp
-    alt: "White concert costume with a corset, on stage"
-    position: 50% 20%
   - src: /uploads/kostimi-reklama-zuti-kompleti.webp
-    alt: "Yellow outfits for a commercial, three performers"
+    alt: "Yellow outfits for a commercial, made to measure"
     position: 50% 30%
-  - src: /uploads/kostimi-koncert-plavi-plast.webp
-    alt: "Concert costume with a huge blue cape"
-    position: 50% 40%
   - src: /uploads/kostimi-reklama-karirana-haljina.webp
-    alt: "Gingham dress with a giant skirt for a commercial"
+    alt: "Gingham dress made for a commercial"
     position: 50% 60%
-  - src: /uploads/kostimi-koncert-srebrna-kosa.webp
-    alt: "Stage costume with a glossy purple cape"
-    position: 50% 25%
   - src: /uploads/kostimi-crveni-til.webp
-    alt: "Layered red tulle costume on a dress form"
+    alt: "Layered red tulle costume on a dress form, made for a theatre production"
     position: 50% 30%
   - src: /uploads/kostimi-crvene-pantalone.webp
-    alt: "Red stage trousers with metal eyelets"
+    alt: "Red stage trousers with metal eyelets, made for a theatre production"
     position: 50% 30%
   - src: /uploads/radovi-rokoko-kostim.webp
-    alt: "Rococo-style costume with a corset, ruffles and a pink wig"
+    alt: "Rococo-style costume with a corset, made to measure for a commercial"
     position: 50% 20%
 faq:
   - q: Do you work from costume designers' sketches?
