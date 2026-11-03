@@ -48,7 +48,7 @@ Pravni osnov je naš legitimni interes da zaštitimo sajt i forme od zloupotrebe
 
 ## Koliko čuvamo podatke
 
-Podatke iz upita čuvamo [rok, npr. 12 meseci od poslednjeg kontakta], osim ako zakon ne nalaže duže čuvanje (npr. za podatke vezane za izdate račune).
+Podatke iz upita čuvamo 12 meseci od poslednjeg kontakta, osim ako zakon ne nalaže duže čuvanje (npr. za podatke vezane za izdate račune).
 
 ## Vaša prava
 

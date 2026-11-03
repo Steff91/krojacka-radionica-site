@@ -49,7 +49,7 @@ The legal basis is our legitimate interest in protecting the website and its for
 
 ## How long we keep data
 
-We keep enquiry data for [period, e.g. 12 months from last contact], unless the law requires longer retention (e.g. for data related to issued invoices).
+We keep enquiry data for 12 months from the last contact, unless the law requires longer retention (e.g. for data related to issued invoices).
 
 ## Your rights
 

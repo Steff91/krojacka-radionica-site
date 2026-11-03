@@ -4,7 +4,7 @@
 // The env variable PUBLIC_COMING_SOON=true|false (GitHub: repo variable COMING_SOON) overrides it.
 import { createHash } from 'node:crypto';
 
-const DEFAULT = true;
+const DEFAULT = false;
 
 const env = (process.env.PUBLIC_COMING_SOON || '').trim();
 export const COMING_SOON = env === 'true' ? true : env === 'false' ? false : DEFAULT;
